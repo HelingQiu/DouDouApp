@@ -8,4 +8,6 @@ target 'DouDouStopCar' do
     pod 'FMDB'
     pod 'Reachability'
     pod 'IQKeyboardManager'
+    pod 'RDVTabBarController'
+    
 end

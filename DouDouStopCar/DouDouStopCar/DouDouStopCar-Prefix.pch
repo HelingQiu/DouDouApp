@@ -1,0 +1,23 @@
+//
+//  DouDouStopCar-Prefix.pch
+//  DouDouStopCar
+//
+//  Created by Rainer on 17/2/7.
+//  Copyright © 2017年 Rainer. All rights reserved.
+//
+
+#ifndef DouDouStopCar_Prefix_pch
+#define DouDouStopCar_Prefix_pch
+
+
+//在这里统一配置环境切换
+#define 正式环境 false
+#define 线上测试环境 false
+#define 线下测试环境 true
+
+#import "AppDefine.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* DouDouStopCar_Prefix_pch */

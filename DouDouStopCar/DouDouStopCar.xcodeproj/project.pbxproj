@@ -14,6 +14,8 @@
 		D52802991E49F0C700ACB198 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D52802971E49F0C700ACB198 /* Main.storyboard */; };
 		D528029B1E49F0C700ACB198 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D528029A1E49F0C700ACB198 /* Assets.xcassets */; };
 		D528029E1E49F0C700ACB198 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D528029C1E49F0C700ACB198 /* LaunchScreen.storyboard */; };
+		D52802C71E4A1AE300ACB198 /* DouDouBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52802C61E4A1AE300ACB198 /* DouDouBaseViewController.m */; };
+		D52802CA1E4A1AF900ACB198 /* DouDouBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52802C91E4A1AF900ACB198 /* DouDouBaseTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,12 @@
 		D528029A1E49F0C700ACB198 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D528029D1E49F0C700ACB198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D528029F1E49F0C700ACB198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D52802BD1E4A194600ACB198 /* DouDouStopCar-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DouDouStopCar-Prefix.pch"; sourceTree = "<group>"; };
+		D52802C41E4A1A2500ACB198 /* AppDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDefine.h; sourceTree = "<group>"; };
+		D52802C51E4A1AE300ACB198 /* DouDouBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DouDouBaseViewController.h; sourceTree = "<group>"; };
+		D52802C61E4A1AE300ACB198 /* DouDouBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DouDouBaseViewController.m; sourceTree = "<group>"; };
+		D52802C81E4A1AF900ACB198 /* DouDouBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DouDouBaseTableViewController.h; sourceTree = "<group>"; };
+		D52802C91E4A1AF900ACB198 /* DouDouBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DouDouBaseTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,10 @@
 				D528029A1E49F0C700ACB198 /* Assets.xcassets */,
 				D528029C1E49F0C700ACB198 /* LaunchScreen.storyboard */,
 				D528029F1E49F0C700ACB198 /* Info.plist */,
+				D52802BD1E4A194600ACB198 /* DouDouStopCar-Prefix.pch */,
+				D52802BF1E4A1A0000ACB198 /* AppGeneral */,
+				D52802BE1E4A19B900ACB198 /* Library */,
+				D52802C31E4A1A0900ACB198 /* Module */,
 				D528028E1E49F0C600ACB198 /* Supporting Files */,
 			);
 			path = DouDouStopCar;
@@ -84,6 +96,56 @@
 				D528028F1E49F0C600ACB198 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D52802BE1E4A19B900ACB198 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		D52802BF1E4A1A0000ACB198 /* AppGeneral */ = {
+			isa = PBXGroup;
+			children = (
+				D52802C01E4A1A0000ACB198 /* AppDao */,
+				D52802C11E4A1A0000ACB198 /* AppDefine */,
+				D52802C21E4A1A0000ACB198 /* AppEngine */,
+			);
+			path = AppGeneral;
+			sourceTree = "<group>";
+		};
+		D52802C01E4A1A0000ACB198 /* AppDao */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppDao;
+			sourceTree = "<group>";
+		};
+		D52802C11E4A1A0000ACB198 /* AppDefine */ = {
+			isa = PBXGroup;
+			children = (
+				D52802C41E4A1A2500ACB198 /* AppDefine.h */,
+			);
+			path = AppDefine;
+			sourceTree = "<group>";
+		};
+		D52802C21E4A1A0000ACB198 /* AppEngine */ = {
+			isa = PBXGroup;
+			children = (
+				D52802C51E4A1AE300ACB198 /* DouDouBaseViewController.h */,
+				D52802C61E4A1AE300ACB198 /* DouDouBaseViewController.m */,
+				D52802C81E4A1AF900ACB198 /* DouDouBaseTableViewController.h */,
+				D52802C91E4A1AF900ACB198 /* DouDouBaseTableViewController.m */,
+			);
+			path = AppEngine;
+			sourceTree = "<group>";
+		};
+		D52802C31E4A1A0900ACB198 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Module;
 			sourceTree = "<group>";
 		};
 		D56A88F7182A652FE14923A1 /* Frameworks */ = {
@@ -227,6 +289,8 @@
 				D52802961E49F0C700ACB198 /* ViewController.m in Sources */,
 				D52802931E49F0C600ACB198 /* AppDelegate.m in Sources */,
 				D52802901E49F0C600ACB198 /* main.m in Sources */,
+				D52802C71E4A1AE300ACB198 /* DouDouBaseViewController.m in Sources */,
+				D52802CA1E4A1AF900ACB198 /* DouDouBaseTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +401,7 @@
 			baseConfigurationReference = BDC15C8297CC9A9F9F13BE81 /* Pods-DouDouStopCar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "${SRCROOT}/DouDouStopCar/DouDouStopCar-Prefix.pch";
 				INFOPLIST_FILE = DouDouStopCar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar;
@@ -349,6 +414,7 @@
 			baseConfigurationReference = 7F0E0DD1A60272981EB011D8 /* Pods-DouDouStopCar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "${SRCROOT}/DouDouStopCar/DouDouStopCar-Prefix.pch";
 				INFOPLIST_FILE = DouDouStopCar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar;
@@ -375,6 +441,7 @@
 				D52802A41E49F0C700ACB198 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

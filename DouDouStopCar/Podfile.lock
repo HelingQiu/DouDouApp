@@ -21,6 +21,7 @@ PODS:
   - MBProgressHUD (0.9.2)
   - MJExtension (3.0.10)
   - MJRefresh (3.1.7)
+  - RDVTabBarController (1.1.9)
   - Reachability (3.2)
 
 DEPENDENCIES:
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - MJExtension
   - MJRefresh
+  - RDVTabBarController
   - Reachability
 
 SPEC CHECKSUMS:
@@ -39,8 +41,9 @@ SPEC CHECKSUMS:
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
   MJRefresh: f67f0750d57a4e4ae433da549359ca53b52cdc7d
+  RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
 
-PODFILE CHECKSUM: c8ea63aed91b14a589aea5e1441fcc84c44d81c3
+PODFILE CHECKSUM: f295b63a03bed5173a3125ef87c807cd5483eac0
 
 COCOAPODS: 1.1.1

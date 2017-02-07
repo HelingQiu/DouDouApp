@@ -39,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RDVTabBarController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Reachability.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,12 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>321384880168CEDBCDDE9E0AE1A181CB</key>
+		<key>3189FF3029537DC46423E8792EB8E318</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4341B4333B9266F956AA32D98FFD0474</key>
+		<key>6150A9AD32C1EF21E4E1F09C89E79868</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -83,6 +88,11 @@
 			<true/>
 		</dict>
 		<key>A316B54C67E947D23CECD230FA5BFAEF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E2C13EDF25B4D890ADC27C285CA3F756</key>
 		<dict>
 			<key>primary</key>
 			<true/>
