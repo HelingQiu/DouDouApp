@@ -1,5 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform:ios,'7.0'
 target 'DouDouStopCar' do
-pod 'AFNetworking','~> 3.0'
+    pod 'AFNetworking','~> 3.0'
+    pod 'MJExtension'
+    pod 'MJRefresh'
+    pod 'MBProgressHUD'
+    pod 'FMDB'
+    pod 'Reachability'
+    pod 'IQKeyboardManager'
 end
