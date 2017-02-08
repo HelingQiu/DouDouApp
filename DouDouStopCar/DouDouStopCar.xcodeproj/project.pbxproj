@@ -16,6 +16,7 @@
 		D528029E1E49F0C700ACB198 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D528029C1E49F0C700ACB198 /* LaunchScreen.storyboard */; };
 		D52802C71E4A1AE300ACB198 /* DouDouBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52802C61E4A1AE300ACB198 /* DouDouBaseViewController.m */; };
 		D52802CA1E4A1AF900ACB198 /* DouDouBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52802C91E4A1AF900ACB198 /* DouDouBaseTableViewController.m */; };
+		D5AF80EC1E4B4C70006C7AF3 /* DouDouLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF80EB1E4B4C70006C7AF3 /* DouDouLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		D52802C61E4A1AE300ACB198 /* DouDouBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DouDouBaseViewController.m; sourceTree = "<group>"; };
 		D52802C81E4A1AF900ACB198 /* DouDouBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DouDouBaseTableViewController.h; sourceTree = "<group>"; };
 		D52802C91E4A1AF900ACB198 /* DouDouBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DouDouBaseTableViewController.m; sourceTree = "<group>"; };
+		D5AF80EA1E4B4C70006C7AF3 /* DouDouLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DouDouLoginViewController.h; sourceTree = "<group>"; };
+		D5AF80EB1E4B4C70006C7AF3 /* DouDouLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DouDouLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,10 @@
 		D52802C31E4A1A0900ACB198 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				D5AF80D61E4B47EB006C7AF3 /* Home */,
+				D5AF80D71E4B47EB006C7AF3 /* Login */,
+				D5AF80D81E4B47EB006C7AF3 /* MemberCenter */,
+				D5AF80D91E4B47EB006C7AF3 /* Message */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -154,6 +161,164 @@
 				2B8A6970C6B6D509219DB225 /* libPods-DouDouStopCar.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5AF80D61E4B47EB006C7AF3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D5AF80DA1E4B4834006C7AF3 /* Model */,
+				D5AF80DB1E4B4834006C7AF3 /* View */,
+				D5AF80DC1E4B4834006C7AF3 /* ViewController */,
+				D5AF80DD1E4B4834006C7AF3 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D5AF80D71E4B47EB006C7AF3 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D5AF80DE1E4B483C006C7AF3 /* Model */,
+				D5AF80DF1E4B483C006C7AF3 /* View */,
+				D5AF80E01E4B483C006C7AF3 /* ViewController */,
+				D5AF80E11E4B483C006C7AF3 /* ViewModel */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D5AF80D81E4B47EB006C7AF3 /* MemberCenter */ = {
+			isa = PBXGroup;
+			children = (
+				D5AF80E21E4B4845006C7AF3 /* Model */,
+				D5AF80E31E4B4845006C7AF3 /* View */,
+				D5AF80E41E4B4845006C7AF3 /* ViewController */,
+				D5AF80E51E4B4845006C7AF3 /* ViewModel */,
+			);
+			path = MemberCenter;
+			sourceTree = "<group>";
+		};
+		D5AF80D91E4B47EB006C7AF3 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				D5AF80E61E4B484E006C7AF3 /* Model */,
+				D5AF80E71E4B484E006C7AF3 /* View */,
+				D5AF80E81E4B484E006C7AF3 /* ViewController */,
+				D5AF80E91E4B484E006C7AF3 /* ViewModel */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		D5AF80DA1E4B4834006C7AF3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D5AF80DB1E4B4834006C7AF3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D5AF80DC1E4B4834006C7AF3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D5AF80DD1E4B4834006C7AF3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D5AF80DE1E4B483C006C7AF3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D5AF80DF1E4B483C006C7AF3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D5AF80E01E4B483C006C7AF3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D5AF80EA1E4B4C70006C7AF3 /* DouDouLoginViewController.h */,
+				D5AF80EB1E4B4C70006C7AF3 /* DouDouLoginViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D5AF80E11E4B483C006C7AF3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D5AF80E21E4B4845006C7AF3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D5AF80E31E4B4845006C7AF3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D5AF80E41E4B4845006C7AF3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D5AF80E51E4B4845006C7AF3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D5AF80E61E4B484E006C7AF3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D5AF80E71E4B484E006C7AF3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D5AF80E81E4B484E006C7AF3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D5AF80E91E4B484E006C7AF3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E926A4D239D11391FA47A200 /* Pods */ = {
@@ -290,6 +455,7 @@
 				D52802931E49F0C600ACB198 /* AppDelegate.m in Sources */,
 				D52802901E49F0C600ACB198 /* main.m in Sources */,
 				D52802C71E4A1AE300ACB198 /* DouDouBaseViewController.m in Sources */,
+				D5AF80EC1E4B4C70006C7AF3 /* DouDouLoginViewController.m in Sources */,
 				D52802CA1E4A1AF900ACB198 /* DouDouBaseTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

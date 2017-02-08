@@ -7,9 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import <RDVTabBarController.h>
+#import <RDVTabBarItem.h>
+#import "ViewController.h"
+#import "DouDouLoginViewController.h"
 
 @interface AppDelegate ()
-
+@property (nonatomic, strong) RDVTabBarController *tabBarController;
 @end
 
 @implementation AppDelegate
@@ -17,7 +21,71 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window makeKeyAndVisible];
+    
+//    [self setUpViewControllers];
+    
+    [self.window setRootViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"LoginNavigationController"]];
+    
     return YES;
+}
+
+- (void)setUpViewControllers{
+    // Root view controller
+    ViewController *homeViewController = [[ViewController alloc] init];
+    UINavigationController *homeNav = [[UINavigationController alloc]initWithRootViewController:homeViewController];
+    
+    
+    ViewController *mineViewController = [[ViewController alloc]init];
+    UINavigationController *minenav = [[UINavigationController alloc]initWithRootViewController:mineViewController];
+    
+    
+    ViewController *studyViewController = [[ViewController alloc]init];
+    UINavigationController *studyNav = [[UINavigationController alloc]initWithRootViewController:studyViewController];
+    
+    
+    self.tabBarController = [[RDVTabBarController alloc]init];
+    
+    /**
+     * update by zhouyongbo 2016/01/19
+     *
+     * 加入分割线
+     */
+    
+    UIView *lineV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mScreenWidth, 0.5)];
+    lineV.backgroundColor = [UIColor grayColor];
+    [self.tabBarController.tabBar addSubview:lineV];
+    
+    self.tabBarController.tabBar.translucent = YES;
+    [self.tabBarController.tabBar setHeight:50.0f];
+    self.tabBarController.tabBar.userInteractionEnabled = YES;
+    self.tabBarController.tabBar.backgroundColor = [UIColor clearColor];
+    [self.tabBarController setViewControllers:@[homeNav,studyNav,minenav]];
+    [self customizeTabBarForController:_tabBarController];
+    [self.window setRootViewController:_tabBarController];
+}
+
+- (void)customizeTabBarForController:(RDVTabBarController *)tabBarController {
+    NSArray *tabBarItemImages = @[@"tabbar_home",
+                                  @"tabbar_exercise",
+                                  @"tabbar_mine"];
+    NSArray *tabbarTitles = @[@"首页",@"消息",@"我的"];
+    NSInteger index = 0;
+    for (RDVTabBarItem *item in [[tabBarController tabBar] items]) {
+        
+        UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_s",
+                                                      [tabBarItemImages objectAtIndex:index]]];
+        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_n",
+                                                        [tabBarItemImages objectAtIndex:index]]];
+        [item setFinishedSelectedImage:selectedimage withFinishedUnselectedImage:unselectedimage];
+        [item setTitle:[tabbarTitles objectAtIndex:index]];
+        item.imagePositionAdjustment = UIOffsetMake(0, -2);
+        item.selectedTitleAttributes = @{NSFontAttributeName: kFontSize(10.0f),NSForegroundColorAttributeName: [UIColor redColor],};
+        item.unselectedTitleAttributes = @{NSFontAttributeName: kFontSize(10.0f),NSForegroundColorAttributeName: [UIColor redColor],};
+        index++;
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
