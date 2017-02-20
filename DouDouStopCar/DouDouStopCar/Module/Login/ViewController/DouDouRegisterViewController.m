@@ -7,6 +7,7 @@
 //
 
 #import "DouDouRegisterViewController.h"
+#import "LoginVM.h"
 
 @interface DouDouRegisterViewController ()
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *phoneField;
@@ -17,6 +18,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *policyButton;
 @property (weak, nonatomic) IBOutlet UILabel *labPolicy;
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *lines;
+
+
+@property (nonatomic,assign) int countTime;
+@property (nonatomic,strong) NSTimer *timer;
 
 @end
 
@@ -47,7 +52,28 @@
         [obj setBackgroundColor:kHexColor(kColor_Gray)];
     }];
 }
+
 - (IBAction)codeAction:(UIButton *)sender {
+    
+    if ([CommonUtils isBlankString:self.phoneField.text]) {
+        [CommonUtils showHUDWithMessage:@"请输入手机号" autoHide:YES];
+        return;
+    }
+    if (![CommonUtils isMobileNumber:self.phoneField.text]) {
+        [CommonUtils showHUDWithMessage:@"请输入正确的手机号" autoHide:YES];
+        return;
+    }
+    
+    _countTime = 59;
+    [sender setTitle:[NSString stringWithFormat:@"%d秒",_countTime] forState:UIControlStateNormal];
+    [self addTimer];
+    
+    NSDictionary *params = @{@"mobile":self.phoneField.text};
+    [LoginVM sendCodeWithParameter:params completion:^(BOOL finish, id obj) {
+        if (finish) {
+            
+        }
+    }];
 }
 
 - (IBAction)selectAction:(UIButton *)sender {
@@ -57,8 +83,70 @@
 }
 
 - (IBAction)registAction:(UIButton *)sender {
+    
+    if ([CommonUtils isBlankString:self.phoneField.text]) {
+        [CommonUtils showHUDWithMessage:@"请输入手机号" autoHide:YES];
+        return;
+    }
+    if (![CommonUtils isMobileNumber:self.phoneField.text]) {
+        [CommonUtils showHUDWithMessage:@"请输入正确的手机号" autoHide:YES];
+        return;
+    }
+    
+    if ([CommonUtils isBlankString:self.codeField.text]) {
+        [CommonUtils showHUDWithMessage:@"请输入验证码" autoHide:YES];
+        return;
+    }
+    
+    if ([CommonUtils isBlankString:self.passwordField.text]) {
+        [CommonUtils showHUDWithMessage:@"请输入密码" autoHide:YES];
+        return;
+    }
+    
+    NSDictionary *params = @{@"userId":self.phoneField.text,
+                             @"checkCode":self.codeField.text,
+                             @"password":[self.passwordField.text MD5]};
+    
+    [LoginVM registWithParameter:params completion:^(BOOL finish, id obj) {
+        if (finish) {
+            //注册成功
+            
+        }
+    }];
 }
 
+- (void)addTimer{
+    
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countdown) userInfo:nil repeats:YES];
+}
+
+-(void)countdown {
+    
+    _countTime --;
+    if (_countTime == 0) {
+        
+        _countTime = 60;
+        
+        _codeButton.enabled = YES;
+        [_codeButton setTitle:@"重新发送" forState:UIControlStateNormal];
+        [self removeTimer];
+        _timer = nil;
+        
+    }else if(self.countTime < 10){
+        _codeButton.enabled = NO;
+        [_codeButton setTitle:[NSString stringWithFormat:@"0%d秒",_countTime] forState:UIControlStateNormal];
+        
+    }else{
+        _codeButton.enabled = NO;
+        [_codeButton setTitle:[NSString stringWithFormat:@"%d秒",_countTime] forState:UIControlStateNormal];
+    }
+}
+
+- (void)removeTimer
+{
+    [_timer invalidate];
+    _timer = nil;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

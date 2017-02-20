@@ -10,4 +10,6 @@
 
 @interface MemberCenterViewController : DouDouBaseTableViewController
 
++ (instancetype)createByNibFile;
+
 @end

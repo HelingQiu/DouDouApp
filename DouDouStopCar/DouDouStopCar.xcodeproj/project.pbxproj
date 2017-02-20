@@ -14,6 +14,15 @@
 		CF9EFC851E5596B400B41160 /* MemberCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EFC841E5596B400B41160 /* MemberCenterViewController.m */; };
 		CFAA4D171E56EFB900EE8953 /* UITextField+LimitLength.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA4D161E56EFB900EE8953 /* UITextField+LimitLength.m */; };
 		CFAA4D1A1E57021E00EE8953 /* DouDouForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA4D191E57021E00EE8953 /* DouDouForgetViewController.m */; };
+		CFCEBF4E1E5AB77A00593686 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCEBF4C1E5AB77A00593686 /* MessageTableViewCell.m */; };
+		CFCEBF4F1E5AB77A00593686 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFCEBF4D1E5AB77A00593686 /* MessageTableViewCell.xib */; };
+		CFCEBF521E5AB78200593686 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCEBF511E5AB78200593686 /* MessageViewController.m */; };
+		CFCEBF551E5AB7AB00593686 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCEBF541E5AB7AB00593686 /* HomeViewController.m */; };
+		CFCEBF591E5ABEFC00593686 /* DouDouNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCEBF581E5ABEFC00593686 /* DouDouNetworking.m */; };
+		CFCEBF5C1E5AC59000593686 /* LoginVM.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCEBF5B1E5AC59000593686 /* LoginVM.m */; };
+		CFCEBF5F1E5ACC7700593686 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCEBF5E1E5ACC7700593686 /* UserModel.m */; };
+		CFCEBF621E5AE5C200593686 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCEBF611E5AE5C200593686 /* NSString+MD5.m */; };
+		CFCEBF641E5AF6C300593686 /* MemberCenter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFCEBF631E5AF6C300593686 /* MemberCenter.xcassets */; };
 		D52802901E49F0C600ACB198 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D528028F1E49F0C600ACB198 /* main.m */; };
 		D52802931E49F0C600ACB198 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D52802921E49F0C600ACB198 /* AppDelegate.m */; };
 		D52802961E49F0C700ACB198 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52802951E49F0C700ACB198 /* ViewController.m */; };
@@ -42,6 +51,23 @@
 		CFAA4D161E56EFB900EE8953 /* UITextField+LimitLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LimitLength.m"; sourceTree = "<group>"; };
 		CFAA4D181E57021E00EE8953 /* DouDouForgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DouDouForgetViewController.h; sourceTree = "<group>"; };
 		CFAA4D191E57021E00EE8953 /* DouDouForgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DouDouForgetViewController.m; sourceTree = "<group>"; };
+		CFCEBF4B1E5AB77A00593686 /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		CFCEBF4C1E5AB77A00593686 /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		CFCEBF4D1E5AB77A00593686 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		CFCEBF501E5AB78200593686 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		CFCEBF511E5AB78200593686 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		CFCEBF531E5AB7AB00593686 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		CFCEBF541E5AB7AB00593686 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		CFCEBF561E5ABCC000593686 /* AppWebServiceUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppWebServiceUrl.h; sourceTree = "<group>"; };
+		CFCEBF571E5ABEFC00593686 /* DouDouNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DouDouNetworking.h; sourceTree = "<group>"; };
+		CFCEBF581E5ABEFC00593686 /* DouDouNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DouDouNetworking.m; sourceTree = "<group>"; };
+		CFCEBF5A1E5AC59000593686 /* LoginVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVM.h; sourceTree = "<group>"; };
+		CFCEBF5B1E5AC59000593686 /* LoginVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVM.m; sourceTree = "<group>"; };
+		CFCEBF5D1E5ACC7700593686 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		CFCEBF5E1E5ACC7700593686 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		CFCEBF601E5AE5C200593686 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		CFCEBF611E5AE5C200593686 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		CFCEBF631E5AF6C300593686 /* MemberCenter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MemberCenter.xcassets; sourceTree = "<group>"; };
 		D528028B1E49F0C600ACB198 /* DouDouStopCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DouDouStopCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D528028F1E49F0C600ACB198 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D52802911E49F0C600ACB198 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,6 +107,8 @@
 		CF14ACDE1E56E19B00DD081E /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				CFCEBF601E5AE5C200593686 /* NSString+MD5.h */,
+				CFCEBF611E5AE5C200593686 /* NSString+MD5.m */,
 				CFAA4D151E56EFB900EE8953 /* UITextField+LimitLength.h */,
 				CFAA4D161E56EFB900EE8953 /* UITextField+LimitLength.m */,
 				CF14ACDF1E56E1A600DD081E /* UIColor+HNExtensions.h */,
@@ -165,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				D52802C41E4A1A2500ACB198 /* AppDefine.h */,
+				CFCEBF561E5ABCC000593686 /* AppWebServiceUrl.h */,
 			);
 			path = AppDefine;
 			sourceTree = "<group>";
@@ -198,6 +227,8 @@
 			children = (
 				D5348CD51E4CA3740007B9C7 /* CommonUtils.h */,
 				D5348CD61E4CA3740007B9C7 /* CommonUtils.m */,
+				CFCEBF571E5ABEFC00593686 /* DouDouNetworking.h */,
+				CFCEBF581E5ABEFC00593686 /* DouDouNetworking.m */,
 			);
 			path = AppTools;
 			sourceTree = "<group>";
@@ -240,6 +271,7 @@
 				D5AF80E31E4B4845006C7AF3 /* View */,
 				D5AF80E41E4B4845006C7AF3 /* ViewController */,
 				D5AF80E51E4B4845006C7AF3 /* ViewModel */,
+				CFCEBF631E5AF6C300593686 /* MemberCenter.xcassets */,
 			);
 			path = MemberCenter;
 			sourceTree = "<group>";
@@ -272,6 +304,8 @@
 		D5AF80DC1E4B4834006C7AF3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CFCEBF531E5AB7AB00593686 /* HomeViewController.h */,
+				CFCEBF541E5AB7AB00593686 /* HomeViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -286,6 +320,8 @@
 		D5AF80DE1E4B483C006C7AF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CFCEBF5D1E5ACC7700593686 /* UserModel.h */,
+				CFCEBF5E1E5ACC7700593686 /* UserModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -313,6 +349,8 @@
 		D5AF80E11E4B483C006C7AF3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CFCEBF5A1E5AC59000593686 /* LoginVM.h */,
+				CFCEBF5B1E5AC59000593686 /* LoginVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -357,6 +395,9 @@
 		D5AF80E71E4B484E006C7AF3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CFCEBF4B1E5AB77A00593686 /* MessageTableViewCell.h */,
+				CFCEBF4C1E5AB77A00593686 /* MessageTableViewCell.m */,
+				CFCEBF4D1E5AB77A00593686 /* MessageTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -364,6 +405,8 @@
 		D5AF80E81E4B484E006C7AF3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CFCEBF501E5AB78200593686 /* MessageViewController.h */,
+				CFCEBF511E5AB78200593686 /* MessageViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -445,8 +488,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFCEBF641E5AF6C300593686 /* MemberCenter.xcassets in Resources */,
 				CF14ACE31E56E6D400DD081E /* LoginAssets.xcassets in Resources */,
 				D528029E1E49F0C700ACB198 /* LaunchScreen.storyboard in Resources */,
+				CFCEBF4F1E5AB77A00593686 /* MessageTableViewCell.xib in Resources */,
 				D528029B1E49F0C700ACB198 /* Assets.xcassets in Resources */,
 				D52802991E49F0C700ACB198 /* Main.storyboard in Resources */,
 			);
@@ -509,15 +554,22 @@
 			files = (
 				D52802961E49F0C700ACB198 /* ViewController.m in Sources */,
 				D52802931E49F0C600ACB198 /* AppDelegate.m in Sources */,
+				CFCEBF621E5AE5C200593686 /* NSString+MD5.m in Sources */,
+				CFCEBF5C1E5AC59000593686 /* LoginVM.m in Sources */,
 				D5348CD71E4CA3740007B9C7 /* CommonUtils.m in Sources */,
 				D52802901E49F0C600ACB198 /* main.m in Sources */,
 				CF14ACE11E56E1A600DD081E /* UIColor+HNExtensions.m in Sources */,
 				D5348CD31E4C995D0007B9C7 /* DouDouRegisterViewController.m in Sources */,
+				CFCEBF521E5AB78200593686 /* MessageViewController.m in Sources */,
+				CFCEBF551E5AB7AB00593686 /* HomeViewController.m in Sources */,
 				D52802C71E4A1AE300ACB198 /* DouDouBaseViewController.m in Sources */,
 				CFAA4D171E56EFB900EE8953 /* UITextField+LimitLength.m in Sources */,
 				CF14ACDD1E56E11D00DD081E /* DouDouBaseNavigationController.m in Sources */,
+				CFCEBF591E5ABEFC00593686 /* DouDouNetworking.m in Sources */,
+				CFCEBF4E1E5AB77A00593686 /* MessageTableViewCell.m in Sources */,
 				D5AF80EC1E4B4C70006C7AF3 /* DouDouLoginViewController.m in Sources */,
 				CFAA4D1A1E57021E00EE8953 /* DouDouForgetViewController.m in Sources */,
+				CFCEBF5F1E5ACC7700593686 /* UserModel.m in Sources */,
 				D52802CA1E4A1AF900ACB198 /* DouDouBaseTableViewController.m in Sources */,
 				CF9EFC851E5596B400B41160 /* MemberCenterViewController.m in Sources */,
 			);

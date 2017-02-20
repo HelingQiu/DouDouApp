@@ -16,7 +16,11 @@
 #define 线下测试环境 true
 
 #import "AppDefine.h"
+#import "AppWebServiceUrl.h"
+#import "DouDouNetworking.h"
+#import "CommonUtils.h"
 #import "UIColor+HNExtensions.h"
+#import "NSString+MD5.h"
 #import <JVFloatLabeledTextField/JVFloatLabeledTextField.h>
 
 // Include any system framework and library headers here that should be included in all compilation units.

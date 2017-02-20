@@ -6,6 +6,7 @@
 //  Copyright © 2017年 Rainer. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #ifndef AppDefine_h
 #define AppDefine_h
 
@@ -26,5 +27,8 @@
 #define kColor_Back @"#ffffff"
 #define kColor_Gray @"#cfcece"
 
+typedef void (^CompletionWithObjectBlock) (BOOL finish, id obj);
+
+#define kDouDouUserInfo @"userInfo"
 
 #endif /* AppDefine_h */

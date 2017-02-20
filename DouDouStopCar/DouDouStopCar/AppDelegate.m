@@ -9,8 +9,10 @@
 #import "AppDelegate.h"
 #import "RDVTabBarController.h"
 #import "RDVTabBarItem.h"
-#import "ViewController.h"
+#import "DouDouBaseNavigationController.h"
 #import "DouDouLoginViewController.h"
+#import "HomeViewController.h"
+#import "MemberCenterViewController.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) RDVTabBarController *tabBarController;
@@ -25,23 +27,23 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
     
-//    [self setUpViewControllers];
+    [self setUpViewControllers];
     
-    [self.window setRootViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"LoginNavigationController"]];
+//    [self.window setRootViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"LoginNavigationController"]];
     
     return YES;
 }
 
 - (void)setUpViewControllers{
     // Root view controller
-    ViewController *homeViewController = [[ViewController alloc] init];
-    UINavigationController *homeNav = [[UINavigationController alloc]initWithRootViewController:homeViewController];
+    HomeViewController *homeViewController = [[HomeViewController alloc] init];
+    DouDouBaseNavigationController *homeNav = [[DouDouBaseNavigationController alloc]initWithRootViewController:homeViewController];
     
     
-    ViewController *mineViewController = [[ViewController alloc] init];
-    UINavigationController *minenav = [[UINavigationController alloc]initWithRootViewController:mineViewController];
+    UINavigationController *messageNav = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MessageNavigationController"];
     
-    UINavigationController *memberNav = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MemberNavigationController"];
+    MemberCenterViewController *memberController = [MemberCenterViewController createByNibFile];
+    DouDouBaseNavigationController *memberNav = [[DouDouBaseNavigationController alloc]initWithRootViewController:memberController];
     
     
     self.tabBarController = [[RDVTabBarController alloc] init];
@@ -60,7 +62,7 @@
     [self.tabBarController.tabBar setHeight:50.0f];
     self.tabBarController.tabBar.userInteractionEnabled = YES;
     self.tabBarController.tabBar.backgroundColor = [UIColor clearColor];
-    [self.tabBarController setViewControllers:@[homeNav,minenav,memberNav]];
+    [self.tabBarController setViewControllers:@[homeNav,messageNav,memberNav]];
     [self customizeTabBarForController:_tabBarController];
     [self.window setRootViewController:_tabBarController];
 }

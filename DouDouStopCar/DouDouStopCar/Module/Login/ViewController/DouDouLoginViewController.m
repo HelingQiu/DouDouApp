@@ -7,6 +7,7 @@
 //
 
 #import "DouDouLoginViewController.h"
+#import "LoginVM.h"
 
 @interface DouDouLoginViewController ()
 
@@ -42,6 +43,34 @@
     [self.registerButton setTitleColor:kHexColor(kColor_Gray) forState:UIControlStateNormal];
     [self.lines enumerateObjectsUsingBlock:^(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj setBackgroundColor:kHexColor(kColor_Gray)];
+    }];
+}
+
+- (IBAction)loginAction:(UIButton *)sender {
+    
+    if ([CommonUtils isBlankString:self.phoneField.text]) {
+        [CommonUtils showHUDWithMessage:@"请输入手机号" autoHide:YES];
+        return;
+    }
+    if (![CommonUtils isMobileNumber:self.phoneField.text]) {
+        [CommonUtils showHUDWithMessage:@"请输入正确的手机号" autoHide:YES];
+        return;
+    }
+    if ([CommonUtils isBlankString:self.passwordField.text]) {
+        [CommonUtils showHUDWithMessage:@"请输入密码" autoHide:YES];
+        return;
+    }
+    
+    NSDictionary *params = @{@"userId":self.phoneField.text,
+                             @"password":[self.passwordField.text MD5],
+                             @"deviceType":@"1",
+                             @"deviceType":@"2"};
+    
+    [LoginVM loginWithParameter:params completion:^(BOOL finish, id obj) {
+        if (finish) {
+            //登录成功
+            
+        }
     }];
 }
 

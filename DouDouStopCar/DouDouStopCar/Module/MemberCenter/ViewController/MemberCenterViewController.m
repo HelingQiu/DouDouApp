@@ -14,10 +14,20 @@
 
 @implementation MemberCenterViewController
 
++ (instancetype)createByNibFile{
+    
+    return [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MemberCenterVC"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.navigationItem.title = @"我的";
+    self.tableView.tableFooterView = [UIView new];
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
