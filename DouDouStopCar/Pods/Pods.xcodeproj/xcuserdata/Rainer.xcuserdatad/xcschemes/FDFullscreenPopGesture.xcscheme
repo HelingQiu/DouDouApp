@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0720"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "61706B9B04E1A34635209BA2B27BDDBE"
-               BuildableName = "Pods_DouDouStopCar.framework"
-               BlueprintName = "Pods-DouDouStopCar"
+               BlueprintIdentifier = "303B3AC6DD17B1EE7D98EF8BF8898BEB"
+               BuildableName = "FDFullscreenPopGesture.framework"
+               BlueprintName = "FDFullscreenPopGesture"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "61706B9B04E1A34635209BA2B27BDDBE"
-            BuildableName = "Pods_DouDouStopCar.framework"
-            BlueprintName = "Pods-DouDouStopCar"
+            BlueprintIdentifier = "303B3AC6DD17B1EE7D98EF8BF8898BEB"
+            BuildableName = "FDFullscreenPopGesture.framework"
+            BlueprintName = "FDFullscreenPopGesture"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,6 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "303B3AC6DD17B1EE7D98EF8BF8898BEB"
+            BuildableName = "FDFullscreenPopGesture.framework"
+            BlueprintName = "FDFullscreenPopGesture"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

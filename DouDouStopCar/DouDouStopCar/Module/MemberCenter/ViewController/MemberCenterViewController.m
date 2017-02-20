@@ -7,6 +7,9 @@
 //
 
 #import "MemberCenterViewController.h"
+#import "StopRecordViewController.h"
+#import "CollectionViewController.h"
+#import "AboutViewController.h"
 
 @interface MemberCenterViewController ()
 
@@ -27,7 +30,23 @@
     self.tableView.tableFooterView = [UIView new];
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1) {
+        if (indexPath.row == 1) {
+            StopRecordViewController *stopController = [StopRecordViewController createByNibFile];
+            stopController.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:stopController animated:YES];
+        }else if (indexPath.row == 2) {
+            CollectionViewController *stopController = [CollectionViewController createByNibFile];
+            [self.navigationController pushViewController:stopController animated:YES];
+        }else if (indexPath.row == 3) {
+            AboutViewController *aboutController = [AboutViewController createByNibFile];
+            aboutController.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:aboutController animated:YES];
+        }
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
