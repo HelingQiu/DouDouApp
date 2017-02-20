@@ -18,13 +18,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.navigationController.navigationBar.translucent = NO;
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:kHexColor(kColor_Back), NSForegroundColorAttributeName,[UIFont boldSystemFontOfSize:20],
+         NSFontAttributeName,nil]];
+    
+    self.view.backgroundColor = kHexColor(kColor_Back);
+    
     self.backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.backBtn.frame = CGRectMake(0, 0, 23, 23);
+    self.backBtn.frame = CGRectMake(0, 0, 13, 23);
     self.backBtn.contentHorizontalAlignment = UIViewContentModeLeft;
     [self.backBtn setTitle:@"返回" forState:UIControlStateNormal];
     
     // Replace backItem with real back button image
-    [self.backBtn setImage:[UIImage imageNamed:@"topbtn_back"] forState:UIControlStateNormal];
+    [self.backBtn setImage:[UIImage imageNamed:@"normal_back_default"] forState:UIControlStateNormal];
     [self.backBtn setTitleColor:kBtnTitleNormalColor forState:UIControlStateNormal];
     self.backBtn.titleLabel.font = [UIFont systemFontOfSize:0];
     self.backBtn.titleLabel.adjustsFontSizeToFitWidth = YES;

@@ -21,4 +21,10 @@
 #define kBtnTitleNormalColor [UIColor colorWithRed:0.200 green:0.200 blue:0.200 alpha:1]
 #define kBtnTitleHighlightColor  [UIColor colorWithRed:0.800 green:0.800 blue:0.800 alpha:1]
 
+//颜色
+#define kColor_Mian @"#88c55e"
+#define kColor_Back @"#ffffff"
+#define kColor_Gray @"#cfcece"
+
+
 #endif /* AppDefine_h */

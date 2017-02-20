@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C6391A916EA4341EF4C71C1A /* libPods-DouDouStopCar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8A6970C6B6D509219DB225 /* libPods-DouDouStopCar.a */; };
+		95232EF12117B42759374FD9 /* Pods_DouDouStopCar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C60B765F58AE76EC57A873 /* Pods_DouDouStopCar.framework */; };
+		CF14ACDD1E56E11D00DD081E /* DouDouBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF14ACDC1E56E11D00DD081E /* DouDouBaseNavigationController.m */; };
+		CF14ACE11E56E1A600DD081E /* UIColor+HNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = CF14ACE01E56E1A600DD081E /* UIColor+HNExtensions.m */; };
+		CF14ACE31E56E6D400DD081E /* LoginAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF14ACE21E56E6D400DD081E /* LoginAssets.xcassets */; };
+		CF9EFC851E5596B400B41160 /* MemberCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EFC841E5596B400B41160 /* MemberCenterViewController.m */; };
+		CFAA4D171E56EFB900EE8953 /* UITextField+LimitLength.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA4D161E56EFB900EE8953 /* UITextField+LimitLength.m */; };
+		CFAA4D1A1E57021E00EE8953 /* DouDouForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA4D191E57021E00EE8953 /* DouDouForgetViewController.m */; };
 		D52802901E49F0C600ACB198 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D528028F1E49F0C600ACB198 /* main.m */; };
 		D52802931E49F0C600ACB198 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D52802921E49F0C600ACB198 /* AppDelegate.m */; };
 		D52802961E49F0C700ACB198 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52802951E49F0C700ACB198 /* ViewController.m */; };
@@ -22,9 +28,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B8A6970C6B6D509219DB225 /* libPods-DouDouStopCar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DouDouStopCar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13C60B765F58AE76EC57A873 /* Pods_DouDouStopCar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DouDouStopCar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F0E0DD1A60272981EB011D8 /* Pods-DouDouStopCar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouDouStopCar.release.xcconfig"; path = "Pods/Target Support Files/Pods-DouDouStopCar/Pods-DouDouStopCar.release.xcconfig"; sourceTree = "<group>"; };
 		BDC15C8297CC9A9F9F13BE81 /* Pods-DouDouStopCar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouDouStopCar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DouDouStopCar/Pods-DouDouStopCar.debug.xcconfig"; sourceTree = "<group>"; };
+		CF14ACDB1E56E11D00DD081E /* DouDouBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DouDouBaseNavigationController.h; sourceTree = "<group>"; };
+		CF14ACDC1E56E11D00DD081E /* DouDouBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DouDouBaseNavigationController.m; sourceTree = "<group>"; };
+		CF14ACDF1E56E1A600DD081E /* UIColor+HNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HNExtensions.h"; sourceTree = "<group>"; };
+		CF14ACE01E56E1A600DD081E /* UIColor+HNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HNExtensions.m"; sourceTree = "<group>"; };
+		CF14ACE21E56E6D400DD081E /* LoginAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LoginAssets.xcassets; sourceTree = "<group>"; };
+		CF9EFC831E5596B400B41160 /* MemberCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberCenterViewController.h; sourceTree = "<group>"; };
+		CF9EFC841E5596B400B41160 /* MemberCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberCenterViewController.m; sourceTree = "<group>"; };
+		CFAA4D151E56EFB900EE8953 /* UITextField+LimitLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+LimitLength.h"; sourceTree = "<group>"; };
+		CFAA4D161E56EFB900EE8953 /* UITextField+LimitLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LimitLength.m"; sourceTree = "<group>"; };
+		CFAA4D181E57021E00EE8953 /* DouDouForgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DouDouForgetViewController.h; sourceTree = "<group>"; };
+		CFAA4D191E57021E00EE8953 /* DouDouForgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DouDouForgetViewController.m; sourceTree = "<group>"; };
 		D528028B1E49F0C600ACB198 /* DouDouStopCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DouDouStopCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D528028F1E49F0C600ACB198 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D52802911E49F0C600ACB198 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -54,13 +71,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6391A916EA4341EF4C71C1A /* libPods-DouDouStopCar.a in Frameworks */,
+				95232EF12117B42759374FD9 /* Pods_DouDouStopCar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF14ACDE1E56E19B00DD081E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				CFAA4D151E56EFB900EE8953 /* UITextField+LimitLength.h */,
+				CFAA4D161E56EFB900EE8953 /* UITextField+LimitLength.m */,
+				CF14ACDF1E56E1A600DD081E /* UIColor+HNExtensions.h */,
+				CF14ACE01E56E1A600DD081E /* UIColor+HNExtensions.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		D52802821E49F0C600ACB198 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +145,7 @@
 		D52802BF1E4A1A0000ACB198 /* AppGeneral */ = {
 			isa = PBXGroup;
 			children = (
+				CF14ACDE1E56E19B00DD081E /* Category */,
 				D5348CD41E4CA3450007B9C7 /* AppTools */,
 				D52802C01E4A1A0000ACB198 /* AppDao */,
 				D52802C11E4A1A0000ACB198 /* AppDefine */,
@@ -147,6 +176,8 @@
 				D52802C61E4A1AE300ACB198 /* DouDouBaseViewController.m */,
 				D52802C81E4A1AF900ACB198 /* DouDouBaseTableViewController.h */,
 				D52802C91E4A1AF900ACB198 /* DouDouBaseTableViewController.m */,
+				CF14ACDB1E56E11D00DD081E /* DouDouBaseNavigationController.h */,
+				CF14ACDC1E56E11D00DD081E /* DouDouBaseNavigationController.m */,
 			);
 			path = AppEngine;
 			sourceTree = "<group>";
@@ -174,7 +205,7 @@
 		D56A88F7182A652FE14923A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2B8A6970C6B6D509219DB225 /* libPods-DouDouStopCar.a */,
+				13C60B765F58AE76EC57A873 /* Pods_DouDouStopCar.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -197,6 +228,7 @@
 				D5AF80DF1E4B483C006C7AF3 /* View */,
 				D5AF80E01E4B483C006C7AF3 /* ViewController */,
 				D5AF80E11E4B483C006C7AF3 /* ViewModel */,
+				CF14ACE21E56E6D400DD081E /* LoginAssets.xcassets */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -272,6 +304,8 @@
 				D5AF80EB1E4B4C70006C7AF3 /* DouDouLoginViewController.m */,
 				D5348CD11E4C995D0007B9C7 /* DouDouRegisterViewController.h */,
 				D5348CD21E4C995D0007B9C7 /* DouDouRegisterViewController.m */,
+				CFAA4D181E57021E00EE8953 /* DouDouForgetViewController.h */,
+				CFAA4D191E57021E00EE8953 /* DouDouForgetViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -300,6 +334,8 @@
 		D5AF80E41E4B4845006C7AF3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CF9EFC831E5596B400B41160 /* MemberCenterViewController.h */,
+				CF9EFC841E5596B400B41160 /* MemberCenterViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -382,6 +418,7 @@
 				TargetAttributes = {
 					D528028A1E49F0C600ACB198 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 8MUA9S3748;
 					};
 				};
 			};
@@ -408,6 +445,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF14ACE31E56E6D400DD081E /* LoginAssets.xcassets in Resources */,
 				D528029E1E49F0C700ACB198 /* LaunchScreen.storyboard in Resources */,
 				D528029B1E49F0C700ACB198 /* Assets.xcassets in Resources */,
 				D52802991E49F0C700ACB198 /* Main.storyboard in Resources */,
@@ -459,7 +497,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -473,10 +511,15 @@
 				D52802931E49F0C600ACB198 /* AppDelegate.m in Sources */,
 				D5348CD71E4CA3740007B9C7 /* CommonUtils.m in Sources */,
 				D52802901E49F0C600ACB198 /* main.m in Sources */,
+				CF14ACE11E56E1A600DD081E /* UIColor+HNExtensions.m in Sources */,
 				D5348CD31E4C995D0007B9C7 /* DouDouRegisterViewController.m in Sources */,
 				D52802C71E4A1AE300ACB198 /* DouDouBaseViewController.m in Sources */,
+				CFAA4D171E56EFB900EE8953 /* UITextField+LimitLength.m in Sources */,
+				CF14ACDD1E56E11D00DD081E /* DouDouBaseNavigationController.m in Sources */,
 				D5AF80EC1E4B4C70006C7AF3 /* DouDouLoginViewController.m in Sources */,
+				CFAA4D1A1E57021E00EE8953 /* DouDouForgetViewController.m in Sources */,
 				D52802CA1E4A1AF900ACB198 /* DouDouBaseTableViewController.m in Sources */,
+				CF9EFC851E5596B400B41160 /* MemberCenterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,8 +630,10 @@
 			baseConfigurationReference = BDC15C8297CC9A9F9F13BE81 /* Pods-DouDouStopCar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8MUA9S3748;
 				GCC_PREFIX_HEADER = "${SRCROOT}/DouDouStopCar/DouDouStopCar-Prefix.pch";
 				INFOPLIST_FILE = DouDouStopCar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -600,8 +645,10 @@
 			baseConfigurationReference = 7F0E0DD1A60272981EB011D8 /* Pods-DouDouStopCar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8MUA9S3748;
 				GCC_PREFIX_HEADER = "${SRCROOT}/DouDouStopCar/DouDouStopCar-Prefix.pch";
 				INFOPLIST_FILE = DouDouStopCar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";

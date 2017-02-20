@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import <RDVTabBarController.h>
-#import <RDVTabBarItem.h>
+#import "RDVTabBarController.h"
+#import "RDVTabBarItem.h"
 #import "ViewController.h"
 #import "DouDouLoginViewController.h"
 
@@ -38,15 +38,13 @@
     UINavigationController *homeNav = [[UINavigationController alloc]initWithRootViewController:homeViewController];
     
     
-    ViewController *mineViewController = [[ViewController alloc]init];
+    ViewController *mineViewController = [[ViewController alloc] init];
     UINavigationController *minenav = [[UINavigationController alloc]initWithRootViewController:mineViewController];
     
-    
-    ViewController *studyViewController = [[ViewController alloc]init];
-    UINavigationController *studyNav = [[UINavigationController alloc]initWithRootViewController:studyViewController];
+    UINavigationController *memberNav = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MemberNavigationController"];
     
     
-    self.tabBarController = [[RDVTabBarController alloc]init];
+    self.tabBarController = [[RDVTabBarController alloc] init];
     
     /**
      * update by zhouyongbo 2016/01/19
@@ -62,7 +60,7 @@
     [self.tabBarController.tabBar setHeight:50.0f];
     self.tabBarController.tabBar.userInteractionEnabled = YES;
     self.tabBarController.tabBar.backgroundColor = [UIColor clearColor];
-    [self.tabBarController setViewControllers:@[homeNav,studyNav,minenav]];
+    [self.tabBarController setViewControllers:@[homeNav,minenav,memberNav]];
     [self customizeTabBarForController:_tabBarController];
     [self.window setRootViewController:_tabBarController];
 }
