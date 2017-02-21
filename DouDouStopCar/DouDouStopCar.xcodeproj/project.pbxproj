@@ -14,6 +14,10 @@
 		CF9EFC851E5596B400B41160 /* MemberCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EFC841E5596B400B41160 /* MemberCenterViewController.m */; };
 		CFAA4D171E56EFB900EE8953 /* UITextField+LimitLength.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA4D161E56EFB900EE8953 /* UITextField+LimitLength.m */; };
 		CFAA4D1A1E57021E00EE8953 /* DouDouForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA4D191E57021E00EE8953 /* DouDouForgetViewController.m */; };
+		CFCBF1351E5C1D2200D618BE /* JJSAdsView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCBF1341E5C1D2200D618BE /* JJSAdsView.m */; };
+		CFCBF1381E5C1F4B00D618BE /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCBF1371E5C1F4B00D618BE /* NewsViewController.m */; };
+		CFCBF13B1E5C205E00D618BE /* HomeVM.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCBF13A1E5C205E00D618BE /* HomeVM.m */; };
+		CFCBF13E1E5C21B100D618BE /* AdsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCBF13D1E5C21B100D618BE /* AdsDataModel.m */; };
 		CFCEBF4E1E5AB77A00593686 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCEBF4C1E5AB77A00593686 /* MessageTableViewCell.m */; };
 		CFCEBF4F1E5AB77A00593686 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFCEBF4D1E5AB77A00593686 /* MessageTableViewCell.xib */; };
 		CFCEBF521E5AB78200593686 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCEBF511E5AB78200593686 /* MessageViewController.m */; };
@@ -59,6 +63,14 @@
 		CFAA4D161E56EFB900EE8953 /* UITextField+LimitLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LimitLength.m"; sourceTree = "<group>"; };
 		CFAA4D181E57021E00EE8953 /* DouDouForgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DouDouForgetViewController.h; sourceTree = "<group>"; };
 		CFAA4D191E57021E00EE8953 /* DouDouForgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DouDouForgetViewController.m; sourceTree = "<group>"; };
+		CFCBF1331E5C1D2200D618BE /* JJSAdsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJSAdsView.h; sourceTree = "<group>"; };
+		CFCBF1341E5C1D2200D618BE /* JJSAdsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJSAdsView.m; sourceTree = "<group>"; };
+		CFCBF1361E5C1F4B00D618BE /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		CFCBF1371E5C1F4B00D618BE /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		CFCBF1391E5C205E00D618BE /* HomeVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVM.h; sourceTree = "<group>"; };
+		CFCBF13A1E5C205E00D618BE /* HomeVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVM.m; sourceTree = "<group>"; };
+		CFCBF13C1E5C21B100D618BE /* AdsDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsDataModel.h; sourceTree = "<group>"; };
+		CFCBF13D1E5C21B100D618BE /* AdsDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsDataModel.m; sourceTree = "<group>"; };
 		CFCEBF4B1E5AB77A00593686 /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		CFCEBF4C1E5AB77A00593686 /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		CFCEBF4D1E5AB77A00593686 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
@@ -312,6 +324,8 @@
 		D5AF80DA1E4B4834006C7AF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CFCBF13C1E5C21B100D618BE /* AdsDataModel.h */,
+				CFCBF13D1E5C21B100D618BE /* AdsDataModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,6 +333,8 @@
 		D5AF80DB1E4B4834006C7AF3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CFCBF1331E5C1D2200D618BE /* JJSAdsView.h */,
+				CFCBF1341E5C1D2200D618BE /* JJSAdsView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -328,6 +344,8 @@
 			children = (
 				CFCEBF531E5AB7AB00593686 /* HomeViewController.h */,
 				CFCEBF541E5AB7AB00593686 /* HomeViewController.m */,
+				CFCBF1361E5C1F4B00D618BE /* NewsViewController.h */,
+				CFCBF1371E5C1F4B00D618BE /* NewsViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -335,6 +353,8 @@
 		D5AF80DD1E4B4834006C7AF3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CFCBF1391E5C205E00D618BE /* HomeVM.h */,
+				CFCBF13A1E5C205E00D618BE /* HomeVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -595,15 +615,19 @@
 				D59C87691E5B428000D8AF84 /* CollectionViewController.m in Sources */,
 				CFCEBF5C1E5AC59000593686 /* LoginVM.m in Sources */,
 				D5348CD71E4CA3740007B9C7 /* CommonUtils.m in Sources */,
+				CFCBF1381E5C1F4B00D618BE /* NewsViewController.m in Sources */,
+				CFCBF13B1E5C205E00D618BE /* HomeVM.m in Sources */,
 				D52802901E49F0C600ACB198 /* main.m in Sources */,
 				CF14ACE11E56E1A600DD081E /* UIColor+HNExtensions.m in Sources */,
 				D5348CD31E4C995D0007B9C7 /* DouDouRegisterViewController.m in Sources */,
 				CFCEBF521E5AB78200593686 /* MessageViewController.m in Sources */,
+				CFCBF13E1E5C21B100D618BE /* AdsDataModel.m in Sources */,
 				CFCEBF551E5AB7AB00593686 /* HomeViewController.m in Sources */,
 				D59C87711E5B463000D8AF84 /* AboutViewController.m in Sources */,
 				D52802C71E4A1AE300ACB198 /* DouDouBaseViewController.m in Sources */,
 				CFAA4D171E56EFB900EE8953 /* UITextField+LimitLength.m in Sources */,
 				D59C87651E5B3AE600D8AF84 /* StopCarCell.m in Sources */,
+				CFCBF1351E5C1D2200D618BE /* JJSAdsView.m in Sources */,
 				D59C87611E5B3A7500D8AF84 /* StopRecordViewController.m in Sources */,
 				D59C876D1E5B42D800D8AF84 /* CollectionCell.m in Sources */,
 				CF14ACDD1E56E11D00DD081E /* DouDouBaseNavigationController.m in Sources */,

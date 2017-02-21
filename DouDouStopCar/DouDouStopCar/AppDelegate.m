@@ -12,6 +12,7 @@
 #import "DouDouBaseNavigationController.h"
 #import "DouDouLoginViewController.h"
 #import "HomeViewController.h"
+#import "MessageViewController.h"
 #import "MemberCenterViewController.h"
 
 @interface AppDelegate ()
@@ -39,8 +40,8 @@
     HomeViewController *homeViewController = [[HomeViewController alloc] init];
     DouDouBaseNavigationController *homeNav = [[DouDouBaseNavigationController alloc]initWithRootViewController:homeViewController];
     
-    
-    UINavigationController *messageNav = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MessageNavigationController"];
+    MessageViewController *messageController = [MessageViewController createByNibFile];
+    DouDouBaseNavigationController *messageNav = [[DouDouBaseNavigationController alloc]initWithRootViewController:messageController];
     
     MemberCenterViewController *memberController = [MemberCenterViewController createByNibFile];
     DouDouBaseNavigationController *memberNav = [[DouDouBaseNavigationController alloc]initWithRootViewController:memberController];

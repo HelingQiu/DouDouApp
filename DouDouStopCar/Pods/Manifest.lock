@@ -25,10 +25,13 @@ PODS:
   - MJRefresh (3.1.7)
   - RDVTabBarController (1.1.9)
   - Reachability (3.2)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
-  - FDFullscreenPopGesture (= 1.1)
+  - FDFullscreenPopGesture (~> 1.1)
   - FMDB
   - IQKeyboardManager
   - JVFloatLabeledTextField
@@ -37,6 +40,7 @@ DEPENDENCIES:
   - MJRefresh
   - RDVTabBarController
   - Reachability
+  - SDWebImage (~> 3.7)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -49,7 +53,8 @@ SPEC CHECKSUMS:
   MJRefresh: f67f0750d57a4e4ae433da549359ca53b52cdc7d
   RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
-PODFILE CHECKSUM: d4369e73503440db8689988f48a5c1fe08a0273e
+PODFILE CHECKSUM: 1fd88b6783da440c588948b0cd376f717480088a
 
 COCOAPODS: 1.0.1

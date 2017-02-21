@@ -27,7 +27,13 @@
     // Do any additional setup after loading the view.
     
     self.navigationItem.title = @"我的";
-    self.tableView.tableFooterView = [UIView new];
+    [self.backBtn setHidden:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.tableView setFrame:CGRectMake(0, 64, mScreenWidth, mScreenHeight - 49 - 64)];
+    [[[UIApplication sharedApplication] keyWindow] setBackgroundColor:kHexColor(kColor_Back)];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

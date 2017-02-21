@@ -20,7 +20,7 @@
         if ([[data objectForKey:@"resultCode"] boolValue]) {
             NSString *userId = [parameter objectForKey:@"userId"];
             NSString *password = [parameter objectForKey:@"password"];
-            NSString *token = [data objectForKey:@"token"]?:@"";
+            NSString *token = [[data objectForKey:@"data"] objectForKey:@"token"]?:@"";
             [UserModel sharedInstance].userId = userId;
             [UserModel sharedInstance].password = password;
             [UserModel sharedInstance].token = token;

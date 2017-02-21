@@ -7,8 +7,15 @@
 //
 
 #import "HomeViewController.h"
+#import "JJSAdsView.h"
+#import "NewsViewController.h"
+#import "HomeVM.h"
+#import "AdsDataModel.h"
 
 @interface HomeViewController ()
+
+@property (strong, nonatomic) JJSAdsView *adsView;//banner图
+@property (nonatomic, strong) NSArray *imgArray;
 
 @end
 
@@ -19,6 +26,20 @@
     // Do any additional setup after loading the view.
     
     self.navigationItem.title = @"豆豆停车";
+    [self.backBtn setHidden:YES];
+    
+    [self getAdsData];
+}
+
+//获取广告图片
+- (void)getAdsData
+{
+    [HomeVM getAdsDataWithParameter:nil completion:^(BOOL finish, id obj) {
+        if (finish) {
+            self.imgArray = [obj copy];
+            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -50,9 +71,46 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
     }
     if (indexPath.section == 0) {
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, mScreenWidth, 160)];
-        [imgView setImage:[UIImage imageNamed:@"home"]];
-        [cell.contentView addSubview:imgView];
+        if (self.adsView) {
+            [self.adsView removeFromSuperview];
+        }
+        self.adsView = [[JJSAdsView alloc] initWithFrame:CGRectMake(0, 0, mScreenWidth, 160) animationDuration:5 pagesCount:self.imgArray.count?:1];
+        self.adsView.contentMode = UIViewContentModeScaleToFill;
+        
+        __weak typeof(self) weakSelf = self;
+        self.adsView.fetchContentViewAtIndex = ^UIView *(NSInteger pageIndex){
+            CGRect frame = (CGRect){
+                .origin.x = 0,
+                .origin.y = 0,
+                .size.width =  mScreenWidth,
+                .size.height = 160
+            };
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
+            
+            if (weakSelf.imgArray.count > pageIndex) {
+                AdsDataModel *model = [weakSelf.imgArray objectAtIndex:pageIndex];
+                
+                [imageView sd_setImageWithURL:[NSURL URLWithString:model.adUrl] placeholderImage:[UIImage imageNamed:@"image_banner_default"] options:SDWebImageAllowInvalidSSLCertificates];
+            }
+            
+            
+            return imageView;
+        };
+        self.adsView.totalPagesCount = ^NSInteger(void){
+            
+            return [weakSelf.imgArray count]?:1;
+            
+        };
+        self.adsView.ClickActionBlock = ^(NSInteger index){
+            AdsDataModel *model = [weakSelf.imgArray objectAtIndex:index];
+            
+            NewsViewController *newsContrller = [[NewsViewController alloc] init];
+            newsContrller.urlstring = model.adLinkUrl;
+            newsContrller.hidesBottomBarWhenPushed = YES;
+            [weakSelf.navigationController pushViewController:newsContrller animated:YES];
+            
+        };
+        [cell.contentView insertSubview:self.adsView atIndex:0];
     }else if (indexPath.section == 1) {
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, mScreenWidth/2 - 20, 60)];
         [imgView setImage:[UIImage imageNamed:@"home1"]];

@@ -15,11 +15,22 @@
 
 @implementation MessageViewController
 
++ (instancetype)createByNibFile{
+    
+    return [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MessageVC"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.navigationItem.title = @"消息";
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.tableView setFrame:CGRectMake(0, 64, mScreenWidth, mScreenHeight - 49 - 64)];
+    [[[UIApplication sharedApplication] keyWindow] setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

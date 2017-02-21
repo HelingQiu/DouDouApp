@@ -10,4 +10,6 @@
 
 @interface MessageViewController : DouDouBaseTableViewController
 
++ (instancetype)createByNibFile;
+
 @end

@@ -11,6 +11,7 @@ target 'DouDouStopCar' do
     pod 'Reachability'
     pod 'IQKeyboardManager'
     pod 'RDVTabBarController'
-    pod 'FDFullscreenPopGesture', '1.1'
+    pod 'FDFullscreenPopGesture', '~> 1.1'
     pod 'JVFloatLabeledTextField'
+    pod 'SDWebImage', '~>3.7'
 end

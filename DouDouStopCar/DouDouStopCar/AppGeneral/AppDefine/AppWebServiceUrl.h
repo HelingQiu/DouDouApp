@@ -10,7 +10,7 @@
 #define AppWebServiceUrl_h
 
 //服务器地址
-#define Host @"http://120.76.242.66:8080"
+#define Host @"http://120.76.242.66:8080/DouDouService"
 
 //接口地址
 
@@ -53,6 +53,12 @@
  新密码
  */
 #define FinePasswordApi [NSString stringWithFormat:@"%@%@",Host,@"/user/findPassword"]
+
+/*
+ 获取广告图
+ */
+#define GetAdsApi [NSString stringWithFormat:@"%@%@",Host,@"/ad/adList"]
+
 
 
 #endif /* AppWebServiceUrl_h */
