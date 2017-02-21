@@ -25,6 +25,7 @@
     // Do any additional setup after loading the view.
     
     self.navigationItem.title = @"停车记录";
+    self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

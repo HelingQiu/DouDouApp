@@ -27,6 +27,18 @@
 		CFCEBF5F1E5ACC7700593686 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCEBF5E1E5ACC7700593686 /* UserModel.m */; };
 		CFCEBF621E5AE5C200593686 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCEBF611E5AE5C200593686 /* NSString+MD5.m */; };
 		CFCEBF641E5AF6C300593686 /* MemberCenter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFCEBF631E5AF6C300593686 /* MemberCenter.xcassets */; };
+		D52602C81E5C72A5007EA24D /* MonthCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602C71E5C72A5007EA24D /* MonthCardViewController.m */; };
+		D52602CC1E5C732D007EA24D /* MonthCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602CA1E5C732D007EA24D /* MonthCardCell.m */; };
+		D52602CD1E5C732D007EA24D /* MonthCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D52602CB1E5C732D007EA24D /* MonthCardCell.xib */; };
+		D52602D01E5C7BF0007EA24D /* WalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602CF1E5C7BF0007EA24D /* WalletViewController.m */; };
+		D52602D31E5C7C37007EA24D /* PrivilegeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602D21E5C7C37007EA24D /* PrivilegeViewController.m */; };
+		D52602D61E5C83FE007EA24D /* CarNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602D51E5C83FE007EA24D /* CarNumberViewController.m */; };
+		D52602DA1E5C8461007EA24D /* CarNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602D81E5C8461007EA24D /* CarNumberCell.m */; };
+		D52602DB1E5C8461007EA24D /* CarNumberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D52602D91E5C8461007EA24D /* CarNumberCell.xib */; };
+		D52602DE1E5C870D007EA24D /* DouDouButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602DD1E5C870D007EA24D /* DouDouButton.m */; };
+		D52602E11E5C90A0007EA24D /* AddCarNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602E01E5C90A0007EA24D /* AddCarNumberViewController.m */; };
+		D52602E41E5C90AD007EA24D /* CustomCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602E31E5C90AD007EA24D /* CustomCollectionView.m */; };
+		D52602E71E5C90EC007EA24D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602E61E5C90EC007EA24D /* UIView+Frame.m */; };
 		D52802901E49F0C600ACB198 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D528028F1E49F0C600ACB198 /* main.m */; };
 		D52802931E49F0C600ACB198 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D52802921E49F0C600ACB198 /* AppDelegate.m */; };
 		D52802961E49F0C700ACB198 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52802951E49F0C700ACB198 /* ViewController.m */; };
@@ -88,6 +100,28 @@
 		CFCEBF601E5AE5C200593686 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		CFCEBF611E5AE5C200593686 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		CFCEBF631E5AF6C300593686 /* MemberCenter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MemberCenter.xcassets; sourceTree = "<group>"; };
+		D52602C61E5C72A5007EA24D /* MonthCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthCardViewController.h; sourceTree = "<group>"; };
+		D52602C71E5C72A5007EA24D /* MonthCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthCardViewController.m; sourceTree = "<group>"; };
+		D52602C91E5C732D007EA24D /* MonthCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthCardCell.h; sourceTree = "<group>"; };
+		D52602CA1E5C732D007EA24D /* MonthCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthCardCell.m; sourceTree = "<group>"; };
+		D52602CB1E5C732D007EA24D /* MonthCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthCardCell.xib; sourceTree = "<group>"; };
+		D52602CE1E5C7BF0007EA24D /* WalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletViewController.h; sourceTree = "<group>"; };
+		D52602CF1E5C7BF0007EA24D /* WalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletViewController.m; sourceTree = "<group>"; };
+		D52602D11E5C7C37007EA24D /* PrivilegeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivilegeViewController.h; sourceTree = "<group>"; };
+		D52602D21E5C7C37007EA24D /* PrivilegeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivilegeViewController.m; sourceTree = "<group>"; };
+		D52602D41E5C83FE007EA24D /* CarNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarNumberViewController.h; sourceTree = "<group>"; };
+		D52602D51E5C83FE007EA24D /* CarNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarNumberViewController.m; sourceTree = "<group>"; };
+		D52602D71E5C8461007EA24D /* CarNumberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarNumberCell.h; sourceTree = "<group>"; };
+		D52602D81E5C8461007EA24D /* CarNumberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarNumberCell.m; sourceTree = "<group>"; };
+		D52602D91E5C8461007EA24D /* CarNumberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarNumberCell.xib; sourceTree = "<group>"; };
+		D52602DC1E5C870D007EA24D /* DouDouButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DouDouButton.h; sourceTree = "<group>"; };
+		D52602DD1E5C870D007EA24D /* DouDouButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DouDouButton.m; sourceTree = "<group>"; };
+		D52602DF1E5C90A0007EA24D /* AddCarNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCarNumberViewController.h; sourceTree = "<group>"; };
+		D52602E01E5C90A0007EA24D /* AddCarNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCarNumberViewController.m; sourceTree = "<group>"; };
+		D52602E21E5C90AD007EA24D /* CustomCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionView.h; sourceTree = "<group>"; };
+		D52602E31E5C90AD007EA24D /* CustomCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionView.m; sourceTree = "<group>"; };
+		D52602E51E5C90EC007EA24D /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		D52602E61E5C90EC007EA24D /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		D528028B1E49F0C600ACB198 /* DouDouStopCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DouDouStopCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D528028F1E49F0C600ACB198 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D52802911E49F0C600ACB198 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -140,6 +174,8 @@
 		CF14ACDE1E56E19B00DD081E /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				D52602E51E5C90EC007EA24D /* UIView+Frame.h */,
+				D52602E61E5C90EC007EA24D /* UIView+Frame.m */,
 				CFCEBF601E5AE5C200593686 /* NSString+MD5.h */,
 				CFCEBF611E5AE5C200593686 /* NSString+MD5.m */,
 				CFAA4D151E56EFB900EE8953 /* UITextField+LimitLength.h */,
@@ -262,6 +298,8 @@
 				D5348CD61E4CA3740007B9C7 /* CommonUtils.m */,
 				CFCEBF571E5ABEFC00593686 /* DouDouNetworking.h */,
 				CFCEBF581E5ABEFC00593686 /* DouDouNetworking.m */,
+				D52602DC1E5C870D007EA24D /* DouDouButton.h */,
+				D52602DD1E5C870D007EA24D /* DouDouButton.m */,
 			);
 			path = AppTools;
 			sourceTree = "<group>";
@@ -413,6 +451,14 @@
 				D59C876A1E5B42D800D8AF84 /* CollectionCell.h */,
 				D59C876B1E5B42D800D8AF84 /* CollectionCell.m */,
 				D59C876C1E5B42D800D8AF84 /* CollectionCell.xib */,
+				D52602C91E5C732D007EA24D /* MonthCardCell.h */,
+				D52602CA1E5C732D007EA24D /* MonthCardCell.m */,
+				D52602CB1E5C732D007EA24D /* MonthCardCell.xib */,
+				D52602D71E5C8461007EA24D /* CarNumberCell.h */,
+				D52602D81E5C8461007EA24D /* CarNumberCell.m */,
+				D52602D91E5C8461007EA24D /* CarNumberCell.xib */,
+				D52602E21E5C90AD007EA24D /* CustomCollectionView.h */,
+				D52602E31E5C90AD007EA24D /* CustomCollectionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -422,6 +468,16 @@
 			children = (
 				CF9EFC831E5596B400B41160 /* MemberCenterViewController.h */,
 				CF9EFC841E5596B400B41160 /* MemberCenterViewController.m */,
+				D52602CE1E5C7BF0007EA24D /* WalletViewController.h */,
+				D52602CF1E5C7BF0007EA24D /* WalletViewController.m */,
+				D52602D11E5C7C37007EA24D /* PrivilegeViewController.h */,
+				D52602D21E5C7C37007EA24D /* PrivilegeViewController.m */,
+				D52602C61E5C72A5007EA24D /* MonthCardViewController.h */,
+				D52602C71E5C72A5007EA24D /* MonthCardViewController.m */,
+				D52602D41E5C83FE007EA24D /* CarNumberViewController.h */,
+				D52602D51E5C83FE007EA24D /* CarNumberViewController.m */,
+				D52602DF1E5C90A0007EA24D /* AddCarNumberViewController.h */,
+				D52602E01E5C90A0007EA24D /* AddCarNumberViewController.m */,
 				D59C875F1E5B3A7500D8AF84 /* StopRecordViewController.h */,
 				D59C87601E5B3A7500D8AF84 /* StopRecordViewController.m */,
 				D59C87671E5B428000D8AF84 /* CollectionViewController.h */,
@@ -544,8 +600,10 @@
 			files = (
 				D59C875E1E5B3A4C00D8AF84 /* MemberCenter.storyboard in Resources */,
 				CFCEBF641E5AF6C300593686 /* MemberCenter.xcassets in Resources */,
+				D52602DB1E5C8461007EA24D /* CarNumberCell.xib in Resources */,
 				CF14ACE31E56E6D400DD081E /* LoginAssets.xcassets in Resources */,
 				D59C876E1E5B42D800D8AF84 /* CollectionCell.xib in Resources */,
+				D52602CD1E5C732D007EA24D /* MonthCardCell.xib in Resources */,
 				D528029E1E49F0C700ACB198 /* LaunchScreen.storyboard in Resources */,
 				D59C87661E5B3AE600D8AF84 /* StopCarCell.xib in Resources */,
 				CFCEBF4F1E5AB77A00593686 /* MessageTableViewCell.xib in Resources */,
@@ -614,27 +672,37 @@
 				CFCEBF621E5AE5C200593686 /* NSString+MD5.m in Sources */,
 				D59C87691E5B428000D8AF84 /* CollectionViewController.m in Sources */,
 				CFCEBF5C1E5AC59000593686 /* LoginVM.m in Sources */,
+				D52602DE1E5C870D007EA24D /* DouDouButton.m in Sources */,
+				D52602DA1E5C8461007EA24D /* CarNumberCell.m in Sources */,
+				D52602E41E5C90AD007EA24D /* CustomCollectionView.m in Sources */,
 				D5348CD71E4CA3740007B9C7 /* CommonUtils.m in Sources */,
+				D52602D61E5C83FE007EA24D /* CarNumberViewController.m in Sources */,
 				CFCBF1381E5C1F4B00D618BE /* NewsViewController.m in Sources */,
+				D52602C81E5C72A5007EA24D /* MonthCardViewController.m in Sources */,
 				CFCBF13B1E5C205E00D618BE /* HomeVM.m in Sources */,
 				D52802901E49F0C600ACB198 /* main.m in Sources */,
 				CF14ACE11E56E1A600DD081E /* UIColor+HNExtensions.m in Sources */,
 				D5348CD31E4C995D0007B9C7 /* DouDouRegisterViewController.m in Sources */,
 				CFCEBF521E5AB78200593686 /* MessageViewController.m in Sources */,
 				CFCBF13E1E5C21B100D618BE /* AdsDataModel.m in Sources */,
+				D52602E71E5C90EC007EA24D /* UIView+Frame.m in Sources */,
 				CFCEBF551E5AB7AB00593686 /* HomeViewController.m in Sources */,
 				D59C87711E5B463000D8AF84 /* AboutViewController.m in Sources */,
 				D52802C71E4A1AE300ACB198 /* DouDouBaseViewController.m in Sources */,
 				CFAA4D171E56EFB900EE8953 /* UITextField+LimitLength.m in Sources */,
+				D52602CC1E5C732D007EA24D /* MonthCardCell.m in Sources */,
 				D59C87651E5B3AE600D8AF84 /* StopCarCell.m in Sources */,
 				CFCBF1351E5C1D2200D618BE /* JJSAdsView.m in Sources */,
 				D59C87611E5B3A7500D8AF84 /* StopRecordViewController.m in Sources */,
 				D59C876D1E5B42D800D8AF84 /* CollectionCell.m in Sources */,
 				CF14ACDD1E56E11D00DD081E /* DouDouBaseNavigationController.m in Sources */,
 				CFCEBF591E5ABEFC00593686 /* DouDouNetworking.m in Sources */,
+				D52602D31E5C7C37007EA24D /* PrivilegeViewController.m in Sources */,
+				D52602D01E5C7BF0007EA24D /* WalletViewController.m in Sources */,
 				CFCEBF4E1E5AB77A00593686 /* MessageTableViewCell.m in Sources */,
 				D5AF80EC1E4B4C70006C7AF3 /* DouDouLoginViewController.m in Sources */,
 				CFAA4D1A1E57021E00EE8953 /* DouDouForgetViewController.m in Sources */,
+				D52602E11E5C90A0007EA24D /* AddCarNumberViewController.m in Sources */,
 				CFCEBF5F1E5ACC7700593686 /* UserModel.m in Sources */,
 				D52802CA1E4A1AF900ACB198 /* DouDouBaseTableViewController.m in Sources */,
 				CF9EFC851E5596B400B41160 /* MemberCenterViewController.m in Sources */,

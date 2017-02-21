@@ -21,10 +21,12 @@
 #import "CommonUtils.h"
 #import "UIColor+HNExtensions.h"
 #import "NSString+MD5.h"
+#import "UIView+Frame.h"
 #import <JVFloatLabeledTextField/JVFloatLabeledTextField.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJExtension/MJExtension.h>
 #import <MJRefresh/MJRefresh.h>
+#import <RDVTabBarController/RDVTabBarController.h>
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.

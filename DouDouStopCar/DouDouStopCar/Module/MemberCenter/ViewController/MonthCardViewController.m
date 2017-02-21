@@ -1,38 +1,29 @@
 //
-//  MessageViewController.m
+//  MonthCardViewController.m
 //  DouDouStopCar
 //
-//  Created by Rainer on 17/2/19.
+//  Created by Rainer on 2017/2/21.
 //  Copyright © 2017年 Rainer. All rights reserved.
 //
 
-#import "MessageViewController.h"
-#import "MessageTableViewCell.h"
+#import "MonthCardViewController.h"
+#import "MonthCardCell.h"
 
-@interface MessageViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface MonthCardViewController ()
 
 @end
 
-@implementation MessageViewController
-
-+ (instancetype)createByNibFile{
-    
-    return [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MessageVC"];
-}
+@implementation MonthCardViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = @"消息";
-    [self.backBtn setHidden:YES];
+    self.navigationItem.title = @"月卡";
+    
+    self.tableView.tableFooterView = [UIView new];
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [self.tableView setFrame:CGRectMake(0, 64, mScreenWidth, mScreenHeight - 49 - 64)];
-    [[[UIApplication sharedApplication] keyWindow] setBackgroundColor:[UIColor whiteColor]];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 #pragma mark -
@@ -43,17 +34,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 300;
+    return 140;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MessageTableViewCell *cell = [MessageTableViewCell cellForTableView:tableView];
+    MonthCardCell *cell = [MonthCardCell cellForTableView:tableView];
     return cell;
 }
 
