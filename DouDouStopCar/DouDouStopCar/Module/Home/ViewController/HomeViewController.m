@@ -11,6 +11,7 @@
 #import "NewsViewController.h"
 #import "HomeVM.h"
 #import "AdsDataModel.h"
+#import "FindParkingViewController.h"
 
 @interface HomeViewController ()
 
@@ -29,6 +30,12 @@
     [self.backBtn setHidden:YES];
     
     [self getAdsData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[self rdv_tabBarController] setTabBarHidden:NO];
 }
 
 //获取广告图片
@@ -126,6 +133,17 @@
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [[self rdv_tabBarController] setTabBarHidden:YES];
+    if (indexPath.section == 1)
+    {
+        FindParkingViewController *parkingController = [[FindParkingViewController alloc] init];
+        [self.navigationController pushViewController:parkingController animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

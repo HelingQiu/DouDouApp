@@ -14,6 +14,26 @@
 		CF9EFC851E5596B400B41160 /* MemberCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EFC841E5596B400B41160 /* MemberCenterViewController.m */; };
 		CFAA4D171E56EFB900EE8953 /* UITextField+LimitLength.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA4D161E56EFB900EE8953 /* UITextField+LimitLength.m */; };
 		CFAA4D1A1E57021E00EE8953 /* DouDouForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA4D191E57021E00EE8953 /* DouDouForgetViewController.m */; };
+		CFC004371E5D2D4A0079DCE5 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC004301E5D2D4A0079DCE5 /* BaiduMapAPI_Base.framework */; };
+		CFC004381E5D2D4A0079DCE5 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC004311E5D2D4A0079DCE5 /* BaiduMapAPI_Location.framework */; };
+		CFC004391E5D2D4A0079DCE5 /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC004321E5D2D4A0079DCE5 /* BaiduMapAPI_Map.framework */; };
+		CFC0043A1E5D2D4A0079DCE5 /* BaiduMapAPI_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC004331E5D2D4A0079DCE5 /* BaiduMapAPI_Search.framework */; };
+		CFC0043B1E5D2D4A0079DCE5 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC004351E5D2D4A0079DCE5 /* libcrypto.a */; };
+		CFC0043C1E5D2D4A0079DCE5 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC004361E5D2D4A0079DCE5 /* libssl.a */; };
+		CFC004441E5D3E930079DCE5 /* FindParkingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC004431E5D3E930079DCE5 /* FindParkingViewController.m */; };
+		CFC004461E5D66860079DCE5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC004451E5D66860079DCE5 /* CoreLocation.framework */; };
+		CFC004481E5D66900079DCE5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC004471E5D66900079DCE5 /* QuartzCore.framework */; };
+		CFC0044A1E5D669B0079DCE5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC004491E5D669B0079DCE5 /* OpenGLES.framework */; };
+		CFC0044C1E5D66A60079DCE5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC0044B1E5D66A60079DCE5 /* SystemConfiguration.framework */; };
+		CFC0044E1E5D66BC0079DCE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC0044D1E5D66BC0079DCE5 /* CoreGraphics.framework */; };
+		CFC004501E5D66C50079DCE5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC0044F1E5D66C50079DCE5 /* Security.framework */; };
+		CFC004521E5D66CF0079DCE5 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC004511E5D66CF0079DCE5 /* libsqlite3.0.tbd */; };
+		CFC004541E5D66DB0079DCE5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC004531E5D66DB0079DCE5 /* CoreTelephony.framework */; };
+		CFC004561E5D66E80079DCE5 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC004551E5D66E80079DCE5 /* libstdc++.6.0.9.tbd */; };
+		CFC004581E5D675A0079DCE5 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CFC004571E5D675A0079DCE5 /* mapapi.bundle */; };
+		CFC0045A1E5D72EF0079DCE5 /* HomeAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFC004591E5D72EF0079DCE5 /* HomeAssets.xcassets */; };
+		CFC0045E1E5D8DFD0079DCE5 /* MapCarParkingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC0045C1E5D8DFD0079DCE5 /* MapCarParkingCell.m */; };
+		CFC0045F1E5D8DFD0079DCE5 /* MapCarParkingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFC0045D1E5D8DFD0079DCE5 /* MapCarParkingCell.xib */; };
 		CFCBF1351E5C1D2200D618BE /* JJSAdsView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCBF1341E5C1D2200D618BE /* JJSAdsView.m */; };
 		CFCBF1381E5C1F4B00D618BE /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCBF1371E5C1F4B00D618BE /* NewsViewController.m */; };
 		CFCBF13B1E5C205E00D618BE /* HomeVM.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCBF13A1E5C205E00D618BE /* HomeVM.m */; };
@@ -41,7 +61,7 @@
 		D52602E71E5C90EC007EA24D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602E61E5C90EC007EA24D /* UIView+Frame.m */; };
 		D52802901E49F0C600ACB198 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D528028F1E49F0C600ACB198 /* main.m */; };
 		D52802931E49F0C600ACB198 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D52802921E49F0C600ACB198 /* AppDelegate.m */; };
-		D52802961E49F0C700ACB198 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52802951E49F0C700ACB198 /* ViewController.m */; };
+		D52802961E49F0C700ACB198 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D52802951E49F0C700ACB198 /* ViewController.mm */; };
 		D52802991E49F0C700ACB198 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D52802971E49F0C700ACB198 /* Main.storyboard */; };
 		D528029B1E49F0C700ACB198 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D528029A1E49F0C700ACB198 /* Assets.xcassets */; };
 		D528029E1E49F0C700ACB198 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D528029C1E49F0C700ACB198 /* LaunchScreen.storyboard */; };
@@ -75,6 +95,28 @@
 		CFAA4D161E56EFB900EE8953 /* UITextField+LimitLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LimitLength.m"; sourceTree = "<group>"; };
 		CFAA4D181E57021E00EE8953 /* DouDouForgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DouDouForgetViewController.h; sourceTree = "<group>"; };
 		CFAA4D191E57021E00EE8953 /* DouDouForgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DouDouForgetViewController.m; sourceTree = "<group>"; };
+		CFC004301E5D2D4A0079DCE5 /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
+		CFC004311E5D2D4A0079DCE5 /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
+		CFC004321E5D2D4A0079DCE5 /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
+		CFC004331E5D2D4A0079DCE5 /* BaiduMapAPI_Search.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Search.framework; sourceTree = "<group>"; };
+		CFC004351E5D2D4A0079DCE5 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		CFC004361E5D2D4A0079DCE5 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		CFC004421E5D3E930079DCE5 /* FindParkingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindParkingViewController.h; sourceTree = "<group>"; };
+		CFC004431E5D3E930079DCE5 /* FindParkingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindParkingViewController.m; sourceTree = "<group>"; };
+		CFC004451E5D66860079DCE5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CFC004471E5D66900079DCE5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CFC004491E5D669B0079DCE5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		CFC0044B1E5D66A60079DCE5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CFC0044D1E5D66BC0079DCE5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CFC0044F1E5D66C50079DCE5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CFC004511E5D66CF0079DCE5 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		CFC004531E5D66DB0079DCE5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		CFC004551E5D66E80079DCE5 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		CFC004571E5D675A0079DCE5 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = BaiduMapAPI_Map.framework/Resources/mapapi.bundle; sourceTree = "<group>"; };
+		CFC004591E5D72EF0079DCE5 /* HomeAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HomeAssets.xcassets; sourceTree = "<group>"; };
+		CFC0045B1E5D8DFD0079DCE5 /* MapCarParkingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCarParkingCell.h; sourceTree = "<group>"; };
+		CFC0045C1E5D8DFD0079DCE5 /* MapCarParkingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapCarParkingCell.m; sourceTree = "<group>"; };
+		CFC0045D1E5D8DFD0079DCE5 /* MapCarParkingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapCarParkingCell.xib; sourceTree = "<group>"; };
 		CFCBF1331E5C1D2200D618BE /* JJSAdsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJSAdsView.h; sourceTree = "<group>"; };
 		CFCBF1341E5C1D2200D618BE /* JJSAdsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJSAdsView.m; sourceTree = "<group>"; };
 		CFCBF1361E5C1F4B00D618BE /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
@@ -127,7 +169,7 @@
 		D52802911E49F0C600ACB198 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D52802921E49F0C600ACB198 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D52802941E49F0C700ACB198 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D52802951E49F0C700ACB198 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D52802951E49F0C700ACB198 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		D52802981E49F0C700ACB198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D528029A1E49F0C700ACB198 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D528029D1E49F0C700ACB198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -164,7 +206,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFC004561E5D66E80079DCE5 /* libstdc++.6.0.9.tbd in Frameworks */,
+				CFC004541E5D66DB0079DCE5 /* CoreTelephony.framework in Frameworks */,
+				CFC004521E5D66CF0079DCE5 /* libsqlite3.0.tbd in Frameworks */,
+				CFC004501E5D66C50079DCE5 /* Security.framework in Frameworks */,
+				CFC0044E1E5D66BC0079DCE5 /* CoreGraphics.framework in Frameworks */,
+				CFC0044C1E5D66A60079DCE5 /* SystemConfiguration.framework in Frameworks */,
+				CFC0044A1E5D669B0079DCE5 /* OpenGLES.framework in Frameworks */,
+				CFC004481E5D66900079DCE5 /* QuartzCore.framework in Frameworks */,
+				CFC004461E5D66860079DCE5 /* CoreLocation.framework in Frameworks */,
 				95232EF12117B42759374FD9 /* Pods_DouDouStopCar.framework in Frameworks */,
+				CFC0043A1E5D2D4A0079DCE5 /* BaiduMapAPI_Search.framework in Frameworks */,
+				CFC0043C1E5D2D4A0079DCE5 /* libssl.a in Frameworks */,
+				CFC0043B1E5D2D4A0079DCE5 /* libcrypto.a in Frameworks */,
+				CFC004381E5D2D4A0079DCE5 /* BaiduMapAPI_Location.framework in Frameworks */,
+				CFC004371E5D2D4A0079DCE5 /* BaiduMapAPI_Base.framework in Frameworks */,
+				CFC004391E5D2D4A0079DCE5 /* BaiduMapAPI_Map.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +241,73 @@
 				CF14ACE01E56E1A600DD081E /* UIColor+HNExtensions.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		CFC0042F1E5D2D4A0079DCE5 /* BaiduMap_IOSSDK_v3.2.1_Lib */ = {
+			isa = PBXGroup;
+			children = (
+				CFC004571E5D675A0079DCE5 /* mapapi.bundle */,
+				CFC004301E5D2D4A0079DCE5 /* BaiduMapAPI_Base.framework */,
+				CFC004311E5D2D4A0079DCE5 /* BaiduMapAPI_Location.framework */,
+				CFC004321E5D2D4A0079DCE5 /* BaiduMapAPI_Map.framework */,
+				CFC004331E5D2D4A0079DCE5 /* BaiduMapAPI_Search.framework */,
+				CFC004341E5D2D4A0079DCE5 /* thirdlibs */,
+			);
+			path = BaiduMap_IOSSDK_v3.2.1_Lib;
+			sourceTree = "<group>";
+		};
+		CFC004341E5D2D4A0079DCE5 /* thirdlibs */ = {
+			isa = PBXGroup;
+			children = (
+				CFC004351E5D2D4A0079DCE5 /* libcrypto.a */,
+				CFC004361E5D2D4A0079DCE5 /* libssl.a */,
+			);
+			path = thirdlibs;
+			sourceTree = "<group>";
+		};
+		CFC0043D1E5D3E640079DCE5 /* FineParking */ = {
+			isa = PBXGroup;
+			children = (
+				CFC0043E1E5D3E640079DCE5 /* Model */,
+				CFC0043F1E5D3E640079DCE5 /* View */,
+				CFC004401E5D3E640079DCE5 /* ViewController */,
+				CFC004411E5D3E640079DCE5 /* ViewModel */,
+			);
+			name = FineParking;
+			path = FinePicking;
+			sourceTree = "<group>";
+		};
+		CFC0043E1E5D3E640079DCE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CFC0043F1E5D3E640079DCE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CFC0045B1E5D8DFD0079DCE5 /* MapCarParkingCell.h */,
+				CFC0045C1E5D8DFD0079DCE5 /* MapCarParkingCell.m */,
+				CFC0045D1E5D8DFD0079DCE5 /* MapCarParkingCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CFC004401E5D3E640079DCE5 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CFC004421E5D3E930079DCE5 /* FindParkingViewController.h */,
+				CFC004431E5D3E930079DCE5 /* FindParkingViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CFC004411E5D3E640079DCE5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		D52802821E49F0C600ACB198 = {
@@ -210,7 +334,7 @@
 				D52802911E49F0C600ACB198 /* AppDelegate.h */,
 				D52802921E49F0C600ACB198 /* AppDelegate.m */,
 				D52802941E49F0C700ACB198 /* ViewController.h */,
-				D52802951E49F0C700ACB198 /* ViewController.m */,
+				D52802951E49F0C700ACB198 /* ViewController.mm */,
 				D52802971E49F0C700ACB198 /* Main.storyboard */,
 				D528029A1E49F0C700ACB198 /* Assets.xcassets */,
 				D528029C1E49F0C700ACB198 /* LaunchScreen.storyboard */,
@@ -235,6 +359,7 @@
 		D52802BE1E4A19B900ACB198 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				CFC0042F1E5D2D4A0079DCE5 /* BaiduMap_IOSSDK_v3.2.1_Lib */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -283,6 +408,7 @@
 		D52802C31E4A1A0900ACB198 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				CFC0043D1E5D3E640079DCE5 /* FineParking */,
 				D5AF80D61E4B47EB006C7AF3 /* Home */,
 				D5AF80D71E4B47EB006C7AF3 /* Login */,
 				D5AF80D81E4B47EB006C7AF3 /* MemberCenter */,
@@ -307,6 +433,15 @@
 		D56A88F7182A652FE14923A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CFC004551E5D66E80079DCE5 /* libstdc++.6.0.9.tbd */,
+				CFC004531E5D66DB0079DCE5 /* CoreTelephony.framework */,
+				CFC004511E5D66CF0079DCE5 /* libsqlite3.0.tbd */,
+				CFC0044F1E5D66C50079DCE5 /* Security.framework */,
+				CFC0044D1E5D66BC0079DCE5 /* CoreGraphics.framework */,
+				CFC0044B1E5D66A60079DCE5 /* SystemConfiguration.framework */,
+				CFC004491E5D669B0079DCE5 /* OpenGLES.framework */,
+				CFC004471E5D66900079DCE5 /* QuartzCore.framework */,
+				CFC004451E5D66860079DCE5 /* CoreLocation.framework */,
 				13C60B765F58AE76EC57A873 /* Pods_DouDouStopCar.framework */,
 			);
 			name = Frameworks;
@@ -319,6 +454,7 @@
 				D5AF80DB1E4B4834006C7AF3 /* View */,
 				D5AF80DC1E4B4834006C7AF3 /* ViewController */,
 				D5AF80DD1E4B4834006C7AF3 /* ViewModel */,
+				CFC004591E5D72EF0079DCE5 /* HomeAssets.xcassets */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -601,13 +737,16 @@
 				D59C875E1E5B3A4C00D8AF84 /* MemberCenter.storyboard in Resources */,
 				CFCEBF641E5AF6C300593686 /* MemberCenter.xcassets in Resources */,
 				D52602DB1E5C8461007EA24D /* CarNumberCell.xib in Resources */,
+				CFC0045A1E5D72EF0079DCE5 /* HomeAssets.xcassets in Resources */,
 				CF14ACE31E56E6D400DD081E /* LoginAssets.xcassets in Resources */,
 				D59C876E1E5B42D800D8AF84 /* CollectionCell.xib in Resources */,
 				D52602CD1E5C732D007EA24D /* MonthCardCell.xib in Resources */,
 				D528029E1E49F0C700ACB198 /* LaunchScreen.storyboard in Resources */,
 				D59C87661E5B3AE600D8AF84 /* StopCarCell.xib in Resources */,
 				CFCEBF4F1E5AB77A00593686 /* MessageTableViewCell.xib in Resources */,
+				CFC004581E5D675A0079DCE5 /* mapapi.bundle in Resources */,
 				D528029B1E49F0C700ACB198 /* Assets.xcassets in Resources */,
+				CFC0045F1E5D8DFD0079DCE5 /* MapCarParkingCell.xib in Resources */,
 				D52802991E49F0C700ACB198 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -667,7 +806,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D52802961E49F0C700ACB198 /* ViewController.m in Sources */,
+				D52802961E49F0C700ACB198 /* ViewController.mm in Sources */,
 				D52802931E49F0C600ACB198 /* AppDelegate.m in Sources */,
 				CFCEBF621E5AE5C200593686 /* NSString+MD5.m in Sources */,
 				D59C87691E5B428000D8AF84 /* CollectionViewController.m in Sources */,
@@ -677,11 +816,13 @@
 				D52602E41E5C90AD007EA24D /* CustomCollectionView.m in Sources */,
 				D5348CD71E4CA3740007B9C7 /* CommonUtils.m in Sources */,
 				D52602D61E5C83FE007EA24D /* CarNumberViewController.m in Sources */,
+				CFC004441E5D3E930079DCE5 /* FindParkingViewController.m in Sources */,
 				CFCBF1381E5C1F4B00D618BE /* NewsViewController.m in Sources */,
 				D52602C81E5C72A5007EA24D /* MonthCardViewController.m in Sources */,
 				CFCBF13B1E5C205E00D618BE /* HomeVM.m in Sources */,
 				D52802901E49F0C600ACB198 /* main.m in Sources */,
 				CF14ACE11E56E1A600DD081E /* UIColor+HNExtensions.m in Sources */,
+				CFC0045E1E5D8DFD0079DCE5 /* MapCarParkingCell.m in Sources */,
 				D5348CD31E4C995D0007B9C7 /* DouDouRegisterViewController.m in Sources */,
 				CFCEBF521E5AB78200593686 /* MessageViewController.m in Sources */,
 				CFCBF13E1E5C21B100D618BE /* AdsDataModel.m in Sources */,
@@ -817,10 +958,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8MUA9S3748;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DouDouStopCar/Library/BaiduMap_IOSSDK_v3.2.1_Lib",
+				);
 				GCC_PREFIX_HEADER = "${SRCROOT}/DouDouStopCar/DouDouStopCar-Prefix.pch";
 				INFOPLIST_FILE = DouDouStopCar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DouDouStopCar/Library/BaiduMap_IOSSDK_v3.2.1_Lib/thirdlibs",
+				);
+				OTHER_LIBTOOLFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -832,10 +982,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8MUA9S3748;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DouDouStopCar/Library/BaiduMap_IOSSDK_v3.2.1_Lib",
+				);
 				GCC_PREFIX_HEADER = "${SRCROOT}/DouDouStopCar/DouDouStopCar-Prefix.pch";
 				INFOPLIST_FILE = DouDouStopCar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DouDouStopCar/Library/BaiduMap_IOSSDK_v3.2.1_Lib/thirdlibs",
+				);
+				OTHER_LIBTOOLFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

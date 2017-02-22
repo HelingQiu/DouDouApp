@@ -14,9 +14,15 @@
 #import "HomeViewController.h"
 #import "MessageViewController.h"
 #import "MemberCenterViewController.h"
+#import <BaiduMapAPI_Map/BMKMapComponent.h>
+
 
 @interface AppDelegate ()
+{
+    BMKMapManager* _mapManager;
+}
 @property (nonatomic, strong) RDVTabBarController *tabBarController;
+
 @end
 
 @implementation AppDelegate
@@ -27,6 +33,13 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
+    
+    // 要使用百度地图，请先启动BaiduMapManager
+    _mapManager = [[BMKMapManager alloc]init];
+    BOOL ret = [_mapManager start:@"please enter your key" generalDelegate:self];
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
     
     [self setUpViewControllers];
     

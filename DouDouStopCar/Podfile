@@ -13,5 +13,5 @@ target 'DouDouStopCar' do
     pod 'RDVTabBarController'
     pod 'FDFullscreenPopGesture', '~> 1.1'
     pod 'JVFloatLabeledTextField'
-    pod 'SDWebImage', '~>3.7'
+    pod 'SDWebImage', '~> 3.7'
 end
