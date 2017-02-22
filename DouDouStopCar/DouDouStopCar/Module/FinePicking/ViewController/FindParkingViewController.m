@@ -8,12 +8,13 @@
 
 #import "FindParkingViewController.h"
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import "MapCarParkingCell.h"
 
 @interface FindParkingViewController ()<BMKMapViewDelegate>
 
 @property (nonatomic, strong) BMKMapView *mapView;
 @property (nonatomic, strong) UIButton *cityButton;
-
+@property (nonatomic, strong) MapCarParkingCell *parkingView;
 @end
 
 @implementation FindParkingViewController
@@ -63,6 +64,15 @@
     [viewBg addSubview:leftView];
     [searchField setLeftView:viewBg];
     [searchField setLeftViewMode:UITextFieldViewModeAlways];
+    
+    self.parkingView = [MapCarParkingCell createByNibFile];
+    [self.parkingView setFrame:CGRectMake(30, mScreenHeight - 64 - 115 - 40, mScreenWidth - 60, 115)];
+    [self.parkingView setBackgroundColor:[UIColor whiteColor]];
+    self.parkingView.clipsToBounds = YES;
+    self.parkingView.layer.cornerRadius = 8;
+    self.parkingView.layer.borderColor = [[UIColor groupTableViewBackgroundColor] CGColor];
+    self.parkingView.layer.borderWidth = 0.5;
+    [self.view addSubview:self.parkingView];
 }
 
 - (BMKMapView *)mapView

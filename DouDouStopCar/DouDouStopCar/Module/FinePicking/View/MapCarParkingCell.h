@@ -10,4 +10,6 @@
 
 @interface MapCarParkingCell : UITableViewCell
 
++ (instancetype)createByNibFile;
+
 @end

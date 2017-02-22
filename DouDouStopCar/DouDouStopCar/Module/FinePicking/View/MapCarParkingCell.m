@@ -10,6 +10,13 @@
 
 @implementation MapCarParkingCell
 
++ (instancetype)createByNibFile
+{
+    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"MapCarParkingCell" owner:nil options:nil];
+    MapCarParkingCell *cell = [nibContents firstObject];
+    return cell;
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
