@@ -59,6 +59,9 @@
  */
 #define GetAdsApi [NSString stringWithFormat:@"%@%@",Host,@"/ad/adList"]
 
-
+/*
+ 附近停车场
+ */
+#define GetNearParkingApi [NSString stringWithFormat:@"%@%@",Host,@"/parking/nearbyParking"]
 
 #endif /* AppWebServiceUrl_h */

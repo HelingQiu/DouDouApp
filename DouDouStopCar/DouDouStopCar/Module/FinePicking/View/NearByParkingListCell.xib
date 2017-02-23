@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="NearByParkingListCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="享体验园-停车场" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPR-0k-TOy">
+                        <rect key="frame" x="15" y="15" width="214.5" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="AjX-MN-bqK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广东省深圳市龙华新区油松路1号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F80-Bc-98f">
+                        <rect key="frame" x="15" y="41" width="214.5" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="V3p-Uv-lau"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMb-ET-Tu9">
+                        <rect key="frame" x="239.5" y="8" width="0.5" height="63.5"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="uUG-2y-xI2"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaU-RQ-kLk">
+                        <rect key="frame" x="259" y="42.5" width="32" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="C7R-5R-1O6"/>
+                            <constraint firstAttribute="height" constant="22" id="n4p-x3-uL6"/>
+                        </constraints>
+                        <state key="normal" image="find_parking_listdir"/>
+                        <connections>
+                            <action selector="navigationAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fXn-ke-Que"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="172m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVp-6h-WIG">
+                        <rect key="frame" x="245" y="15" width="60" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="TcJ-8f-U3d"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="fPR-0k-TOy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="48y-kE-IxD"/>
+                    <constraint firstItem="PVp-6h-WIG" firstAttribute="leading" secondItem="SMb-ET-Tu9" secondAttribute="trailing" constant="5" id="7Oe-FN-aRS"/>
+                    <constraint firstAttribute="trailing" secondItem="SMb-ET-Tu9" secondAttribute="trailing" constant="80" id="8lf-Ur-caf"/>
+                    <constraint firstItem="SMb-ET-Tu9" firstAttribute="leading" secondItem="fPR-0k-TOy" secondAttribute="trailing" constant="10" id="BVA-yY-SP3"/>
+                    <constraint firstItem="PVp-6h-WIG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="BYH-Bz-FiY"/>
+                    <constraint firstItem="SMb-ET-Tu9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="DM6-Sw-koF"/>
+                    <constraint firstAttribute="trailing" secondItem="PVp-6h-WIG" secondAttribute="trailing" constant="15" id="GCI-je-KEw"/>
+                    <constraint firstAttribute="bottom" secondItem="SMb-ET-Tu9" secondAttribute="bottom" constant="8" id="Hau-R1-d1m"/>
+                    <constraint firstItem="fPR-0k-TOy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="I2o-bo-dbd"/>
+                    <constraint firstItem="F80-Bc-98f" firstAttribute="top" secondItem="fPR-0k-TOy" secondAttribute="bottom" constant="5" id="aJC-wn-ObL"/>
+                    <constraint firstItem="SMb-ET-Tu9" firstAttribute="leading" secondItem="F80-Bc-98f" secondAttribute="trailing" constant="10" id="azU-SZ-ZcZ"/>
+                    <constraint firstAttribute="bottom" secondItem="PaU-RQ-kLk" secondAttribute="bottom" constant="15" id="dYn-h8-dpk"/>
+                    <constraint firstItem="PaU-RQ-kLk" firstAttribute="centerX" secondItem="PVp-6h-WIG" secondAttribute="centerX" id="juw-uB-YdS"/>
+                    <constraint firstItem="F80-Bc-98f" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="sLM-kG-hv1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="labAddress" destination="F80-Bc-98f" id="9ED-6z-nrd"/>
+                <outlet property="labDistance" destination="PVp-6h-WIG" id="oMZ-P0-X1O"/>
+                <outlet property="labTitle" destination="fPR-0k-TOy" id="ReZ-HY-9D4"/>
+            </connections>
+            <point key="canvasLocation" x="32" y="85"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="find_parking_listdir" width="32" height="20"/>
+    </resources>
+</document>

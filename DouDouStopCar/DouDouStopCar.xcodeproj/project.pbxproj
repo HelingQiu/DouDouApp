@@ -11,6 +11,10 @@
 		CF14ACDD1E56E11D00DD081E /* DouDouBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF14ACDC1E56E11D00DD081E /* DouDouBaseNavigationController.m */; };
 		CF14ACE11E56E1A600DD081E /* UIColor+HNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = CF14ACE01E56E1A600DD081E /* UIColor+HNExtensions.m */; };
 		CF14ACE31E56E6D400DD081E /* LoginAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF14ACE21E56E6D400DD081E /* LoginAssets.xcassets */; };
+		CF6B08AE1E5ED7CB00C7759C /* FindParkingVM.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6B08AD1E5ED7CB00C7759C /* FindParkingVM.m */; };
+		CF6B08B11E5EDBD900C7759C /* NearbyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6B08B01E5EDBD900C7759C /* NearbyModel.m */; };
+		CF6B08B51E5EDE9700C7759C /* NearByParkingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6B08B31E5EDE9700C7759C /* NearByParkingListCell.m */; };
+		CF6B08B61E5EDE9700C7759C /* NearByParkingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6B08B41E5EDE9700C7759C /* NearByParkingListCell.xib */; };
 		CF9EFC851E5596B400B41160 /* MemberCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EFC841E5596B400B41160 /* MemberCenterViewController.m */; };
 		CFAA4D171E56EFB900EE8953 /* UITextField+LimitLength.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA4D161E56EFB900EE8953 /* UITextField+LimitLength.m */; };
 		CFAA4D1A1E57021E00EE8953 /* DouDouForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA4D191E57021E00EE8953 /* DouDouForgetViewController.m */; };
@@ -89,6 +93,13 @@
 		CF14ACDF1E56E1A600DD081E /* UIColor+HNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HNExtensions.h"; sourceTree = "<group>"; };
 		CF14ACE01E56E1A600DD081E /* UIColor+HNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HNExtensions.m"; sourceTree = "<group>"; };
 		CF14ACE21E56E6D400DD081E /* LoginAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LoginAssets.xcassets; sourceTree = "<group>"; };
+		CF6B08AC1E5ED7CB00C7759C /* FindParkingVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindParkingVM.h; sourceTree = "<group>"; };
+		CF6B08AD1E5ED7CB00C7759C /* FindParkingVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindParkingVM.m; sourceTree = "<group>"; };
+		CF6B08AF1E5EDBD900C7759C /* NearbyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyModel.h; sourceTree = "<group>"; };
+		CF6B08B01E5EDBD900C7759C /* NearbyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyModel.m; sourceTree = "<group>"; };
+		CF6B08B21E5EDE9700C7759C /* NearByParkingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearByParkingListCell.h; sourceTree = "<group>"; };
+		CF6B08B31E5EDE9700C7759C /* NearByParkingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearByParkingListCell.m; sourceTree = "<group>"; };
+		CF6B08B41E5EDE9700C7759C /* NearByParkingListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearByParkingListCell.xib; sourceTree = "<group>"; };
 		CF9EFC831E5596B400B41160 /* MemberCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberCenterViewController.h; sourceTree = "<group>"; };
 		CF9EFC841E5596B400B41160 /* MemberCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberCenterViewController.m; sourceTree = "<group>"; };
 		CFAA4D151E56EFB900EE8953 /* UITextField+LimitLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+LimitLength.h"; sourceTree = "<group>"; };
@@ -280,6 +291,8 @@
 		CFC0043E1E5D3E640079DCE5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CF6B08AF1E5EDBD900C7759C /* NearbyModel.h */,
+				CF6B08B01E5EDBD900C7759C /* NearbyModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -290,6 +303,9 @@
 				CFC0045B1E5D8DFD0079DCE5 /* MapCarParkingCell.h */,
 				CFC0045C1E5D8DFD0079DCE5 /* MapCarParkingCell.m */,
 				CFC0045D1E5D8DFD0079DCE5 /* MapCarParkingCell.xib */,
+				CF6B08B21E5EDE9700C7759C /* NearByParkingListCell.h */,
+				CF6B08B31E5EDE9700C7759C /* NearByParkingListCell.m */,
+				CF6B08B41E5EDE9700C7759C /* NearByParkingListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -306,6 +322,8 @@
 		CFC004411E5D3E640079DCE5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CF6B08AC1E5ED7CB00C7759C /* FindParkingVM.h */,
+				CF6B08AD1E5ED7CB00C7759C /* FindParkingVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -737,6 +755,7 @@
 				D59C875E1E5B3A4C00D8AF84 /* MemberCenter.storyboard in Resources */,
 				CFCEBF641E5AF6C300593686 /* MemberCenter.xcassets in Resources */,
 				D52602DB1E5C8461007EA24D /* CarNumberCell.xib in Resources */,
+				CF6B08B61E5EDE9700C7759C /* NearByParkingListCell.xib in Resources */,
 				CFC0045A1E5D72EF0079DCE5 /* HomeAssets.xcassets in Resources */,
 				CF14ACE31E56E6D400DD081E /* LoginAssets.xcassets in Resources */,
 				D59C876E1E5B42D800D8AF84 /* CollectionCell.xib in Resources */,
@@ -812,9 +831,11 @@
 				D59C87691E5B428000D8AF84 /* CollectionViewController.m in Sources */,
 				CFCEBF5C1E5AC59000593686 /* LoginVM.m in Sources */,
 				D52602DE1E5C870D007EA24D /* DouDouButton.m in Sources */,
+				CF6B08AE1E5ED7CB00C7759C /* FindParkingVM.m in Sources */,
 				D52602DA1E5C8461007EA24D /* CarNumberCell.m in Sources */,
 				D52602E41E5C90AD007EA24D /* CustomCollectionView.m in Sources */,
 				D5348CD71E4CA3740007B9C7 /* CommonUtils.m in Sources */,
+				CF6B08B11E5EDBD900C7759C /* NearbyModel.m in Sources */,
 				D52602D61E5C83FE007EA24D /* CarNumberViewController.m in Sources */,
 				CFC004441E5D3E930079DCE5 /* FindParkingViewController.m in Sources */,
 				CFCBF1381E5C1F4B00D618BE /* NewsViewController.m in Sources */,
@@ -831,6 +852,7 @@
 				D59C87711E5B463000D8AF84 /* AboutViewController.m in Sources */,
 				D52802C71E4A1AE300ACB198 /* DouDouBaseViewController.m in Sources */,
 				CFAA4D171E56EFB900EE8953 /* UITextField+LimitLength.m in Sources */,
+				CF6B08B51E5EDE9700C7759C /* NearByParkingListCell.m in Sources */,
 				D52602CC1E5C732D007EA24D /* MonthCardCell.m in Sources */,
 				D59C87651E5B3AE600D8AF84 /* StopCarCell.m in Sources */,
 				CFCBF1351E5C1D2200D618BE /* JJSAdsView.m in Sources */,

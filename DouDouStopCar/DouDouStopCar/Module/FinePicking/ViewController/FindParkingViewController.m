@@ -9,12 +9,21 @@
 #import "FindParkingViewController.h"
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 #import "MapCarParkingCell.h"
+#import "FindParkingVM.h"
+#import "NearByParkingListCell.h"
+#import "NearbyModel.h"
 
-@interface FindParkingViewController ()<BMKMapViewDelegate>
+@interface FindParkingViewController ()<BMKMapViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic, strong) UIButton *rightBtn;
 @property (nonatomic, strong) BMKMapView *mapView;
 @property (nonatomic, strong) UIButton *cityButton;
 @property (nonatomic, strong) MapCarParkingCell *parkingView;
+
+@property (nonatomic, assign) BOOL isMapVisable;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *dataSource;
+
 @end
 
 @implementation FindParkingViewController
@@ -25,16 +34,17 @@
     
     [self.view addSubview:self.mapView];
     [self setNavigationView];
+    [self getNearByParkingData];
 }
 
 - (void)setNavigationView
 {
-    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightBtn.frame = CGRectMake(0, 7, 30, 30);
-    [rightBtn setImage:[UIImage imageNamed:@"find_parking_right"] forState:UIControlStateNormal];
-    [rightBtn setBackgroundColor:kHexColor(kColor_Mian)];
-    [rightBtn addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    self.rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.rightBtn.frame = CGRectMake(0, 7, 25, 30);
+    [self.rightBtn setImage:[UIImage imageNamed:@"find_parking_right"] forState:UIControlStateNormal];
+    [self.rightBtn setBackgroundColor:kHexColor(kColor_Mian)];
+    [self.rightBtn addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightBtn];
     self.navigationItem.rightBarButtonItem = rightItem;
     
     UIView *naviView = [[UIView alloc] initWithFrame:self.navigationController.navigationBar.bounds];
@@ -42,14 +52,14 @@
     self.navigationItem.titleView = naviView;
     
     self.cityButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.cityButton setFrame:CGRectMake(5, rightBtn.y, 60, 30)];
+    [self.cityButton setFrame:CGRectMake(5, self.rightBtn.y, 60, 30)];
     [self.cityButton setTitle:@"深圳" forState:UIControlStateNormal];
     [self.cityButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.cityButton setBackgroundColor:kHexColor(kColor_Mian)];
     [naviView addSubview:self.cityButton];
     
     NSLog(@"nav width - %f", self.navigationController.navigationBar.frame.size.width); // 宽度
-    UITextField *searchField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.cityButton.frame) + 10, rightBtn.y, self.navigationController.navigationBar.width - 180, 30)];
+    UITextField *searchField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.cityButton.frame) + 10, self.rightBtn.y, self.navigationController.navigationBar.width - 180, 30)];
     [searchField setPlaceholder:@"停车场名字、地点"];
     [searchField setBackgroundColor:[UIColor whiteColor]];
     searchField.clipsToBounds = YES;
@@ -73,6 +83,8 @@
     self.parkingView.layer.borderColor = [[UIColor groupTableViewBackgroundColor] CGColor];
     self.parkingView.layer.borderWidth = 0.5;
     [self.view addSubview:self.parkingView];
+    
+    self.isMapVisable = YES;
 }
 
 - (BMKMapView *)mapView
@@ -80,6 +92,15 @@
     _mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, 0, mScreenWidth, mScreenHeight - 64)];
     _mapView.delegate = self;
     return _mapView;
+}
+
+- (UITableView *)tableView
+{
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, mScreenWidth, mScreenHeight - 64) style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.tableFooterView = [UIView new];
+    return _tableView;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -100,7 +121,112 @@
 
 - (void)rightAction
 {
+    self.isMapVisable = !self.isMapVisable;
+    
+    if (!self.isMapVisable) {
+        
+        [self.rightBtn setImage:[UIImage imageNamed:@"find_parking_location"] forState:UIControlStateNormal];
+        
+        [UIView beginAnimations:@"doflip" context:nil];
+        
+        //设置时常
+        
+        [UIView setAnimationDuration:1];
+        
+        //设置动画淡入淡出
+        
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        
+        //设置代理
+        
+        [UIView setAnimationDelegate:self];
+        
+        //设置翻转方向
+        
+        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:NO];
+        
+        //动画结束
+        
+        [UIView commitAnimations];
+        
+        [self.view addSubview:self.tableView];
+    }else{
+        [self.rightBtn setImage:[UIImage imageNamed:@"find_parking_right"] forState:UIControlStateNormal];
+        
+        [UIView beginAnimations:@"doflip" context:nil];
+        
+        //设置时常
+        
+        [UIView setAnimationDuration:1];
+        
+        //设置动画淡入淡出
+        
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        
+        //设置代理
+        
+        [UIView setAnimationDelegate:self];
+        
+        //设置翻转方向
+        
+        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view cache:NO];
+        
+        //动画结束
+        
+        [UIView commitAnimations];
+        
+        [self.view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj isKindOfClass:[UITableView class]]) {
+                [obj removeFromSuperview];
+            }
+        }];
+    }
+}
 
+- (void)getNearByParkingData
+{
+    NSDictionary *params = @{@"latitude":@"22.61667",
+                             @"longitude":@"114.06667",
+                             @"keyword":@""};
+    [FindParkingVM getNearByParkingWithParameter:params completion:^(BOOL finish, id obj) {
+        if (finish) {
+            self.dataSource = [obj copy];
+            if (!self.tableView) {
+                [self.tableView reloadData];
+            }
+        }
+    }];
+}
+
+#pragma mark -
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataSource.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NearByParkingListCell *cell = [NearByParkingListCell cellForTableView:tableView];
+    
+    NearbyModel *model = [self.dataSource objectAtIndex:indexPath.row];
+    [cell refreshWithData:model];
+    cell.block = ^(){
+        //导航
+        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"baidumap://"]]){
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"baidumap://map/navi?location=40.057023, 116.307852&src=push&type=BLK&src=com.DouDouStopCar"]];
+        }
+    };
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning {
