@@ -51,6 +51,11 @@
 		CFCEBF5F1E5ACC7700593686 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCEBF5E1E5ACC7700593686 /* UserModel.m */; };
 		CFCEBF621E5AE5C200593686 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCEBF611E5AE5C200593686 /* NSString+MD5.m */; };
 		CFCEBF641E5AF6C300593686 /* MemberCenter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFCEBF631E5AF6C300593686 /* MemberCenter.xcassets */; };
+		CFD6558B1E5FDA230051A414 /* BaiduMapAPI_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD6558A1E5FDA230051A414 /* BaiduMapAPI_Utils.framework */; };
+		CFD6558E1E6014B00051A414 /* LocationCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD6558D1E6014B00051A414 /* LocationCityViewController.m */; };
+		CFD655911E6034550051A414 /* RFSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD655901E6034550051A414 /* RFSegmentView.m */; };
+		CFD655951E603CE50051A414 /* PrivilegeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD655931E603CE50051A414 /* PrivilegeCell.m */; };
+		CFD655961E603CE50051A414 /* PrivilegeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD655941E603CE50051A414 /* PrivilegeCell.xib */; };
 		D52602C81E5C72A5007EA24D /* MonthCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602C71E5C72A5007EA24D /* MonthCardViewController.m */; };
 		D52602CC1E5C732D007EA24D /* MonthCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602CA1E5C732D007EA24D /* MonthCardCell.m */; };
 		D52602CD1E5C732D007EA24D /* MonthCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D52602CB1E5C732D007EA24D /* MonthCardCell.xib */; };
@@ -153,6 +158,14 @@
 		CFCEBF601E5AE5C200593686 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		CFCEBF611E5AE5C200593686 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		CFCEBF631E5AF6C300593686 /* MemberCenter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MemberCenter.xcassets; sourceTree = "<group>"; };
+		CFD6558A1E5FDA230051A414 /* BaiduMapAPI_Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Utils.framework; sourceTree = "<group>"; };
+		CFD6558C1E6014B00051A414 /* LocationCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCityViewController.h; sourceTree = "<group>"; };
+		CFD6558D1E6014B00051A414 /* LocationCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCityViewController.m; sourceTree = "<group>"; };
+		CFD6558F1E6034550051A414 /* RFSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFSegmentView.h; sourceTree = "<group>"; };
+		CFD655901E6034550051A414 /* RFSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFSegmentView.m; sourceTree = "<group>"; };
+		CFD655921E603CE50051A414 /* PrivilegeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivilegeCell.h; sourceTree = "<group>"; };
+		CFD655931E603CE50051A414 /* PrivilegeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivilegeCell.m; sourceTree = "<group>"; };
+		CFD655941E603CE50051A414 /* PrivilegeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrivilegeCell.xib; sourceTree = "<group>"; };
 		D52602C61E5C72A5007EA24D /* MonthCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthCardViewController.h; sourceTree = "<group>"; };
 		D52602C71E5C72A5007EA24D /* MonthCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthCardViewController.m; sourceTree = "<group>"; };
 		D52602C91E5C732D007EA24D /* MonthCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthCardCell.h; sourceTree = "<group>"; };
@@ -219,6 +232,7 @@
 			files = (
 				CFC004561E5D66E80079DCE5 /* libstdc++.6.0.9.tbd in Frameworks */,
 				CFC004541E5D66DB0079DCE5 /* CoreTelephony.framework in Frameworks */,
+				CFD6558B1E5FDA230051A414 /* BaiduMapAPI_Utils.framework in Frameworks */,
 				CFC004521E5D66CF0079DCE5 /* libsqlite3.0.tbd in Frameworks */,
 				CFC004501E5D66C50079DCE5 /* Security.framework in Frameworks */,
 				CFC0044E1E5D66BC0079DCE5 /* CoreGraphics.framework in Frameworks */,
@@ -257,6 +271,7 @@
 		CFC0042F1E5D2D4A0079DCE5 /* BaiduMap_IOSSDK_v3.2.1_Lib */ = {
 			isa = PBXGroup;
 			children = (
+				CFD6558A1E5FDA230051A414 /* BaiduMapAPI_Utils.framework */,
 				CFC004571E5D675A0079DCE5 /* mapapi.bundle */,
 				CFC004301E5D2D4A0079DCE5 /* BaiduMapAPI_Base.framework */,
 				CFC004311E5D2D4A0079DCE5 /* BaiduMapAPI_Location.framework */,
@@ -315,6 +330,8 @@
 			children = (
 				CFC004421E5D3E930079DCE5 /* FindParkingViewController.h */,
 				CFC004431E5D3E930079DCE5 /* FindParkingViewController.m */,
+				CFD6558C1E6014B00051A414 /* LocationCityViewController.h */,
+				CFD6558D1E6014B00051A414 /* LocationCityViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -613,6 +630,11 @@
 				D52602D91E5C8461007EA24D /* CarNumberCell.xib */,
 				D52602E21E5C90AD007EA24D /* CustomCollectionView.h */,
 				D52602E31E5C90AD007EA24D /* CustomCollectionView.m */,
+				CFD6558F1E6034550051A414 /* RFSegmentView.h */,
+				CFD655901E6034550051A414 /* RFSegmentView.m */,
+				CFD655921E603CE50051A414 /* PrivilegeCell.h */,
+				CFD655931E603CE50051A414 /* PrivilegeCell.m */,
+				CFD655941E603CE50051A414 /* PrivilegeCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -761,6 +783,7 @@
 				D59C876E1E5B42D800D8AF84 /* CollectionCell.xib in Resources */,
 				D52602CD1E5C732D007EA24D /* MonthCardCell.xib in Resources */,
 				D528029E1E49F0C700ACB198 /* LaunchScreen.storyboard in Resources */,
+				CFD655961E603CE50051A414 /* PrivilegeCell.xib in Resources */,
 				D59C87661E5B3AE600D8AF84 /* StopCarCell.xib in Resources */,
 				CFCEBF4F1E5AB77A00593686 /* MessageTableViewCell.xib in Resources */,
 				CFC004581E5D675A0079DCE5 /* mapapi.bundle in Resources */,
@@ -838,6 +861,7 @@
 				CF6B08B11E5EDBD900C7759C /* NearbyModel.m in Sources */,
 				D52602D61E5C83FE007EA24D /* CarNumberViewController.m in Sources */,
 				CFC004441E5D3E930079DCE5 /* FindParkingViewController.m in Sources */,
+				CFD655951E603CE50051A414 /* PrivilegeCell.m in Sources */,
 				CFCBF1381E5C1F4B00D618BE /* NewsViewController.m in Sources */,
 				D52602C81E5C72A5007EA24D /* MonthCardViewController.m in Sources */,
 				CFCBF13B1E5C205E00D618BE /* HomeVM.m in Sources */,
@@ -864,10 +888,12 @@
 				D52602D01E5C7BF0007EA24D /* WalletViewController.m in Sources */,
 				CFCEBF4E1E5AB77A00593686 /* MessageTableViewCell.m in Sources */,
 				D5AF80EC1E4B4C70006C7AF3 /* DouDouLoginViewController.m in Sources */,
+				CFD6558E1E6014B00051A414 /* LocationCityViewController.m in Sources */,
 				CFAA4D1A1E57021E00EE8953 /* DouDouForgetViewController.m in Sources */,
 				D52602E11E5C90A0007EA24D /* AddCarNumberViewController.m in Sources */,
 				CFCEBF5F1E5ACC7700593686 /* UserModel.m in Sources */,
 				D52802CA1E4A1AF900ACB198 /* DouDouBaseTableViewController.m in Sources */,
+				CFD655911E6034550051A414 /* RFSegmentView.m in Sources */,
 				CF9EFC851E5596B400B41160 /* MemberCenterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
