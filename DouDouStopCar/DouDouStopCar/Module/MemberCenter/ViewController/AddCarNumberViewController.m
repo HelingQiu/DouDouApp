@@ -8,6 +8,7 @@
 
 #import "AddCarNumberViewController.h"
 #import "CustomCollectionView.h"
+#import "MemberCenterVM.h"
 
 @interface AddCarNumberViewController ()<UITextFieldDelegate>
 {
@@ -26,11 +27,43 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.navigationItem.title = @"添加车牌";
     _labelArray = [[NSMutableArray alloc] initWithCapacity:0];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.extendedLayoutIncludesOpaqueBars = NO;
     [self addCarView];
+    [self setRightButton];
+}
+
+- (void)setRightButton
+{
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightButton.frame = CGRectMake(0, 7, 25, 30);
+    [rightButton setTitle:@"提交" forState:UIControlStateNormal];
+    [rightButton setBackgroundColor:kHexColor(kColor_Mian)];
+    [rightButton addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+- (void)rightAction
+{
+    if (_carNumStr.length == 7) {
+        //提交车牌
+        NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouUserId];
+        NSDictionary *params = @{@"userId":userId?:@"",
+                                 @"plateNumber":_carNumStr};
+        
+        [MemberCenterVM addCarNumberWithParameter:params completion:^(BOOL finish, id obj) {
+            if (finish) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }];
+    }else{
+        [CommonUtils showHUDWithMessage:@"请输入正确车牌号" autoHide:YES];
+        return;
+    }
 }
 
 - (void)addCarView

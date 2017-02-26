@@ -29,6 +29,18 @@
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[self rdv_tabBarController] setTabBarHidden:NO];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[self rdv_tabBarController] setTabBarHidden:YES];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [self.tableView setFrame:CGRectMake(0, 64, mScreenWidth, mScreenHeight - 49 - 64)];

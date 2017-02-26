@@ -64,4 +64,30 @@
  */
 #define GetNearParkingApi [NSString stringWithFormat:@"%@%@",Host,@"/parking/nearbyParking"]
 
+/*
+ 个人信息
+ */
+#define GetPersonInfoApi [NSString stringWithFormat:@"%@%@",Host,@"/my/personInfo"]
+
+/*
+ 停车记录
+ */
+#define GetParkingRecordApi [NSString stringWithFormat:@"%@%@",Host,@"/my/parkingRecordList"]
+
+/*
+ 获取绑定车辆
+ */
+#define GetCarListApi [NSString stringWithFormat:@"%@%@",Host,@"/car/carList"]
+
+/*
+ 添加车牌
+ */
+#define AddCarApi [NSString stringWithFormat:@"%@%@",Host,@"/car/addCar"]
+
+//获取优惠劵列表
+#define GetRechargeApi [NSString stringWithFormat:@"%@%@",Host,@"/conpon/recharge"]
+
+//消费明细
+#define GetWalletRecordApi [NSString stringWithFormat:@"%@%@",Host,@"/my/myWallet"]
+
 #endif /* AppWebServiceUrl_h */

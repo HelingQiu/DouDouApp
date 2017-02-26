@@ -8,8 +8,12 @@
 
 #import "StopRecordViewController.h"
 #import "StopCarCell.h"
+#import "MemberCenterVM.h"
+#import "ParkingRecordModel.h"
 
 @interface StopRecordViewController ()
+
+@property (nonatomic, strong) NSArray *dataSource;
 
 @end
 
@@ -25,9 +29,25 @@
     // Do any additional setup after loading the view.
     
     self.navigationItem.title = @"停车记录";
+    self.tableView.tableFooterView = [UIView new];
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self getParkingRecord];
 }
 
+- (void)getParkingRecord
+{
+    NSDictionary *params = @{@"page":@"1"};
+    [MemberCenterVM getParkingRecordWithParameter:params completion:^(BOOL finish, id obj) {
+        if (finish) {
+            self.dataSource = [obj copy];
+            [self.tableView reloadData];
+        }
+    }];
+}
+
+#pragma mark -
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return 1;
@@ -35,7 +55,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return self.dataSource.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -46,6 +66,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     StopCarCell *cell = [StopCarCell cellForTableView:tableView];
+    
+    ParkingRecordModel *model = [self.dataSource objectAtIndex:indexPath.row];
+    [cell refreshDataWith:model];
+    
     return cell;
 }
 

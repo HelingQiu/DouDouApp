@@ -18,7 +18,7 @@
         [CommonUtils hideHUD];
         
         NSLog(@"near by parking %@",data);
-        if ([[data objectForKey:@"resultCode"] boolValue]) {
+        if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
             NSMutableArray *resultArray = [NSMutableArray arrayWithCapacity:0];
             NSArray *dataArray = [[data objectForKey:@"data"] objectForKey:@"list"];
             [dataArray enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

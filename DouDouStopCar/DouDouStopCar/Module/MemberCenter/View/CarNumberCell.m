@@ -20,6 +20,11 @@
     return cell;
 }
 
+- (void)refreshDataWith:(PlateNumberModel *)model
+{
+    [self.labCarNumber setText:model.plateNumber];
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

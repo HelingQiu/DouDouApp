@@ -10,10 +10,13 @@
 #import "CarNumberCell.h"
 #import "DouDouButton.h"
 #import "AddCarNumberViewController.h"
+#import "MemberCenterVM.h"
+#import "ParkingRecordModel.h"
 
 @interface CarNumberViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *dataSource;
 
 @end
 
@@ -25,22 +28,24 @@
     
     self.navigationItem.title = @"我的车辆";
     
-    [self.view addSubview:self.tableView];
     [self setConfigView];
 }
 
-- (UITableView *)tableView
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self getCarListData];
+}
+
+- (void)setConfigView
 {
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, mScreenWidth, mScreenHeight - 64 - 60) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.tableFooterView = [UIView new];
     _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    return _tableView;
-}
-
-- (void)setConfigView
-{
+    [self.view addSubview:_tableView];
+    
     DouDouButton *button = [DouDouButton buttonWithType:UIButtonTypeCustom];
     [button setFrame:CGRectMake(0, mScreenHeight - 60 - 64, mScreenWidth, 60)];
     [button setImageViewRect:CGRectMake(mScreenWidth/2 - 60, 15, 30, 30)];
@@ -59,27 +64,49 @@
     [self.navigationController pushViewController:addCarController animated:YES];
 }
 
+- (void)getCarListData
+{
+    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouUserId];
+    NSDictionary *params = @{@"userId":userId?:@""};
+    [MemberCenterVM getCarListWithParameter:params completion:^(BOOL finish, id obj) {
+        if (finish) {
+            self.dataSource = [obj copy];
+            [self.tableView reloadData];
+        }
+    }];
+}
+
 #pragma mark -
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 1;
+    return self.dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 10;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 120;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CarNumberCell *cell = [CarNumberCell cellForTableView:tableView];
+    PlateNumberModel *model = [self.dataSource objectAtIndex:indexPath.section];
+    [cell refreshDataWith:model];
+    
     return cell;
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

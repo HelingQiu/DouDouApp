@@ -26,9 +26,12 @@
 #define kColor_Mian @"#88c55e"
 #define kColor_Back @"#ffffff"
 #define kColor_Gray @"#cfcece"
+#define kColor_Text @"#bbbbbb"
 
 typedef void (^CompletionWithObjectBlock) (BOOL finish, id obj);
 
-#define kDouDouUserInfo @"userInfo"
+#define kDouDouUserId @"userId"
+#define kDouDouPassWord @"password"
+#define kDouDouToken @"token"
 
 #endif /* AppDefine_h */

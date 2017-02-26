@@ -20,6 +20,20 @@
     return cell;
 }
 
+- (void)refreshDataWith:(ParkingRecordModel *)model
+{
+    [self.labTitle setText:model.parkingName];
+    [self.labPlate setText:model.plateNumber];
+    [self.labInTime setText:[NSString stringWithFormat:@"进场时间：%@",model.inDate]];
+    [self.labTime setText:model.outDate];
+    [self.labPay setText:[NSString stringWithFormat:@"%@元",model.amount]];
+    if (model.payType == 1) {
+        [self.rightView setImage:[UIImage imageNamed:@"record_cash"]];
+    }else if (model.payType == 2) {
+        [self.rightView setImage:[UIImage imageNamed:@"record_wallet"]];
+    }
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

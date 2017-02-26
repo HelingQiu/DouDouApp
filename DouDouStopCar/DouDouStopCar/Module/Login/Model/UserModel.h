@@ -10,12 +10,12 @@
 
 @interface UserModel : NSObject
 
-@property (nonatomic , copy) NSString *userId;
-@property (nonatomic , copy) NSString *password;
-@property (nonatomic , copy) NSString *token;
-@property (nonatomic ,assign) BOOL isLogin;
+@property (nonatomic , strong) NSString *userId;
+@property (nonatomic , strong) NSString *password;
+@property (nonatomic , strong) NSString *token;
+//@property (nonatomic ,assign) BOOL isLogin;
 
-+ (UserModel *)sharedInstance;
-- (void)reset;
+//+ (UserModel *)sharedInstance;
+//- (void)reset;
 
 @end

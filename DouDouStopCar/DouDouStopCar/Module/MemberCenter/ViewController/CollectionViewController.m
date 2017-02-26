@@ -20,14 +20,20 @@
     return [[UIStoryboard storyboardWithName:@"MemberCenter" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"CollectionVC"];
 }
 
+#pragma mark -
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 1;
+    return 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -44,6 +50,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.navigationItem.title = @"我的收藏";
+    self.tableView.tableFooterView = [UIView new];
+    self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)didReceiveMemoryWarning {

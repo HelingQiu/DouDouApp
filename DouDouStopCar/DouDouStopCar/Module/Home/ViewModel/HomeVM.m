@@ -17,7 +17,7 @@
     [[DouDouNetworking sharedInstance] getDataFromParams:parameter forUrl:GetAdsApi isJson:YES isAuthorizationHeader:NO headerParamers:nil finished:^(NSDictionary *data) {
         [CommonUtils hideHUD];
         NSLog(@"get ads :%@",data);
-        if ([[data objectForKey:@"resultCode"] boolValue]) {
+        if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
             NSMutableArray *resultArray = [NSMutableArray arrayWithCapacity:0];
             NSArray *dataArray = [[data objectForKey:@"data"] objectForKey:@"list"];
             [dataArray enumerateObjectsUsingBlock:^(NSDictionary  * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

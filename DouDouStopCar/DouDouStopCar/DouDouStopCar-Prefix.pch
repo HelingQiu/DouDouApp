@@ -22,6 +22,7 @@
 #import "UIColor+HNExtensions.h"
 #import "NSString+MD5.h"
 #import "UIView+Frame.h"
+#import "LoginSimpleton.h"
 #import <JVFloatLabeledTextField/JVFloatLabeledTextField.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJExtension/MJExtension.h>

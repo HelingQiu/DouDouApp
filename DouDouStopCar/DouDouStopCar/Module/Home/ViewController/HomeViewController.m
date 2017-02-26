@@ -38,6 +38,12 @@
     [[self rdv_tabBarController] setTabBarHidden:NO];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[self rdv_tabBarController] setTabBarHidden:YES];
+}
+
 //获取广告图片
 - (void)getAdsData
 {

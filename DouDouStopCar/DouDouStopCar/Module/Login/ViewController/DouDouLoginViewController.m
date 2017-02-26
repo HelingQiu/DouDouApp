@@ -28,6 +28,14 @@
     // Do any additional setup after loading the view.
     
     [self setConfig];
+    [self.backBtn addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)goBack:(UIButton *)sender
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 - (void)setConfig
@@ -69,7 +77,9 @@
     [LoginVM loginWithParameter:params completion:^(BOOL finish, id obj) {
         if (finish) {
             //登录成功
-            
+            [self dismissViewControllerAnimated:YES completion:^{
+                
+            }];
         }
     }];
 }

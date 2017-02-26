@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ParkingRecordModel.h"
 
 @interface CarNumberCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *labCarNumber;
 + (CarNumberCell *)cellForTableView:(UITableView *)tableView;
+- (void)refreshDataWith:(PlateNumberModel *)model;
 
 @end

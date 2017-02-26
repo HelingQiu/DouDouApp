@@ -6,32 +6,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DouDouStopCar/Module/MemberCenter/ViewController/AddCarNumberViewController.m"
-            timestampString = "509384434.841565"
+            filePath = "DouDouStopCar/Module/MemberCenter/ViewController/PrivilegeViewController.m"
+            timestampString = "509793027.313719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "-createCustomView"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DouDouStopCar/Module/MemberCenter/ViewController/AddCarNumberViewController.m"
-            timestampString = "509384969.735159"
+            filePath = "DouDouStopCar/Module/MemberCenter/ViewController/PrivilegeViewController.m"
+            timestampString = "509793027.313719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "-createCustomView"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

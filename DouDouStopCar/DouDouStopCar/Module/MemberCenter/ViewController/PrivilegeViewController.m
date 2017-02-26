@@ -9,10 +9,16 @@
 #import "PrivilegeViewController.h"
 #import "RFSegmentView.h"
 #import "PrivilegeCell.h"
+#import "MemberCenterVM.h"
+#import "ParkingRecordModel.h"
 
 @interface PrivilegeViewController ()<RFSegmentViewDelegate>
 
 @property (nonatomic, strong) RFSegmentView* segmentView;
+
+@property (nonatomic, assign) NSInteger selectIndex;
+@property (nonatomic, strong) NSArray *leftArray;
+@property (nonatomic, strong) NSArray *rightArray;
 
 @end
 
@@ -26,15 +32,19 @@
     self.tableView.tableFooterView = [UIView new];
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.selectIndex = 0;
+    [self getRechargeInfo];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.segmentView = [[RFSegmentView alloc] initWithFrame:CGRectMake(50, 7, mScreenWidth - 100, 30) items:@[@"优惠券",@"停车劵"]];
+    self.segmentView = [[RFSegmentView alloc] initWithFrame:CGRectMake(mScreenWidth/2 - 80, 7, 200, 30) items:@[@"优惠券",@"停车劵"]];
     self.segmentView.tintColor = kHexColor(@"#ffba07");
     self.segmentView.delegate = self;
     [self.navigationController.navigationBar addSubview:self.segmentView];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -47,7 +57,44 @@
 - (void)segmentViewSelectIndex:(NSInteger)index
 {
     NSLog(@"current index is %ld",(long)index);
-    
+    self.selectIndex = index;
+    if (self.selectIndex == 1) {
+        if (!self.rightArray.count) {
+            [self getStopCarchargeInfo];
+        }else{
+            [self.tableView reloadData];
+        }
+    }else{
+        [self.tableView reloadData];
+    }
+}
+
+- (void)getRechargeInfo
+{
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+    NSDictionary *params = @{@"couponType":@"0",
+                             @"page":@"1",
+                             @"token":token};
+    [MemberCenterVM getRechargeListWithParameter:params completion:^(BOOL finish, id obj) {
+        if (finish) {
+            self.leftArray = [obj copy];
+            [self.tableView reloadData];
+        }
+    }];
+}
+
+- (void)getStopCarchargeInfo
+{
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+    NSDictionary *params = @{@"couponType":@"1",
+                             @"page":@"1",
+                             @"token":token};
+    [MemberCenterVM getRechargeListWithParameter:params completion:^(BOOL finish, id obj) {
+        if (finish) {
+            self.rightArray = [obj copy];
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 #pragma mark -
@@ -58,7 +105,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    if (self.selectIndex == 1) {
+        return self.rightArray.count;
+    }
+    return self.leftArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,30 +118,60 @@
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
 {
-    return 14;
+    return 30;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mScreenWidth, 14)];
+    if (self.selectIndex == 0) {
+        if (!self.leftArray.count) {
+            return nil;
+        }
+    }
+    if (self.selectIndex == 1) {
+        if (!self.rightArray.count) {
+            return nil;
+        }
+    }
+    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mScreenWidth, 30)];
     [headView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(mScreenWidth - 70, 2, 10, 10)];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(mScreenWidth - 80, 7, 16, 16)];
     [imgView setImage:[UIImage imageNamed:@"privilege_help"]];
     [headView addSubview:imgView];
     
-    UILabel *labTip = [[UILabel alloc] initWithFrame:CGRectMake(mScreenWidth - 60, 0, 50, 14)];
-    [labTip setFont:[UIFont systemFontOfSize:10]];
+    UILabel *labTip = [[UILabel alloc] initWithFrame:CGRectMake(mScreenWidth - 60, 7, 50, 16)];
+    [labTip setFont:[UIFont systemFontOfSize:12]];
     [labTip setTextColor:kHexColor(@"#bbbbbb")];
     [labTip setText:@"使用规则"];
+    [labTip setUserInteractionEnabled:YES];
     [headView addSubview:labTip];
+    
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(usePolicyAction:)];
+    [labTip addGestureRecognizer:recognizer];
+    
     return headView;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PrivilegeCell *cell = [PrivilegeCell cellForTableView:tableView];
+    
+    if (self.selectIndex == 0) {
+        RechargeModel *model = [self.leftArray objectAtIndex:indexPath.row];
+        [cell refreshDataWith:model];
+    }else{
+        RechargeModel *model = [self.rightArray objectAtIndex:indexPath.row];
+        [cell refreshDataWith:model];
+    }
+    
     return cell;
+}
+
+//使用规则
+- (void)usePolicyAction:(UITapGestureRecognizer *)recognizer
+{
+
 }
 
 - (void)didReceiveMemoryWarning {

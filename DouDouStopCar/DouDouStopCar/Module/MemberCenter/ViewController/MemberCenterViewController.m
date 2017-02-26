@@ -14,11 +14,16 @@
 #import "StopRecordViewController.h"
 #import "CollectionViewController.h"
 #import "AboutViewController.h"
+#import "MemberCenterVM.h"
+#import "UserModel.h"
+#import "DouDouBaseNavigationController.h"
+#import "PersonModel.h"
 
 @interface MemberCenterViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *headView;
 @property (weak, nonatomic) IBOutlet UILabel *labName;
 @property (weak, nonatomic) IBOutlet UILabel *labPhone;
+@property (weak, nonatomic) IBOutlet UILabel *labUnlogined;
 
 @property (weak, nonatomic) IBOutlet UILabel *labMoney;
 @property (weak, nonatomic) IBOutlet UILabel *labLeft;
@@ -41,12 +46,21 @@
     self.navigationItem.title = @"我的";
     [self.backBtn setHidden:YES];
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [[UINavigationBar appearance]  setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO];
+    [self setMemberData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[self rdv_tabBarController] setTabBarHidden:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -55,26 +69,68 @@
     [[[UIApplication sharedApplication] keyWindow] setBackgroundColor:kHexColor(kColor_Back)];
 }
 
+- (void)setMemberData
+{
+    [self getPersonInfo];
+    if ([LoginSimpleton shareInstance].isLogined) {
+        [self getPersonInfo];
+    }else{
+        [self.labName setHidden:YES];
+        [self.labPhone setHidden:YES];
+        [self.labUnlogined setHidden:NO];
+        [self.headView setImage:[UIImage imageNamed:@"member_head_default"]];
+    }
+}
+
+- (void)getPersonInfo
+{
+    [MemberCenterVM getPersonInfoWithParameter:nil completion:^(BOOL finish, id obj) {
+        if (finish) {
+            PersonModel *model = obj;
+            [self.labName setHidden:NO];
+            [self.labPhone setHidden:NO];
+            [self.labUnlogined setHidden:YES];
+            [self.labName setText:model.name];
+            [self.labPhone setText:model.name];
+            [self.labMoney setText:[NSString stringWithFormat:@"%@元",model.balance]];
+            [self.labLeft setText:[NSString stringWithFormat:@"%@张",model.couponCount]];
+            [self.labRight setText:[NSString stringWithFormat:@"%@张",model.monthCardCount]];
+            [self.headView sd_setImageWithURL:[NSURL URLWithString:model.portraitUrl] placeholderImage:[UIImage imageNamed:@"member_head_default"]];
+        }else{
+            [self.labName setHidden:YES];
+            [self.labPhone setHidden:YES];
+            [self.labUnlogined setHidden:NO];
+            [self.headView setImage:[UIImage imageNamed:@"member_head_default"]];
+        }
+    }];
+}
+
 - (IBAction)leftAction:(UIButton *)sender
 {
     PrivilegeViewController *privilegeController = [[PrivilegeViewController alloc] init];
-    [[self rdv_tabBarController] setTabBarHidden:YES];
     [self.navigationController pushViewController:privilegeController animated:YES];
 }
 
 - (IBAction)rightAction:(UIButton *)sender
 {
     MonthCardViewController *monthController = [[MonthCardViewController alloc] init];
-    [[self rdv_tabBarController] setTabBarHidden:YES];
     [self.navigationController pushViewController:monthController animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [[self rdv_tabBarController] setTabBarHidden:YES];
     if (indexPath.section == 0) {
-        if (indexPath.row == 1) {
+        if (indexPath.row == 0) {
+            if ([LoginSimpleton shareInstance].isLogined) {
+            
+            }else{
+                DouDouBaseNavigationController *loginNavController =[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
+                [self presentViewController:loginNavController animated:YES completion:^{
+                    
+                }];
+            }
+        }else if (indexPath.row == 1) {
             WalletViewController *waletController = [[WalletViewController alloc] init];
             [self.navigationController pushViewController:waletController animated:YES];
         }

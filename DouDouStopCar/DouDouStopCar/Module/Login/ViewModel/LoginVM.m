@@ -17,24 +17,19 @@
     [[DouDouNetworking sharedInstance] requestDataFromWSWithParams:parameter forPath:LoginApi isJson:YES isPrivate:NO isAuthorizationHeader:NO headerParamers:nil finished:^(NSDictionary *data) {
         NSLog(@"login data:%@",data);
         
-        if ([[data objectForKey:@"resultCode"] boolValue]) {
+        if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
             NSString *userId = [parameter objectForKey:@"userId"];
             NSString *password = [parameter objectForKey:@"password"];
             NSString *token = [[data objectForKey:@"data"] objectForKey:@"token"]?:@"";
-            [UserModel sharedInstance].userId = userId;
-            [UserModel sharedInstance].password = password;
-            [UserModel sharedInstance].token = token;
             
-            [CommonUtils storageDataWithObject:[NSKeyedArchiver archivedDataWithRootObject:[UserModel sharedInstance]] Key:kDouDouUserInfo Completion:^(BOOL finish, id obj) {
-                if (finish){
-                    [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
-                    [UserModel sharedInstance].isLogin = YES;
-                    completion(YES, [data objectForKey:@"resultMsg"]);
-                }else {
-                    [[UserModel sharedInstance] reset];
-                    [CommonUtils changeHUDMessage:@"存储信息过程中发生错误，请重新尝试"];
-                }
-            }];
+            [[NSUserDefaults standardUserDefaults] setObject:userId forKey:kDouDouUserId];
+            [[NSUserDefaults standardUserDefaults] setObject:password forKey:kDouDouPassWord];
+            [[NSUserDefaults standardUserDefaults] setObject:token forKey:kDouDouToken];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
+            completion(YES, [data objectForKey:@"resultMsg"]);
+            
         }else{
             [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
             completion(NO, data);
@@ -51,7 +46,7 @@
     [[DouDouNetworking sharedInstance] requestDataFromWSWithParams:parameter forPath:SendCodeApi isJson:YES isPrivate:NO isAuthorizationHeader:NO headerParamers:nil finished:^(NSDictionary *data) {
         NSLog(@"sendCode data:%@",data);
         
-        if ([[data objectForKey:@"resultCode"] boolValue]) {
+        if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
             
             [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
             completion(YES, [data objectForKey:@"resultMsg"]);
@@ -73,7 +68,7 @@
     [[DouDouNetworking sharedInstance] requestDataFromWSWithParams:parameter forPath:RegistApi isJson:YES isPrivate:NO isAuthorizationHeader:NO headerParamers:nil finished:^(NSDictionary *data) {
         NSLog(@"regist data:%@",data);
         
-        if ([[data objectForKey:@"resultCode"] boolValue]) {
+        if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
             
             [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
             completion(YES, [data objectForKey:@"resultMsg"]);
@@ -95,7 +90,7 @@
     [[DouDouNetworking sharedInstance] requestDataFromWSWithParams:parameter forPath:FinePasswordApi isJson:YES isPrivate:NO isAuthorizationHeader:NO headerParamers:nil finished:^(NSDictionary *data) {
         NSLog(@"find pw data:%@",data);
         
-        if ([[data objectForKey:@"resultCode"] boolValue]) {
+        if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
             
             [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
             completion(YES, [data objectForKey:@"resultMsg"]);

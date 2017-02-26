@@ -12,10 +12,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="CarNumberCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="座驾牌照" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcF-Cf-OK5">
@@ -27,23 +27,51 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hOu-fJ-Kzx">
-                        <rect key="frame" x="60" y="41" width="200" height="48.5"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carnumber" translatesAutoresizingMaskIntoConstraints="NO" id="hOu-fJ-Kzx">
+                        <rect key="frame" x="60" y="47" width="200" height="62"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="200" id="LEm-cn-FVd"/>
                         </constraints>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gmn-ch-ruY">
+                        <rect key="frame" x="0.0" y="36" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.72941176470000002" green="0.72941176470000002" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="33e-cY-G00"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhH-Bv-EUl">
+                        <rect key="frame" x="75" y="57" width="170" height="42.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="170" id="3N2-kz-2nJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Gmn-ch-ruY" firstAttribute="top" secondItem="WcF-Cf-OK5" secondAttribute="bottom" constant="5" id="3Ox-ec-9Mw"/>
+                    <constraint firstAttribute="bottom" secondItem="RhH-Bv-EUl" secondAttribute="bottom" constant="20" id="CpZ-z8-jde"/>
+                    <constraint firstItem="hOu-fJ-Kzx" firstAttribute="top" secondItem="Gmn-ch-ruY" secondAttribute="bottom" constant="10" id="Muv-At-NII"/>
+                    <constraint firstItem="RhH-Bv-EUl" firstAttribute="centerX" secondItem="hOu-fJ-Kzx" secondAttribute="centerX" id="Nmp-1L-2Rq"/>
                     <constraint firstAttribute="bottom" secondItem="hOu-fJ-Kzx" secondAttribute="bottom" constant="10" id="T6H-xy-TOJ"/>
                     <constraint firstItem="WcF-Cf-OK5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="UH0-Sp-s0Z"/>
                     <constraint firstAttribute="trailing" secondItem="WcF-Cf-OK5" secondAttribute="trailing" constant="10" id="Xtl-U2-hRS"/>
+                    <constraint firstItem="Gmn-ch-ruY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dLH-3Z-H7Y"/>
                     <constraint firstItem="hOu-fJ-Kzx" firstAttribute="centerX" secondItem="WcF-Cf-OK5" secondAttribute="centerX" id="dMF-Kc-EsF"/>
+                    <constraint firstItem="RhH-Bv-EUl" firstAttribute="top" secondItem="Gmn-ch-ruY" secondAttribute="bottom" constant="20" id="fPp-XS-ERx"/>
                     <constraint firstItem="WcF-Cf-OK5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="iaG-fl-aZ1"/>
-                    <constraint firstItem="hOu-fJ-Kzx" firstAttribute="top" secondItem="WcF-Cf-OK5" secondAttribute="bottom" constant="10" id="oYI-Cg-X9G"/>
+                    <constraint firstAttribute="trailing" secondItem="Gmn-ch-ruY" secondAttribute="trailing" id="oR2-KD-zXe"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="32" y="54.5"/>
+            <connections>
+                <outlet property="labCarNumber" destination="RhH-Bv-EUl" id="8T2-ue-prg"/>
+            </connections>
+            <point key="canvasLocation" x="32" y="54"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="carnumber" width="280" height="80"/>
+    </resources>
 </document>
