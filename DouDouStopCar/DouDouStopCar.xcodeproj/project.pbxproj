@@ -15,6 +15,13 @@
 		CF6B08B11E5EDBD900C7759C /* NearbyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6B08B01E5EDBD900C7759C /* NearbyModel.m */; };
 		CF6B08B51E5EDE9700C7759C /* NearByParkingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6B08B31E5EDE9700C7759C /* NearByParkingListCell.m */; };
 		CF6B08B61E5EDE9700C7759C /* NearByParkingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6B08B41E5EDE9700C7759C /* NearByParkingListCell.xib */; };
+		CF9BBC591E63CD0B0005CD20 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF9BBC541E63CD0B0005CD20 /* libWeChatSDK.a */; };
+		CF9BBC5A1E63CD0B0005CD20 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = CF9BBC551E63CD0B0005CD20 /* README.txt */; };
+		CF9BBC5E1E63CD160005CD20 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CF9BBC5C1E63CD160005CD20 /* AlipaySDK.bundle */; };
+		CF9BBC5F1E63CD160005CD20 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF9BBC5D1E63CD160005CD20 /* AlipaySDK.framework */; };
+		CF9BBC611E63D17C0005CD20 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CF9BBC601E63D17C0005CD20 /* libc++.tbd */; };
+		CF9BBC631E63D1840005CD20 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CF9BBC621E63D1840005CD20 /* libz.tbd */; };
+		CF9BBC651E63D19B0005CD20 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF9BBC641E63D19B0005CD20 /* CoreMotion.framework */; };
 		CF9EFC851E5596B400B41160 /* MemberCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EFC841E5596B400B41160 /* MemberCenterViewController.m */; };
 		CFAA4D171E56EFB900EE8953 /* UITextField+LimitLength.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA4D161E56EFB900EE8953 /* UITextField+LimitLength.m */; };
 		CFAA4D1A1E57021E00EE8953 /* DouDouForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA4D191E57021E00EE8953 /* DouDouForgetViewController.m */; };
@@ -115,6 +122,16 @@
 		CF6B08B21E5EDE9700C7759C /* NearByParkingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearByParkingListCell.h; sourceTree = "<group>"; };
 		CF6B08B31E5EDE9700C7759C /* NearByParkingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearByParkingListCell.m; sourceTree = "<group>"; };
 		CF6B08B41E5EDE9700C7759C /* NearByParkingListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearByParkingListCell.xib; sourceTree = "<group>"; };
+		CF9BBC541E63CD0B0005CD20 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		CF9BBC551E63CD0B0005CD20 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		CF9BBC561E63CD0B0005CD20 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		CF9BBC571E63CD0B0005CD20 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		CF9BBC581E63CD0B0005CD20 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		CF9BBC5C1E63CD160005CD20 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		CF9BBC5D1E63CD160005CD20 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		CF9BBC601E63D17C0005CD20 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		CF9BBC621E63D1840005CD20 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		CF9BBC641E63D19B0005CD20 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		CF9EFC831E5596B400B41160 /* MemberCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberCenterViewController.h; sourceTree = "<group>"; };
 		CF9EFC841E5596B400B41160 /* MemberCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberCenterViewController.m; sourceTree = "<group>"; };
 		CFAA4D151E56EFB900EE8953 /* UITextField+LimitLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+LimitLength.h"; sourceTree = "<group>"; };
@@ -259,8 +276,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF9BBC651E63D19B0005CD20 /* CoreMotion.framework in Frameworks */,
+				CF9BBC631E63D1840005CD20 /* libz.tbd in Frameworks */,
+				CF9BBC611E63D17C0005CD20 /* libc++.tbd in Frameworks */,
 				CFC004561E5D66E80079DCE5 /* libstdc++.6.0.9.tbd in Frameworks */,
 				CFC004541E5D66DB0079DCE5 /* CoreTelephony.framework in Frameworks */,
+				CF9BBC5F1E63CD160005CD20 /* AlipaySDK.framework in Frameworks */,
+				CF9BBC591E63CD0B0005CD20 /* libWeChatSDK.a in Frameworks */,
 				CFD6558B1E5FDA230051A414 /* BaiduMapAPI_Utils.framework in Frameworks */,
 				CFC004521E5D66CF0079DCE5 /* libsqlite3.0.tbd in Frameworks */,
 				CFC004501E5D66C50079DCE5 /* Security.framework in Frameworks */,
@@ -297,6 +319,27 @@
 				D582E2041E63397800B0A28D /* UIImage+ColorAtPixel.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		CF9BBC531E63CD0B0005CD20 /* WechatPaySDK */ = {
+			isa = PBXGroup;
+			children = (
+				CF9BBC541E63CD0B0005CD20 /* libWeChatSDK.a */,
+				CF9BBC551E63CD0B0005CD20 /* README.txt */,
+				CF9BBC561E63CD0B0005CD20 /* WechatAuthSDK.h */,
+				CF9BBC571E63CD0B0005CD20 /* WXApi.h */,
+				CF9BBC581E63CD0B0005CD20 /* WXApiObject.h */,
+			);
+			path = WechatPaySDK;
+			sourceTree = "<group>";
+		};
+		CF9BBC5B1E63CD160005CD20 /* AliPaySDK */ = {
+			isa = PBXGroup;
+			children = (
+				CF9BBC5C1E63CD160005CD20 /* AlipaySDK.bundle */,
+				CF9BBC5D1E63CD160005CD20 /* AlipaySDK.framework */,
+			);
+			path = AliPaySDK;
 			sourceTree = "<group>";
 		};
 		CFC0042F1E5D2D4A0079DCE5 /* BaiduMap_IOSSDK_v3.2.1_Lib */ = {
@@ -425,6 +468,8 @@
 		D52802BE1E4A19B900ACB198 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				CF9BBC5B1E63CD160005CD20 /* AliPaySDK */,
+				CF9BBC531E63CD0B0005CD20 /* WechatPaySDK */,
 				CFC0042F1E5D2D4A0079DCE5 /* BaiduMap_IOSSDK_v3.2.1_Lib */,
 			);
 			path = Library;
@@ -501,6 +546,9 @@
 		D56A88F7182A652FE14923A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF9BBC641E63D19B0005CD20 /* CoreMotion.framework */,
+				CF9BBC621E63D1840005CD20 /* libz.tbd */,
+				CF9BBC601E63D17C0005CD20 /* libc++.tbd */,
 				CFC004551E5D66E80079DCE5 /* libstdc++.6.0.9.tbd */,
 				CFC004531E5D66DB0079DCE5 /* CoreTelephony.framework */,
 				CFC004511E5D66CF0079DCE5 /* libsqlite3.0.tbd */,
@@ -796,6 +844,7 @@
 					D528028A1E49F0C600ACB198 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 8MUA9S3748;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -826,12 +875,14 @@
 				CFCEBF641E5AF6C300593686 /* MemberCenter.xcassets in Resources */,
 				D52602DB1E5C8461007EA24D /* CarNumberCell.xib in Resources */,
 				CF6B08B61E5EDE9700C7759C /* NearByParkingListCell.xib in Resources */,
+				CF9BBC5E1E63CD160005CD20 /* AlipaySDK.bundle in Resources */,
 				CFC0045A1E5D72EF0079DCE5 /* HomeAssets.xcassets in Resources */,
 				CF14ACE31E56E6D400DD081E /* LoginAssets.xcassets in Resources */,
 				D59C876E1E5B42D800D8AF84 /* CollectionCell.xib in Resources */,
 				D52602CD1E5C732D007EA24D /* MonthCardCell.xib in Resources */,
 				D528029E1E49F0C700ACB198 /* LaunchScreen.storyboard in Resources */,
 				CFD655961E603CE50051A414 /* PrivilegeCell.xib in Resources */,
+				CF9BBC5A1E63CD0B0005CD20 /* README.txt in Resources */,
 				D59C87661E5B3AE600D8AF84 /* StopCarCell.xib in Resources */,
 				CFCEBF4F1E5AB77A00593686 /* MessageTableViewCell.xib in Resources */,
 				CFC004581E5D675A0079DCE5 /* mapapi.bundle in Resources */,
@@ -1063,10 +1114,12 @@
 			baseConfigurationReference = BDC15C8297CC9A9F9F13BE81 /* Pods-DouDouStopCar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 8MUA9S3748;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DouDouStopCar/Library/BaiduMap_IOSSDK_v3.2.1_Lib",
+					"$(PROJECT_DIR)/DouDouStopCar/Library/AliPaySDK",
 				);
 				GCC_PREFIX_HEADER = "${SRCROOT}/DouDouStopCar/DouDouStopCar-Prefix.pch";
 				INFOPLIST_FILE = DouDouStopCar/Info.plist;
@@ -1075,9 +1128,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DouDouStopCar/Library/BaiduMap_IOSSDK_v3.2.1_Lib/thirdlibs",
+					"$(PROJECT_DIR)/DouDouStopCar/Library/WechatPaySDK",
 				);
 				OTHER_LIBTOOLFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1087,10 +1141,12 @@
 			baseConfigurationReference = 7F0E0DD1A60272981EB011D8 /* Pods-DouDouStopCar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 8MUA9S3748;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DouDouStopCar/Library/BaiduMap_IOSSDK_v3.2.1_Lib",
+					"$(PROJECT_DIR)/DouDouStopCar/Library/AliPaySDK",
 				);
 				GCC_PREFIX_HEADER = "${SRCROOT}/DouDouStopCar/DouDouStopCar-Prefix.pch";
 				INFOPLIST_FILE = DouDouStopCar/Info.plist;
@@ -1099,9 +1155,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DouDouStopCar/Library/BaiduMap_IOSSDK_v3.2.1_Lib/thirdlibs",
+					"$(PROJECT_DIR)/DouDouStopCar/Library/WechatPaySDK",
 				);
 				OTHER_LIBTOOLFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
