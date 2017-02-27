@@ -150,4 +150,92 @@
     }];
 }
 
++ (void)rechargeListWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion
+{
+    [CommonUtils showHUDWithWaitingMessage:nil];
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+    NSDictionary *params = @{@"token":token?:@""};
+    [[DouDouNetworking sharedInstance] requestDataFromWSWithParams:parameter forPath:RechargeApi isJson:YES isPrivate:NO isAuthorizationHeader:YES headerParamers:params finished:^(NSDictionary *data) {
+        NSLog(@"recharge :%@",data);
+        [CommonUtils hideHUD];
+        if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
+            completion(YES,data);
+        }else{
+            [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
+            completion(NO,[data objectForKey:@"resultMsg"]);
+        }
+    } failed:^(NSString *error) {
+        completion(NO, error);
+        [CommonUtils changeHUDMessage:error];
+    }];
+}
+
++ (void)depositWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion
+{
+    [CommonUtils showHUDWithWaitingMessage:nil];
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+    NSDictionary *params = @{@"token":token?:@""};
+    [[DouDouNetworking sharedInstance] requestDataFromWSWithParams:parameter forPath:DepositApi isJson:YES isPrivate:NO isAuthorizationHeader:YES headerParamers:params finished:^(NSDictionary *data) {
+        NSLog(@"deposit :%@",data);
+        [CommonUtils hideHUD];
+        if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
+            completion(YES,data);
+        }else{
+            [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
+            completion(NO,[data objectForKey:@"resultMsg"]);
+        }
+    } failed:^(NSString *error) {
+        completion(NO, error);
+        [CommonUtils changeHUDMessage:error];
+    }];
+}
+
++ (void)getMyCollectionListWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion
+{
+    [CommonUtils showHUDWithWaitingMessage:nil];
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+    NSDictionary *params = @{@"token":token?:@""};
+    [[DouDouNetworking sharedInstance] requestDataFromWSWithParams:parameter forPath:GetMyCollectionApi isJson:YES isPrivate:NO isAuthorizationHeader:YES headerParamers:params finished:^(NSDictionary *data) {
+        NSLog(@"collection list :%@",data);
+        [CommonUtils hideHUD];
+        if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
+            NSArray *dataArray = [[data objectForKey:@"data"] objectForKey:@"list"];
+            NSMutableArray *resultArray = [NSMutableArray arrayWithCapacity:0];
+            [dataArray enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                CollectionModel *model = [CollectionModel mj_objectWithKeyValues:obj];
+                [resultArray addObject:model];
+            }];
+            
+            completion(YES,resultArray);
+        }else{
+            [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
+            completion(NO,[data objectForKey:@"resultMsg"]);
+        }
+    } failed:^(NSString *error) {
+        completion(NO, error);
+        [CommonUtils changeHUDMessage:error];
+    }];
+}
+
++ (void)deleteMyCollectionListWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion
+{
+    [CommonUtils showHUDWithWaitingMessage:nil];
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+    NSDictionary *params = @{@"token":token?:@""};
+    [[DouDouNetworking sharedInstance] requestDataFromWSWithParams:parameter forPath:DeleteMyCollectionApi isJson:YES isPrivate:NO isAuthorizationHeader:YES headerParamers:params finished:^(NSDictionary *data) {
+        NSLog(@"delete collection :%@",data);
+        [CommonUtils hideHUD];
+        if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
+            [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
+            completion(YES,data);
+        }else{
+            [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
+            completion(NO,[data objectForKey:@"resultMsg"]);
+        }
+    } failed:^(NSString *error) {
+        completion(NO, error);
+        [CommonUtils changeHUDMessage:error];
+    }];
+}
+
 @end

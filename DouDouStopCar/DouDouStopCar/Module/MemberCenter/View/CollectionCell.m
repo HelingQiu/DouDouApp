@@ -20,9 +20,25 @@
     return cell;
 }
 
+- (void)refreshDataWith:(CollectionModel *)model
+{
+    [self.labName setText:model.name];
+    [self.labAddress setText:model.address];
+}
+
+- (void)collectionAction:(UITapGestureRecognizer *)sender {
+    if (self.block) {
+        self.block();
+    }
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(collectionAction:)];
+    [self.collectView addGestureRecognizer:recognizer];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

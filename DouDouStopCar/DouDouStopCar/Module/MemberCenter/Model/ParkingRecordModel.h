@@ -45,3 +45,11 @@
 @property (nonatomic, copy) NSString *recordDate;
 
 @end
+
+@interface CollectionModel : NSObject
+
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *address;
+@property (nonatomic, copy) NSString *parkingId;
+
+@end

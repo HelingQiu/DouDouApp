@@ -75,6 +75,7 @@
 		D52602E11E5C90A0007EA24D /* AddCarNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602E01E5C90A0007EA24D /* AddCarNumberViewController.m */; };
 		D52602E41E5C90AD007EA24D /* CustomCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602E31E5C90AD007EA24D /* CustomCollectionView.m */; };
 		D52602E71E5C90EC007EA24D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602E61E5C90EC007EA24D /* UIView+Frame.m */; };
+		D527CF881E646FE10050F758 /* ChargeMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D527CF871E646FE10050F758 /* ChargeMonthViewController.m */; };
 		D52802901E49F0C600ACB198 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D528028F1E49F0C600ACB198 /* main.m */; };
 		D52802931E49F0C600ACB198 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D52802921E49F0C600ACB198 /* AppDelegate.m */; };
 		D52802961E49F0C700ACB198 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D52802951E49F0C700ACB198 /* ViewController.mm */; };
@@ -215,6 +216,8 @@
 		D52602E31E5C90AD007EA24D /* CustomCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionView.m; sourceTree = "<group>"; };
 		D52602E51E5C90EC007EA24D /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		D52602E61E5C90EC007EA24D /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		D527CF861E646FE10050F758 /* ChargeMonthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChargeMonthViewController.h; sourceTree = "<group>"; };
+		D527CF871E646FE10050F758 /* ChargeMonthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChargeMonthViewController.m; sourceTree = "<group>"; };
 		D528028B1E49F0C600ACB198 /* DouDouStopCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DouDouStopCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D528028F1E49F0C600ACB198 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D52802911E49F0C600ACB198 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -744,6 +747,8 @@
 				D52602D21E5C7C37007EA24D /* PrivilegeViewController.m */,
 				D52602C61E5C72A5007EA24D /* MonthCardViewController.h */,
 				D52602C71E5C72A5007EA24D /* MonthCardViewController.m */,
+				D527CF861E646FE10050F758 /* ChargeMonthViewController.h */,
+				D527CF871E646FE10050F758 /* ChargeMonthViewController.m */,
 				D52602D41E5C83FE007EA24D /* CarNumberViewController.h */,
 				D52602D51E5C83FE007EA24D /* CarNumberViewController.m */,
 				D52602DF1E5C90A0007EA24D /* AddCarNumberViewController.h */,
@@ -962,6 +967,7 @@
 				D52602DA1E5C8461007EA24D /* CarNumberCell.m in Sources */,
 				D582E1FF1E6331D200B0A28D /* DepositViewController.m in Sources */,
 				D52602E41E5C90AD007EA24D /* CustomCollectionView.m in Sources */,
+				D527CF881E646FE10050F758 /* ChargeMonthViewController.m in Sources */,
 				D5348CD71E4CA3740007B9C7 /* CommonUtils.m in Sources */,
 				CF6B08B11E5EDBD900C7759C /* NearbyModel.m in Sources */,
 				D52602D61E5C83FE007EA24D /* CarNumberViewController.m in Sources */,

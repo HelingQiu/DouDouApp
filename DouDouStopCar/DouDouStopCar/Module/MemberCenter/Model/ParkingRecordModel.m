@@ -24,6 +24,13 @@
 
 @end
 
+@implementation CollectionModel
+
+@end
+
+
+
+
 
 
 

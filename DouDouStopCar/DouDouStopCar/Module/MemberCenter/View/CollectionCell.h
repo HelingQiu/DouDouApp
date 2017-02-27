@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ParkingRecordModel.h"
 
+typedef void(^CollectBlock)();
 @interface CollectionCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *labName;
+@property (weak, nonatomic) IBOutlet UILabel *labAddress;
+@property (weak, nonatomic) IBOutlet UIImageView *collectView;
+@property (copy, nonatomic) CollectBlock block;
+
 + (CollectionCell *)cellForTableView:(UITableView *)tableView;
+- (void)refreshDataWith:(CollectionModel *)model;
 
 @end

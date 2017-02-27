@@ -8,8 +8,12 @@
 
 #import "CollectionViewController.h"
 #import "CollectionCell.h"
+#import "MemberCenterVM.h"
+#import "ParkingRecordModel.h"
 
 @interface CollectionViewController ()
+
+@property (nonatomic, strong) NSArray *dataSource;
 
 @end
 
@@ -20,10 +24,33 @@
     return [[UIStoryboard storyboardWithName:@"MemberCenter" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"CollectionVC"];
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    self.navigationItem.title = @"我的收藏";
+    self.tableView.tableFooterView = [UIView new];
+    self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self getMyCollectionListData];
+}
+
+- (void)getMyCollectionListData
+{
+    NSDictionary *params = @{@"page":@"1"};
+    [MemberCenterVM getMyCollectionListWithParameter:params completion:^(BOOL finish, id obj) {
+        if (finish) {
+            self.dataSource = [obj copy];
+            [self.tableView reloadData];
+        }
+    }];
+}
+
 #pragma mark -
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 5;
+    return self.dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -44,18 +71,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CollectionCell *cell = [CollectionCell cellForTableView:tableView];
+    
+    CollectionModel *model = [self.dataSource objectAtIndex:indexPath.section];
+    [cell refreshDataWith:model];
+    cell.block = ^(){
+        //取消收藏
+        NSDictionary *params = @{@"parkingId":model.parkingId};
+        [MemberCenterVM deleteMyCollectionListWithParameter:params completion:^(BOOL finish, id obj) {
+            if (finish) {
+                [self performSelector:@selector(getMyCollectionListData) withObject:nil afterDelay:1.3];
+            }
+        }];
+    };
+    
     return cell;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    self.navigationItem.title = @"我的收藏";
-    self.tableView.tableFooterView = [UIView new];
-    self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阳光花园" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhG-Bq-NhB">
@@ -43,8 +43,9 @@
                         <color key="textColor" red="0.50190365314483643" green="0.50199371576309204" blue="0.50189799070358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collect_star" translatesAutoresizingMaskIntoConstraints="NO" id="o2c-tf-Rnt">
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collect_star" translatesAutoresizingMaskIntoConstraints="NO" id="o2c-tf-Rnt">
                         <rect key="frame" x="271" y="24" width="34" height="32"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="NOV-DV-xHx"/>
                             <constraint firstAttribute="width" constant="34" id="XDd-ak-jeh"/>
@@ -64,6 +65,11 @@
                     <constraint firstItem="G5d-Pp-jDe" firstAttribute="top" secondItem="EhG-Bq-NhB" secondAttribute="bottom" constant="10" id="pl4-tz-9Oo"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="collectView" destination="o2c-tf-Rnt" id="Q41-yA-2tf"/>
+                <outlet property="labAddress" destination="Wp0-jP-y8S" id="CKx-wb-MOO"/>
+                <outlet property="labName" destination="EhG-Bq-NhB" id="Ho6-HR-qE9"/>
+            </connections>
             <point key="canvasLocation" x="25" y="54"/>
         </tableViewCell>
     </objects>

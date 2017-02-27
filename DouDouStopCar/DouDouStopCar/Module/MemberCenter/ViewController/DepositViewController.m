@@ -8,12 +8,17 @@
 
 #import "DepositViewController.h"
 #import "OBShapedButton.h"
+#import "MemberCenterVM.h"
 
 @interface DepositViewController ()
 
 @property (nonatomic, strong) OBShapedButton *aliyButton;
 @property (nonatomic, strong) OBShapedButton *wxButton;
 @property (nonatomic, strong) OBShapedButton *cardButton;
+
+@property (nonatomic, strong) UITextField *nameField;
+@property (nonatomic, strong) UITextField *acountField;
+@property (nonatomic, strong) UITextField *moneyField;
 
 @end
 
@@ -87,6 +92,7 @@
     [self.aliyButton setBackgroundImage:[UIImage imageNamed:@"deposit_sharpbutton_unselected"] forState:UIControlStateNormal];
     [self.aliyButton setBackgroundImage:[UIImage imageNamed:@"deposit_sharpbutton_selected"] forState:UIControlStateSelected];
     [self.aliyButton setSelected:YES];
+    [self.aliyButton addTarget:self action:@selector(aliyAction:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:self.aliyButton];
     
     self.wxButton = [OBShapedButton buttonWithType:UIButtonTypeCustom];
@@ -97,6 +103,7 @@
     [self.wxButton setTitle:@"微信" forState:UIControlStateNormal];
     [self.wxButton setBackgroundImage:[UIImage imageNamed:@"deposit_sharpbutton_unselected"] forState:UIControlStateNormal];
     [self.wxButton setBackgroundImage:[UIImage imageNamed:@"deposit_sharpbutton_selected"] forState:UIControlStateSelected];
+    [self.wxButton addTarget:self action:@selector(wxAction:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:self.wxButton];
     
     self.cardButton = [OBShapedButton buttonWithType:UIButtonTypeCustom];
@@ -107,6 +114,7 @@
     [self.cardButton setTitle:@"银行卡" forState:UIControlStateNormal];
     [self.cardButton setBackgroundImage:[UIImage imageNamed:@"deposit_sharpbutton_unselected"] forState:UIControlStateNormal];
     [self.cardButton setBackgroundImage:[UIImage imageNamed:@"deposit_sharpbutton_selected"] forState:UIControlStateSelected];
+    [self.cardButton addTarget:self action:@selector(cardAction:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:self.cardButton];
     
     [scrollView addSubview:[CommonUtils getSeparator:[UIColor lightGrayColor] frame:CGRectMake(0, CGRectGetMaxY(self.aliyButton.frame) + 15, mScreenWidth, 1)]];
@@ -122,13 +130,13 @@
     [labName setTextColor:[UIColor blackColor]];
     [acountBackView addSubview:labName];
     
-    UITextField *nameField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labName.frame) + 5, 53.0/2 - 10, mScreenWidth - 60 - CGRectGetMaxX(labName.frame) - 5, 20)];
-    [nameField setPlaceholder:@"填写真实姓名"];
-    [nameField setFont:[UIFont boldSystemFontOfSize:15]];
-    [nameField setValue:kHexColor(kColor_Text) forKeyPath:@"_placeholderLabel.textColor"];
-    [nameField setValue:[UIFont boldSystemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
-    [nameField setTextColor:kHexColor(kColor_Text)];
-    [acountBackView addSubview:nameField];
+    self.nameField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labName.frame) + 5, 53.0/2 - 10, mScreenWidth - 60 - CGRectGetMaxX(labName.frame) - 5, 20)];
+    [self.nameField setPlaceholder:@"填写真实姓名"];
+    [self.nameField setFont:[UIFont boldSystemFontOfSize:15]];
+    [self.nameField setValue:kHexColor(kColor_Text) forKeyPath:@"_placeholderLabel.textColor"];
+    [self.nameField setValue:[UIFont boldSystemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
+    [self.nameField setTextColor:kHexColor(kColor_Text)];
+    [acountBackView addSubview:self.nameField];
     
     [acountBackView addSubview:[CommonUtils getSeparator:[UIColor groupTableViewBackgroundColor] frame:CGRectMake(0, 52.5, mScreenWidth - 30, 0.5)]];
     
@@ -138,13 +146,13 @@
     [labAcount setTextColor:[UIColor blackColor]];
     [acountBackView addSubview:labAcount];
     
-    UITextField *acountField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labAcount.frame) + 5, 53 + 53.0/2 - 10, mScreenWidth - 60 - CGRectGetMaxX(labAcount.frame) - 5, 20)];
-    [acountField setPlaceholder:@"填写提现支付宝账号"];
-    [acountField setFont:[UIFont boldSystemFontOfSize:15]];
-    [acountField setValue:kHexColor(kColor_Text) forKeyPath:@"_placeholderLabel.textColor"];
-    [acountField setValue:[UIFont boldSystemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
-    [acountField setTextColor:kHexColor(kColor_Text)];
-    [acountBackView addSubview:acountField];
+    self.acountField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labAcount.frame) + 5, 53 + 53.0/2 - 10, mScreenWidth - 60 - CGRectGetMaxX(labAcount.frame) - 5, 20)];
+    [self.acountField setPlaceholder:@"填写提现支付宝账号"];
+    [self.acountField setFont:[UIFont boldSystemFontOfSize:15]];
+    [self.acountField setValue:kHexColor(kColor_Text) forKeyPath:@"_placeholderLabel.textColor"];
+    [self.acountField setValue:[UIFont boldSystemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
+    [self.acountField setTextColor:kHexColor(kColor_Text)];
+    [acountBackView addSubview:self.acountField];
     
     UIImageView *moneyBackView = [[UIImageView alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(acountBackView.frame) + 20, mScreenWidth - 30, 53)];
     [moneyBackView setUserInteractionEnabled:YES];
@@ -157,13 +165,13 @@
     [labAmount setTextColor:[UIColor blackColor]];
     [moneyBackView addSubview:labAmount];
     
-    UITextField *moneyField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labAmount.frame) + 5, 53.0/2 - 10, mScreenWidth - 60 - CGRectGetMaxX(labAmount.frame) - 5, 20)];
-    [moneyField setPlaceholder:@"本次最多可提现0.00元"];
-    [moneyField setFont:[UIFont boldSystemFontOfSize:15]];
-    [moneyField setValue:kHexColor(kColor_Text) forKeyPath:@"_placeholderLabel.textColor"];
-    [moneyField setValue:[UIFont boldSystemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
-    [moneyField setTextColor:kHexColor(kColor_Text)];
-    [moneyBackView addSubview:moneyField];
+    self.moneyField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labAmount.frame) + 5, 53.0/2 - 10, mScreenWidth - 60 - CGRectGetMaxX(labAmount.frame) - 5, 20)];
+    [self.moneyField setPlaceholder:@"本次最多可提现0.00元"];
+    [self.moneyField setFont:[UIFont boldSystemFontOfSize:15]];
+    [self.moneyField setValue:kHexColor(kColor_Text) forKeyPath:@"_placeholderLabel.textColor"];
+    [self.moneyField setValue:[UIFont boldSystemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
+    [self.moneyField setTextColor:kHexColor(kColor_Text)];
+    [moneyBackView addSubview:self.moneyField];
     
     [scrollView addSubview:[CommonUtils getSeparator:[UIColor lightGrayColor] frame:CGRectMake(0, CGRectGetMaxY(moneyBackView.frame) + 20, mScreenWidth, 1)]];
     
@@ -173,6 +181,7 @@
     [submitButton setBackgroundColor:kHexColor(kColor_Mian)];
     [submitButton setTitle:@"确认提现" forState:UIControlStateNormal];
     [submitButton.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+    [submitButton addTarget:self action:@selector(submitAction:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:submitButton];
     
     UILabel *labBottomTip = [[UILabel alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(submitButton.frame) + 20, mScreenWidth - 40, 72)];
@@ -188,6 +197,75 @@
 - (void)rightAction
 {
 
+}
+
+- (void)aliyAction:(UIButton *)sender
+{
+    [self.aliyButton setSelected:YES];
+    [self.wxButton setSelected:NO];
+    [self.cardButton setSelected:NO];
+    [self.acountField setPlaceholder:@"填写提现支付宝账号"];
+}
+
+- (void)wxAction:(UIButton *)sender
+{
+    [self.aliyButton setSelected:NO];
+    [self.wxButton setSelected:YES];
+    [self.cardButton setSelected:NO];
+    [self.acountField setPlaceholder:@"填写提现微信账号"];
+}
+
+- (void)cardAction:(UIButton *)sender
+{
+    [self.aliyButton setSelected:NO];
+    [self.wxButton setSelected:NO];
+    [self.cardButton setSelected:YES];
+    [self.acountField setPlaceholder:@"填写提现银行卡号"];
+}
+
+- (void)submitAction:(UIButton *)sender
+{
+    NSString *name = self.nameField.text;
+    NSString *acount = self.acountField.text;
+    NSString *money = self.moneyField.text;
+    if ([CommonUtils isBlankString:name]) {
+        [CommonUtils showHUDWithMessage:@"请输入真实姓名" autoHide:YES];
+        return;
+    }
+    
+    if ([CommonUtils isBlankString:acount]) {
+        if (self.aliyButton.selected) {
+            [CommonUtils showHUDWithMessage:@"请输入提现支付宝账号" autoHide:YES];
+            return;
+        }else if (self.wxButton.selected) {
+            [CommonUtils showHUDWithMessage:@"请输入提现微信账号" autoHide:YES];
+            return;
+        }else{
+            [CommonUtils showHUDWithMessage:@"请输入提现银行卡号" autoHide:YES];
+            return;
+        }
+    }
+    if ([CommonUtils isBlankString:money]) {
+        [CommonUtils showHUDWithMessage:@"请输入提现金额" autoHide:YES];
+        return;
+    }
+    
+    NSString *type = @"1";
+    if (self.wxButton.selected) {
+        type = @"2";
+    }else if (self.cardButton.selected) {
+        type = @"3";
+    }
+    
+    NSDictionary *params = @{@"type":type,
+                             @"payee_account":acount,
+                             @"payee_real_name":name,
+                             @"amount":money};
+    [MemberCenterVM depositWithParameter:params completion:^(BOOL finish, id obj) {
+        if (finish) {
+            
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

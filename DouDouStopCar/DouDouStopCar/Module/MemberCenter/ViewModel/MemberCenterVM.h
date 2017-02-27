@@ -25,7 +25,23 @@
 //获取优惠劵
 + (void)getRechargeListWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
 
-//获取消费明细
+/*
+ 获取消费明细
+ */
 + (void)getWalletRecordWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
+
+/*
+ 充值
+ */
++ (void)rechargeListWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
+
+//申请提现
++ (void)depositWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
+
+//获取我的收藏列表
++ (void)getMyCollectionListWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
+
+//取消收藏
++ (void)deleteMyCollectionListWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
 
 @end

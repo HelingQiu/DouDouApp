@@ -20,6 +20,12 @@
     return cell;
 }
 
+- (IBAction)goChargeAction:(UIButton *)sender {
+    if (self.block) {
+        self.block();
+    }
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

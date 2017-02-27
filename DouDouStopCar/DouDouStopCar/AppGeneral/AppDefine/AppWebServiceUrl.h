@@ -84,10 +84,51 @@
  */
 #define AddCarApi [NSString stringWithFormat:@"%@%@",Host,@"/car/addCar"]
 
-//获取优惠劵列表
+/*
+ 获取优惠劵列表
+ */
 #define GetRechargeApi [NSString stringWithFormat:@"%@%@",Host,@"/conpon/recharge"]
 
-//消费明细
+/*
+ 消费明细
+ */
 #define GetWalletRecordApi [NSString stringWithFormat:@"%@%@",Host,@"/my/myWallet"]
+
+/*
+ 充值
+ */
+#define RechargeApi [NSString stringWithFormat:@"%@%@",Host,@"/wallet/recharge"]
+
+/*
+ 提现
+ */
+#define DepositApi [NSString stringWithFormat:@"%@%@",Host,@"/wallet/recharge"]
+
+/*
+ 获取我的收藏列表
+ */
+#define GetMyCollectionApi [NSString stringWithFormat:@"%@%@",Host,@"/my/getMyCollection"]
+
+/*
+ 添加收藏
+ */
+#define AddMyCollectionApi [NSString stringWithFormat:@"%@%@",Host,@"/my/addMyCollection"]
+
+/*
+ 取消收藏
+ */
+#define DeleteMyCollectionApi [NSString stringWithFormat:@"%@%@",Host,@"/my/deleteMyCollection"]
+
+
+
+
+
+
+
+
+
+
+
+
 
 #endif /* AppWebServiceUrl_h */

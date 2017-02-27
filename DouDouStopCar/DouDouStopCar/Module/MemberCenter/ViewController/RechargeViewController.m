@@ -8,6 +8,7 @@
 
 #import "RechargeViewController.h"
 #import "DouDouButton.h"
+#import "MemberCenterVM.h"
 
 #define Tag_Btn 2346
 @interface RechargeViewController ()
@@ -186,7 +187,23 @@
 
 - (void)submitAction:(UIButton *)sender
 {
-    [CommonUtils showHUDWithMessage:@"去充值" autoHide:YES];
+    NSString *money = self.amountField.text;
+    if ([CommonUtils isBlankString:money]) {
+        [CommonUtils showHUDWithMessage:@"请输入充值金额" autoHide:YES];
+        return;
+    }
+    NSString *type = @"1";
+    if (self.wxRightButton.selected) {
+        type = @"2";
+    }
+    NSDictionary *params = @{@"type":type,
+                             @"money":money};
+    [MemberCenterVM rechargeListWithParameter:params completion:^(BOOL finish, id obj) {
+        if (finish) {
+            //申请充值 成功后 调起支付宝或者微信
+            
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

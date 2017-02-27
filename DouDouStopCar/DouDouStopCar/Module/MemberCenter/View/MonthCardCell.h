@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^ChargeBlock)();
 @interface MonthCardCell : UITableViewCell
 
+@property (nonatomic, copy) ChargeBlock block;
 + (MonthCardCell *)cellForTableView:(UITableView *)tableView;
 
 @end

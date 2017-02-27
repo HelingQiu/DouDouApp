@@ -8,6 +8,7 @@
 
 #import "MonthCardViewController.h"
 #import "MonthCardCell.h"
+#import "ChargeMonthViewController.h"
 
 @interface MonthCardViewController ()
 
@@ -45,6 +46,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MonthCardCell *cell = [MonthCardCell cellForTableView:tableView];
+    cell.block = ^(){
+        //去充值
+        ChargeMonthViewController *chargeController = [[ChargeMonthViewController alloc] init];
+        [self.navigationController pushViewController:chargeController animated:YES];
+    };
     return cell;
 }
 
