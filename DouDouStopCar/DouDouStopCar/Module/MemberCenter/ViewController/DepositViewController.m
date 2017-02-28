@@ -48,7 +48,7 @@
 
 - (void)setConfigView
 {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, mScreenWidth, mScreenHeight)];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, mScreenWidth, mScreenHeight - 64)];
     scrollView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.view addSubview:scrollView];
     
@@ -191,7 +191,7 @@
     [labBottomTip setText:@"温馨提示:\n1.车位收入需在停车场结算后才可提现\n2.提现金额小于200元，每次需缴纳5元手续费\n3.申请提现后，1-3个工作日可到账"];
     [scrollView addSubview:labBottomTip];
     
-    [scrollView setContentSize:CGSizeMake(0, CGRectGetMaxY(labBottomTip.frame) + 10)];
+    [scrollView setContentSize:CGSizeMake(0, CGRectGetMaxY(labBottomTip.frame) + 20)];
 }
 
 - (void)rightAction

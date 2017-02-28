@@ -90,6 +90,12 @@
 		D55C80281E60942300DA9DC5 /* LoginSimpleton.m in Sources */ = {isa = PBXBuildFile; fileRef = D55C80271E60942300DA9DC5 /* LoginSimpleton.m */; };
 		D55C802B1E609A2F00DA9DC5 /* PersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D55C802A1E609A2F00DA9DC5 /* PersonModel.m */; };
 		D55C802E1E609C0600DA9DC5 /* ParkingRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D55C802D1E609C0600DA9DC5 /* ParkingRecordModel.m */; };
+		D55E8EEF1E65B4A200ABB7B6 /* MessageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D55E8EEE1E65B4A200ABB7B6 /* MessageAssets.xcassets */; };
+		D55E8EF21E65B72B00ABB7B6 /* MessageVM.m in Sources */ = {isa = PBXBuildFile; fileRef = D55E8EF11E65B72B00ABB7B6 /* MessageVM.m */; };
+		D55E8EF51E65B82600ABB7B6 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D55E8EF41E65B82600ABB7B6 /* MessageModel.m */; };
+		D55E8EF81E65BC3C00ABB7B6 /* JJSAttributedStringBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D55E8EF71E65BC3C00ABB7B6 /* JJSAttributedStringBuilder.m */; };
+		D55E8EFD1E65CCA400ABB7B6 /* FirstAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D55E8EFA1E65CCA400ABB7B6 /* FirstAnnotationView.m */; };
+		D55E8EFE1E65CCA400ABB7B6 /* FirstAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D55E8EFC1E65CCA400ABB7B6 /* FirstAnnotation.m */; };
 		D582E1F81E62E33700B0A28D /* WalletRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D582E1F61E62E33700B0A28D /* WalletRecordCell.m */; };
 		D582E1F91E62E33700B0A28D /* WalletRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D582E1F71E62E33700B0A28D /* WalletRecordCell.xib */; };
 		D582E1FC1E63150000B0A28D /* RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D582E1FB1E63150000B0A28D /* RechargeViewController.m */; };
@@ -246,6 +252,17 @@
 		D55C802A1E609A2F00DA9DC5 /* PersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonModel.m; sourceTree = "<group>"; };
 		D55C802C1E609C0600DA9DC5 /* ParkingRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkingRecordModel.h; sourceTree = "<group>"; };
 		D55C802D1E609C0600DA9DC5 /* ParkingRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkingRecordModel.m; sourceTree = "<group>"; };
+		D55E8EEE1E65B4A200ABB7B6 /* MessageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MessageAssets.xcassets; sourceTree = "<group>"; };
+		D55E8EF01E65B72B00ABB7B6 /* MessageVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageVM.h; sourceTree = "<group>"; };
+		D55E8EF11E65B72B00ABB7B6 /* MessageVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageVM.m; sourceTree = "<group>"; };
+		D55E8EF31E65B82600ABB7B6 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
+		D55E8EF41E65B82600ABB7B6 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
+		D55E8EF61E65BC3C00ABB7B6 /* JJSAttributedStringBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJSAttributedStringBuilder.h; sourceTree = "<group>"; };
+		D55E8EF71E65BC3C00ABB7B6 /* JJSAttributedStringBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJSAttributedStringBuilder.m; sourceTree = "<group>"; };
+		D55E8EF91E65CCA400ABB7B6 /* FirstAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstAnnotationView.h; sourceTree = "<group>"; };
+		D55E8EFA1E65CCA400ABB7B6 /* FirstAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstAnnotationView.m; sourceTree = "<group>"; };
+		D55E8EFB1E65CCA400ABB7B6 /* FirstAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstAnnotation.h; sourceTree = "<group>"; };
+		D55E8EFC1E65CCA400ABB7B6 /* FirstAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstAnnotation.m; sourceTree = "<group>"; };
 		D582E1F51E62E33700B0A28D /* WalletRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletRecordCell.h; sourceTree = "<group>"; };
 		D582E1F61E62E33700B0A28D /* WalletRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletRecordCell.m; sourceTree = "<group>"; };
 		D582E1F71E62E33700B0A28D /* WalletRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletRecordCell.xib; sourceTree = "<group>"; };
@@ -392,6 +409,10 @@
 		CFC0043F1E5D3E640079DCE5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D55E8EF91E65CCA400ABB7B6 /* FirstAnnotationView.h */,
+				D55E8EFA1E65CCA400ABB7B6 /* FirstAnnotationView.m */,
+				D55E8EFB1E65CCA400ABB7B6 /* FirstAnnotation.h */,
+				D55E8EFC1E65CCA400ABB7B6 /* FirstAnnotation.m */,
 				CFC0045B1E5D8DFD0079DCE5 /* MapCarParkingCell.h */,
 				CFC0045C1E5D8DFD0079DCE5 /* MapCarParkingCell.m */,
 				CFC0045D1E5D8DFD0079DCE5 /* MapCarParkingCell.xib */,
@@ -542,6 +563,8 @@
 				D52602DD1E5C870D007EA24D /* DouDouButton.m */,
 				D582E2001E63365000B0A28D /* OBShapedButton.h */,
 				D582E2011E63365000B0A28D /* OBShapedButton.m */,
+				D55E8EF61E65BC3C00ABB7B6 /* JJSAttributedStringBuilder.h */,
+				D55E8EF71E65BC3C00ABB7B6 /* JJSAttributedStringBuilder.m */,
 			);
 			path = AppTools;
 			sourceTree = "<group>";
@@ -610,6 +633,7 @@
 				D5AF80E71E4B484E006C7AF3 /* View */,
 				D5AF80E81E4B484E006C7AF3 /* ViewController */,
 				D5AF80E91E4B484E006C7AF3 /* ViewModel */,
+				D55E8EEE1E65B4A200ABB7B6 /* MessageAssets.xcassets */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -775,6 +799,8 @@
 		D5AF80E61E4B484E006C7AF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D55E8EF31E65B82600ABB7B6 /* MessageModel.h */,
+				D55E8EF41E65B82600ABB7B6 /* MessageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -801,6 +827,8 @@
 		D5AF80E91E4B484E006C7AF3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D55E8EF01E65B72B00ABB7B6 /* MessageVM.h */,
+				D55E8EF11E65B72B00ABB7B6 /* MessageVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -882,6 +910,7 @@
 				CF6B08B61E5EDE9700C7759C /* NearByParkingListCell.xib in Resources */,
 				CF9BBC5E1E63CD160005CD20 /* AlipaySDK.bundle in Resources */,
 				CFC0045A1E5D72EF0079DCE5 /* HomeAssets.xcassets in Resources */,
+				D55E8EEF1E65B4A200ABB7B6 /* MessageAssets.xcassets in Resources */,
 				CF14ACE31E56E6D400DD081E /* LoginAssets.xcassets in Resources */,
 				D59C876E1E5B42D800D8AF84 /* CollectionCell.xib in Resources */,
 				D52602CD1E5C732D007EA24D /* MonthCardCell.xib in Resources */,
@@ -968,6 +997,7 @@
 				D582E1FF1E6331D200B0A28D /* DepositViewController.m in Sources */,
 				D52602E41E5C90AD007EA24D /* CustomCollectionView.m in Sources */,
 				D527CF881E646FE10050F758 /* ChargeMonthViewController.m in Sources */,
+				D55E8EFD1E65CCA400ABB7B6 /* FirstAnnotationView.m in Sources */,
 				D5348CD71E4CA3740007B9C7 /* CommonUtils.m in Sources */,
 				CF6B08B11E5EDBD900C7759C /* NearbyModel.m in Sources */,
 				D52602D61E5C83FE007EA24D /* CarNumberViewController.m in Sources */,
@@ -975,6 +1005,8 @@
 				CFD655951E603CE50051A414 /* PrivilegeCell.m in Sources */,
 				D582E2051E63397800B0A28D /* UIImage+ColorAtPixel.m in Sources */,
 				CFCBF1381E5C1F4B00D618BE /* NewsViewController.m in Sources */,
+				D55E8EFE1E65CCA400ABB7B6 /* FirstAnnotation.m in Sources */,
+				D55E8EF21E65B72B00ABB7B6 /* MessageVM.m in Sources */,
 				D52602C81E5C72A5007EA24D /* MonthCardViewController.m in Sources */,
 				CFCBF13B1E5C205E00D618BE /* HomeVM.m in Sources */,
 				D52802901E49F0C600ACB198 /* main.m in Sources */,
@@ -993,6 +1025,7 @@
 				D52602CC1E5C732D007EA24D /* MonthCardCell.m in Sources */,
 				D59C87651E5B3AE600D8AF84 /* StopCarCell.m in Sources */,
 				CFCBF1351E5C1D2200D618BE /* JJSAdsView.m in Sources */,
+				D55E8EF51E65B82600ABB7B6 /* MessageModel.m in Sources */,
 				D59C87611E5B3A7500D8AF84 /* StopRecordViewController.m in Sources */,
 				D59C876D1E5B42D800D8AF84 /* CollectionCell.m in Sources */,
 				CF14ACDD1E56E11D00DD081E /* DouDouBaseNavigationController.m in Sources */,
@@ -1003,6 +1036,7 @@
 				D5AF80EC1E4B4C70006C7AF3 /* DouDouLoginViewController.m in Sources */,
 				CFD6558E1E6014B00051A414 /* LocationCityViewController.m in Sources */,
 				CFAA4D1A1E57021E00EE8953 /* DouDouForgetViewController.m in Sources */,
+				D55E8EF81E65BC3C00ABB7B6 /* JJSAttributedStringBuilder.m in Sources */,
 				D52602E11E5C90A0007EA24D /* AddCarNumberViewController.m in Sources */,
 				D582E1FC1E63150000B0A28D /* RechargeViewController.m in Sources */,
 				CFCEBF5F1E5ACC7700593686 /* UserModel.m in Sources */,
@@ -1137,7 +1171,7 @@
 					"$(PROJECT_DIR)/DouDouStopCar/Library/WechatPaySDK",
 				);
 				OTHER_LIBTOOLFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1164,7 +1198,7 @@
 					"$(PROJECT_DIR)/DouDouStopCar/Library/WechatPaySDK",
 				);
 				OTHER_LIBTOOLFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

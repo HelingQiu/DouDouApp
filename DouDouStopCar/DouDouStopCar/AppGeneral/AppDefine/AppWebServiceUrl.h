@@ -120,8 +120,10 @@
 #define DeleteMyCollectionApi [NSString stringWithFormat:@"%@%@",Host,@"/my/deleteMyCollection"]
 
 
-
-
+/*
+ 获取消息列表
+ */
+#define GetMessageListApi [NSString stringWithFormat:@"%@%@",Host,@"/home/message"]
 
 
 

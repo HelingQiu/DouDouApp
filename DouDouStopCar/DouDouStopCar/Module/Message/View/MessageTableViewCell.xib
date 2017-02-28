@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="318" height="294"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="318" height="293"/>
+                <rect key="frame" x="0.0" y="0.0" width="318" height="293.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-01-18 16:42" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ml-O1-Hpi">
@@ -23,19 +23,22 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="50T-86-4JO"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KGn-uH-uSZ">
                         <rect key="frame" x="15" y="61" width="288" height="228"/>
                         <subviews>
+                            <imageView multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_back" translatesAutoresizingMaskIntoConstraints="NO" id="xYf-1j-EPF">
+                                <rect key="frame" x="-1" y="-1" width="290" height="230"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您已进入停车场" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgV-AU-xf6">
                                 <rect key="frame" x="10" y="15" width="268" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="IhO-bS-TKL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -77,12 +80,17 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRt-Or-DSL">
                                 <rect key="frame" x="10" y="194" width="268" height="30"/>
-                                <color key="backgroundColor" red="0.88235294119999996" green="0.87843137250000003" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8Ri-jQ-7dQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="充值豆豆钱包，离场自动缴费！戳这里，去充值"/>
+                                <state key="normal" title="充值豆豆钱包，离场自动缴费！戳这里，去充值">
+                                    <color key="titleColor" red="0.51055669784545898" green="0.76267999410629272" blue="0.33716863393783569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="gotoCharge:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Elr-hS-Avu"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -93,6 +101,8 @@
                             <constraint firstAttribute="trailing" secondItem="VsH-Qe-jSn" secondAttribute="trailing" constant="10" id="8zS-PJ-BBI"/>
                             <constraint firstItem="exk-KP-hlq" firstAttribute="leading" secondItem="KGn-uH-uSZ" secondAttribute="leading" constant="10" id="Bf6-lH-Gom"/>
                             <constraint firstAttribute="trailing" secondItem="2f2-xO-nOC" secondAttribute="trailing" constant="10" id="D6u-Ti-K4T"/>
+                            <constraint firstItem="xYf-1j-EPF" firstAttribute="top" secondItem="KGn-uH-uSZ" secondAttribute="top" constant="-1" id="Jo6-5c-euL"/>
+                            <constraint firstItem="xYf-1j-EPF" firstAttribute="leading" secondItem="KGn-uH-uSZ" secondAttribute="leading" constant="-1" id="Kb5-ae-0gv"/>
                             <constraint firstItem="VsH-Qe-jSn" firstAttribute="top" secondItem="2G2-Q6-vpZ" secondAttribute="bottom" constant="10" id="LZM-pA-r6l"/>
                             <constraint firstItem="VsH-Qe-jSn" firstAttribute="leading" secondItem="KGn-uH-uSZ" secondAttribute="leading" constant="10" id="QGr-n5-kFU"/>
                             <constraint firstAttribute="trailing" secondItem="2G2-Q6-vpZ" secondAttribute="trailing" constant="10" id="XUq-53-p6w"/>
@@ -101,6 +111,8 @@
                             <constraint firstItem="2G2-Q6-vpZ" firstAttribute="top" secondItem="exk-KP-hlq" secondAttribute="bottom" constant="15" id="bcI-Gh-Hx2"/>
                             <constraint firstItem="exk-KP-hlq" firstAttribute="top" secondItem="2f2-xO-nOC" secondAttribute="bottom" constant="10" id="gNa-hn-2Xm"/>
                             <constraint firstItem="tRt-Or-DSL" firstAttribute="top" secondItem="VsH-Qe-jSn" secondAttribute="bottom" constant="10" id="i2e-WP-WsT"/>
+                            <constraint firstAttribute="bottom" secondItem="xYf-1j-EPF" secondAttribute="bottom" constant="-1" id="mN6-Co-RxG"/>
+                            <constraint firstAttribute="trailing" secondItem="xYf-1j-EPF" secondAttribute="trailing" constant="-1" id="njd-I6-qq7"/>
                             <constraint firstItem="2G2-Q6-vpZ" firstAttribute="leading" secondItem="KGn-uH-uSZ" secondAttribute="leading" constant="10" id="psC-nI-oL0"/>
                             <constraint firstItem="2f2-xO-nOC" firstAttribute="leading" secondItem="KGn-uH-uSZ" secondAttribute="leading" constant="10" id="tj7-HH-GpF"/>
                             <constraint firstItem="2f2-xO-nOC" firstAttribute="top" secondItem="CgV-AU-xf6" secondAttribute="bottom" constant="10" id="uiS-tC-cGW"/>
@@ -110,7 +122,7 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="4"/>
+                                <integer key="value" value="12"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <variation key="default">
@@ -131,7 +143,18 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <connections>
+                <outlet property="labContent" destination="exk-KP-hlq" id="fpZ-JU-g2x"/>
+                <outlet property="labDate" destination="2f2-xO-nOC" id="zpi-cz-7OI"/>
+                <outlet property="labParkingName" destination="2G2-Q6-vpZ" id="teP-t7-507"/>
+                <outlet property="labTime" destination="VsH-Qe-jSn" id="1rH-P2-yjc"/>
+                <outlet property="labTitle" destination="CgV-AU-xf6" id="b2h-pR-3Mv"/>
+                <outlet property="labTopTime" destination="2ml-O1-Hpi" id="TAU-n8-KQh"/>
+            </connections>
             <point key="canvasLocation" x="339" y="277"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="message_back" width="506" height="318"/>
+    </resources>
 </document>

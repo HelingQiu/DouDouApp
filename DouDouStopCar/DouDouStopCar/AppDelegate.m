@@ -16,6 +16,7 @@
 #import "MemberCenterViewController.h"
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 
+#define BaiDuAppKey @"npdMeCxvlXIA3Ll24yUTf3vwkepDEC7c"
 
 @interface AppDelegate ()
 {
@@ -36,7 +37,7 @@
     
     // 要使用百度地图，请先启动BaiduMapManager
     _mapManager = [[BMKMapManager alloc]init];
-    BOOL ret = [_mapManager start:@"please enter your key" generalDelegate:self];
+    BOOL ret = [_mapManager start:BaiDuAppKey generalDelegate:self];
     if (!ret) {
         NSLog(@"manager start failed!");
     }

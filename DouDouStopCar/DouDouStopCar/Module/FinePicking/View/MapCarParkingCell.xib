@@ -102,6 +102,21 @@
                             <constraint firstAttribute="height" constant="20" id="g44-ps-keU"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0W-5X-E4D">
+                        <rect key="frame" x="188" y="73" width="72" height="39.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="72" id="7Mh-vs-Wvv"/>
+                        </constraints>
+                        <connections>
+                            <action selector="directAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BNU-0b-B2y"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0m-GI-D2Y">
+                        <rect key="frame" x="15" y="73" width="85" height="39.5"/>
+                        <connections>
+                            <action selector="roadAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pIO-ML-4dz"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="sud-2d-kNP" secondAttribute="trailing" constant="10" id="2y9-V7-Dy7"/>
@@ -115,18 +130,31 @@
                     <constraint firstItem="vCE-79-Cz5" firstAttribute="centerY" secondItem="rbg-nP-Tft" secondAttribute="centerY" id="MSG-rJ-5tr"/>
                     <constraint firstItem="y7I-0T-XQf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="P6P-ON-Snq"/>
                     <constraint firstAttribute="trailing" secondItem="146-kQ-2gG" secondAttribute="trailing" constant="60" id="QEt-1r-GtH"/>
+                    <constraint firstAttribute="trailing" secondItem="p0W-5X-E4D" secondAttribute="trailing" constant="60" id="QTh-rn-6fZ"/>
                     <constraint firstAttribute="trailing" secondItem="Lvc-uA-3id" secondAttribute="trailing" constant="10" id="Qjb-yO-AH6"/>
+                    <constraint firstAttribute="bottom" secondItem="z0m-GI-D2Y" secondAttribute="bottom" id="XrD-Jx-SvR"/>
+                    <constraint firstItem="p0W-5X-E4D" firstAttribute="top" secondItem="Lvc-uA-3id" secondAttribute="bottom" id="bSM-ha-7vd"/>
+                    <constraint firstAttribute="bottom" secondItem="p0W-5X-E4D" secondAttribute="bottom" id="bpI-5a-TeY"/>
                     <constraint firstItem="Lvc-uA-3id" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="dNA-Tj-Be0"/>
+                    <constraint firstItem="z0m-GI-D2Y" firstAttribute="top" secondItem="Lvc-uA-3id" secondAttribute="bottom" id="hdK-MX-ZAZ"/>
                     <constraint firstItem="rbg-nP-Tft" firstAttribute="centerY" secondItem="y7I-0T-XQf" secondAttribute="centerY" id="hjs-0M-vHh"/>
                     <constraint firstItem="p5N-oJ-RFW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="j37-Jl-Ktv"/>
                     <constraint firstItem="y7I-0T-XQf" firstAttribute="top" secondItem="Lvc-uA-3id" secondAttribute="bottom" constant="3.5" id="jxF-VC-MXf"/>
                     <constraint firstItem="peK-EQ-z7Y" firstAttribute="centerY" secondItem="0tJ-Ch-b6W" secondAttribute="centerY" id="lrh-ul-j2n"/>
                     <constraint firstItem="146-kQ-2gG" firstAttribute="centerY" secondItem="vCE-79-Cz5" secondAttribute="centerY" id="ndu-kB-jFw"/>
+                    <constraint firstItem="z0m-GI-D2Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="qqF-4a-4cv"/>
+                    <constraint firstItem="rbg-nP-Tft" firstAttribute="leading" secondItem="z0m-GI-D2Y" secondAttribute="trailing" constant="-40" id="u1h-Ev-Yeq"/>
                     <constraint firstItem="sud-2d-kNP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="u8B-tl-ZK5"/>
                     <constraint firstItem="p5N-oJ-RFW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="xSi-4A-VcN"/>
                     <constraint firstItem="peK-EQ-z7Y" firstAttribute="leading" secondItem="0tJ-Ch-b6W" secondAttribute="trailing" constant="40" id="xsE-zZ-8E7"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="labCarNum" destination="0tJ-Ch-b6W" id="z8J-Mm-72h"/>
+                <outlet property="labDistance" destination="QHb-F6-oRB" id="Cum-Kn-3do"/>
+                <outlet property="labParkingName" destination="p5N-oJ-RFW" id="FMs-2R-lvF"/>
+                <outlet property="labPrice" destination="peK-EQ-z7Y" id="V3g-UZ-QIC"/>
+            </connections>
             <point key="canvasLocation" x="25" y="17.5"/>
         </tableViewCell>
         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Mot-83-0bX">

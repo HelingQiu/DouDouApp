@@ -31,7 +31,7 @@
 
 - (void)setConfigView
 {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, mScreenWidth, mScreenHeight)];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, mScreenWidth, mScreenHeight - 64 - 70)];
     scrollView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.view addSubview:scrollView];
     
@@ -136,6 +136,8 @@
     [wxButton.titleLabel setFont:[UIFont boldSystemFontOfSize:16]];
     [wxButton addTarget:self action:@selector(wxAction:) forControlEvents:UIControlEventTouchUpInside];
     [midView addSubview:wxButton];
+    
+    [scrollView setContentSize:CGSizeMake(0, CGRectGetMaxY(midView.frame) + 20)];
     
     UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, mScreenHeight - 64 - 70, mScreenWidth, 70)];
     [bottomView setBackgroundColor:[UIColor whiteColor]];

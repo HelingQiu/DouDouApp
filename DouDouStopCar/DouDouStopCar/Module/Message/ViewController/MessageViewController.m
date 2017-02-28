@@ -8,8 +8,12 @@
 
 #import "MessageViewController.h"
 #import "MessageTableViewCell.h"
+#import "MessageVM.h"
+#import "MessageModel.h"
 
 @interface MessageViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+@property (nonatomic, strong) NSArray *dataSource;
 
 @end
 
@@ -27,6 +31,8 @@
     self.navigationItem.title = @"消息";
     [self.backBtn setHidden:YES];
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    [self getMessageListData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -47,6 +53,17 @@
     [[[UIApplication sharedApplication] keyWindow] setBackgroundColor:[UIColor whiteColor]];
 }
 
+- (void)getMessageListData
+{
+    NSDictionary *params = @{@"page":@"1"};
+    [MessageVM getMessageListWithParameter:params completion:^(BOOL finish, id obj) {
+        if (finish) {
+            self.dataSource = [obj copy];
+            [self.tableView reloadData];
+        }
+    }];
+}
+
 #pragma mark -
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
@@ -55,7 +72,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return self.dataSource.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -66,6 +83,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MessageTableViewCell *cell = [MessageTableViewCell cellForTableView:tableView];
+    
+    MessageModel *model = [self.dataSource objectAtIndex:indexPath.row];
+    [cell refreshDataWith:model];
+    
     return cell;
 }
 

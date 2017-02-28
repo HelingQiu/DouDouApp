@@ -14,13 +14,19 @@
 #import "NearbyModel.h"
 #import <BaiduMapAPI_Utils/BMKNavigation.h>
 #import <BaiduMapAPI_Utils/BMKOpenRoute.h>
+#import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import <BaiduMapAPI_Location/BMKLocationComponent.h>
+#import "FirstAnnotation.h"
+#import "FirstAnnotationView.h"
 
-@interface FindParkingViewController ()<BMKMapViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface FindParkingViewController ()<BMKMapViewDelegate,UITableViewDelegate,UITableViewDataSource,BMKLocationServiceDelegate>
 
 @property (nonatomic, strong) UIButton *rightBtn;
 @property (nonatomic, strong) BMKMapView *mapView;
 @property (nonatomic, strong) UIButton *cityButton;
 @property (nonatomic, strong) MapCarParkingCell *parkingView;
+
+@property (nonatomic, strong) BMKLocationService *locService;
 
 @property (nonatomic, assign) BOOL isMapVisable;
 @property (nonatomic, strong) UITableView *tableView;
@@ -36,7 +42,8 @@
     
     [self.view addSubview:self.mapView];
     [self setNavigationView];
-    [self getNearByParkingData];
+    
+//    [self getNearByParkingData];
 }
 
 - (void)setNavigationView
@@ -87,12 +94,21 @@
     [self.view addSubview:self.parkingView];
     
     self.isMapVisable = YES;
+    
+    _locService = [[BMKLocationService alloc] init];
+    _locService.delegate = self;
+    [_locService startUserLocationService];
+    
+    _mapView.showsUserLocation = NO;//先关闭显示的定位图层
+    _mapView.userTrackingMode = BMKUserTrackingModeNone;//设置定位的状态
+    _mapView.showsUserLocation = YES;//显示定位图层
 }
 
 - (BMKMapView *)mapView
 {
     _mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, 0, mScreenWidth, mScreenHeight - 64)];
     _mapView.delegate = self;
+    _mapView.zoomLevel = 17;
     return _mapView;
 }
 
@@ -108,11 +124,84 @@
 -(void)viewWillAppear:(BOOL)animated {
     [_mapView viewWillAppear];
     _mapView.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
+    _locService.delegate = self;
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
     [_mapView viewWillDisappear];
     _mapView.delegate = nil; // 不用时，置nil
+    _locService.delegate = nil;
+}
+#pragma mark - location
+/**
+ *用户方向更新后，会调用此函数
+ *@param userLocation 新的用户位置
+ */
+- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
+{
+    [_mapView updateLocationData:userLocation];
+    NSLog(@"heading is %@",userLocation.heading);
+}
+
+/**
+ *用户位置更新后，会调用此函数
+ *@param userLocation 新的用户位置
+ */
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    [_mapView updateLocationData:userLocation];
+    [_mapView setCenterCoordinate:userLocation.location.coordinate];
+    
+    BMKPointAnnotation *pointAnnotation = [[BMKPointAnnotation alloc]init];
+    pointAnnotation.coordinate = userLocation.location.coordinate;
+    pointAnnotation.title = @"我的位置";
+    [_mapView addAnnotation:pointAnnotation];
+    
+    [_locService stopUserLocationService];
+    _mapView.showsUserLocation = NO;
+    
+    [self getNearByParkingData:[NSString stringWithFormat:@"%f",userLocation.location.coordinate.latitude] andLog:[NSString stringWithFormat:@"%f",userLocation.location.coordinate.longitude]];
+}
+
+/**
+ *在地图View停止定位后，会调用此函数
+ *@param mapView 地图View
+ */
+- (void)didStopLocatingUser
+{
+    NSLog(@"stop locate");
+}
+
+/**
+ *定位失败后，会调用此函数
+ *@param mapView 地图View
+ *@param error 错误号，参考CLError.h中定义的错误号
+ */
+- (void)didFailToLocateUserWithError:(NSError *)error
+{
+    NSLog(@"location error");
+}
+
+#pragma mark --
+// 根据anntation生成对应的View
+- (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation
+{
+    //动画annotation
+    NSString *AnnotationViewID = @"AnimatedAnnotation";
+    FirstAnnotationView *annotationView = nil;
+    if (annotationView == nil) {
+        annotationView = [[FirstAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationViewID];
+    }
+    [annotationView.annotationImageView setImage:[UIImage imageNamed:@"member_stop"]];
+//    ActuallyModel *model = [(FirstAnnotation *)annotation model];
+//    annotationView.model = model;
+//    
+//    MapPaopaoView *paopaoView = [[MapPaopaoView alloc] initWithFrame:CGRectMake(0, 0, 200, 100) model:model];
+//    annotationView.paopaoView = [[BMKActionPaopaoView alloc] initWithCustomView:paopaoView];
+    
+    return annotationView;
+    
 }
 
 - (void)dealloc {
@@ -185,7 +274,7 @@
     }
 }
 
-- (void)getNearByParkingData
+- (void)getNearByParkingData:(NSString *)latitude andLog:(NSString *)longitude
 {
     NSDictionary *params = @{@"latitude":@"22.61667",
                              @"longitude":@"114.06667",
@@ -193,6 +282,14 @@
     [FindParkingVM getNearByParkingWithParameter:params completion:^(BOOL finish, id obj) {
         if (finish) {
             self.dataSource = [obj copy];
+            
+            [self.dataSource enumerateObjectsUsingBlock:^(NearbyModel *obj, NSUInteger idx, BOOL * stop) {
+                FirstAnnotation* item = [[FirstAnnotation alloc]init];
+                item.coordinate = CLLocationCoordinate2DMake(obj.latitude.floatValue, obj.longitude.floatValue);
+                item.title = obj.name;
+                [_mapView addAnnotation:item];
+            }];
+            
             if (!self.tableView) {
                 [self.tableView reloadData];
             }

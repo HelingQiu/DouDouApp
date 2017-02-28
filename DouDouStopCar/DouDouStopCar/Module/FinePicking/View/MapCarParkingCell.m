@@ -16,6 +16,10 @@
     MapCarParkingCell *cell = [nibContents firstObject];
     return cell;
 }
+- (IBAction)roadAction:(UIButton *)sender {
+}
+- (IBAction)directAction:(UIButton *)sender {
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
