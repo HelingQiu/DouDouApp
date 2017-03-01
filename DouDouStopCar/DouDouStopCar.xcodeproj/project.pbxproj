@@ -12,7 +12,6 @@
 		CF14ACE11E56E1A600DD081E /* UIColor+HNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = CF14ACE01E56E1A600DD081E /* UIColor+HNExtensions.m */; };
 		CF14ACE31E56E6D400DD081E /* LoginAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF14ACE21E56E6D400DD081E /* LoginAssets.xcassets */; };
 		CF63A4B91E66C05600EBF1F4 /* RoadViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CF63A4B81E66C05600EBF1F4 /* RoadViewController.mm */; };
-		CF63A4BC1E66C66E00EBF1F4 /* RouteAnnotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = CF63A4BB1E66C66E00EBF1F4 /* RouteAnnotation.mm */; };
 		CF6B08AE1E5ED7CB00C7759C /* FindParkingVM.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6B08AD1E5ED7CB00C7759C /* FindParkingVM.m */; };
 		CF6B08B11E5EDBD900C7759C /* NearbyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6B08B01E5EDBD900C7759C /* NearbyModel.m */; };
 		CF6B08B51E5EDE9700C7759C /* NearByParkingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6B08B31E5EDE9700C7759C /* NearByParkingListCell.m */; };
@@ -113,6 +112,7 @@
 		D59C876E1E5B42D800D8AF84 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D59C876C1E5B42D800D8AF84 /* CollectionCell.xib */; };
 		D59C87711E5B463000D8AF84 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D59C87701E5B463000D8AF84 /* AboutViewController.m */; };
 		D5AF80EC1E4B4C70006C7AF3 /* DouDouLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF80EB1E4B4C70006C7AF3 /* DouDouLoginViewController.m */; };
+		D5C5AD621E66F5F3007C2787 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C5AD611E66F5F3007C2787 /* UIImage+Rotate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,8 +126,6 @@
 		CF14ACE21E56E6D400DD081E /* LoginAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LoginAssets.xcassets; sourceTree = "<group>"; };
 		CF63A4B71E66C05600EBF1F4 /* RoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadViewController.h; sourceTree = "<group>"; };
 		CF63A4B81E66C05600EBF1F4 /* RoadViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RoadViewController.mm; sourceTree = "<group>"; };
-		CF63A4BA1E66C66E00EBF1F4 /* RouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RouteAnnotation.h; path = ../../../../../../../Downloads/BaiduMap_IOSSDK_v3.2.1_Sample/BMKOCDemo/src/RouteAnnotation.h; sourceTree = "<group>"; };
-		CF63A4BB1E66C66E00EBF1F4 /* RouteAnnotation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RouteAnnotation.mm; path = ../../../../../../../Downloads/BaiduMap_IOSSDK_v3.2.1_Sample/BMKOCDemo/src/RouteAnnotation.mm; sourceTree = "<group>"; };
 		CF6B08AC1E5ED7CB00C7759C /* FindParkingVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindParkingVM.h; sourceTree = "<group>"; };
 		CF6B08AD1E5ED7CB00C7759C /* FindParkingVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindParkingVM.m; sourceTree = "<group>"; };
 		CF6B08AF1E5EDBD900C7759C /* NearbyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyModel.h; sourceTree = "<group>"; };
@@ -295,6 +293,8 @@
 		D59C87701E5B463000D8AF84 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		D5AF80EA1E4B4C70006C7AF3 /* DouDouLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DouDouLoginViewController.h; sourceTree = "<group>"; };
 		D5AF80EB1E4B4C70006C7AF3 /* DouDouLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DouDouLoginViewController.m; sourceTree = "<group>"; };
+		D5C5AD601E66F5F3007C2787 /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
+		D5C5AD611E66F5F3007C2787 /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +333,8 @@
 		CF14ACDE1E56E19B00DD081E /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				D5C5AD601E66F5F3007C2787 /* UIImage+Rotate.h */,
+				D5C5AD611E66F5F3007C2787 /* UIImage+Rotate.m */,
 				D52602E51E5C90EC007EA24D /* UIView+Frame.h */,
 				D52602E61E5C90EC007EA24D /* UIView+Frame.m */,
 				CFCEBF601E5AE5C200593686 /* NSString+MD5.h */,
@@ -425,8 +427,6 @@
 				CF6B08B21E5EDE9700C7759C /* NearByParkingListCell.h */,
 				CF6B08B31E5EDE9700C7759C /* NearByParkingListCell.m */,
 				CF6B08B41E5EDE9700C7759C /* NearByParkingListCell.xib */,
-				CF63A4BA1E66C66E00EBF1F4 /* RouteAnnotation.h */,
-				CF63A4BB1E66C66E00EBF1F4 /* RouteAnnotation.mm */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -996,9 +996,9 @@
 				D52802961E49F0C700ACB198 /* ViewController.mm in Sources */,
 				D52802931E49F0C600ACB198 /* AppDelegate.m in Sources */,
 				CFCEBF621E5AE5C200593686 /* NSString+MD5.m in Sources */,
-				CF63A4BC1E66C66E00EBF1F4 /* RouteAnnotation.mm in Sources */,
 				D59C87691E5B428000D8AF84 /* CollectionViewController.m in Sources */,
 				D582E2021E63365000B0A28D /* OBShapedButton.m in Sources */,
+				D5C5AD621E66F5F3007C2787 /* UIImage+Rotate.m in Sources */,
 				CFCEBF5C1E5AC59000593686 /* LoginVM.m in Sources */,
 				D52602DE1E5C870D007EA24D /* DouDouButton.m in Sources */,
 				CF6B08AE1E5ED7CB00C7759C /* FindParkingVM.m in Sources */,

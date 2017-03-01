@@ -18,10 +18,11 @@
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
 #import "FirstAnnotation.h"
 #import "FirstAnnotationView.h"
+#import "RoadViewController.h"
 
 @interface FindParkingViewController ()<BMKMapViewDelegate,UITableViewDelegate,UITableViewDataSource,BMKLocationServiceDelegate>
 {
-    CLLocationCoordinate2D locationPt;
+    
 }
 @property (nonatomic, strong) UIButton *rightBtn;
 @property (nonatomic, strong) BMKMapView *mapView;
@@ -29,6 +30,7 @@
 @property (nonatomic, strong) MapCarParkingCell *parkingView;
 
 @property (nonatomic, strong) BMKLocationService *locService;
+@property (nonatomic, assign) CLLocationCoordinate2D locationPt;
 
 @property (nonatomic, assign) BOOL isMapVisable;
 @property (nonatomic, strong) UITableView *tableView;
@@ -95,8 +97,22 @@
     self.parkingView.layer.borderWidth = 0.5;
     [self.view addSubview:self.parkingView];
     
+    __weak typeof(self) weakSelf = self;
     self.parkingView.roadBlock = ^(NearbyModel *model){
+        RoadViewController *roadController = [[RoadViewController alloc] init];
+        roadController.startPt = weakSelf.locationPt;
         
+        CLLocationCoordinate2D coor1;
+        coor1.latitude = 39.90868;
+        coor1.longitude = 116.204;
+        roadController.endPt = coor1;
+        [weakSelf.navigationController pushViewController:roadController animated:YES];
+    };
+    
+    self.parkingView.dirBlock = ^(NearbyModel *model) {
+//        [weakSelf openNativeNaviWith:model];
+//        [weakSelf openGaoDeNativeNaviWith:model];
+        [weakSelf openSafariBaiDuMapWith:model];
     };
     
     self.isMapVisable = YES;
@@ -158,6 +174,8 @@
     NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     [_mapView updateLocationData:userLocation];
     [_mapView setCenterCoordinate:userLocation.location.coordinate];
+    
+    _locationPt = userLocation.location.coordinate;
     
     BMKPointAnnotation *pointAnnotation = [[BMKPointAnnotation alloc]init];
     pointAnnotation.coordinate = userLocation.location.coordinate;
@@ -328,15 +346,19 @@
     cell.block = ^(){
         //导航
         if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"baidumap://"]]){
-//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"baidumap://map/navi?location=40.057023, 116.307852&src=push&type=BLK&src=com.DouDouStopCar"]];
-            [self openNativeNaviWith:model];
+            [self openBaiDuNativeNaviWith:model];
+        }else if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]]) {
+            [self openGaoDeNativeNaviWith:model];
+        }else{
+            //打开浏览器导航
+            
         }
     };
     return cell;
 }
 
-//打开百度客户端导航
-- (void)openNativeNaviWith:(NearbyModel *)model
+#pragma mark - 打开百度客户端导航
+- (void)openBaiDuNativeNaviWith:(NearbyModel *)model
 {
     //初始化调启导航时的参数管理类
     BMKNaviPara* para = [[BMKNaviPara alloc]init];
@@ -365,10 +387,42 @@
     para.endPoint = end;
     
     //指定返回自定义scheme
-    para.appScheme = @"baidumapsdk://mapsdk.baidu.com";
+    para.appScheme = @"DouDouStopCar://";
     
     //调启百度地图客户端导航
     [BMKNavigation openBaiduMapNavigation:para];
+}
+
+#pragma mark - 打开高德客户端导航
+- (void)openGaoDeNativeNaviWith:(NearbyModel *)model
+{
+    //判断是否安装了高德地图，如果安装了高德地图，则使用高德地图导航
+    CLLocationCoordinate2D coor1;
+    coor1.latitude = 39.90868;
+    coor1.longitude = 116.204;
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]])//
+    {
+        NSString *urlsting =[[NSString stringWithFormat:@"iosamap://navi?sourceApplication=豆豆停车&backScheme= &lat=%f&lon=%f&dev=0&style=2",coor1.latitude,coor1.longitude]stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [[UIApplication  sharedApplication]openURL:[NSURL URLWithString:urlsting]];
+    }
+}
+
+- (void)openSafariBaiDuMapWith:(NearbyModel *)model
+{
+    //http://api.map.baidu.com/direction/v2/transit?origin=40.056878,116.30815&destination=31.222965,121.505821&ak=您的ak
+    //bdapp://map/navi?location=40.057023, 116.307852&src=push&type=BLK&src=webapp.line.yourCompanyName.yourAppName
+    
+    NSString *url2 = [[NSString stringWithFormat:@"baidumap://map/direction?origin=latlng:39.915,116.404|name:我的位置&destination=latlng:39.915,120.202|name:终点&mode=driving"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
+    
+    NSString *urlString = @"http://app.navi.baidu.com/mobile/#navi/naving/positions=[{xy:39.915,116.404,keyword:我的位置,type:1},{xy:39.915,120.202,keyword:惠州火车站,type:1}]&app_version=mapiossdk_3.0.0&fromprod=map_sdk&sy=&endp=&start=&startwd=&endwd=&ctrl_type=&mrsl=/vt=map&state=entry";
+    NSString *resultString = [urlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"dddddd:%@",resultString);
+    NSString *urlStr = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *dirURL = [@"http://api.map.baidu.com/direction?origin=latlng:34.264642646862,108.95108518068|name:我家&destination=大雁塔&mode=driving&region=西安&output=html&src=DouDouStopCar" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    NSString *dirURL = [NSString stringWithFormat:@"http://api.map.baidu.com/direction/v1?mode=driving&origin=40.056878,116.30815&destination=31.222965,121.505821&ak=%@",BaiDuAppKey];
+    NSURL *cleanURL = [NSURL URLWithString:urlStr];
+    [[UIApplication sharedApplication] openURL:cleanURL];
 }
 
 - (void)didReceiveMemoryWarning {

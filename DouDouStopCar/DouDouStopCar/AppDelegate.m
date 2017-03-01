@@ -16,8 +16,6 @@
 #import "MemberCenterViewController.h"
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 
-#define BaiDuAppKey @"npdMeCxvlXIA3Ll24yUTf3vwkepDEC7c"
-
 @interface AppDelegate ()
 {
     BMKMapManager* _mapManager;

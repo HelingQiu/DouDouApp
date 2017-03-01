@@ -34,4 +34,6 @@ typedef void (^CompletionWithObjectBlock) (BOOL finish, id obj);
 #define kDouDouPassWord @"password"
 #define kDouDouToken @"token"
 
+#define BaiDuAppKey @"npdMeCxvlXIA3Ll24yUTf3vwkepDEC7c"
+
 #endif /* AppDefine_h */
