@@ -11,6 +11,8 @@
 		CF14ACDD1E56E11D00DD081E /* DouDouBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF14ACDC1E56E11D00DD081E /* DouDouBaseNavigationController.m */; };
 		CF14ACE11E56E1A600DD081E /* UIColor+HNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = CF14ACE01E56E1A600DD081E /* UIColor+HNExtensions.m */; };
 		CF14ACE31E56E6D400DD081E /* LoginAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF14ACE21E56E6D400DD081E /* LoginAssets.xcassets */; };
+		CF63A4B91E66C05600EBF1F4 /* RoadViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CF63A4B81E66C05600EBF1F4 /* RoadViewController.mm */; };
+		CF63A4BC1E66C66E00EBF1F4 /* RouteAnnotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = CF63A4BB1E66C66E00EBF1F4 /* RouteAnnotation.mm */; };
 		CF6B08AE1E5ED7CB00C7759C /* FindParkingVM.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6B08AD1E5ED7CB00C7759C /* FindParkingVM.m */; };
 		CF6B08B11E5EDBD900C7759C /* NearbyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6B08B01E5EDBD900C7759C /* NearbyModel.m */; };
 		CF6B08B51E5EDE9700C7759C /* NearByParkingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6B08B31E5EDE9700C7759C /* NearByParkingListCell.m */; };
@@ -122,6 +124,10 @@
 		CF14ACDF1E56E1A600DD081E /* UIColor+HNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HNExtensions.h"; sourceTree = "<group>"; };
 		CF14ACE01E56E1A600DD081E /* UIColor+HNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HNExtensions.m"; sourceTree = "<group>"; };
 		CF14ACE21E56E6D400DD081E /* LoginAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LoginAssets.xcassets; sourceTree = "<group>"; };
+		CF63A4B71E66C05600EBF1F4 /* RoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadViewController.h; sourceTree = "<group>"; };
+		CF63A4B81E66C05600EBF1F4 /* RoadViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RoadViewController.mm; sourceTree = "<group>"; };
+		CF63A4BA1E66C66E00EBF1F4 /* RouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RouteAnnotation.h; path = ../../../../../../../Downloads/BaiduMap_IOSSDK_v3.2.1_Sample/BMKOCDemo/src/RouteAnnotation.h; sourceTree = "<group>"; };
+		CF63A4BB1E66C66E00EBF1F4 /* RouteAnnotation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RouteAnnotation.mm; path = ../../../../../../../Downloads/BaiduMap_IOSSDK_v3.2.1_Sample/BMKOCDemo/src/RouteAnnotation.mm; sourceTree = "<group>"; };
 		CF6B08AC1E5ED7CB00C7759C /* FindParkingVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindParkingVM.h; sourceTree = "<group>"; };
 		CF6B08AD1E5ED7CB00C7759C /* FindParkingVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindParkingVM.m; sourceTree = "<group>"; };
 		CF6B08AF1E5EDBD900C7759C /* NearbyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyModel.h; sourceTree = "<group>"; };
@@ -419,6 +425,8 @@
 				CF6B08B21E5EDE9700C7759C /* NearByParkingListCell.h */,
 				CF6B08B31E5EDE9700C7759C /* NearByParkingListCell.m */,
 				CF6B08B41E5EDE9700C7759C /* NearByParkingListCell.xib */,
+				CF63A4BA1E66C66E00EBF1F4 /* RouteAnnotation.h */,
+				CF63A4BB1E66C66E00EBF1F4 /* RouteAnnotation.mm */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -430,6 +438,8 @@
 				CFC004431E5D3E930079DCE5 /* FindParkingViewController.m */,
 				CFD6558C1E6014B00051A414 /* LocationCityViewController.h */,
 				CFD6558D1E6014B00051A414 /* LocationCityViewController.m */,
+				CF63A4B71E66C05600EBF1F4 /* RoadViewController.h */,
+				CF63A4B81E66C05600EBF1F4 /* RoadViewController.mm */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -986,6 +996,7 @@
 				D52802961E49F0C700ACB198 /* ViewController.mm in Sources */,
 				D52802931E49F0C600ACB198 /* AppDelegate.m in Sources */,
 				CFCEBF621E5AE5C200593686 /* NSString+MD5.m in Sources */,
+				CF63A4BC1E66C66E00EBF1F4 /* RouteAnnotation.mm in Sources */,
 				D59C87691E5B428000D8AF84 /* CollectionViewController.m in Sources */,
 				D582E2021E63365000B0A28D /* OBShapedButton.m in Sources */,
 				CFCEBF5C1E5AC59000593686 /* LoginVM.m in Sources */,
@@ -1042,6 +1053,7 @@
 				CFCEBF5F1E5ACC7700593686 /* UserModel.m in Sources */,
 				D55C80281E60942300DA9DC5 /* LoginSimpleton.m in Sources */,
 				D52802CA1E4A1AF900ACB198 /* DouDouBaseTableViewController.m in Sources */,
+				CF63A4B91E66C05600EBF1F4 /* RoadViewController.mm in Sources */,
 				CFD655911E6034550051A414 /* RFSegmentView.m in Sources */,
 				CF9EFC851E5596B400B41160 /* MemberCenterViewController.m in Sources */,
 			);

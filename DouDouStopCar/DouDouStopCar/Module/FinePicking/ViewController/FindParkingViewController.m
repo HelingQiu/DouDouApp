@@ -20,7 +20,9 @@
 #import "FirstAnnotationView.h"
 
 @interface FindParkingViewController ()<BMKMapViewDelegate,UITableViewDelegate,UITableViewDataSource,BMKLocationServiceDelegate>
-
+{
+    CLLocationCoordinate2D locationPt;
+}
 @property (nonatomic, strong) UIButton *rightBtn;
 @property (nonatomic, strong) BMKMapView *mapView;
 @property (nonatomic, strong) UIButton *cityButton;
@@ -92,6 +94,10 @@
     self.parkingView.layer.borderColor = [[UIColor groupTableViewBackgroundColor] CGColor];
     self.parkingView.layer.borderWidth = 0.5;
     [self.view addSubview:self.parkingView];
+    
+    self.parkingView.roadBlock = ^(NearbyModel *model){
+        
+    };
     
     self.isMapVisable = YES;
     
@@ -323,8 +329,7 @@
         //导航
         if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"baidumap://"]]){
 //            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"baidumap://map/navi?location=40.057023, 116.307852&src=push&type=BLK&src=com.DouDouStopCar"]];
-//            [self openNativeNaviWith:model];
-            [self openMapDrivingRouteWith:model];
+            [self openNativeNaviWith:model];
         }
     };
     return cell;
@@ -364,39 +369,6 @@
     
     //调启百度地图客户端导航
     [BMKNavigation openBaiduMapNavigation:para];
-}
-
-//打开百度地图 驾车路线检索
-- (void)openMapDrivingRouteWith:(NearbyModel *)model
-{
-    BMKOpenDrivingRouteOption *opt = [[BMKOpenDrivingRouteOption alloc] init];
-    //    opt.appName = @"SDK调起Demo";
-    opt.appScheme = @"baidumapsdk://mapsdk.baidu.com";
-    //初始化起点节点
-    BMKPlanNode* start = [[BMKPlanNode alloc]init];
-    //指定起点经纬度
-    CLLocationCoordinate2D coor1;
-    coor1.latitude = 39.90868;
-    coor1.longitude = 116.204;
-    //指定起点名称
-    start.name = @"西直门";
-    start.cityName = @"北京";
-    //指定起点
-    opt.startPoint = start;
-    
-    //初始化终点节点
-    BMKPlanNode* end = [[BMKPlanNode alloc]init];
-    CLLocationCoordinate2D coor2;
-    coor2.latitude = 39.90868;
-    coor2.longitude = 116.3956;
-    end.pt = coor2;
-    //指定终点名称
-    end.name = @"天安门";
-    end.cityName = @"北京";
-    opt.endPoint = end;
-    BMKOpenErrorCode code = [BMKOpenRoute openBaiduMapDrivingRoute:opt];
-    NSLog(@"%d", code);
-    return;
 }
 
 - (void)didReceiveMemoryWarning {
