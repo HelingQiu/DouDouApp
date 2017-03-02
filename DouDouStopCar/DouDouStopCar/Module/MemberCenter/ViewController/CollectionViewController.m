@@ -10,6 +10,7 @@
 #import "CollectionCell.h"
 #import "MemberCenterVM.h"
 #import "ParkingRecordModel.h"
+#import "ParkingDetailViewController.h"
 
 @interface CollectionViewController ()
 
@@ -87,7 +88,13 @@
     return cell;
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    ParkingDetailViewController *parkController = [[ParkingDetailViewController alloc] init];
+    [self.navigationController pushViewController:parkController animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

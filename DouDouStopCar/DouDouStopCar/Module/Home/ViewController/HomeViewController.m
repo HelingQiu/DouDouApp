@@ -12,6 +12,7 @@
 #import "HomeVM.h"
 #import "AdsDataModel.h"
 #import "FindParkingViewController.h"
+#import "AppointmentViewController.h"
 
 @interface HomeViewController ()
 
@@ -149,6 +150,10 @@
     {
         FindParkingViewController *parkingController = [[FindParkingViewController alloc] init];
         [self.navigationController pushViewController:parkingController animated:YES];
+    }
+    if (indexPath.section == 2) {
+        AppointmentViewController *appointController = [[AppointmentViewController alloc] init];
+        [self.navigationController pushViewController:appointController animated:YES];
     }
 }
 
