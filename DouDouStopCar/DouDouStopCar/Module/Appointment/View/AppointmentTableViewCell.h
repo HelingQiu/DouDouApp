@@ -10,4 +10,6 @@
 
 @interface AppointmentTableViewCell : UITableViewCell
 
++ (AppointmentTableViewCell *)cellForTableView:(UITableView *)tableView;
+
 @end

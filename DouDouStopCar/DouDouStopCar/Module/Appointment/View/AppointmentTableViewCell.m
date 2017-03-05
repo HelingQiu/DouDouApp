@@ -10,6 +10,16 @@
 
 @implementation AppointmentTableViewCell
 
++ (AppointmentTableViewCell *)cellForTableView:(UITableView *)tableView
+{
+    [tableView registerNib:[UINib nibWithNibName:@"AppointmentTableViewCell" bundle:nil] forCellReuseIdentifier:@"appointCell"];
+    AppointmentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"appointCell"];
+    if (!cell) {
+        cell = [[AppointmentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"appointCell"];
+    }
+    return cell;
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

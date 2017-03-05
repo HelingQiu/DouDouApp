@@ -8,6 +8,7 @@
 
 #import "AppointmentViewController.h"
 #import "CollectionCell.h"
+#import "AppointmentTableViewCell.h"
 
 @interface AppointmentViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -84,7 +85,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CollectionCell *cell = [CollectionCell cellForTableView:tableView];
+    AppointmentTableViewCell *cell = [AppointmentTableViewCell cellForTableView:tableView];
     
     return cell;
 }

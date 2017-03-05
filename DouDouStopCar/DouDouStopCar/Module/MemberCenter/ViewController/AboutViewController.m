@@ -7,6 +7,7 @@
 //
 
 #import "AboutViewController.h"
+#import "ApplyBillViewController.h"
 
 @interface AboutViewController ()
 
@@ -62,7 +63,8 @@
             case 1:
             {
                 //申领发票
-                
+                ApplyBillViewController *applyController = [[ApplyBillViewController alloc] init];
+                [self.navigationController pushViewController:applyController animated:YES];
             }
                 break;
             case 2:

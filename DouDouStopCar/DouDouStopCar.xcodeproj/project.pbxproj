@@ -101,6 +101,11 @@
 		D55E8EF81E65BC3C00ABB7B6 /* JJSAttributedStringBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D55E8EF71E65BC3C00ABB7B6 /* JJSAttributedStringBuilder.m */; };
 		D55E8EFD1E65CCA400ABB7B6 /* FirstAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D55E8EFA1E65CCA400ABB7B6 /* FirstAnnotationView.m */; };
 		D55E8EFE1E65CCA400ABB7B6 /* FirstAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D55E8EFC1E65CCA400ABB7B6 /* FirstAnnotation.m */; };
+		D57F3EBC1E6C3C6600411009 /* ApplyBillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D57F3EBB1E6C3C6600411009 /* ApplyBillViewController.m */; };
+		D57F3ED01E6C650400411009 /* address.plist in Resources */ = {isa = PBXBuildFile; fileRef = D57F3ECA1E6C650400411009 /* address.plist */; };
+		D57F3ED11E6C650400411009 /* CityPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D57F3ECB1E6C650400411009 /* CityPicker.storyboard */; };
+		D57F3ED21E6C650400411009 /* CityPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D57F3ECD1E6C650400411009 /* CityPickerViewController.m */; };
+		D57F3ED31E6C650400411009 /* SkyerCityPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D57F3ECF1E6C650400411009 /* SkyerCityPicker.m */; };
 		D582E1F81E62E33700B0A28D /* WalletRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D582E1F61E62E33700B0A28D /* WalletRecordCell.m */; };
 		D582E1F91E62E33700B0A28D /* WalletRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D582E1F71E62E33700B0A28D /* WalletRecordCell.xib */; };
 		D582E1FC1E63150000B0A28D /* RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D582E1FB1E63150000B0A28D /* RechargeViewController.m */; };
@@ -278,6 +283,14 @@
 		D55E8EFA1E65CCA400ABB7B6 /* FirstAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstAnnotationView.m; sourceTree = "<group>"; };
 		D55E8EFB1E65CCA400ABB7B6 /* FirstAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstAnnotation.h; sourceTree = "<group>"; };
 		D55E8EFC1E65CCA400ABB7B6 /* FirstAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstAnnotation.m; sourceTree = "<group>"; };
+		D57F3EBA1E6C3C6600411009 /* ApplyBillViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyBillViewController.h; sourceTree = "<group>"; };
+		D57F3EBB1E6C3C6600411009 /* ApplyBillViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyBillViewController.m; sourceTree = "<group>"; };
+		D57F3ECA1E6C650400411009 /* address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = address.plist; sourceTree = "<group>"; };
+		D57F3ECB1E6C650400411009 /* CityPicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CityPicker.storyboard; sourceTree = "<group>"; };
+		D57F3ECC1E6C650400411009 /* CityPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityPickerViewController.h; sourceTree = "<group>"; };
+		D57F3ECD1E6C650400411009 /* CityPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityPickerViewController.m; sourceTree = "<group>"; };
+		D57F3ECE1E6C650400411009 /* SkyerCityPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyerCityPicker.h; sourceTree = "<group>"; };
+		D57F3ECF1E6C650400411009 /* SkyerCityPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyerCityPicker.m; sourceTree = "<group>"; };
 		D582E1F51E62E33700B0A28D /* WalletRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletRecordCell.h; sourceTree = "<group>"; };
 		D582E1F61E62E33700B0A28D /* WalletRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletRecordCell.m; sourceTree = "<group>"; };
 		D582E1F71E62E33700B0A28D /* WalletRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletRecordCell.xib; sourceTree = "<group>"; };
@@ -515,6 +528,7 @@
 		D52802BE1E4A19B900ACB198 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				D57F3EC91E6C650400411009 /* SkyerCityPicker */,
 				CF9BBC5B1E63CD160005CD20 /* AliPaySDK */,
 				CF9BBC531E63CD0B0005CD20 /* WechatPaySDK */,
 				CFC0042F1E5D2D4A0079DCE5 /* BaiduMap_IOSSDK_v3.2.1_Lib */,
@@ -655,6 +669,19 @@
 				13C60B765F58AE76EC57A873 /* Pods_DouDouStopCar.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D57F3EC91E6C650400411009 /* SkyerCityPicker */ = {
+			isa = PBXGroup;
+			children = (
+				D57F3ECA1E6C650400411009 /* address.plist */,
+				D57F3ECB1E6C650400411009 /* CityPicker.storyboard */,
+				D57F3ECC1E6C650400411009 /* CityPickerViewController.h */,
+				D57F3ECD1E6C650400411009 /* CityPickerViewController.m */,
+				D57F3ECE1E6C650400411009 /* SkyerCityPicker.h */,
+				D57F3ECF1E6C650400411009 /* SkyerCityPicker.m */,
+			);
+			path = SkyerCityPicker;
 			sourceTree = "<group>";
 		};
 		D5AF80D61E4B47EB006C7AF3 /* Home */ = {
@@ -849,6 +876,8 @@
 				D59C87601E5B3A7500D8AF84 /* StopRecordViewController.m */,
 				D59C87671E5B428000D8AF84 /* CollectionViewController.h */,
 				D59C87681E5B428000D8AF84 /* CollectionViewController.m */,
+				D57F3EBA1E6C3C6600411009 /* ApplyBillViewController.h */,
+				D57F3EBB1E6C3C6600411009 /* ApplyBillViewController.m */,
 				D59C876F1E5B463000D8AF84 /* AboutViewController.h */,
 				D59C87701E5B463000D8AF84 /* AboutViewController.m */,
 			);
@@ -980,11 +1009,13 @@
 				CFC0045A1E5D72EF0079DCE5 /* HomeAssets.xcassets in Resources */,
 				D55E8EEF1E65B4A200ABB7B6 /* MessageAssets.xcassets in Resources */,
 				CF14ACE31E56E6D400DD081E /* LoginAssets.xcassets in Resources */,
+				D57F3ED11E6C650400411009 /* CityPicker.storyboard in Resources */,
 				D59C876E1E5B42D800D8AF84 /* CollectionCell.xib in Resources */,
 				D52602CD1E5C732D007EA24D /* MonthCardCell.xib in Resources */,
 				D528029E1E49F0C700ACB198 /* LaunchScreen.storyboard in Resources */,
 				CFD655961E603CE50051A414 /* PrivilegeCell.xib in Resources */,
 				CF9BBC5A1E63CD0B0005CD20 /* README.txt in Resources */,
+				D57F3ED01E6C650400411009 /* address.plist in Resources */,
 				D59C87661E5B3AE600D8AF84 /* StopCarCell.xib in Resources */,
 				CFCEBF4F1E5AB77A00593686 /* MessageTableViewCell.xib in Resources */,
 				CFC004581E5D675A0079DCE5 /* mapapi.bundle in Resources */,
@@ -1064,6 +1095,7 @@
 				D55C80251E608E8700DA9DC5 /* MemberCenterVM.m in Sources */,
 				D582E1F81E62E33700B0A28D /* WalletRecordCell.m in Sources */,
 				D52602DA1E5C8461007EA24D /* CarNumberCell.m in Sources */,
+				D57F3ED31E6C650400411009 /* SkyerCityPicker.m in Sources */,
 				D5542B5A1E68724300C01B3F /* AppointmentTableViewCell.m in Sources */,
 				D582E1FF1E6331D200B0A28D /* DepositViewController.m in Sources */,
 				D52602E41E5C90AD007EA24D /* CustomCollectionView.m in Sources */,
@@ -1074,6 +1106,7 @@
 				CF6B08B11E5EDBD900C7759C /* NearbyModel.m in Sources */,
 				D52602D61E5C83FE007EA24D /* CarNumberViewController.m in Sources */,
 				CFC004441E5D3E930079DCE5 /* FindParkingViewController.m in Sources */,
+				D57F3ED21E6C650400411009 /* CityPickerViewController.m in Sources */,
 				CFD655951E603CE50051A414 /* PrivilegeCell.m in Sources */,
 				D582E2051E63397800B0A28D /* UIImage+ColorAtPixel.m in Sources */,
 				CFCBF1381E5C1F4B00D618BE /* NewsViewController.m in Sources */,
@@ -1087,6 +1120,7 @@
 				D5348CD31E4C995D0007B9C7 /* DouDouRegisterViewController.m in Sources */,
 				D55C802E1E609C0600DA9DC5 /* ParkingRecordModel.m in Sources */,
 				D5542B561E686F1500C01B3F /* AppointmentViewController.m in Sources */,
+				D57F3EBC1E6C3C6600411009 /* ApplyBillViewController.m in Sources */,
 				CFCEBF521E5AB78200593686 /* MessageViewController.m in Sources */,
 				CFCBF13E1E5C21B100D618BE /* AdsDataModel.m in Sources */,
 				D52602E71E5C90EC007EA24D /* UIView+Frame.m in Sources */,
