@@ -38,12 +38,19 @@
     scrollView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.view addSubview:scrollView];
     
+    UIView *container = [UIView new];
+    [scrollView addSubview:container];
+    [container mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(scrollView);
+        make.width.equalTo(scrollView);
+    }];
+    
     _imgView = [[UIImageView alloc] init];
-    [scrollView addSubview:_imgView];
+    [container addSubview:_imgView];
     [_imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(scrollView.mas_top).with.offset(0);
-        make.left.equalTo(scrollView.mas_left).with.offset(0);
-        make.right.equalTo(scrollView.mas_right).with.offset(0);
+        make.left.equalTo(self.view.mas_left).with.offset(0);
+        make.right.equalTo(self.view.mas_right).with.offset(0);
         make.height.mas_equalTo(175);
     }];
     [_imgView setImage:[UIImage imageNamed:@"home"]];
@@ -52,7 +59,7 @@
     [_parkingName setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6]];
     [_parkingName setTextColor:[UIColor whiteColor]];
     [_parkingName setFont:[UIFont boldSystemFontOfSize:20]];
-    [scrollView addSubview:_parkingName];
+    [container addSubview:_parkingName];
     [_parkingName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(_imgView.mas_bottom).with.offset(0);
         make.left.equalTo(_imgView.mas_left).with.offset(15);
@@ -65,7 +72,7 @@
     [collectButton setImage:[UIImage imageNamed:@"__icon_u22"] forState:UIControlStateNormal];
     [collectButton setImage:[UIImage imageNamed:@"__icon_u22_selected"] forState:UIControlStateSelected];
     [collectButton setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6]];
-    [scrollView addSubview:collectButton];
+    [container addSubview:collectButton];
     [collectButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(_imgView.mas_bottom).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(- 15);
@@ -75,7 +82,7 @@
     
     UIView *topView = [[UIView alloc] init];
     [topView setBackgroundColor:[UIColor whiteColor]];
-    [scrollView addSubview:topView];
+    [container addSubview:topView];
     [topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_imgView.mas_bottom).with.offset(0);
         make.left.equalTo(scrollView.mas_left).with.offset(0);
@@ -139,7 +146,7 @@
     
     UIView *midView = [[UIView alloc] init];
     midView.backgroundColor = [UIColor whiteColor];
-    [scrollView addSubview:midView];
+    [container addSubview:midView];
     [midView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(topView.mas_bottom).with.offset(24);
         make.left.equalTo(self.view.mas_left).with.offset(0);
@@ -225,7 +232,9 @@
     [midView addSubview:[CommonUtils getSeparator:kHexColor(kColor_Text) frame:CGRectMake(0, 60, mScreenWidth, 0.5)]];
     [midView addSubview:[CommonUtils getSeparator:kHexColor(kColor_Text) frame:CGRectMake(0, 120, mScreenWidth, 0.5)]];
     
-    [scrollView setContentSize:CGSizeMake(0, CGRectGetMaxY(midView.frame) + 20)];
+    [container mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(midView.mas_bottom).mas_offset(20);//这里放最后一个view 的底部
+    }];
     
     UIImageView *backView = [[UIImageView alloc] init];
     [backView setImage:[UIImage imageNamed:@"parking_detail_btn_back"]];

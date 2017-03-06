@@ -9,6 +9,7 @@
 #import "AppointmentViewController.h"
 #import "CollectionCell.h"
 #import "AppointmentTableViewCell.h"
+#import "AppointDetailViewController.h"
 
 @interface AppointmentViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -88,6 +89,14 @@
     AppointmentTableViewCell *cell = [AppointmentTableViewCell cellForTableView:tableView];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    AppointDetailViewController *appointController = [[AppointDetailViewController alloc] init];
+    [self.navigationController pushViewController:appointController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
