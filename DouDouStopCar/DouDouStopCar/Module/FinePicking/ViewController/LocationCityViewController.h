@@ -8,6 +8,10 @@
 
 #import "DouDouBaseViewController.h"
 
+typedef void(^CityBlock)(NSString *city);
 @interface LocationCityViewController : DouDouBaseViewController
+
+@property (nonatomic, copy) NSString *locationCity;
+@property (nonatomic, copy) CityBlock block;
 
 @end

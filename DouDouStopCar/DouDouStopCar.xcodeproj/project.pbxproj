@@ -87,6 +87,7 @@
 		D52802CA1E4A1AF900ACB198 /* DouDouBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52802C91E4A1AF900ACB198 /* DouDouBaseTableViewController.m */; };
 		D5348CD31E4C995D0007B9C7 /* DouDouRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5348CD21E4C995D0007B9C7 /* DouDouRegisterViewController.m */; };
 		D5348CD71E4CA3740007B9C7 /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D5348CD61E4CA3740007B9C7 /* CommonUtils.m */; };
+		D550E8381E6EFDC100865EF1 /* SearchParkingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D550E8371E6EFDC100865EF1 /* SearchParkingViewController.m */; };
 		D5542B4E1E684FD600C01B3F /* ParkingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5542B4D1E684FD600C01B3F /* ParkingDetailViewController.m */; };
 		D5542B561E686F1500C01B3F /* AppointmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5542B551E686F1500C01B3F /* AppointmentViewController.m */; };
 		D5542B5A1E68724300C01B3F /* AppointmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5542B581E68724300C01B3F /* AppointmentTableViewCell.m */; };
@@ -258,6 +259,8 @@
 		D5348CD21E4C995D0007B9C7 /* DouDouRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DouDouRegisterViewController.m; sourceTree = "<group>"; };
 		D5348CD51E4CA3740007B9C7 /* CommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtils.h; sourceTree = "<group>"; };
 		D5348CD61E4CA3740007B9C7 /* CommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtils.m; sourceTree = "<group>"; };
+		D550E8361E6EFDC100865EF1 /* SearchParkingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchParkingViewController.h; sourceTree = "<group>"; };
+		D550E8371E6EFDC100865EF1 /* SearchParkingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchParkingViewController.m; sourceTree = "<group>"; };
 		D5542B4C1E684FD600C01B3F /* ParkingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkingDetailViewController.h; sourceTree = "<group>"; };
 		D5542B4D1E684FD600C01B3F /* ParkingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkingDetailViewController.m; sourceTree = "<group>"; };
 		D5542B541E686F1500C01B3F /* AppointmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentViewController.h; sourceTree = "<group>"; };
@@ -463,6 +466,8 @@
 			children = (
 				CFC004421E5D3E930079DCE5 /* FindParkingViewController.h */,
 				CFC004431E5D3E930079DCE5 /* FindParkingViewController.m */,
+				D550E8361E6EFDC100865EF1 /* SearchParkingViewController.h */,
+				D550E8371E6EFDC100865EF1 /* SearchParkingViewController.m */,
 				CFD6558C1E6014B00051A414 /* LocationCityViewController.h */,
 				CFD6558D1E6014B00051A414 /* LocationCityViewController.m */,
 				CF63A4B71E66C05600EBF1F4 /* RoadViewController.h */,
@@ -1144,6 +1149,7 @@
 				CFCEBF591E5ABEFC00593686 /* DouDouNetworking.m in Sources */,
 				D52602D31E5C7C37007EA24D /* PrivilegeViewController.m in Sources */,
 				D52602D01E5C7BF0007EA24D /* WalletViewController.m in Sources */,
+				D550E8381E6EFDC100865EF1 /* SearchParkingViewController.m in Sources */,
 				CFCEBF4E1E5AB77A00593686 /* MessageTableViewCell.m in Sources */,
 				D5AF80EC1E4B4C70006C7AF3 /* DouDouLoginViewController.m in Sources */,
 				CFD6558E1E6014B00051A414 /* LocationCityViewController.m in Sources */,

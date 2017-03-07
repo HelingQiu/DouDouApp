@@ -19,10 +19,12 @@
 #import "FirstAnnotation.h"
 #import "FirstAnnotationView.h"
 #import "RoadViewController.h"
+#import "LocationCityViewController.h"
 
-@interface FindParkingViewController ()<BMKMapViewDelegate,UITableViewDelegate,UITableViewDataSource,BMKLocationServiceDelegate>
+@interface FindParkingViewController ()<BMKMapViewDelegate,UITableViewDelegate,UITableViewDataSource,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UITextFieldDelegate>
 {
-    
+    BMKGeoCodeSearch* _geocodesearch;
+    NSString *_locationCity;
 }
 @property (nonatomic, strong) UIButton *rightBtn;
 @property (nonatomic, strong) BMKMapView *mapView;
@@ -64,20 +66,23 @@
     naviView.backgroundColor = kHexColor(kColor_Mian);
     self.navigationItem.titleView = naviView;
     
+    _locationCity = @"深圳";
     self.cityButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.cityButton setFrame:CGRectMake(5, self.rightBtn.y, 60, 30)];
-    [self.cityButton setTitle:@"深圳" forState:UIControlStateNormal];
+    [self.cityButton setTitle:_locationCity forState:UIControlStateNormal];
     [self.cityButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.cityButton.titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self.cityButton setBackgroundColor:kHexColor(kColor_Mian)];
+    [self.cityButton addTarget:self action:@selector(cityAction:) forControlEvents:UIControlEventTouchUpInside];
     [naviView addSubview:self.cityButton];
     
-    NSLog(@"nav width - %f", self.navigationController.navigationBar.frame.size.width); // 宽度
     UITextField *searchField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.cityButton.frame) + 10, self.rightBtn.y, self.navigationController.navigationBar.width - 180, 30)];
     [searchField setPlaceholder:@"停车场名字、地点"];
     [searchField setBackgroundColor:[UIColor whiteColor]];
     searchField.clipsToBounds = YES;
     searchField.layer.cornerRadius = 6;
-    searchField.returnKeyType = UIKeyboardTypeWebSearch;
+    searchField.returnKeyType = UIReturnKeySearch;
+    searchField.delegate = self;
     [naviView addSubview:searchField];
     
     UIView *viewBg = [[UIView alloc] initWithFrame:(CGRect){0,0,25,30}];
@@ -89,7 +94,7 @@
     [searchField setLeftViewMode:UITextFieldViewModeAlways];
     
     self.parkingView = [MapCarParkingCell createByNibFile];
-    [self.parkingView setFrame:CGRectMake(30, mScreenHeight - 64 - 115 - 40, mScreenWidth - 60, 115)];
+    [self.parkingView setFrame:CGRectMake(15, mScreenHeight - 64 - 115 - 40, mScreenWidth - 30, 115)];
     [self.parkingView setBackgroundColor:[UIColor whiteColor]];
     self.parkingView.clipsToBounds = YES;
     self.parkingView.layer.cornerRadius = 8;
@@ -121,9 +126,23 @@
     _locService.delegate = self;
     [_locService startUserLocationService];
     
+    _geocodesearch = [[BMKGeoCodeSearch alloc] init];
+    
     _mapView.showsUserLocation = NO;//先关闭显示的定位图层
     _mapView.userTrackingMode = BMKUserTrackingModeNone;//设置定位的状态
     _mapView.showsUserLocation = YES;//显示定位图层
+}
+
+- (void)cityAction:(UIButton *)sender
+{
+    LocationCityViewController *cityController = [[LocationCityViewController alloc] init];
+    cityController.locationCity = _locationCity;
+    [self.navigationController pushViewController:cityController animated:YES];
+    cityController.block = ^(NSString *city){
+        [self.cityButton setTitle:city forState:UIControlStateNormal];
+        //重新更新地图数据
+        
+    };
 }
 
 - (BMKMapView *)mapView
@@ -147,12 +166,14 @@
     [_mapView viewWillAppear];
     _mapView.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
     _locService.delegate = self;
+    _geocodesearch.delegate = self;
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
     [_mapView viewWillDisappear];
     _mapView.delegate = nil; // 不用时，置nil
     _locService.delegate = nil;
+    _geocodesearch.delegate = nil;
 }
 #pragma mark - location
 /**
@@ -177,6 +198,9 @@
     
     _locationPt = userLocation.location.coordinate;
     
+    //反向地理位置解析
+    [self onClickReverseGeocode];
+    
     BMKPointAnnotation *pointAnnotation = [[BMKPointAnnotation alloc]init];
     pointAnnotation.coordinate = userLocation.location.coordinate;
     pointAnnotation.title = @"我的位置";
@@ -186,6 +210,21 @@
     _mapView.showsUserLocation = NO;
     
     [self getNearByParkingData:[NSString stringWithFormat:@"%f",userLocation.location.coordinate.latitude] andLog:[NSString stringWithFormat:@"%f",userLocation.location.coordinate.longitude]];
+}
+
+- (void)onClickReverseGeocode
+{
+    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
+    reverseGeocodeSearchOption.reverseGeoPoint = _locationPt;
+    BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];
+    if(flag)
+    {
+        NSLog(@"反geo检索发送成功");
+    }
+    else
+    {
+        NSLog(@"反geo检索发送失败");
+    }
 }
 
 /**
@@ -205,6 +244,22 @@
 - (void)didFailToLocateUserWithError:(NSError *)error
 {
     NSLog(@"location error");
+}
+
+-(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
+{
+    if (error == 0) {
+        
+        NSString* titleStr;
+        NSString* showmeg;
+        titleStr = @"反向地理编码";
+        showmeg = result.addressDetail.city;
+        
+        showmeg = [showmeg stringByReplacingOccurrencesOfString:@"市" withString:@""];
+        _locationCity = showmeg;
+        
+        [self.cityButton setTitle:showmeg forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark --
@@ -409,20 +464,15 @@
 
 - (void)openSafariBaiDuMapWith:(NearbyModel *)model
 {
-    //http://api.map.baidu.com/direction/v2/transit?origin=40.056878,116.30815&destination=31.222965,121.505821&ak=您的ak
-    //bdapp://map/navi?location=40.057023, 116.307852&src=push&type=BLK&src=webapp.line.yourCompanyName.yourAppName
     
-    NSString *url2 = [[NSString stringWithFormat:@"baidumap://map/direction?origin=latlng:39.915,116.404|name:我的位置&destination=latlng:39.915,120.202|name:终点&mode=driving"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     
-    NSString *urlString = @"http://app.navi.baidu.com/mobile/#navi/naving/positions=[{xy:39.915,116.404,keyword:我的位置,type:1},{xy:39.915,120.202,keyword:惠州火车站,type:1}]&app_version=mapiossdk_3.0.0&fromprod=map_sdk&sy=&endp=&start=&startwd=&endwd=&ctrl_type=&mrsl=/vt=map&state=entry";
-    NSString *resultString = [urlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"dddddd:%@",resultString);
-    NSString *urlStr = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    //跳转逻辑
     
-    NSString *dirURL = [@"http://api.map.baidu.com/direction?origin=latlng:34.264642646862,108.95108518068|name:我家&destination=大雁塔&mode=driving&region=西安&output=html&src=DouDouStopCar" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    NSString *dirURL = [NSString stringWithFormat:@"http://api.map.baidu.com/direction/v1?mode=driving&origin=40.056878,116.30815&destination=31.222965,121.505821&ak=%@",BaiDuAppKey];
-    NSURL *cleanURL = [NSURL URLWithString:urlStr];
-    [[UIApplication sharedApplication] openURL:cleanURL];
+    
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning {
