@@ -7,6 +7,7 @@
 //
 
 #import "SearchParkingViewController.h"
+#import "NearByParkingListCell.h"
 
 @interface SearchParkingViewController ()
 
@@ -33,7 +34,7 @@
     [searchField setBackgroundColor:[UIColor whiteColor]];
     searchField.clipsToBounds = YES;
     searchField.layer.cornerRadius = 6;
-    searchField.returnKeyType = UIKeyboardTypeWebSearch;
+    searchField.returnKeyType = UIRectEdgeNone;
     [naviView addSubview:searchField];
     
     UIView *viewBg = [[UIView alloc] initWithFrame:(CGRect){0,0,25,30}];
@@ -43,6 +44,29 @@
     [viewBg addSubview:leftView];
     [searchField setLeftView:viewBg];
     [searchField setLeftViewMode:UITextFieldViewModeAlways];
+}
+
+#pragma mark -
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NearByParkingListCell *cell = [NearByParkingListCell cellForTableView:tableView];
+    
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning {

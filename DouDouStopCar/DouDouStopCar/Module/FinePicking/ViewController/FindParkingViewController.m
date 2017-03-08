@@ -20,6 +20,7 @@
 #import "FirstAnnotationView.h"
 #import "RoadViewController.h"
 #import "LocationCityViewController.h"
+#import "SearchParkingViewController.h"
 
 @interface FindParkingViewController ()<BMKMapViewDelegate,UITableViewDelegate,UITableViewDataSource,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UITextFieldDelegate>
 {
@@ -470,7 +471,8 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     
     //跳转逻辑
-    
+    SearchParkingViewController *searchController = [[SearchParkingViewController alloc] init];
+    [self.navigationController pushViewController:searchController animated:YES];
     
     return NO;
 }
