@@ -44,4 +44,7 @@
 //取消收藏
 + (void)deleteMyCollectionListWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
 
+//获取我的月卡数据
++ (void)getMonthCardListWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
+
 @end

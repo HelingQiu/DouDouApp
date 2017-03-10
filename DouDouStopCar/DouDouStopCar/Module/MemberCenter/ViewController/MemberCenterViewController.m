@@ -79,6 +79,7 @@
         [self.labPhone setHidden:YES];
         [self.labUnlogined setHidden:NO];
         [self.headView setImage:[UIImage imageNamed:@"member_head_default"]];
+        [self.logoutButton setHidden:YES];
     }
 }
 
@@ -90,6 +91,7 @@
             [self.labName setHidden:NO];
             [self.labPhone setHidden:NO];
             [self.labUnlogined setHidden:YES];
+            [self.logoutButton setHidden:NO];
             [self.labName setText:model.name];
             [self.labPhone setText:model.name];
             [self.labMoney setText:[NSString stringWithFormat:@"%@元",model.balance]];
@@ -100,6 +102,7 @@
             [self.labName setHidden:YES];
             [self.labPhone setHidden:YES];
             [self.labUnlogined setHidden:NO];
+            [self.logoutButton setHidden:YES];
             [self.headView setImage:[UIImage imageNamed:@"member_head_default"]];
         }
     }];
@@ -107,14 +110,42 @@
 
 - (IBAction)leftAction:(UIButton *)sender
 {
-    PrivilegeViewController *privilegeController = [[PrivilegeViewController alloc] init];
-    [self.navigationController pushViewController:privilegeController animated:YES];
+    if ([LoginSimpleton shareInstance].isLogined) {
+        PrivilegeViewController *privilegeController = [[PrivilegeViewController alloc] init];
+        [self.navigationController pushViewController:privilegeController animated:YES];
+    }else{
+        DouDouBaseNavigationController *loginNavController =[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
+        [self presentViewController:loginNavController animated:YES completion:^{
+            
+        }];
+    }
 }
 
 - (IBAction)rightAction:(UIButton *)sender
 {
-    MonthCardViewController *monthController = [[MonthCardViewController alloc] init];
-    [self.navigationController pushViewController:monthController animated:YES];
+    if ([LoginSimpleton shareInstance].isLogined) {
+        MonthCardViewController *monthController = [[MonthCardViewController alloc] init];
+        [self.navigationController pushViewController:monthController animated:YES];
+    }else{
+        DouDouBaseNavigationController *loginNavController =[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
+        [self presentViewController:loginNavController animated:YES completion:^{
+            
+        }];
+    }
+}
+
+- (IBAction)logoutAction:(UIButton *)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kDouDouToken];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kDouDouPassWord];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self.labName setHidden:YES];
+    [self.labPhone setHidden:YES];
+    [self.labUnlogined setHidden:NO];
+    [self.logoutButton setHidden:YES];
+    [self.headView setImage:[UIImage imageNamed:@"member_head_default"]];
+    [self.labMoney setText:[NSString stringWithFormat:@"0元"]];
+    [self.labLeft setText:[NSString stringWithFormat:@"0张"]];
+    [self.labRight setText:[NSString stringWithFormat:@"0张"]];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -131,19 +162,50 @@
                 }];
             }
         }else if (indexPath.row == 1) {
-            WalletViewController *waletController = [[WalletViewController alloc] init];
-            [self.navigationController pushViewController:waletController animated:YES];
+            if ([LoginSimpleton shareInstance].isLogined) {
+                WalletViewController *waletController = [[WalletViewController alloc] init];
+                [self.navigationController pushViewController:waletController animated:YES];
+            }else{
+                DouDouBaseNavigationController *loginNavController =[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
+                [self presentViewController:loginNavController animated:YES completion:^{
+                    
+                }];
+            }
         }
     }else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            CarNumberViewController *carnumberController = [[CarNumberViewController alloc] init];
-            [self.navigationController pushViewController:carnumberController animated:YES];
+            if ([LoginSimpleton shareInstance].isLogined) {
+                CarNumberViewController *carnumberController = [[CarNumberViewController alloc] init];
+                [self.navigationController pushViewController:carnumberController animated:YES];
+            }else{
+                DouDouBaseNavigationController *loginNavController =[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
+                [self presentViewController:loginNavController animated:YES completion:^{
+                    
+                }];
+            }
+            
         }else if (indexPath.row == 1) {
-            StopRecordViewController *stopController = [StopRecordViewController createByNibFile];
-            [self.navigationController pushViewController:stopController animated:YES];
+            if ([LoginSimpleton shareInstance].isLogined) {
+                StopRecordViewController *stopController = [StopRecordViewController createByNibFile];
+                [self.navigationController pushViewController:stopController animated:YES];
+            }else{
+                DouDouBaseNavigationController *loginNavController =[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
+                [self presentViewController:loginNavController animated:YES completion:^{
+                    
+                }];
+            }
+            
         }else if (indexPath.row == 2) {
-            CollectionViewController *stopController = [CollectionViewController createByNibFile];
-            [self.navigationController pushViewController:stopController animated:YES];
+            if ([LoginSimpleton shareInstance].isLogined) {
+                CollectionViewController *stopController = [CollectionViewController createByNibFile];
+                [self.navigationController pushViewController:stopController animated:YES];
+            }else{
+                DouDouBaseNavigationController *loginNavController =[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
+                [self presentViewController:loginNavController animated:YES completion:^{
+                    
+                }];
+            }
+            
         }else if (indexPath.row == 3) {
             AboutViewController *aboutController = [AboutViewController createByNibFile];
             [self.navigationController pushViewController:aboutController animated:YES];

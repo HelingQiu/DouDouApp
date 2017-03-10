@@ -20,6 +20,18 @@
     return cell;
 }
 
+- (void)refreshDataWith:(MonthCardModel *)model
+{
+    [self.labParkingName setText:model.parkingName];
+    [self.labPrice setText:[NSString stringWithFormat:@"%@元/月",model.price]];
+    [self.labPlatNum setText:model.plateNumber];
+    if (model.state == 0) {
+        [self.labStatus setText:@"未过期"];
+    }else{
+        [self.labStatus setText:@"已过期"];
+    }
+}
+
 - (IBAction)goChargeAction:(UIButton *)sender {
     if (self.block) {
         self.block();

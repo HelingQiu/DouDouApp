@@ -238,4 +238,31 @@
     }];
 }
 
++ (void)getMonthCardListWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion
+{
+    [CommonUtils showHUDWithWaitingMessage:nil];
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+    NSDictionary *params = @{@"token":token?:@""};
+    [[DouDouNetworking sharedInstance] requestDataFromWSWithParams:parameter forPath:GetMonthCardListApi isJson:YES isPrivate:NO isAuthorizationHeader:YES headerParamers:params finished:^(NSDictionary *data) {
+        NSLog(@"collection list :%@",data);
+        [CommonUtils hideHUD];
+        if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
+            NSArray *dataArray = [[data objectForKey:@"data"] objectForKey:@"list"];
+            NSMutableArray *resultArray = [NSMutableArray arrayWithCapacity:0];
+            [dataArray enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                MonthCardModel *model = [MonthCardModel mj_objectWithKeyValues:obj];
+                [resultArray addObject:model];
+            }];
+            
+            completion(YES,resultArray);
+        }else{
+            [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
+            completion(NO,[data objectForKey:@"resultMsg"]);
+        }
+    } failed:^(NSString *error) {
+        completion(NO, error);
+        [CommonUtils changeHUDMessage:error];
+    }];
+}
+
 @end

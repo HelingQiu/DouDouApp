@@ -1297,7 +1297,7 @@
 					"$(PROJECT_DIR)/DouDouStopCar/Library/WechatPaySDK",
 				);
 				OTHER_LIBTOOLFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1324,7 +1324,7 @@
 					"$(PROJECT_DIR)/DouDouStopCar/Library/WechatPaySDK",
 				);
 				OTHER_LIBTOOLFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

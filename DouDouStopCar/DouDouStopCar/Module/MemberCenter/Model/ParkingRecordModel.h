@@ -53,3 +53,13 @@
 @property (nonatomic, copy) NSString *parkingId;
 
 @end
+
+@interface MonthCardModel : NSObject
+
+@property (nonatomic, copy) NSString *parkingName;
+@property (nonatomic, copy) NSString *plateNumber;
+@property (nonatomic, assign) NSInteger state;
+@property (nonatomic, copy) NSString *price;
+
+@end
+

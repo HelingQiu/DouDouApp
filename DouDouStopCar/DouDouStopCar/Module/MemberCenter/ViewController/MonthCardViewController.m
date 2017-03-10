@@ -9,8 +9,11 @@
 #import "MonthCardViewController.h"
 #import "MonthCardCell.h"
 #import "ChargeMonthViewController.h"
+#import "MemberCenterVM.h"
 
 @interface MonthCardViewController ()
+
+@property (nonatomic, strong) NSArray *dataSource;
 
 @end
 
@@ -25,6 +28,19 @@
     self.tableView.tableFooterView = [UIView new];
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self getMonthCardData];
+}
+
+- (void)getMonthCardData
+{
+    NSDictionary *params = @{@"page":@"1"};
+    [MemberCenterVM getMonthCardListWithParameter:params completion:^(BOOL finish, id obj) {
+        if (finish) {
+            self.dataSource = [obj copy];
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 #pragma mark -
@@ -35,7 +51,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return self.dataSource.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -46,6 +62,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MonthCardCell *cell = [MonthCardCell cellForTableView:tableView];
+    
+    MonthCardModel *model = [self.dataSource objectAtIndex:indexPath.row];
+    [cell refreshDataWith:model];
     cell.block = ^(){
         //去充值
         ChargeMonthViewController *chargeController = [[ChargeMonthViewController alloc] init];

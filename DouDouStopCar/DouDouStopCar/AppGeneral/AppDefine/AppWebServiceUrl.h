@@ -126,7 +126,10 @@
 #define GetMessageListApi [NSString stringWithFormat:@"%@%@",Host,@"/home/message"]
 
 
-
+/*
+ 获取我的月卡数据
+ */
+#define GetMonthCardListApi [NSString stringWithFormat:@"%@%@",Host,@"/my/getMyMonthCard"]
 
 
 
