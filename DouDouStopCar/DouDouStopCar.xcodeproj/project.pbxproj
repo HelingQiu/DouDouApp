@@ -64,6 +64,8 @@
 		CFD655911E6034550051A414 /* RFSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD655901E6034550051A414 /* RFSegmentView.m */; };
 		CFD655951E603CE50051A414 /* PrivilegeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD655931E603CE50051A414 /* PrivilegeCell.m */; };
 		CFD655961E603CE50051A414 /* PrivilegeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD655941E603CE50051A414 /* PrivilegeCell.xib */; };
+		D525554D1E73BD7300F5B121 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D525554C1E73BD7300F5B121 /* FeedbackViewController.m */; };
+		D52555501E73C22F00F5B121 /* JJSPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D525554F1E73C22F00F5B121 /* JJSPlaceholderTextView.m */; };
 		D52602C81E5C72A5007EA24D /* MonthCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602C71E5C72A5007EA24D /* MonthCardViewController.m */; };
 		D52602CC1E5C732D007EA24D /* MonthCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D52602CA1E5C732D007EA24D /* MonthCardCell.m */; };
 		D52602CD1E5C732D007EA24D /* MonthCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D52602CB1E5C732D007EA24D /* MonthCardCell.xib */; };
@@ -216,6 +218,10 @@
 		CFD655921E603CE50051A414 /* PrivilegeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivilegeCell.h; sourceTree = "<group>"; };
 		CFD655931E603CE50051A414 /* PrivilegeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivilegeCell.m; sourceTree = "<group>"; };
 		CFD655941E603CE50051A414 /* PrivilegeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrivilegeCell.xib; sourceTree = "<group>"; };
+		D525554B1E73BD7300F5B121 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		D525554C1E73BD7300F5B121 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		D525554E1E73C22F00F5B121 /* JJSPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJSPlaceholderTextView.h; sourceTree = "<group>"; };
+		D525554F1E73C22F00F5B121 /* JJSPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJSPlaceholderTextView.m; sourceTree = "<group>"; };
 		D52602C61E5C72A5007EA24D /* MonthCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthCardViewController.h; sourceTree = "<group>"; };
 		D52602C71E5C72A5007EA24D /* MonthCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthCardViewController.m; sourceTree = "<group>"; };
 		D52602C91E5C732D007EA24D /* MonthCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthCardCell.h; sourceTree = "<group>"; };
@@ -614,6 +620,8 @@
 				D582E2011E63365000B0A28D /* OBShapedButton.m */,
 				D55E8EF61E65BC3C00ABB7B6 /* JJSAttributedStringBuilder.h */,
 				D55E8EF71E65BC3C00ABB7B6 /* JJSAttributedStringBuilder.m */,
+				D525554E1E73C22F00F5B121 /* JJSPlaceholderTextView.h */,
+				D525554F1E73C22F00F5B121 /* JJSPlaceholderTextView.m */,
 			);
 			path = AppTools;
 			sourceTree = "<group>";
@@ -893,6 +901,8 @@
 				D59C87681E5B428000D8AF84 /* CollectionViewController.m */,
 				D57F3EBA1E6C3C6600411009 /* ApplyBillViewController.h */,
 				D57F3EBB1E6C3C6600411009 /* ApplyBillViewController.m */,
+				D525554B1E73BD7300F5B121 /* FeedbackViewController.h */,
+				D525554C1E73BD7300F5B121 /* FeedbackViewController.m */,
 				D59C876F1E5B463000D8AF84 /* AboutViewController.h */,
 				D59C87701E5B463000D8AF84 /* AboutViewController.m */,
 			);
@@ -1098,6 +1108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D55C802B1E609A2F00DA9DC5 /* PersonModel.m in Sources */,
+				D525554D1E73BD7300F5B121 /* FeedbackViewController.m in Sources */,
 				D52802961E49F0C700ACB198 /* ViewController.mm in Sources */,
 				D52802931E49F0C600ACB198 /* AppDelegate.m in Sources */,
 				CFCEBF621E5AE5C200593686 /* NSString+MD5.m in Sources */,
@@ -1135,6 +1146,7 @@
 				CFC0045E1E5D8DFD0079DCE5 /* MapCarParkingCell.m in Sources */,
 				D5348CD31E4C995D0007B9C7 /* DouDouRegisterViewController.m in Sources */,
 				D55C802E1E609C0600DA9DC5 /* ParkingRecordModel.m in Sources */,
+				D52555501E73C22F00F5B121 /* JJSPlaceholderTextView.m in Sources */,
 				D5542B561E686F1500C01B3F /* AppointmentViewController.m in Sources */,
 				D57F3EBC1E6C3C6600411009 /* ApplyBillViewController.m in Sources */,
 				CFCEBF521E5AB78200593686 /* MessageViewController.m in Sources */,
@@ -1297,7 +1309,7 @@
 					"$(PROJECT_DIR)/DouDouStopCar/Library/WechatPaySDK",
 				);
 				OTHER_LIBTOOLFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1324,7 +1336,7 @@
 					"$(PROJECT_DIR)/DouDouStopCar/Library/WechatPaySDK",
 				);
 				OTHER_LIBTOOLFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DouDouStopCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

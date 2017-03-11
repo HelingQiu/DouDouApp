@@ -356,9 +356,15 @@
 
 - (void)getNearByParkingData:(NSString *)latitude andLog:(NSString *)longitude
 {
-    NSDictionary *params = @{@"latitude":@"22.61667",
-                             @"longitude":@"114.06667",
-                             @"keyword":@""};
+    [[DouDouNetworking sharedInstance] getDataFromParams:nil forUrl:@"http://api.map.baidu.com/geosearch/v3/nearby?ak=npdMeCxvlXIA3Ll24yUTf3vwkepDEC7c&mcode=com.DouDouStopCar&geotable_id=164548&location=114.067626,22.626419" isJson:YES isAuthorizationHeader:NO headerParamers:nil finished:^(NSDictionary *data) {
+        NSLog(@"parking :%@",data);
+    } failed:^(NSString *error) {
+        
+    }];
+    /*
+    NSDictionary *params = @{@"latitude":@"22.626419",
+                             @"longitude":@"114.067626",
+                             @"keyword":@"阳光"};
     [FindParkingVM getNearByParkingWithParameter:params completion:^(BOOL finish, id obj) {
         if (finish) {
             self.dataSource = [obj copy];
@@ -375,6 +381,7 @@
             }
         }
     }];
+     */
 }
 
 #pragma mark -

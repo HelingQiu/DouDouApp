@@ -17,8 +17,11 @@
 @property (nonatomic, strong) RFSegmentView* segmentView;
 
 @property (nonatomic, assign) NSInteger selectIndex;
-@property (nonatomic, strong) NSArray *leftArray;
-@property (nonatomic, strong) NSArray *rightArray;
+@property (nonatomic, strong) NSMutableArray *leftArray;
+@property (nonatomic, strong) NSMutableArray *rightArray;
+
+@property (nonatomic, assign) NSInteger leftIndex;
+@property (nonatomic, assign) NSInteger rightIndex;
 
 @end
 
@@ -34,7 +37,33 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.selectIndex = 0;
+    self.leftIndex = 0;
+    self.leftArray = [NSMutableArray array];
+    
+    self.rightIndex = 0;
+    self.rightArray = [NSMutableArray array];
+    
     [self getRechargeInfo];
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        if (self.selectIndex == 0) {
+            self.leftIndex = 0;
+            [self getRechargeInfo];
+        }else{
+            self.rightIndex = 0;
+            [self getStopCarchargeInfo];
+        }
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        if (self.selectIndex == 0) {
+            self.leftIndex ++;
+            [self getRechargeInfo];
+        }else{
+            self.rightIndex ++;
+            [self getStopCarchargeInfo];
+        }
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -44,7 +73,6 @@
     self.segmentView.tintColor = kHexColor(@"#ffba07");
     self.segmentView.delegate = self;
     [self.navigationController.navigationBar addSubview:self.segmentView];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -73,13 +101,23 @@
 {
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
     NSDictionary *params = @{@"couponType":@"0",
-                             @"page":@"1",
+                             @"page":[NSNumber numberWithInteger:self.leftIndex],
                              @"token":token};
     [MemberCenterVM getRechargeListWithParameter:params completion:^(BOOL finish, id obj) {
         if (finish) {
-            self.leftArray = [obj copy];
+            NSArray *array = obj;
+            if (self.leftIndex == 0) {
+                self.leftArray = [array mutableCopy];
+            }else{
+                [self.leftArray addObjectsFromArray:array];
+            }
+            if (array.count == 0) {
+                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            }
             [self.tableView reloadData];
         }
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
     }];
 }
 
@@ -87,13 +125,23 @@
 {
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
     NSDictionary *params = @{@"couponType":@"1",
-                             @"page":@"1",
+                             @"page":[NSNumber numberWithInteger:self.rightIndex],
                              @"token":token};
     [MemberCenterVM getRechargeListWithParameter:params completion:^(BOOL finish, id obj) {
         if (finish) {
-            self.rightArray = [obj copy];
+            NSArray *array = obj;
+            if (self.rightIndex == 0) {
+                self.rightArray = [array mutableCopy];
+            }else{
+                [self.rightArray addObjectsFromArray:array];
+            }
+            if (array.count == 0) {
+                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            }
             [self.tableView reloadData];
         }
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
     }];
 }
 

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MGSwipeTableCell/MGSwipeTableCell.h>
 #import "ParkingRecordModel.h"
 
-@interface CarNumberCell : UITableViewCell
+@interface CarNumberCell : MGSwipeTableCell
 
 @property (weak, nonatomic) IBOutlet UILabel *labCarNumber;
 + (CarNumberCell *)cellForTableView:(UITableView *)tableView;

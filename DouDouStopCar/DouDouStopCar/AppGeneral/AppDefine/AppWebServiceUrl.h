@@ -131,8 +131,10 @@
  */
 #define GetMonthCardListApi [NSString stringWithFormat:@"%@%@",Host,@"/my/getMyMonthCard"]
 
-
-
+/*
+ 意见反馈
+ */
+#define FeedbackApi [NSString stringWithFormat:@"%@%@",Host,@"/my/feedback"]
 
 
 

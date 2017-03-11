@@ -207,10 +207,10 @@
                 if([responseObject isKindOfClass:[NSDictionary class]])
                 {
                     NSDictionary *resultDic = (NSDictionary *)responseObject;
-                    if ([resultDic[@"resultCode"] integerValue] == 1) {
+                    if ([resultDic[@"resultCode"] integerValue] == 1 || [[resultDic objectForKey:@"status"] integerValue] == 0) {
                         finished(resultDic);
                     } else {
-                        failed(resultDic[@"resultMsg"]);
+                        failed(resultDic[@"resultMsg"]?:@"请求出错");
                     }
                 } else {
                     failed(@"服务器返回数据格式有误");

@@ -103,6 +103,18 @@
     PlateNumberModel *model = [self.dataSource objectAtIndex:indexPath.section];
     [cell refreshDataWith:model];
     
+    MGSwipeButton *fixButton = [MGSwipeButton buttonWithTitle:@"修改" backgroundColor:[UIColor lightGrayColor] callback:^BOOL(MGSwipeTableCell *sender) {
+        NSLog(@"Convenience callback for swipe buttons!");
+        return YES;
+    }];
+    
+    MGSwipeButton *deleteButton = [MGSwipeButton buttonWithTitle:@"删除" backgroundColor:[UIColor redColor] callback:^BOOL(MGSwipeTableCell *sender) {
+        NSLog(@"Convenience callback for swipe buttons!");
+        return YES;
+    }];
+    
+    cell.rightButtons = @[fixButton,
+                          deleteButton];
     return cell;
 }
 

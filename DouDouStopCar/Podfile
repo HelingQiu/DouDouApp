@@ -16,4 +16,6 @@ target 'DouDouStopCar' do
     pod 'SDWebImage', '~> 3.7'
     pod 'Masonry'
     pod 'DZNEmptyDataSet'#空数据源
+    pod 'MGSwipeTableCell'
+    
 end

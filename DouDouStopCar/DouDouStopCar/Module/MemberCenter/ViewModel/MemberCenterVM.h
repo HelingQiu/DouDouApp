@@ -47,4 +47,7 @@
 //获取我的月卡数据
 + (void)getMonthCardListWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
 
+//意见反馈
++ (void)feedbackWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
+
 @end

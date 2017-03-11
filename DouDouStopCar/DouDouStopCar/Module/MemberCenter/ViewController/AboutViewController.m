@@ -8,6 +8,7 @@
 
 #import "AboutViewController.h"
 #import "ApplyBillViewController.h"
+#import "FeedbackViewController.h"
 
 @interface AboutViewController ()
 
@@ -57,7 +58,8 @@
             case 0:
             {
                 //吐槽申诉
-                
+                FeedbackViewController *feedController = [[FeedbackViewController alloc] init];
+                [self.navigationController pushViewController:feedController animated:YES];
             }
                 break;
             case 1:

@@ -265,4 +265,25 @@
     }];
 }
 
++ (void)feedbackWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion
+{
+    [CommonUtils showHUDWithWaitingMessage:nil];
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+    NSDictionary *params = @{@"token":token?:@""};
+    [[DouDouNetworking sharedInstance] requestDataFromWSWithParams:parameter forPath:FeedbackApi isJson:YES isPrivate:NO isAuthorizationHeader:YES headerParamers:params finished:^(NSDictionary *data) {
+        NSLog(@"feedback :%@",data);
+        [CommonUtils hideHUD];
+        if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
+            [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
+            completion(YES,[data objectForKey:@"resultMsg"]);
+        }else{
+            [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
+            completion(NO,[data objectForKey:@"resultMsg"]);
+        }
+    } failed:^(NSString *error) {
+        completion(NO, error);
+        [CommonUtils changeHUDMessage:error];
+    }];
+}
+
 @end

@@ -82,21 +82,21 @@
 
 - (void)customizeTabBarForController:(RDVTabBarController *)tabBarController {
     NSArray *tabBarItemImages = @[@"tabbar_home",
-                                  @"tabbar_exercise",
-                                  @"tabbar_mine"];
+                                  @"tabbar_message",
+                                  @"tabbar_member"];
     NSArray *tabbarTitles = @[@"首页",@"消息",@"我的"];
     NSInteger index = 0;
     for (RDVTabBarItem *item in [[tabBarController tabBar] items]) {
         
-        UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_s",
+        UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_selected",
                                                       [tabBarItemImages objectAtIndex:index]]];
-        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_n",
+        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_normal",
                                                         [tabBarItemImages objectAtIndex:index]]];
         [item setFinishedSelectedImage:selectedimage withFinishedUnselectedImage:unselectedimage];
         [item setTitle:[tabbarTitles objectAtIndex:index]];
         item.imagePositionAdjustment = UIOffsetMake(0, -2);
-        item.selectedTitleAttributes = @{NSFontAttributeName: kFontSize(10.0f),NSForegroundColorAttributeName: [UIColor redColor],};
-        item.unselectedTitleAttributes = @{NSFontAttributeName: kFontSize(10.0f),NSForegroundColorAttributeName: [UIColor redColor],};
+        item.selectedTitleAttributes = @{NSFontAttributeName: kFontSize(12.0f),NSForegroundColorAttributeName: kHexColor(kColor_Mian),};
+        item.unselectedTitleAttributes = @{NSFontAttributeName: kFontSize(12.0f),NSForegroundColorAttributeName: [UIColor blackColor],};
         index++;
     }
 }

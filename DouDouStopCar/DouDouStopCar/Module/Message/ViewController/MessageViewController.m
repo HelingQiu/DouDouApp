@@ -13,7 +13,8 @@
 
 @interface MessageViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, strong) NSArray *dataSource;
+@property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, assign) NSInteger index;
 
 @end
 
@@ -32,7 +33,19 @@
     [self.backBtn setHidden:YES];
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
+    self.index = 0;
+    self.dataSource = [NSMutableArray array];
     [self getMessageListData];
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        self.index = 0;
+        [self getMessageListData];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        self.index ++;
+        [self getMessageListData];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -55,12 +68,22 @@
 
 - (void)getMessageListData
 {
-    NSDictionary *params = @{@"page":@"1"};
+    NSDictionary *params = @{@"page":[NSNumber numberWithInteger:self.index]};
     [MessageVM getMessageListWithParameter:params completion:^(BOOL finish, id obj) {
         if (finish) {
-            self.dataSource = [obj copy];
+            NSArray *array = obj;
+            if (self.index == 0) {
+                self.dataSource = [array mutableCopy];
+            }else{
+                [self.dataSource addObjectsFromArray:array];
+            }
+            if (array.count == 0) {
+                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            }
             [self.tableView reloadData];
         }
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
     }];
 }
 
