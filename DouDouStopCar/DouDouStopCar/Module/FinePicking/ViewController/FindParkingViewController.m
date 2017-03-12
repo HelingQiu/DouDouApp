@@ -47,9 +47,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.tableView.tableFooterView = [UIView new];
+    self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
     [self.view addSubview:self.mapView];
     [self setNavigationView];
     
+    [self getCityData];
 //    [self getNearByParkingData];
 }
 
@@ -109,16 +113,21 @@
         roadController.startPt = weakSelf.locationPt;
         
         CLLocationCoordinate2D coor1;
-        coor1.latitude = 39.90868;
-        coor1.longitude = 116.204;
+        coor1.latitude = model.latitude.doubleValue;
+        coor1.longitude = model.longitude.doubleValue;
         roadController.endPt = coor1;
         [weakSelf.navigationController pushViewController:roadController animated:YES];
     };
     
     self.parkingView.dirBlock = ^(NearbyModel *model) {
-//        [weakSelf openNativeNaviWith:model];
-//        [weakSelf openGaoDeNativeNaviWith:model];
-        [weakSelf openSafariBaiDuMapWith:model];
+        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"baidumap://"]]){
+            [weakSelf openBaiDuNativeNaviWith:model];
+        }else if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]]) {
+            [weakSelf openGaoDeNativeNaviWith:model];
+        }else{
+            //打开浏览器导航
+            
+        }
     };
     
     self.isMapVisable = YES;
@@ -132,6 +141,13 @@
     _mapView.showsUserLocation = NO;//先关闭显示的定位图层
     _mapView.userTrackingMode = BMKUserTrackingModeNone;//设置定位的状态
     _mapView.showsUserLocation = YES;//显示定位图层
+}
+
+- (void)getCityData
+{
+    [FindParkingVM getCityDataWithParameter:nil completion:^(BOOL finish, id obj) {
+        
+    }];
 }
 
 - (void)cityAction:(UIButton *)sender
@@ -284,6 +300,16 @@
     
 }
 
+- (void)mapView:(BMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view
+{
+    if ([view.annotation isKindOfClass:[FirstAnnotation class]]) {
+        NearbyModel *model = [(FirstAnnotation *)view.annotation model];
+        if (model) {
+            [self.parkingView refreshDataWith:model];
+        }
+    }
+}
+
 - (void)dealloc {
     if (_mapView) {
         _mapView = nil;
@@ -356,32 +382,34 @@
 
 - (void)getNearByParkingData:(NSString *)latitude andLog:(NSString *)longitude
 {
-    [[DouDouNetworking sharedInstance] getDataFromParams:nil forUrl:@"http://api.map.baidu.com/geosearch/v3/nearby?ak=npdMeCxvlXIA3Ll24yUTf3vwkepDEC7c&mcode=com.DouDouStopCar&geotable_id=164548&location=114.067626,22.626419" isJson:YES isAuthorizationHeader:NO headerParamers:nil finished:^(NSDictionary *data) {
-        NSLog(@"parking :%@",data);
-    } failed:^(NSString *error) {
-        
-    }];
-    /*
-    NSDictionary *params = @{@"latitude":@"22.626419",
-                             @"longitude":@"114.067626",
-                             @"keyword":@"阳光"};
+    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouUserId];
+    NSDictionary *params = @{@"latitude":latitude,
+                             @"longitude":longitude,
+                             @"keyword":@"",
+                             @"city":_locationCity?:@"",
+                             @"userId":userId?:@"",
+                             @"isBook":@"",
+                             @"province":@""};
     [FindParkingVM getNearByParkingWithParameter:params completion:^(BOOL finish, id obj) {
         if (finish) {
             self.dataSource = [obj copy];
             
             [self.dataSource enumerateObjectsUsingBlock:^(NearbyModel *obj, NSUInteger idx, BOOL * stop) {
                 FirstAnnotation* item = [[FirstAnnotation alloc]init];
-                item.coordinate = CLLocationCoordinate2DMake(obj.latitude.floatValue, obj.longitude.floatValue);
+                item.coordinate = CLLocationCoordinate2DMake(obj.latitude.doubleValue, obj.longitude.doubleValue);
                 item.title = obj.name;
+                item.model = obj;
                 [_mapView addAnnotation:item];
+                if (idx == 0) {
+                    [_mapView selectAnnotation:item animated:YES];
+                }
             }];
             
-            if (!self.tableView) {
+            if (self.tableView) {
                 [self.tableView reloadData];
             }
         }
     }];
-     */
 }
 
 #pragma mark -
@@ -429,8 +457,8 @@
     BMKPlanNode* start = [[BMKPlanNode alloc]init];
     //指定起点经纬度
     CLLocationCoordinate2D coor1;
-    coor1.latitude = 39.90868;
-    coor1.longitude = 116.204;
+    coor1.latitude = _locationPt.latitude;
+    coor1.longitude = _locationPt.longitude;
     start.pt = coor1;
     //指定起点名称
     start.name = @"我的位置";
@@ -441,11 +469,11 @@
     BMKPlanNode* end = [[BMKPlanNode alloc]init];
     //指定终点经纬度
     CLLocationCoordinate2D coor2;
-    coor2.latitude = 39.90868;
-    coor2.longitude = 116.3956;
+    coor2.latitude = model.latitude.doubleValue;
+    coor2.longitude = model.longitude.doubleValue;
     end.pt = coor2;
     //指定终点名称
-    end.name = @"天安门";
+    end.name = model.name;
     //指定终点
     para.endPoint = end;
     
@@ -461,8 +489,8 @@
 {
     //判断是否安装了高德地图，如果安装了高德地图，则使用高德地图导航
     CLLocationCoordinate2D coor1;
-    coor1.latitude = 39.90868;
-    coor1.longitude = 116.204;
+    coor1.latitude = model.latitude.doubleValue;
+    coor1.longitude = model.longitude.doubleValue;
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]])//
     {
         NSString *urlsting =[[NSString stringWithFormat:@"iosamap://navi?sourceApplication=豆豆停车&backScheme= &lat=%f&lon=%f&dev=0&style=2",coor1.latitude,coor1.longitude]stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -479,7 +507,15 @@
     
     //跳转逻辑
     SearchParkingViewController *searchController = [[SearchParkingViewController alloc] init];
+    searchController.locationCity = _locationCity;
+    searchController.locationPt = _locationPt;
     [self.navigationController pushViewController:searchController animated:YES];
+    
+    searchController.block = ^(NearbyModel *model){
+        [self getNearByParkingData:model.latitude andLog:model.longitude];
+        CLLocationCoordinate2D coor = CLLocationCoordinate2DMake(model.latitude.doubleValue, model.longitude.doubleValue);
+        [_mapView setCenterCoordinate:coor];
+    };
     
     return NO;
 }

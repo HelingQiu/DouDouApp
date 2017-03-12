@@ -21,7 +21,14 @@
     // Do any additional setup after loading the view.
     
     self.navigationItem.title = @"选择城市";
-    self.cityArray = @[@"北京",@"上海",@"天津",@"重庆",@"苏州",@"厦门",@"昆明",@"乌鲁木齐",@"拉萨",@"呼和浩特",@"北京",@"北京",@"北京",@"北京",@"北京",@"北京",@"北京"];
+    
+    NSString *cityString = [[NSUserDefaults standardUserDefaults] objectForKey:kCityData];
+    NSData *jsonData = [cityString dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                    options:NSJSONReadingAllowFragments
+                                                      error:nil];
+    
+    self.cityArray = [[dic objectForKey:@"data"] objectForKey:@"list"];//@[@"北京",@"上海",@"天津",@"重庆",@"苏州",@"厦门",@"昆明",@"乌鲁木齐",@"拉萨",@"呼和浩特",@"北京",@"北京",@"北京",@"北京",@"北京",@"北京",@"北京"];
     [self setConfigView];
 }
 
@@ -88,13 +95,13 @@
         make.height.mas_equalTo(20);
     }];
     
-    [self.cityArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.cityArray enumerateObjectsUsingBlock:^(NSDictionary *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         NSInteger indexH = idx / 3;
         NSInteger indexW = idx % 3;
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTitle:obj forState:UIControlStateNormal];
+        [button setTitle:[obj objectForKey:@"city"] forState:UIControlStateNormal];
         button.layer.cornerRadius = 4;
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button setBackgroundColor:kHexColor(@"#eeeeee")];
@@ -120,7 +127,7 @@
 - (void)cityAction:(UIButton *)sender
 {
     NSInteger index = sender.tag;
-    NSString *city = [self.cityArray objectAtIndex:index];
+    NSString *city = [[self.cityArray objectAtIndex:index] objectForKey:@"city"];
     if (self.block) {
         self.block(city);
         [self goback];

@@ -111,6 +111,14 @@
                     <constraint firstItem="8wl-Os-1sy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="yvg-OM-cQA"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="imgView" destination="8wl-Os-1sy" id="MIO-ou-7Gd"/>
+                <outlet property="labAddress" destination="Sof-Uq-jZ2" id="Egv-VQ-SRq"/>
+                <outlet property="labAvaiable" destination="zEi-qP-7LB" id="D1M-gY-tfx"/>
+                <outlet property="labDistance" destination="WuA-Ho-iuY" id="3oH-h4-Nab"/>
+                <outlet property="labParkingName" destination="XU6-Nd-Ldy" id="JOj-g4-mN1"/>
+                <outlet property="labPrice" destination="wJR-LG-Zcg" id="jUB-s9-q2s"/>
+            </connections>
             <point key="canvasLocation" x="32" y="88"/>
         </tableViewCell>
     </objects>

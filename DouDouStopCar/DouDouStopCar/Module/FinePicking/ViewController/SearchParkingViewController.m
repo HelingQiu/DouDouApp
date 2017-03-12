@@ -8,8 +8,11 @@
 
 #import "SearchParkingViewController.h"
 #import "NearByParkingListCell.h"
+#import "FindParkingVM.h"
 
-@interface SearchParkingViewController ()
+@interface SearchParkingViewController ()<UITextFieldDelegate>
+
+@property (nonatomic, strong) NSArray *dataSource;
 
 @end
 
@@ -19,6 +22,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.tableView.tableFooterView = [UIView new];
+    self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self setConfigView];
 }
 
@@ -34,7 +39,10 @@
     [searchField setBackgroundColor:[UIColor whiteColor]];
     searchField.clipsToBounds = YES;
     searchField.layer.cornerRadius = 6;
-    searchField.returnKeyType = UIRectEdgeNone;
+    searchField.returnKeyType = UIReturnKeyDone;
+    searchField.delegate = self;
+    [searchField becomeFirstResponder];
+    [searchField addTarget:self action:@selector(textDidChangeValue:) forControlEvents:UIControlEventEditingChanged];
     [naviView addSubview:searchField];
     
     UIView *viewBg = [[UIView alloc] initWithFrame:(CGRect){0,0,25,30}];
@@ -46,6 +54,26 @@
     [searchField setLeftViewMode:UITextFieldViewModeAlways];
 }
 
+- (void)getNearByParkingData:(NSString *)keyword
+{
+    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouUserId];
+    NSDictionary *params = @{@"latitude":[NSNumber numberWithDouble:self.locationPt.latitude],
+                             @"longitude":[NSNumber numberWithDouble:self.locationPt.longitude],
+                             @"keyword":keyword,
+                             @"city":_locationCity?:@"",
+                             @"userId":userId?:@"",
+                             @"isBook":@"",
+                             @"province":@""};
+    [FindParkingVM getNearByParkingWithParameter:params completion:^(BOOL finish, id obj) {
+        if (finish) {
+            self.dataSource = [obj copy];
+            if (self.tableView) {
+                [self.tableView reloadData];
+            }
+        }
+    }];
+}
+
 #pragma mark -
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
@@ -54,7 +82,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.dataSource.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,8 +93,27 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NearByParkingListCell *cell = [NearByParkingListCell cellForTableView:tableView];
+    NearbyModel *model = [self.dataSource objectAtIndex:indexPath.row];
+    [cell refreshWithData:model];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NearbyModel *model = [self.dataSource objectAtIndex:indexPath.row];
+    if (self.block) {
+        self.block(model);
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+#pragma mark -
+- (void)textDidChangeValue:(UITextField *)textField
+{
+    [self getNearByParkingData:textField.text];
 }
 
 - (void)didReceiveMemoryWarning {

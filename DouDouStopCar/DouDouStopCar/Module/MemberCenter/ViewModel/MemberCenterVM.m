@@ -286,4 +286,21 @@
     }];
 }
 
++ (void)getRoleInfoWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion
+{
+    [[DouDouNetworking sharedInstance] getDataFromParams:parameter forUrl:RoleInfoApi isJson:YES isAuthorizationHeader:NO headerParamers:nil finished:^(NSDictionary *data) {
+        [CommonUtils hideHUD];
+        if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
+            [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
+            completion(YES,data);
+        }else{
+            [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
+            completion(NO,[data objectForKey:@"resultMsg"]);
+        }
+    } failed:^(NSString *error) {
+        completion(NO, error);
+        [CommonUtils changeHUDMessage:error];
+    }];
+}
+
 @end

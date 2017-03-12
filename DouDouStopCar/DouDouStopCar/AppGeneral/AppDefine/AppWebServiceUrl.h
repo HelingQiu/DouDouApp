@@ -136,6 +136,18 @@
  */
 #define FeedbackApi [NSString stringWithFormat:@"%@%@",Host,@"/my/feedback"]
 
+/*
+ 优惠劵信息规则
+ */
+#define RoleInfoApi [NSString stringWithFormat:@"%@%@",Host,@"/role/roleInfo"]
+
+/*
+ 获取城市区域信息
+ */
+#define GetCityAndDistrictApi [NSString stringWithFormat:@"%@%@",Host,@"/parking/getCityAndDistrict"]
+
+
+
 
 
 #endif /* AppWebServiceUrl_h */

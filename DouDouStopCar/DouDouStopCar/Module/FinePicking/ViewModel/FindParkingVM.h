@@ -12,4 +12,7 @@
 
 + (void)getNearByParkingWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
 
+//获取城市数据
++ (void)getCityDataWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
+
 @end

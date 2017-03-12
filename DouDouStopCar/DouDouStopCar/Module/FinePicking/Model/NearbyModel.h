@@ -24,5 +24,10 @@
 @property (nonatomic, copy) NSString *available;
 @property (nonatomic, copy) NSString *total;
 @property (nonatomic, copy) NSString *book;
+@property (nonatomic, copy) NSString *first_price;
+@property (nonatomic, copy) NSString *distance;
+@property (nonatomic, copy) NSString *img_url;
+@property (nonatomic, assign) NSInteger isCollection;
+@property (nonatomic, copy) NSString *referencePrice;
 
 @end

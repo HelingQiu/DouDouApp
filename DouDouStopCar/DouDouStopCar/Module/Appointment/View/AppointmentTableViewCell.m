@@ -20,6 +20,16 @@
     return cell;
 }
 
+- (void)refreshDataWith:(NearbyModel *)model
+{
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.img_url] placeholderImage:nil];
+    [self.labParkingName setText:model.name];
+    [self.labPrice setText:[NSString stringWithFormat:@"参考价格：%@元/小时",model.first_price]];
+    [self.labAddress setText:model.address];
+    [self.labAvaiable setText:model.available];
+    [self.labDistance setText:[NSString stringWithFormat:@"%@m",model.distance]];
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

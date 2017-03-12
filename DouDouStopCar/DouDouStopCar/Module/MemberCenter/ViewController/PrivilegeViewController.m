@@ -11,6 +11,7 @@
 #import "PrivilegeCell.h"
 #import "MemberCenterVM.h"
 #import "ParkingRecordModel.h"
+#import "RoleInfoViewController.h"
 
 @interface PrivilegeViewController ()<RFSegmentViewDelegate>
 
@@ -219,7 +220,9 @@
 //使用规则
 - (void)usePolicyAction:(UITapGestureRecognizer *)recognizer
 {
-
+    RoleInfoViewController *roleController = [[RoleInfoViewController alloc] init];
+    roleController.roleType = 2;
+    [self.navigationController pushViewController:roleController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

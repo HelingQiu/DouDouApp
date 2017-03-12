@@ -33,8 +33,9 @@
 {
     nearbyModel = model;
     [self.labParkingName setText:model.name];
-    [self.labParkingName setText:model.street_view];
-    [self.labCarNum setText:[NSString stringWithFormat:@"空车位：%@",model.available]];
+    [self.labDistance setText:[NSString stringWithFormat:@"%@m",model.distance]];
+    [self.labCarNum setText:[NSString stringWithFormat:@"空车位：%@个",model.available]];
+    [self.labPrice setText:[NSString stringWithFormat:@"首价：%@元/小时",model.first_price]];
 }
 
 - (void)awakeFromNib {

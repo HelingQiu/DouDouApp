@@ -33,6 +33,7 @@ typedef void (^CompletionWithObjectBlock) (BOOL finish, id obj);
 #define kDouDouUserId @"userId"
 #define kDouDouPassWord @"password"
 #define kDouDouToken @"token"
+#define kCityData @"city"
 
 #define BaiDuAppKey @"npdMeCxvlXIA3Ll24yUTf3vwkepDEC7c"
 

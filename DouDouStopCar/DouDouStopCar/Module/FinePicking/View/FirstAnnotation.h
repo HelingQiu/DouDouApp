@@ -7,7 +7,10 @@
 //
 
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import "NearbyModel.h"
 
 @interface FirstAnnotation : BMKPointAnnotation
+
+@property (nonatomic, strong) NearbyModel *model;
 
 @end

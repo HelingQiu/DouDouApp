@@ -28,13 +28,37 @@
             
             completion(YES,resultArray);
         }else{
-            [CommonUtils showHUDWithMessage:[data objectForKey:@"resultMsg"] autoHide:YES];
+//            [CommonUtils showHUDWithMessage:[data objectForKey:@"resultMsg"] autoHide:YES];
             completion(NO,[data objectForKey:@"resultMsg"]);
         }
         
     } failed:^(NSString *error) {
         [CommonUtils hideHUD];
-        [CommonUtils showHUDWithMessage:error autoHide:YES];
+//        [CommonUtils showHUDWithMessage:error autoHide:YES];
+        completion(NO,error);
+    }];
+}
+
++ (void)getCityDataWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion
+{
+    [[DouDouNetworking sharedInstance] getDataFromParams:parameter forUrl:GetCityAndDistrictApi isJson:YES isAuthorizationHeader:NO headerParamers:nil finished:^(NSDictionary *data) {
+        [CommonUtils hideHUD];
+        
+        NSLog(@"city: %@",data);
+        if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
+            
+            NSData *cityData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
+            NSString *jsonStr = [[NSString alloc]initWithData:cityData encoding:NSUTF8StringEncoding];
+            
+            [CommonUtils storageDataWithObject:jsonStr Key:kCityData Completion:^(BOOL finish, id obj) {
+                completion(YES,data);
+            }];
+            
+        }else{
+            completion(NO,[data objectForKey:@"resultMsg"]);
+        }
+        
+    } failed:^(NSString *error) {
         completion(NO,error);
     }];
 }

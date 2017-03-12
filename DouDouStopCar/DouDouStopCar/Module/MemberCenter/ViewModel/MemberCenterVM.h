@@ -50,4 +50,7 @@
 //意见反馈
 + (void)feedbackWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
 
+//获取规则信息
++ (void)getRoleInfoWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
+
 @end

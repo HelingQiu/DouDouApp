@@ -12,12 +12,19 @@
 #import "AppointDetailViewController.h"
 #import "DouDouButton.h"
 #import "CitySelectView.h"
+#import "FindParkingVM.h"
+#import <BaiduMapAPI_Location/BMKLocationComponent.h>
+#import "NearbyModel.h"
 
-@interface AppointmentViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface AppointmentViewController ()<UITableViewDelegate,UITableViewDataSource,BMKLocationServiceDelegate>
 {
     DouDouButton *_cityButton;
     CitySelectView *_cityView;
+    CLLocationCoordinate2D _locationPt;
+    NSString *_locationCity;
 }
+@property (nonatomic, strong) BMKLocationService *locService;
+
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *dataSource;
 
@@ -31,6 +38,62 @@
     
     [self.view addSubview:self.tableView];
     [self setConfigView];
+    [self getCityData];
+    
+    _locationCity = @"";
+    _locService = [[BMKLocationService alloc] init];
+    _locService.delegate = self;
+    [_locService startUserLocationService];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    _locService.delegate = self;
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    _locService.delegate = nil;
+}
+
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    
+    [_locService stopUserLocationService];
+    
+    _locationPt = userLocation.location.coordinate;
+//    [self getNearByParkingData:[NSString stringWithFormat:@"%f",userLocation.location.coordinate.latitude] andLog:[NSString stringWithFormat:@"%f",userLocation.location.coordinate.longitude]];
+    
+    [self getNearByParkingData:@"22.626419" andLog:@"114.067626"];
+}
+
+- (void)getCityData
+{
+    [FindParkingVM getCityDataWithParameter:nil completion:^(BOOL finish, id obj) {
+        
+    }];
+}
+
+- (void)getNearByParkingData:(NSString *)latitude andLog:(NSString *)longitude
+{
+    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouUserId];
+    NSDictionary *params = @{@"latitude":latitude,
+                             @"longitude":longitude,
+                             @"keyword":@"",
+                             @"city":_locationCity?:@"",
+                             @"userId":userId?:@"",
+                             @"isBook":[NSNumber numberWithInteger:1],
+                             @"province":@""};
+    [FindParkingVM getNearByParkingWithParameter:params completion:^(BOOL finish, id obj) {
+        if (finish) {
+            self.dataSource = [obj copy];
+            
+            if (self.tableView) {
+                [self.tableView reloadData];
+            }
+        }
+    }];
 }
 
 - (void)setConfigView
@@ -87,19 +150,23 @@
     sender.selected = !sender.selected;
     
     if (sender.selected) {
-        NSBundle *bundle = [NSBundle mainBundle];
-        NSString *plistPath = [bundle pathForResource:@"address" ofType:@"plist"];
-        NSDictionary*addressDic = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+        NSString *cityString = [[NSUserDefaults standardUserDefaults] objectForKey:kCityData];
+        NSData *jsonData = [cityString dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                            options:NSJSONReadingAllowFragments
+                                                              error:nil];
         
-        NSArray *province = [addressDic objectForKey:@"address"];
+        NSArray *cityArray = [[dic objectForKey:@"data"] objectForKey:@"list"];
         [self.view addSubview:_cityView];
         
-        [_cityView refreshDataWith:province];
+        [_cityView refreshDataWith:cityArray];
         __weak CitySelectView *weakCityView = _cityView;
         __weak DouDouButton *weakButton = _cityButton;
         _cityView.block = ^(NSString *city) {
             CGFloat itemWidth = [CommonUtils widthForString:city Font:[UIFont systemFontOfSize:18] andWidth:mScreenWidth];
-            [weakButton setFrame:CGRectMake(20, 0, 100, 44)];
+            [weakButton setFrame:CGRectMake(20, 0, itemWidth + 18, 44)];
+            [weakButton setImageViewRect:CGRectMake(weakButton.width - 18, 15, 16, 14)];
+            [weakButton setTitleLabelRect:CGRectMake(0, 0, weakButton.width - 18, 44)];
             [sender setTitle:city forState:UIControlStateNormal];
             sender.selected = !sender.selected;
             [weakCityView removeFromSuperview];
@@ -112,7 +179,7 @@
 #pragma mark - 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 4;
+    return self.dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -141,6 +208,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AppointmentTableViewCell *cell = [AppointmentTableViewCell cellForTableView:tableView];
+    NearbyModel *model = [self.dataSource objectAtIndex:indexPath.section];
+    [cell refreshDataWith:model];
     
     return cell;
 }

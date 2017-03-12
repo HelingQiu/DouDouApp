@@ -47,7 +47,7 @@
     if (tableView == _leftTableView) {
         return _cityArray.count;
     }
-    NSArray *subArray = [[_cityArray objectAtIndex:_selectIndex] objectForKey:@"sub"];
+    NSArray *subArray = [[_cityArray objectAtIndex:_selectIndex] objectForKey:@"districts"];
     return subArray.count;
 }
 
@@ -59,12 +59,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
     }
     if (tableView == _leftTableView) {
-        NSString *provice = [[_cityArray objectAtIndex:indexPath.row] objectForKey:@"name"];
+        NSString *provice = [[_cityArray objectAtIndex:indexPath.row] objectForKey:@"city"];
         [cell.textLabel setText:provice];
     }else{
         cell.contentView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-        NSArray *subArray = [[_cityArray objectAtIndex:_selectIndex] objectForKey:@"sub"];
-        NSString *city = [[subArray objectAtIndex:indexPath.row] objectForKey:@"name"];
+        NSArray *subArray = [[_cityArray objectAtIndex:_selectIndex] objectForKey:@"districts"];
+        NSString *city = [[subArray objectAtIndex:indexPath.row] objectForKey:@"district"];
         [cell.textLabel setText:city];
     }
     return cell;
@@ -78,8 +78,8 @@
         _selectIndex = indexPath.row;
         [_rightTableView reloadData];
     }else{
-        NSArray *subArray = [[_cityArray objectAtIndex:_selectIndex] objectForKey:@"sub"];
-        NSString *city = [[subArray objectAtIndex:indexPath.row] objectForKey:@"name"];
+        NSArray *subArray = [[_cityArray objectAtIndex:_selectIndex] objectForKey:@"districts"];
+        NSString *city = [[subArray objectAtIndex:indexPath.row] objectForKey:@"district"];
         if (self.block) {
             self.block(city);
         }
