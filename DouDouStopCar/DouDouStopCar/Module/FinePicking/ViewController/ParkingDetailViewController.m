@@ -53,7 +53,7 @@
         make.right.equalTo(self.view.mas_right).with.offset(0);
         make.height.mas_equalTo(175);
     }];
-    [_imgView setImage:[UIImage imageNamed:@"home"]];
+    [_imgView sd_setImageWithURL:[NSURL URLWithString:self.model.img_url] placeholderImage:[UIImage imageNamed:@"icon_park_default"] options:SDWebImageAllowInvalidSSLCertificates];
     
     _parkingName = [[UILabel alloc] init];
     [_parkingName setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6]];
@@ -66,7 +66,7 @@
         make.right.equalTo(self.view.mas_right).with.offset(-55);
         make.height.mas_equalTo(30);
     }];
-    [_parkingName setText:@"kjfalfjl"];
+    [_parkingName setText:self.model.name];
     
     UIButton *collectButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [collectButton setImage:[UIImage imageNamed:@"__icon_u22"] forState:UIControlStateNormal];
@@ -79,6 +79,13 @@
         make.width.mas_equalTo(30);
         make.height.mas_equalTo(30);
     }];
+    if ([LoginSimpleton shareInstance].isLogined) {
+        if (self.model.isCollection == 0) {
+            collectButton.selected = NO;
+        }else{
+            collectButton.selected = YES;
+        }
+    }
     
     UIView *topView = [[UIView alloc] init];
     [topView setBackgroundColor:[UIColor whiteColor]];
@@ -94,7 +101,7 @@
     _totalCarNumber.font = [UIFont boldSystemFontOfSize:20];
     _totalCarNumber.textColor = [UIColor blackColor];
     _totalCarNumber.textAlignment = NSTextAlignmentCenter;
-    _totalCarNumber.text = @"380";
+    _totalCarNumber.text = self.model.total;
     [topView addSubview:_totalCarNumber];
     [_totalCarNumber mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(topView.mas_top).with.offset(10);
@@ -120,7 +127,7 @@
     _emptyCarNumber.font = [UIFont boldSystemFontOfSize:20];
     _emptyCarNumber.textColor = [UIColor blackColor];
     _emptyCarNumber.textAlignment = NSTextAlignmentCenter;
-    _emptyCarNumber.text = @"367";
+    _emptyCarNumber.text = self.model.available;
     [topView addSubview:_emptyCarNumber];
     [_emptyCarNumber mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(topView.mas_top).with.offset(10);
@@ -169,7 +176,7 @@
     _labType = [[UILabel alloc] init];
     _labType.font = [UIFont boldSystemFontOfSize:16];
     _labType.textColor = [UIColor blackColor];
-    _labType.text = @"收费停车场";
+    _labType.text = @"";
     _labType.numberOfLines = 0;
     [midView addSubview:_labType];
     [_labType mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -178,6 +185,20 @@
         make.width.mas_equalTo(mScreenWidth - 80);
         make.height.mas_equalTo(50);
     }];
+    NSInteger charge = [self.model.charge integerValue];
+    if (charge == -1) {
+        _labType.text = @"未知";
+    }else if (charge == 0) {
+        _labType.text = @"免费";
+    }else if (charge == 1) {
+        _labType.text = @"时段收费";
+    }else if (charge == 2) {
+        _labType.text = @"时长收费";
+    }else if (charge == 3) {
+        _labType.text = @"次数收费";
+    }else{
+        _labType.text = @"按天收费";
+    }
     
     UILabel *labPriceTip = [[UILabel alloc] init];
     labPriceTip.font = [UIFont boldSystemFontOfSize:16];
@@ -194,7 +215,7 @@
     _labPrice = [[UILabel alloc] init];
     _labPrice.font = [UIFont boldSystemFontOfSize:16];
     _labPrice.textColor = [UIColor blackColor];
-    _labPrice.text = @"首3小时内5元每小时，之后每小时1元，全天最高25元";
+    _labPrice.text = self.model.charge_desc;
     _labPrice.numberOfLines = 0;
     [midView addSubview:_labPrice];
     [_labPrice mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -219,7 +240,7 @@
     _labLocation = [[UILabel alloc] init];
     _labLocation.font = [UIFont boldSystemFontOfSize:16];
     _labLocation.textColor = [UIColor blackColor];
-    _labLocation.text = @"广东省深圳市龙华新区龙冠一路";
+    _labLocation.text = self.model.address;
     _labLocation.numberOfLines = 0;
     [midView addSubview:_labLocation];
     [_labLocation mas_makeConstraints:^(MASConstraintMaker *make) {

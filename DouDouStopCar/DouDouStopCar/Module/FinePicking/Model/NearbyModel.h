@@ -29,5 +29,6 @@
 @property (nonatomic, copy) NSString *img_url;
 @property (nonatomic, assign) NSInteger isCollection;
 @property (nonatomic, copy) NSString *referencePrice;
+@property (nonatomic, copy) NSString *priceRole;
 
 @end

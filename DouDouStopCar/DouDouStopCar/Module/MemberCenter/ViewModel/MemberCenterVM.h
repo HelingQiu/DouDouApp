@@ -41,6 +41,9 @@
 //获取我的收藏列表
 + (void)getMyCollectionListWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
 
+//添加收藏
++ (void)addMyCollectionWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
+
 //取消收藏
 + (void)deleteMyCollectionListWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
 

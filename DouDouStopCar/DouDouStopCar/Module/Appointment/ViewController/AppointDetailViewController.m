@@ -75,6 +75,7 @@
     [collectButton setImage:[UIImage imageNamed:@"__icon_u22"] forState:UIControlStateNormal];
     [collectButton setImage:[UIImage imageNamed:@"__icon_u22_selected"] forState:UIControlStateSelected];
     [collectButton setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6]];
+    [collectButton addTarget:self action:@selector(collectAction:) forControlEvents:UIControlEventTouchUpInside];
     [container addSubview:collectButton];
     [collectButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(_imgView.mas_bottom).with.offset(0);
@@ -82,6 +83,13 @@
         make.width.mas_equalTo(30);
         make.height.mas_equalTo(30);
     }];
+    if ([LoginSimpleton shareInstance].isLogined) {
+        if (self.model.isCollection == 0) {
+            collectButton.selected = NO;
+        }else{
+            collectButton.selected = YES;
+        }
+    }
     
     UIView *topView = [[UIView alloc] init];
     [topView setBackgroundColor:[UIColor whiteColor]];
@@ -212,6 +220,7 @@
     [_timeField setValue:[UIFont boldSystemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
     [_timeField setTextColor:kHexColor(kColor_Text)];
     [_timeField setKeyboardType:UIKeyboardTypeNumberPad];
+    [_timeField addTarget:self action:@selector(textDidChangeValue:) forControlEvents:UIControlEventEditingChanged];
     [container addSubview:_timeField];
     [_timeField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(midView.mas_bottom).with.offset(30);
@@ -350,12 +359,40 @@
     [bottomView addSubview:_labAmount];
 }
 
+- (void)collectAction:(UIButton *)sender
+{
+    if ([LoginSimpleton shareInstance].isLogined) {
+        
+        NSInteger isCollection = self.model.isCollection;
+        NSDictionary *params = @{@"parkingId":self.model.uuid};
+        if (isCollection == 0) {
+            [MemberCenterVM addMyCollectionWithParameter:params completion:^(BOOL finish, id obj) {
+                if (finish) {
+                    sender.selected = YES;
+                }
+            }];
+        }else{
+            [MemberCenterVM deleteMyCollectionListWithParameter:params completion:^(BOOL finish, id obj) {
+                if (finish) {
+                    sender.selected = NO;
+                }
+            }];
+        }
+        
+    }else{
+    
+    }
+}
+
 - (void)firstAction:(UIButton *)sender
 {
     _firstBtn.selected = YES;
     _secondBtn.selected = NO;
     _thirdBtn.selected = NO;
     _timeField.text = @"30";
+    
+    CGFloat price = 30 * self.model.priceRole.floatValue;
+    [_labAmount setText:[NSString stringWithFormat:@"%.2f元",price]];
 }
 
 - (void)secondAction:(UIButton *)sender
@@ -364,6 +401,9 @@
     _secondBtn.selected = YES;
     _thirdBtn.selected = NO;
     _timeField.text = @"60";
+    
+    CGFloat price = 60 * self.model.priceRole.floatValue;
+    [_labAmount setText:[NSString stringWithFormat:@"%.2f元",price]];
 }
 
 - (void)thirdAction:(UIButton *)sender
@@ -372,6 +412,16 @@
     _secondBtn.selected = NO;
     _thirdBtn.selected = YES;
     _timeField.text = @"90";
+    
+    CGFloat price = 90 * self.model.priceRole.floatValue;
+    [_labAmount setText:[NSString stringWithFormat:@"%.2f元",price]];
+}
+
+#pragma mark -
+- (void)textDidChangeValue:(UITextField *)textField
+{
+    CGFloat price = self.model.priceRole.floatValue * textField.text.floatValue;
+    [_labAmount setText:[NSString stringWithFormat:@"%.2f元",price]];
 }
 
 - (void)sureAction:(UIButton *)sender

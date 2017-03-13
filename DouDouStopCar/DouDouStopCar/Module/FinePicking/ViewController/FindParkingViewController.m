@@ -21,6 +21,7 @@
 #import "RoadViewController.h"
 #import "LocationCityViewController.h"
 #import "SearchParkingViewController.h"
+#import "ParkingDetailViewController.h"
 
 @interface FindParkingViewController ()<BMKMapViewDelegate,UITableViewDelegate,UITableViewDataSource,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UITextFieldDelegate>
 {
@@ -446,6 +447,18 @@
         }
     };
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NearbyModel *model = [self.dataSource objectAtIndex:indexPath.row];
+    
+    ParkingDetailViewController *parkDetailController = [[ParkingDetailViewController alloc] init];
+    parkDetailController.startPt = _locationPt;
+    parkDetailController.model = model;
+    [self.navigationController pushViewController:parkDetailController animated:YES];
 }
 
 #pragma mark - 打开百度客户端导航

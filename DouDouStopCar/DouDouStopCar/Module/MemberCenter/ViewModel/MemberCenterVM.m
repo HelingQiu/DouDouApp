@@ -217,6 +217,27 @@
     }];
 }
 
++ (void)addMyCollectionWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion
+{
+    [CommonUtils showHUDWithWaitingMessage:nil];
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+    NSDictionary *params = @{@"token":token?:@""};
+    [[DouDouNetworking sharedInstance] requestDataFromWSWithParams:parameter forPath:AddMyCollectionApi isJson:YES isPrivate:NO isAuthorizationHeader:YES headerParamers:params finished:^(NSDictionary *data) {
+        NSLog(@"add collection :%@",data);
+        [CommonUtils hideHUD];
+        if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
+            [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
+            completion(YES,data);
+        }else{
+            [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
+            completion(NO,[data objectForKey:@"resultMsg"]);
+        }
+    } failed:^(NSString *error) {
+        completion(NO, error);
+        [CommonUtils changeHUDMessage:error];
+    }];
+}
+
 + (void)deleteMyCollectionListWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion
 {
     [CommonUtils showHUDWithWaitingMessage:nil];

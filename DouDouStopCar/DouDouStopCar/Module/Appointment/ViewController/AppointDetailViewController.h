@@ -8,6 +8,7 @@
 
 #import "DouDouBaseViewController.h"
 #import "NearbyModel.h"
+#import "MemberCenterVM.h"
 
 @interface AppointDetailViewController : DouDouBaseViewController
 
