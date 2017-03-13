@@ -36,7 +36,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.view addSubview:self.tableView];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, mScreenWidth, mScreenHeight - 64 - 44) style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.tableFooterView = [UIView new];
+    _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:_tableView];
     [self setConfigView];
     [self getCityData];
     
@@ -63,9 +69,9 @@
     [_locService stopUserLocationService];
     
     _locationPt = userLocation.location.coordinate;
-//    [self getNearByParkingData:[NSString stringWithFormat:@"%f",userLocation.location.coordinate.latitude] andLog:[NSString stringWithFormat:@"%f",userLocation.location.coordinate.longitude]];
+    [self getNearByParkingData:[NSString stringWithFormat:@"%f",userLocation.location.coordinate.latitude] andLog:[NSString stringWithFormat:@"%f",userLocation.location.coordinate.longitude]];
     
-    [self getNearByParkingData:@"22.626419" andLog:@"114.067626"];
+//    [self getNearByParkingData:@"22.626419" andLog:@"114.067626"];
 }
 
 - (void)getCityData
@@ -84,7 +90,7 @@
                              @"city":_locationCity?:@"",
                              @"userId":userId?:@"",
                              @"isBook":[NSNumber numberWithInteger:1],
-                             @"province":@""};
+                             @"district":@""};
     [FindParkingVM getNearByParkingWithParameter:params completion:^(BOOL finish, id obj) {
         if (finish) {
             self.dataSource = [obj copy];
@@ -132,17 +138,6 @@
     [self.view addSubview:[CommonUtils getSeparator:kHexColor(kColor_Text) frame:CGRectMake(0, 43.5, mScreenWidth, 0.5)]];
     
     _cityView = [[CitySelectView alloc] initWithFrame:CGRectMake(0, 44, mScreenWidth, mScreenHeight - 64 - 44)];
-}
-
-- (UITableView *)tableView
-{
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, mScreenWidth, mScreenHeight - 64 - 44) style:UITableViewStylePlain];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    _tableView.tableFooterView = [UIView new];
-    _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    return _tableView;
 }
 
 - (void)cityAction:(UIButton *)sender
@@ -218,7 +213,9 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    NearbyModel *model = [self.dataSource objectAtIndex:indexPath.section];
     AppointDetailViewController *appointController = [[AppointDetailViewController alloc] init];
+    appointController.model = model;
     [self.navigationController pushViewController:appointController animated:YES];
 }
 

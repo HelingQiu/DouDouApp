@@ -389,7 +389,7 @@
                              @"city":_locationCity?:@"",
                              @"userId":userId?:@"",
                              @"isBook":@"",
-                             @"province":@""};
+                             @"district":@""};
     [FindParkingVM getNearByParkingWithParameter:params completion:^(BOOL finish, id obj) {
         if (finish) {
             self.dataSource = [obj copy];

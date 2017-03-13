@@ -24,7 +24,7 @@
 {
     [self.labTitle setText:model.name];
     [self.labAddress setText:model.address];
-    [self.labDistance setText:model.total];
+    [self.labDistance setText:[NSString stringWithFormat:@"%.2fkm",model.distance.doubleValue]];
 }
 
 - (IBAction)navigationAction:(UIButton *)sender {

@@ -27,7 +27,7 @@
     [self.labPrice setText:[NSString stringWithFormat:@"参考价格：%@元/小时",model.first_price]];
     [self.labAddress setText:model.address];
     [self.labAvaiable setText:model.available];
-    [self.labDistance setText:[NSString stringWithFormat:@"%@m",model.distance]];
+    [self.labDistance setText:[NSString stringWithFormat:@"%.2fkm",model.distance.doubleValue]];
 }
 
 - (void)awakeFromNib {

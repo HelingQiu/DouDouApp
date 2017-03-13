@@ -33,7 +33,7 @@
 {
     nearbyModel = model;
     [self.labParkingName setText:model.name];
-    [self.labDistance setText:[NSString stringWithFormat:@"%@m",model.distance]];
+    [self.labDistance setText:[NSString stringWithFormat:@"%.2fkm",model.distance.doubleValue]];
     [self.labCarNum setText:[NSString stringWithFormat:@"空车位：%@个",model.available]];
     [self.labPrice setText:[NSString stringWithFormat:@"首价：%@元/小时",model.first_price]];
 }

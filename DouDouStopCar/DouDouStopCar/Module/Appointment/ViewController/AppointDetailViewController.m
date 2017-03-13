@@ -56,7 +56,7 @@
         make.right.equalTo(self.view.mas_right).with.offset(0);
         make.height.mas_equalTo(175);
     }];
-    [_imgView setImage:[UIImage imageNamed:@"home"]];
+    [_imgView sd_setImageWithURL:[NSURL URLWithString:self.model.img_url] placeholderImage:[UIImage imageNamed:@"icon_park_default"] options:SDWebImageAllowInvalidSSLCertificates];
     
     _parkingName = [[UILabel alloc] init];
     [_parkingName setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6]];
@@ -69,7 +69,7 @@
         make.right.equalTo(self.view.mas_right).with.offset(-55);
         make.height.mas_equalTo(30);
     }];
-    [_parkingName setText:@"kjfalfjl"];
+    [_parkingName setText:self.model.name];
     
     UIButton *collectButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [collectButton setImage:[UIImage imageNamed:@"__icon_u22"] forState:UIControlStateNormal];
@@ -97,7 +97,7 @@
     _totalCarNumber.font = [UIFont boldSystemFontOfSize:20];
     _totalCarNumber.textColor = [UIColor blackColor];
     _totalCarNumber.textAlignment = NSTextAlignmentCenter;
-    _totalCarNumber.text = @"380";
+    _totalCarNumber.text = self.model.total;
     [topView addSubview:_totalCarNumber];
     [_totalCarNumber mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(topView.mas_top).with.offset(10);
@@ -123,7 +123,7 @@
     _emptyCarNumber.font = [UIFont boldSystemFontOfSize:20];
     _emptyCarNumber.textColor = [UIColor blackColor];
     _emptyCarNumber.textAlignment = NSTextAlignmentCenter;
-    _emptyCarNumber.text = @"367";
+    _emptyCarNumber.text = self.model.available;
     [topView addSubview:_emptyCarNumber];
     [_emptyCarNumber mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(topView.mas_top).with.offset(10);
@@ -172,7 +172,7 @@
     _labLocation = [[UILabel alloc] init];
     _labLocation.font = [UIFont boldSystemFontOfSize:16];
     _labLocation.textColor = [UIColor blackColor];
-    _labLocation.text = @"广东省深圳市龙华新区龙岗大道";
+    _labLocation.text = self.model.address;
     _labLocation.adjustsFontSizeToFitWidth = YES;
     _labLocation.numberOfLines = 0;
     [midView addSubview:_labLocation];
@@ -211,6 +211,7 @@
     [_timeField setValue:kHexColor(kColor_Text) forKeyPath:@"_placeholderLabel.textColor"];
     [_timeField setValue:[UIFont boldSystemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
     [_timeField setTextColor:kHexColor(kColor_Text)];
+    [_timeField setKeyboardType:UIKeyboardTypeNumberPad];
     [container addSubview:_timeField];
     [_timeField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(midView.mas_bottom).with.offset(30);
@@ -231,10 +232,11 @@
     
     _firstBtn = [DouDouButton buttonWithType:UIButtonTypeCustom];
     [_firstBtn setImage:[UIImage imageNamed:@"appoint_unselected"] forState:UIControlStateNormal];
-    [_firstBtn setImage:[UIImage imageNamed:@"appoint_unselected"] forState:UIControlStateSelected];
+    [_firstBtn setImage:[UIImage imageNamed:@"appoint_selected"] forState:UIControlStateSelected];
     [_firstBtn setTitle:@"30分钟" forState:UIControlStateNormal];
     [_firstBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_firstBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:14]];
+    [_firstBtn addTarget:self action:@selector(firstAction:) forControlEvents:UIControlEventTouchUpInside];
     [container addSubview:_firstBtn];
     [_firstBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_timeField.mas_bottom).with.offset(10);
@@ -247,10 +249,11 @@
     
     _secondBtn = [DouDouButton buttonWithType:UIButtonTypeCustom];
     [_secondBtn setImage:[UIImage imageNamed:@"appoint_unselected"] forState:UIControlStateNormal];
-    [_secondBtn setImage:[UIImage imageNamed:@"appoint_unselected"] forState:UIControlStateSelected];
+    [_secondBtn setImage:[UIImage imageNamed:@"appoint_selected"] forState:UIControlStateSelected];
     [_secondBtn setTitle:@"60分钟" forState:UIControlStateNormal];
     [_secondBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_secondBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:14]];
+    [_secondBtn addTarget:self action:@selector(secondAction:) forControlEvents:UIControlEventTouchUpInside];
     [container addSubview:_secondBtn];
     [_secondBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(labTime.mas_bottom).with.offset(10);
@@ -263,10 +266,11 @@
     
     _thirdBtn = [DouDouButton buttonWithType:UIButtonTypeCustom];
     [_thirdBtn setImage:[UIImage imageNamed:@"appoint_unselected"] forState:UIControlStateNormal];
-    [_thirdBtn setImage:[UIImage imageNamed:@"appoint_unselected"] forState:UIControlStateSelected];
+    [_thirdBtn setImage:[UIImage imageNamed:@"appoint_selected"] forState:UIControlStateSelected];
     [_thirdBtn setTitle:@"90分钟" forState:UIControlStateNormal];
     [_thirdBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_thirdBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:14]];
+    [_thirdBtn addTarget:self action:@selector(thirdAction:) forControlEvents:UIControlEventTouchUpInside];
     [container addSubview:_thirdBtn];
     [_thirdBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(labTime.mas_bottom).with.offset(10);
@@ -341,9 +345,33 @@
     
     _labAmount = [[UILabel alloc] initWithFrame:CGRectMake(90, 16, mScreenWidth - 30 - 90 - 125, 40)];
     [_labAmount setFont:[UIFont boldSystemFontOfSize:18]];
-    [_labAmount setText:@"100.00元"];
+    [_labAmount setText:@"0.00元"];
     [_labAmount setTextColor:kHexColor(@"#f67110")];
     [bottomView addSubview:_labAmount];
+}
+
+- (void)firstAction:(UIButton *)sender
+{
+    _firstBtn.selected = YES;
+    _secondBtn.selected = NO;
+    _thirdBtn.selected = NO;
+    _timeField.text = @"30";
+}
+
+- (void)secondAction:(UIButton *)sender
+{
+    _firstBtn.selected = NO;
+    _secondBtn.selected = YES;
+    _thirdBtn.selected = NO;
+    _timeField.text = @"60";
+}
+
+- (void)thirdAction:(UIButton *)sender
+{
+    _firstBtn.selected = NO;
+    _secondBtn.selected = NO;
+    _thirdBtn.selected = YES;
+    _timeField.text = @"90";
 }
 
 - (void)sureAction:(UIButton *)sender

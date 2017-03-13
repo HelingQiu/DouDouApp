@@ -7,7 +7,10 @@
 //
 
 #import "DouDouBaseViewController.h"
+#import "NearbyModel.h"
 
 @interface AppointDetailViewController : DouDouBaseViewController
+
+@property (nonatomic, strong) NearbyModel *model;
 
 @end
