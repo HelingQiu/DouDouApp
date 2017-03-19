@@ -9,7 +9,8 @@
 #import "RechargeViewController.h"
 #import "DouDouButton.h"
 #import "MemberCenterVM.h"
-
+#import <AlipaySDK/AlipaySDK.h>
+#import "WXApi.h"
 #define Tag_Btn 2346
 @interface RechargeViewController ()
 
@@ -21,12 +22,21 @@
 
 @implementation RechargeViewController
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kAlipayNoti object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kWeixinNoti object:nil];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.navigationItem.title = @"充值";
     [self setConfigView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(alipaySuccess:) name:kAlipayNoti object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(weixinSuccess:) name:kWeixinNoti object:nil];
 }
 
 - (void)setConfigView
@@ -64,7 +74,7 @@
     [self.amountField setValue:kHexColor(kColor_Text) forKeyPath:@"_placeholderLabel.textColor"];
     [self.amountField setValue:[UIFont boldSystemFontOfSize:17] forKeyPath:@"_placeholderLabel.font"];
     [self.amountField setTextAlignment:NSTextAlignmentCenter];
-    [self.amountField setKeyboardType:UIKeyboardTypeNumberPad];
+    [self.amountField setKeyboardType:UIKeyboardTypeDecimalPad];
     [topView addSubview:self.amountField];
     
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(self.amountField.frame), mScreenWidth - 30, 10)];
@@ -189,23 +199,91 @@
 
 - (void)submitAction:(UIButton *)sender
 {
-    NSString *money = self.amountField.text;
+    NSString *money = @"0.01";//self.amountField.text;
     if ([CommonUtils isBlankString:money]) {
         [CommonUtils showHUDWithMessage:@"请输入充值金额" autoHide:YES];
         return;
     }
-    NSString *type = @"1";
+    NSString *paytype = @"1";
     if (self.wxRightButton.selected) {
-        type = @"2";
+        paytype = @"2";
     }
-    NSDictionary *params = @{@"type":type,
-                             @"money":money};
+    NSString *businesstype = @"1";
+    NSDictionary *params = @{@"payType":paytype,
+                             @"money":money,
+                             @"businessType":businesstype};
     [MemberCenterVM rechargeListWithParameter:params completion:^(BOOL finish, id obj) {
         if (finish) {
             //申请充值 成功后 调起支付宝或者微信
+            NSString *orderString = [[obj objectForKey:@"data"] objectForKey:@"orderString"];
             
+            //支付宝或者微信支付
+            if ([paytype isEqualToString:@"1"]) {
+                // NOTE: 调用支付结果开始支付
+                [[AlipaySDK defaultService] payOrder:orderString fromScheme:kAppScheme callback:^(NSDictionary *resultDic) {
+                    NSLog(@" wangye reslut = %@",resultDic);
+                    
+                    NSInteger resultStatus = [[resultDic objectForKey:@"resultStatus"] integerValue];
+                    if (resultStatus == 9000) {
+                        [[[UIAlertView alloc] initWithTitle:@"支付结果" message:@"支付成功！" cancelButtonItem:[RIButtonItem itemWithLabel:@"查看钱包" action:^{
+                            [self.navigationController popViewControllerAnimated:YES];
+                        }] otherButtonItems:nil, nil] show];
+                    }else{
+                        [[[UIAlertView alloc] initWithTitle:@"支付结果" message:@"支付失败！" cancelButtonItem:[RIButtonItem itemWithLabel:@"取消" action:^{
+                            
+                        }] otherButtonItems:[RIButtonItem itemWithLabel:@"重新充值" action:^{
+                            [self submitAction:nil];
+                        }], nil] show];
+                    }
+                }];
+            }else{
+                PayReq *request = [[PayReq alloc] init];
+                request.partnerId = @"10000100";
+                request.prepayId = @"1101000000140415649af9fc314aa427";
+                request.package = @"Sign=WXPay";
+                request.nonceStr = @"a462b76e7436e98e0ed6e13c64b4fd1c";
+                request.timeStamp = @"1397527777";
+                request.sign = @"582282D72DD2B03AD892830965F428CB16E7A256";
+                [WXApi sendReq:request];
+            }
         }
     }];
+}
+
+//阿里支付成功
+- (void)alipaySuccess:(NSNotification *)note
+{
+    NSLog(@"支付成功");
+    NSDictionary *resultDict = [note object];
+    NSInteger resultStatus = [[resultDict objectForKey:@"resultStatus"] integerValue];
+    if (resultStatus == 9000) {
+        [[[UIAlertView alloc] initWithTitle:@"支付结果" message:@"支付成功！" cancelButtonItem:[RIButtonItem itemWithLabel:@"查看钱包" action:^{
+            [self.navigationController popViewControllerAnimated:YES];
+        }] otherButtonItems:nil, nil] show];
+    }else{
+        [[[UIAlertView alloc] initWithTitle:@"支付结果" message:@"支付失败！" cancelButtonItem:[RIButtonItem itemWithLabel:@"取消" action:^{
+            
+        }] otherButtonItems:[RIButtonItem itemWithLabel:@"重新充值" action:^{
+            [self submitAction:nil];
+        }], nil] show];
+    }
+}
+
+//微信支付成功
+- (void)weixinSuccess:(NSNotification *)note
+{
+    PayResp *resp = [note object];
+    if (resp.errCode == WXSuccess) {
+        [[[UIAlertView alloc] initWithTitle:@"支付结果" message:@"支付成功！" cancelButtonItem:[RIButtonItem itemWithLabel:@"查看钱包" action:^{
+            [self.navigationController popViewControllerAnimated:YES];
+        }] otherButtonItems:nil, nil] show];
+    }else{
+        [[[UIAlertView alloc] initWithTitle:@"支付结果" message:@"支付失败！" cancelButtonItem:[RIButtonItem itemWithLabel:@"取消" action:^{
+            
+        }] otherButtonItems:[RIButtonItem itemWithLabel:@"重新充值" action:^{
+            [self submitAction:nil];
+        }], nil] show];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

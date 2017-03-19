@@ -6,8 +6,8 @@
 //  Copyright © 2017年 Rainer. All rights reserved.
 //
 
-#import "DouDouBaseTableViewController.h"
+#import "DouDouBaseViewController.h"
 
-@interface HomeViewController : DouDouBaseTableViewController
+@interface HomeViewController : DouDouBaseViewController
 
 @end

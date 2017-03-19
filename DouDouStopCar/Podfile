@@ -17,5 +17,5 @@ target 'DouDouStopCar' do
     pod 'Masonry'
     pod 'DZNEmptyDataSet'#空数据源
     pod 'MGSwipeTableCell'
-    
+    pod 'UIAlertView-Blocks'
 end

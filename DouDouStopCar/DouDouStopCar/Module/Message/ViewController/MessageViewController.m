@@ -11,7 +11,7 @@
 #import "MessageVM.h"
 #import "MessageModel.h"
 
-@interface MessageViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface MessageViewController ()<UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, assign) NSInteger index;
@@ -32,10 +32,14 @@
     self.navigationItem.title = @"消息";
     [self.backBtn setHidden:YES];
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
     
     self.index = 0;
     self.dataSource = [NSMutableArray array];
-    [self getMessageListData];
+    if ([[LoginSimpleton shareInstance] isLogined]) {
+        [self getMessageListData];
+    }
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.index = 0;

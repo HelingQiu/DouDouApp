@@ -35,6 +35,11 @@ typedef void (^CompletionWithObjectBlock) (BOOL finish, id obj);
 #define kDouDouToken @"token"
 #define kCityData @"city"
 
+#define kAppScheme @"DouDouStopCar"
 #define BaiDuAppKey @"npdMeCxvlXIA3Ll24yUTf3vwkepDEC7c"
+
+#define kAlipayNoti @"alipay"
+#define kWeixinNoti @"weixin"
+
 
 #endif /* AppDefine_h */
