@@ -16,6 +16,9 @@
 		CF6B08B11E5EDBD900C7759C /* NearbyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6B08B01E5EDBD900C7759C /* NearbyModel.m */; };
 		CF6B08B51E5EDE9700C7759C /* NearByParkingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6B08B31E5EDE9700C7759C /* NearByParkingListCell.m */; };
 		CF6B08B61E5EDE9700C7759C /* NearByParkingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6B08B41E5EDE9700C7759C /* NearByParkingListCell.xib */; };
+		CF81A0B01E7FD2800013232B /* DepositRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81A0AF1E7FD2800013232B /* DepositRecordViewController.m */; };
+		CF81A0B41E7FD3E20013232B /* CashOrPrivilCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF81A0B21E7FD3E20013232B /* CashOrPrivilCell.m */; };
+		CF81A0B51E7FD3E20013232B /* CashOrPrivilCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF81A0B31E7FD3E20013232B /* CashOrPrivilCell.xib */; };
 		CF9BBC591E63CD0B0005CD20 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF9BBC541E63CD0B0005CD20 /* libWeChatSDK.a */; };
 		CF9BBC5A1E63CD0B0005CD20 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = CF9BBC551E63CD0B0005CD20 /* README.txt */; };
 		CF9BBC5E1E63CD160005CD20 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CF9BBC5C1E63CD160005CD20 /* AlipaySDK.bundle */; };
@@ -152,6 +155,11 @@
 		CF6B08B21E5EDE9700C7759C /* NearByParkingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearByParkingListCell.h; sourceTree = "<group>"; };
 		CF6B08B31E5EDE9700C7759C /* NearByParkingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearByParkingListCell.m; sourceTree = "<group>"; };
 		CF6B08B41E5EDE9700C7759C /* NearByParkingListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearByParkingListCell.xib; sourceTree = "<group>"; };
+		CF81A0AE1E7FD2800013232B /* DepositRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepositRecordViewController.h; sourceTree = "<group>"; };
+		CF81A0AF1E7FD2800013232B /* DepositRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepositRecordViewController.m; sourceTree = "<group>"; };
+		CF81A0B11E7FD3E20013232B /* CashOrPrivilCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashOrPrivilCell.h; sourceTree = "<group>"; };
+		CF81A0B21E7FD3E20013232B /* CashOrPrivilCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashOrPrivilCell.m; sourceTree = "<group>"; };
+		CF81A0B31E7FD3E20013232B /* CashOrPrivilCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CashOrPrivilCell.xib; sourceTree = "<group>"; };
 		CF9BBC541E63CD0B0005CD20 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		CF9BBC551E63CD0B0005CD20 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		CF9BBC561E63CD0B0005CD20 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
@@ -907,6 +915,9 @@
 				D582E1F51E62E33700B0A28D /* WalletRecordCell.h */,
 				D582E1F61E62E33700B0A28D /* WalletRecordCell.m */,
 				D582E1F71E62E33700B0A28D /* WalletRecordCell.xib */,
+				CF81A0B11E7FD3E20013232B /* CashOrPrivilCell.h */,
+				CF81A0B21E7FD3E20013232B /* CashOrPrivilCell.m */,
+				CF81A0B31E7FD3E20013232B /* CashOrPrivilCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -922,6 +933,8 @@
 				D582E1FB1E63150000B0A28D /* RechargeViewController.m */,
 				D582E1FD1E6331D200B0A28D /* DepositViewController.h */,
 				D582E1FE1E6331D200B0A28D /* DepositViewController.m */,
+				CF81A0AE1E7FD2800013232B /* DepositRecordViewController.h */,
+				CF81A0AF1E7FD2800013232B /* DepositRecordViewController.m */,
 				D52602D11E5C7C37007EA24D /* PrivilegeViewController.h */,
 				D52602D21E5C7C37007EA24D /* PrivilegeViewController.m */,
 				D52602C61E5C72A5007EA24D /* MonthCardViewController.h */,
@@ -1084,6 +1097,7 @@
 				CFCEBF4F1E5AB77A00593686 /* MessageTableViewCell.xib in Resources */,
 				CFC004581E5D675A0079DCE5 /* mapapi.bundle in Resources */,
 				D528029B1E49F0C700ACB198 /* Assets.xcassets in Resources */,
+				CF81A0B51E7FD3E20013232B /* CashOrPrivilCell.xib in Resources */,
 				D5542B5B1E68724300C01B3F /* AppointmentTableViewCell.xib in Resources */,
 				CFC0045F1E5D8DFD0079DCE5 /* MapCarParkingCell.xib in Resources */,
 				D582E1F91E62E33700B0A28D /* WalletRecordCell.xib in Resources */,
@@ -1174,6 +1188,7 @@
 				D57F3ED21E6C650400411009 /* CityPickerViewController.m in Sources */,
 				CFD655951E603CE50051A414 /* PrivilegeCell.m in Sources */,
 				D582E2051E63397800B0A28D /* UIImage+ColorAtPixel.m in Sources */,
+				CF81A0B01E7FD2800013232B /* DepositRecordViewController.m in Sources */,
 				CFCBF1381E5C1F4B00D618BE /* NewsViewController.m in Sources */,
 				D55E8EFE1E65CCA400ABB7B6 /* FirstAnnotation.m in Sources */,
 				D55E8EF21E65B72B00ABB7B6 /* MessageVM.m in Sources */,
@@ -1214,6 +1229,7 @@
 				CFAA4D1A1E57021E00EE8953 /* DouDouForgetViewController.m in Sources */,
 				D55E8EF81E65BC3C00ABB7B6 /* JJSAttributedStringBuilder.m in Sources */,
 				D52602E11E5C90A0007EA24D /* AddCarNumberViewController.m in Sources */,
+				CF81A0B41E7FD3E20013232B /* CashOrPrivilCell.m in Sources */,
 				D582E1FC1E63150000B0A28D /* RechargeViewController.m in Sources */,
 				CFCEBF5F1E5ACC7700593686 /* UserModel.m in Sources */,
 				D55C80281E60942300DA9DC5 /* LoginSimpleton.m in Sources */,

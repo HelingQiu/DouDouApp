@@ -10,4 +10,6 @@
 
 @interface DepositViewController : DouDouBaseViewController
 
+@property (nonatomic, copy) NSString *lastMoney;
+
 @end

@@ -56,4 +56,11 @@
 //获取规则信息
 + (void)getRoleInfoWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
 
+//提现记录
++ (void)getCashRecordWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
+
+
+
+
+
 @end

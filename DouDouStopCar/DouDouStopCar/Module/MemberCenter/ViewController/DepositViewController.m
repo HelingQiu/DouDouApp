@@ -9,6 +9,7 @@
 #import "DepositViewController.h"
 #import "OBShapedButton.h"
 #import "MemberCenterVM.h"
+#import "DepositRecordViewController.h"
 
 @interface DepositViewController ()
 
@@ -66,9 +67,9 @@
     [labTip setTextColor:[UIColor whiteColor]];
     [backView addSubview:labTip];
     
-    CGFloat moneyWidth = [CommonUtils widthForString:@"0.00" Font:kFontSize(33) andWidth:mScreenWidth];
+    CGFloat moneyWidth = [CommonUtils widthForString:self.lastMoney Font:kFontSize(33) andWidth:mScreenWidth];
     UILabel *labMoney = [[UILabel alloc] initWithFrame:CGRectMake(mScreenWidth/2 - 44.7/2, 123.3 - 45, moneyWidth, 33)];
-    [labMoney setText:@"0.00"];
+    [labMoney setText:self.lastMoney];
     [labMoney setFont:kFontSize(33)];
     [labMoney setTextColor:[UIColor whiteColor]];
     [backView addSubview:labMoney];
@@ -166,11 +167,13 @@
     [moneyBackView addSubview:labAmount];
     
     self.moneyField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labAmount.frame) + 5, 53.0/2 - 10, mScreenWidth - 60 - CGRectGetMaxX(labAmount.frame) - 5, 20)];
-    [self.moneyField setPlaceholder:@"本次最多可提现0.00元"];
+    [self.moneyField setPlaceholder:[NSString stringWithFormat:@"本次最多可提现%@元",self.lastMoney]];
     [self.moneyField setFont:[UIFont boldSystemFontOfSize:15]];
     [self.moneyField setValue:kHexColor(kColor_Text) forKeyPath:@"_placeholderLabel.textColor"];
     [self.moneyField setValue:[UIFont boldSystemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
     [self.moneyField setTextColor:kHexColor(kColor_Text)];
+    [self.moneyField setKeyboardType:UIKeyboardTypeDecimalPad];
+    [self.moneyField addTarget:self action:@selector(textValueChanged:) forControlEvents:UIControlEventEditingChanged];
     [moneyBackView addSubview:self.moneyField];
     
     [scrollView addSubview:[CommonUtils getSeparator:[UIColor lightGrayColor] frame:CGRectMake(0, CGRectGetMaxY(moneyBackView.frame) + 20, mScreenWidth, 1)]];
@@ -196,7 +199,8 @@
 
 - (void)rightAction
 {
-
+    DepositRecordViewController *depositController = [[DepositRecordViewController alloc] init];
+    [self.navigationController pushViewController:depositController animated:YES];
 }
 
 - (void)aliyAction:(UIButton *)sender
@@ -221,6 +225,17 @@
     [self.wxButton setSelected:NO];
     [self.cardButton setSelected:YES];
     [self.acountField setPlaceholder:@"填写提现银行卡号"];
+}
+
+- (void)textValueChanged:(UITextField *)field
+{
+    CGFloat nowMoney = field.text.floatValue;
+    CGFloat allMoney = self.lastMoney.floatValue;
+    
+    if ((nowMoney - allMoney) > 0) {
+        [CommonUtils showHUDWithMessage:@"提现金额不能大于余额" autoHide:YES];
+        field.text = @"";
+    }
 }
 
 - (void)submitAction:(UIButton *)sender
@@ -257,13 +272,15 @@
         type = @"3";
     }
     
-    NSDictionary *params = @{@"type":type,
-                             @"payee_account":acount,
-                             @"payee_real_name":name,
-                             @"amount":money};
+    NSDictionary *params = @{@"payType":type,
+                             @"payAccount":acount,
+                             @"payName":name,
+                             @"cash":money};
     [MemberCenterVM depositWithParameter:params completion:^(BOOL finish, id obj) {
         if (finish) {
-            
+            [[[UIAlertView alloc] initWithTitle:@"提现结果" message:@"提现申请成功，请等待审核！" cancelButtonItem:[RIButtonItem itemWithLabel:@"确定" action:^{
+                [self.navigationController popViewControllerAnimated:YES];
+            }] otherButtonItems:nil, nil] show];
         }
     }];
 }

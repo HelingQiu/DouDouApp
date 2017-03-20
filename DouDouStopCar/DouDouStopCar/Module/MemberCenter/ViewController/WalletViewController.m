@@ -158,12 +158,14 @@
 - (void)rechargeAction:(UIButton *)sender
 {
     RechargeViewController *rechargeController = [[RechargeViewController alloc] init];
+    rechargeController.lastMoney = self.balance;
     [self.navigationController pushViewController:rechargeController animated:YES];
 }
 
 - (void)depositAction:(UIButton *)sender
 {
     DepositViewController *depositController = [[DepositViewController alloc] init];
+    depositController.lastMoney = self.balance;
     [self.navigationController pushViewController:depositController animated:YES];
 }
 

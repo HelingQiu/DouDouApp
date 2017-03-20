@@ -175,7 +175,7 @@
     [CommonUtils showHUDWithWaitingMessage:nil];
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
     NSDictionary *params = @{@"token":token?:@""};
-    [[DouDouNetworking sharedInstance] requestDataFromWSWithParams:parameter forPath:DepositApi isJson:YES isPrivate:NO isAuthorizationHeader:YES headerParamers:params finished:^(NSDictionary *data) {
+    [[DouDouNetworking sharedInstance] requestDataFromWSWithParams:parameter forPath:WithDrawsCashApi isJson:YES isPrivate:NO isAuthorizationHeader:YES headerParamers:params finished:^(NSDictionary *data) {
         NSLog(@"deposit :%@",data);
         [CommonUtils hideHUD];
         if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
@@ -314,6 +314,33 @@
         if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
             [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
             completion(YES,data);
+        }else{
+            [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
+            completion(NO,[data objectForKey:@"resultMsg"]);
+        }
+    } failed:^(NSString *error) {
+        completion(NO, error);
+        [CommonUtils changeHUDMessage:error];
+    }];
+}
+
++ (void)getCashRecordWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion
+{
+    [CommonUtils showHUDWithWaitingMessage:nil];
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+    NSDictionary *params = @{@"token":token?:@""};
+    [[DouDouNetworking sharedInstance] requestDataFromWSWithParams:parameter forPath:DepositCashRecordApi isJson:YES isPrivate:NO isAuthorizationHeader:YES headerParamers:params finished:^(NSDictionary *data) {
+        NSLog(@"collection list :%@",data);
+        [CommonUtils hideHUD];
+        if ([[data objectForKey:@"resultCode"] integerValue] == 1) {
+            NSArray *dataArray = [[data objectForKey:@"data"] objectForKey:@"list"];
+            NSMutableArray *resultArray = [NSMutableArray arrayWithCapacity:0];
+            [dataArray enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                CashRecordModel *model = [CashRecordModel mj_objectWithKeyValues:obj];
+                [resultArray addObject:model];
+            }];
+            
+            completion(YES,resultArray);
         }else{
             [CommonUtils changeHUDMessage:[data objectForKey:@"resultMsg"]];
             completion(NO,[data objectForKey:@"resultMsg"]);

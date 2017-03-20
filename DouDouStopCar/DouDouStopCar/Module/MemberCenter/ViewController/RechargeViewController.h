@@ -10,4 +10,6 @@
 
 @interface RechargeViewController : DouDouBaseViewController
 
+@property (nonatomic, copy) NSString *lastMoney;
+
 @end

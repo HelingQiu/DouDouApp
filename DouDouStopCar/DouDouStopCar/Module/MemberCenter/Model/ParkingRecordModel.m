@@ -32,6 +32,9 @@
 
 @end
 
+@implementation CashRecordModel
+
+@end
 
 
 

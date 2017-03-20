@@ -100,11 +100,6 @@
 #define RechargeApi [NSString stringWithFormat:@"%@%@",Host,@"/wallet/recharge"]
 
 /*
- 提现
- */
-#define DepositApi [NSString stringWithFormat:@"%@%@",Host,@"/wallet/recharge"]
-
-/*
  获取我的收藏列表
  */
 #define GetMyCollectionApi [NSString stringWithFormat:@"%@%@",Host,@"/my/getMyCollection"]
@@ -146,6 +141,15 @@
  */
 #define GetCityAndDistrictApi [NSString stringWithFormat:@"%@%@",Host,@"/parking/getCityAndDistrict"]
 
+/*
+ 提现
+ */
+#define WithDrawsCashApi [NSString stringWithFormat:@"%@%@",Host,@"/my/WithdrawsCash"]
+
+/*
+ 提现记录
+ */
+#define DepositCashRecordApi [NSString stringWithFormat:@"%@%@",Host,@"/my/WithdrawsCashRecord"]
 
 
 

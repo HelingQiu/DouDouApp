@@ -55,9 +55,9 @@
     [labTip setTextColor:[UIColor blackColor]];
     [topView addSubview:labTip];
     
-    CGFloat moneyWidth = [CommonUtils widthForString:@"0.00" Font:[UIFont boldSystemFontOfSize:33] andWidth:mScreenWidth];
+    CGFloat moneyWidth = [CommonUtils widthForString:self.lastMoney Font:[UIFont boldSystemFontOfSize:33] andWidth:mScreenWidth];
     UILabel *labMoney = [[UILabel alloc] initWithFrame:CGRectMake(mScreenWidth/2 - 44.7/2, 32, moneyWidth, 33)];
-    [labMoney setText:@"0.00"];
+    [labMoney setText:self.lastMoney];
     [labMoney setFont:[UIFont boldSystemFontOfSize:33]];
     [labMoney setTextColor:kHexColor(@"#ffba07")];
     [topView addSubview:labMoney];

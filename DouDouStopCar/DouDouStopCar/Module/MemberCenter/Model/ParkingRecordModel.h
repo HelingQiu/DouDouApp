@@ -63,3 +63,13 @@
 
 @end
 
+@interface CashRecordModel : NSObject
+
+@property (nonatomic, assign) NSInteger payType;
+@property (nonatomic, copy) NSString *cash;
+@property (nonatomic, copy) NSString *payName;
+@property (nonatomic, copy) NSString *payAccount;
+@property (nonatomic, copy) NSString *startDate;
+@property (nonatomic, assign) NSInteger state;
+
+@end
