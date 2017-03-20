@@ -73,6 +73,10 @@
 {
     [self getPersonInfo];
     if ([LoginSimpleton shareInstance].isLogined) {
+        [self.labName setHidden:NO];
+        [self.labPhone setHidden:NO];
+        [self.labUnlogined setHidden:YES];
+        [self.logoutButton setHidden:NO];
         [self getPersonInfo];
     }else{
         [self.labName setHidden:YES];
@@ -99,11 +103,11 @@
             [self.labRight setText:[NSString stringWithFormat:@"%@张",model.monthCardCount]];
             [self.headView sd_setImageWithURL:[NSURL URLWithString:model.portraitUrl] placeholderImage:[UIImage imageNamed:@"member_head_default"]];
         }else{
-            [self.labName setHidden:YES];
-            [self.labPhone setHidden:YES];
-            [self.labUnlogined setHidden:NO];
-            [self.logoutButton setHidden:YES];
-            [self.headView setImage:[UIImage imageNamed:@"member_head_default"]];
+//            [self.labName setHidden:YES];
+//            [self.labPhone setHidden:YES];
+//            [self.labUnlogined setHidden:NO];
+//            [self.logoutButton setHidden:YES];
+//            [self.headView setImage:[UIImage imageNamed:@"member_head_default"]];
         }
     }];
 }
@@ -135,17 +139,22 @@
 }
 
 - (IBAction)logoutAction:(UIButton *)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kDouDouToken];
-    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kDouDouPassWord];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [self.labName setHidden:YES];
-    [self.labPhone setHidden:YES];
-    [self.labUnlogined setHidden:NO];
-    [self.logoutButton setHidden:YES];
-    [self.headView setImage:[UIImage imageNamed:@"member_head_default"]];
-    [self.labMoney setText:[NSString stringWithFormat:@"0元"]];
-    [self.labLeft setText:[NSString stringWithFormat:@"0张"]];
-    [self.labRight setText:[NSString stringWithFormat:@"0张"]];
+    [[[UIAlertView alloc] initWithTitle:@"提示" message:@"确定退出当前账号？" cancelButtonItem:[RIButtonItem itemWithLabel:@"取消" action:^{
+        
+    }] otherButtonItems:[RIButtonItem itemWithLabel:@"确定" action:^{
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kDouDouToken];
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kDouDouPassWord];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self.labName setHidden:YES];
+        [self.labPhone setHidden:YES];
+        [self.labUnlogined setHidden:NO];
+        [self.logoutButton setHidden:YES];
+        [self.headView setImage:[UIImage imageNamed:@"member_head_default"]];
+        [self.labMoney setText:[NSString stringWithFormat:@"0元"]];
+        [self.labLeft setText:[NSString stringWithFormat:@"0张"]];
+        [self.labRight setText:[NSString stringWithFormat:@"0张"]];
+    }], nil] show];
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
