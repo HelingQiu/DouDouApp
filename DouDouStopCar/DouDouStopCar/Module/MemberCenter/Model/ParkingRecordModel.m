@@ -36,7 +36,9 @@
 
 @end
 
+@implementation ApplyBillModel
 
+@end
 
 
 

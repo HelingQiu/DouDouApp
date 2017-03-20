@@ -47,6 +47,11 @@
     [self.labStatus setText:status];
 }
 
+- (void)refreshBillDataWith:(ApplyBillModel *)model
+{
+
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

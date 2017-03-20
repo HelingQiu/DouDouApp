@@ -16,6 +16,6 @@
 
 + (CashOrPrivilCell *)cellForTableView:(UITableView *)tableView;
 - (void)refreshDataWith:(CashRecordModel *)model;
-
+- (void)refreshBillDataWith:(ApplyBillModel *)model;
 
 @end

@@ -111,7 +111,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "168"
             endingLineNumber = "168"
-            landmarkName = "-leftAction:"
+            landmarkName = "-getAdsData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

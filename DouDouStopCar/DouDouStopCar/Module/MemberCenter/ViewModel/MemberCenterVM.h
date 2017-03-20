@@ -59,8 +59,10 @@
 //提现记录
 + (void)getCashRecordWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
 
+//获取开票历史
++ (void)getBillListRecordWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
 
-
-
+//申请开票
++ (void)applyBillWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
 
 @end

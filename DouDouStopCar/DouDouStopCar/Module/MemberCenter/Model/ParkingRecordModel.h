@@ -73,3 +73,19 @@
 @property (nonatomic, assign) NSInteger state;
 
 @end
+
+@interface ApplyBillModel : NSObject
+
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *cash;
+@property (nonatomic, copy) NSString *phone;
+@property (nonatomic, copy) NSString *area;
+@property (nonatomic, copy) NSString *address;
+@property (nonatomic, copy) NSString *startDate;
+@property (nonatomic, assign) NSInteger state;
+
+@end
+
+
+
+

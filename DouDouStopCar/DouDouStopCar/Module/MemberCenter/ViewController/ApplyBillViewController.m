@@ -11,6 +11,8 @@
 #import "CarNumberCell.h"
 #import "DouDouButton.h"
 #import "SkyerCityPicker.h"
+#import "RoleInfoViewController.h"
+#import "CashOrPrivilCell.h"
 
 @interface ApplyBillViewController ()<RFSegmentViewDelegate,UITableViewDataSource,UITableViewDelegate>
 
@@ -63,7 +65,8 @@
     [labTip setText:@"使用规则"];
     [labTip setUserInteractionEnabled:YES];
     [topView addSubview:labTip];
-    
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(usePolicyAction:)];
+    [labTip addGestureRecognizer:recognizer];
     
     UILabel *labXM = [[UILabel alloc] initWithFrame:CGRectMake(15, 24, mScreenWidth - 30, 36)];
     [labXM setText:@"项目:停车费（0.00元）"];
@@ -217,7 +220,41 @@
 
 - (void)submitAction:(UIButton *)sender
 {
+    NSString *name = self.nameField.text;
+    NSString *phone = self.phoneField.text;
+    NSString *place = self.areaButton.titleLabel.text;
+    NSString *address = self.placeField.text;
+    
+    if ([CommonUtils isBlankString:name]) {
+        [CommonUtils showHUDWithMessage:@"请输入姓名" autoHide:YES];
+        return;
+    }
+    if ([CommonUtils isBlankString:phone]) {
+        [CommonUtils showHUDWithMessage:@"请输入手机号" autoHide:YES];
+        return;
+    }
+    if ([CommonUtils isBlankString:place]) {
+        [CommonUtils showHUDWithMessage:@"请选择区域" autoHide:YES];
+        return;
+    }
+    if ([CommonUtils isBlankString:address]) {
+        [CommonUtils showHUDWithMessage:@"请输入街道地址" autoHide:YES];
+        return;
+    }
+    
+    NSDictionary *params = @{@"phone":phone,
+                             @"cash":@"1",
+                             @"name":name,
+                             @"area":[NSString stringWithFormat:@"%@%@",place,address]};
+    
+}
 
+//使用规则
+- (void)usePolicyAction:(UITapGestureRecognizer *)recognizer
+{
+    RoleInfoViewController *roleController = [[RoleInfoViewController alloc] init];
+    roleController.roleType = 2;
+    [self.navigationController pushViewController:roleController animated:YES];
 }
 
 - (void)pickAction:(UIButton *)sender
@@ -250,7 +287,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return 80;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

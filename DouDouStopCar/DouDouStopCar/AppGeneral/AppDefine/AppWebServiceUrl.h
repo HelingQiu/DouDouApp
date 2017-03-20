@@ -151,6 +151,13 @@
  */
 #define DepositCashRecordApi [NSString stringWithFormat:@"%@%@",Host,@"/my/WithdrawsCashRecord"]
 
+/*
+ 申请发票记录
+ */
+#define ApplyBillRecordApi [NSString stringWithFormat:@"%@%@",Host,@"/my/applyBillRecord"]
+
+
+
 
 
 
