@@ -104,12 +104,23 @@
     [cell refreshDataWith:model];
     
     MGSwipeButton *fixButton = [MGSwipeButton buttonWithTitle:@"修改" backgroundColor:[UIColor lightGrayColor] callback:^BOOL(MGSwipeTableCell *sender) {
-        NSLog(@"Convenience callback for swipe buttons!");
+        
+        AddCarNumberViewController *addCarController = [[AddCarNumberViewController alloc] init];
+        addCarController.model = model;
+        [self.navigationController pushViewController:addCarController animated:YES];
+        
         return YES;
     }];
     
     MGSwipeButton *deleteButton = [MGSwipeButton buttonWithTitle:@"删除" backgroundColor:[UIColor redColor] callback:^BOOL(MGSwipeTableCell *sender) {
-        NSLog(@"Convenience callback for swipe buttons!");
+        
+        NSDictionary *params = @{@"plateNumber":model.plateNumber};
+        [MemberCenterVM deleteCarNumberWithParameter:params completion:^(BOOL finish, id obj) {
+            if (finish) {
+                [self getCarListData];
+            }
+        }];
+        
         return YES;
     }];
     

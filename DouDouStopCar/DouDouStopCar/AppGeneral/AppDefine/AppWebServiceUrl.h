@@ -85,6 +85,16 @@
 #define AddCarApi [NSString stringWithFormat:@"%@%@",Host,@"/car/addCar"]
 
 /*
+ 删除车牌
+ */
+#define DeleteCarApi [NSString stringWithFormat:@"%@%@",Host,@"/car/deleteCar"]
+
+/*
+ 更改车牌
+ */
+#define ChangeCarApi [NSString stringWithFormat:@"%@%@",Host,@"/car/changeCar"]
+
+/*
  获取优惠劵列表
  */
 #define GetRechargeApi [NSString stringWithFormat:@"%@%@",Host,@"/conpon/recharge"]
@@ -150,6 +160,11 @@
  提现记录
  */
 #define DepositCashRecordApi [NSString stringWithFormat:@"%@%@",Host,@"/my/WithdrawsCashRecord"]
+
+/*
+ 申请发票
+ */
+#define ApplyBillApi [NSString stringWithFormat:@"%@%@",Host,@"/my/applyBill"]
 
 /*
  申请发票记录

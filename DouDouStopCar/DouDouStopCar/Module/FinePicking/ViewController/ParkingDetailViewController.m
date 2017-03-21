@@ -79,7 +79,8 @@
         make.width.mas_equalTo(30);
         make.height.mas_equalTo(30);
     }];
-    if ([LoginSimpleton shareInstance].isLogined) {
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+    if (![CommonUtils isBlankString:token]) {
         if (self.model.isCollection == 0) {
             collectButton.selected = NO;
         }else{

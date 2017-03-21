@@ -49,7 +49,18 @@
 
 - (void)refreshBillDataWith:(ApplyBillModel *)model
 {
-
+    [self.labTitle setText:model.name];
+    [self.labTime setText:model.startDate];
+    [self.labAmount setText:model.cash];
+    NSString *status = @"";
+    if (model.state == 1) {
+        status = @"审核中";
+    }else if (model.state == 2) {
+        status = @"体现完成";
+    }else{
+        status = @"未通过审核";
+    }
+    [self.labStatus setText:status];
 }
 
 - (void)awakeFromNib {

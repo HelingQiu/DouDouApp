@@ -13,6 +13,7 @@
 #import "SkyerCityPicker.h"
 #import "RoleInfoViewController.h"
 #import "CashOrPrivilCell.h"
+#import "MemberCenterVM.h"
 
 @interface ApplyBillViewController ()<RFSegmentViewDelegate,UITableViewDataSource,UITableViewDelegate>
 
@@ -30,6 +31,9 @@
 @property (nonatomic, assign) CGFloat scrollHeight;
 @property (nonatomic, strong) UIButton *submitButton;
 
+@property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, assign) NSInteger index;
+
 @end
 
 @implementation ApplyBillViewController
@@ -39,6 +43,42 @@
     // Do any additional setup after loading the view.
     
     [self setConfigView];
+    
+    self.index = 0;
+    self.dataSource = [NSMutableArray array];
+    
+    [self getBillListRecordData];
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        self.index = 0;
+        [self getBillListRecordData];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        self.index ++;
+        [self getBillListRecordData];
+    }];
+}
+
+- (void)getBillListRecordData
+{
+    NSDictionary *params = @{@"page":[NSNumber numberWithInteger:self.index]};
+    [MemberCenterVM getBillListRecordWithParameter:params completion:^(BOOL finish, id obj) {
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+        if (finish) {
+            NSArray *array = obj;
+            if (self.index == 0) {
+                self.dataSource = [array mutableCopy];
+            }else{
+                [self.dataSource addObjectsFromArray:array];
+            }
+            if (array.count == 0) {
+                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            }
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 - (void)setConfigView
@@ -104,6 +144,7 @@
     [self.phoneField setValue:kHexColor(kColor_Text) forKeyPath:@"_placeholderLabel.textColor"];
     [self.phoneField setValue:[UIFont boldSystemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
     [self.phoneField setTextColor:kHexColor(kColor_Text)];
+    [self.phoneField setKeyboardType:UIKeyboardTypeNumberPad];
     [midView addSubview:self.phoneField];
     
     UILabel *labArea = [[UILabel alloc] initWithFrame:CGRectMake(15, 120 + 60.0/2 - 10, 80, 20)];
@@ -245,8 +286,13 @@
     NSDictionary *params = @{@"phone":phone,
                              @"cash":@"1",
                              @"name":name,
-                             @"area":[NSString stringWithFormat:@"%@%@",place,address]};
-    
+                             @"area":place,
+                             @"address":address};
+    [MemberCenterVM applyBillWithParameter:params completion:^(BOOL finish, id obj) {
+        if (finish) {
+            [CommonUtils showHUDWithMessage:@"发票申请成功" autoHide:YES];
+        }
+    }];
 }
 
 //使用规则
@@ -272,7 +318,7 @@
 #pragma mark -
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 15;
+    return self.dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -292,7 +338,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CarNumberCell *cell = [CarNumberCell cellForTableView:tableView];
+    CashOrPrivilCell *cell = [CashOrPrivilCell cellForTableView:tableView];
+    ApplyBillModel *model = [self.dataSource objectAtIndex:indexPath.section];
+    [cell refreshBillDataWith:model];
     
     return cell;
 }

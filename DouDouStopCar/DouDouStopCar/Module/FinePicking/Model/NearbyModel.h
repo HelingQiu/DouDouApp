@@ -30,5 +30,6 @@
 @property (nonatomic, assign) NSInteger isCollection;
 @property (nonatomic, copy) NSString *referencePrice;
 @property (nonatomic, copy) NSString *priceRole;
+@property (nonatomic, copy) NSString *parkingId;
 
 @end

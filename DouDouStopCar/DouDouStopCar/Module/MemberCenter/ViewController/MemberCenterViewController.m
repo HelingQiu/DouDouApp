@@ -72,7 +72,8 @@
 - (void)setMemberData
 {
     [self getPersonInfo];
-    if ([LoginSimpleton shareInstance].isLogined) {
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+    if (![CommonUtils isBlankString:token]) {
         [self.labName setHidden:NO];
         [self.labPhone setHidden:NO];
         [self.labUnlogined setHidden:YES];
@@ -114,7 +115,8 @@
 
 - (IBAction)leftAction:(UIButton *)sender
 {
-    if ([LoginSimpleton shareInstance].isLogined) {
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+    if (![CommonUtils isBlankString:token]) {
         PrivilegeViewController *privilegeController = [[PrivilegeViewController alloc] init];
         [self.navigationController pushViewController:privilegeController animated:YES];
     }else{
@@ -127,7 +129,8 @@
 
 - (IBAction)rightAction:(UIButton *)sender
 {
-    if ([LoginSimpleton shareInstance].isLogined) {
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+    if (![CommonUtils isBlankString:token]) {
         MonthCardViewController *monthController = [[MonthCardViewController alloc] init];
         [self.navigationController pushViewController:monthController animated:YES];
     }else{
@@ -162,7 +165,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            if ([LoginSimpleton shareInstance].isLogined) {
+            NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+            if (![CommonUtils isBlankString:token]) {
             
             }else{
                 DouDouBaseNavigationController *loginNavController =[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
@@ -171,7 +175,8 @@
                 }];
             }
         }else if (indexPath.row == 1) {
-            if ([LoginSimpleton shareInstance].isLogined) {
+            NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+            if (![CommonUtils isBlankString:token]) {
                 WalletViewController *waletController = [[WalletViewController alloc] init];
                 [self.navigationController pushViewController:waletController animated:YES];
             }else{
@@ -183,7 +188,8 @@
         }
     }else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            if ([LoginSimpleton shareInstance].isLogined) {
+            NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+            if (![CommonUtils isBlankString:token]) {
                 CarNumberViewController *carnumberController = [[CarNumberViewController alloc] init];
                 [self.navigationController pushViewController:carnumberController animated:YES];
             }else{
@@ -194,7 +200,8 @@
             }
             
         }else if (indexPath.row == 1) {
-            if ([LoginSimpleton shareInstance].isLogined) {
+            NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+            if (![CommonUtils isBlankString:token]) {
                 StopRecordViewController *stopController = [StopRecordViewController createByNibFile];
                 [self.navigationController pushViewController:stopController animated:YES];
             }else{
@@ -205,7 +212,8 @@
             }
             
         }else if (indexPath.row == 2) {
-            if ([LoginSimpleton shareInstance].isLogined) {
+            NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
+            if (![CommonUtils isBlankString:token]) {
                 CollectionViewController *stopController = [CollectionViewController createByNibFile];
                 [self.navigationController pushViewController:stopController animated:YES];
             }else{

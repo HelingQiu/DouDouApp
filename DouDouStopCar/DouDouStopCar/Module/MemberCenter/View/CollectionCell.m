@@ -20,7 +20,7 @@
     return cell;
 }
 
-- (void)refreshDataWith:(CollectionModel *)model
+- (void)refreshDataWith:(NearbyModel *)model
 {
     [self.labName setText:model.name];
     [self.labAddress setText:model.address];

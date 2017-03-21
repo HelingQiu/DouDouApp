@@ -53,6 +53,8 @@
 {
     NSDictionary *params = @{@"page":[NSNumber numberWithInteger:self.index]};
     [MemberCenterVM getParkingRecordWithParameter:params completion:^(BOOL finish, id obj) {
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
         if (finish) {
             NSArray *array = obj;
             if (self.index == 0) {
@@ -65,8 +67,7 @@
             }
             [self.tableView reloadData];
         }
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
+        
     }];
 }
 

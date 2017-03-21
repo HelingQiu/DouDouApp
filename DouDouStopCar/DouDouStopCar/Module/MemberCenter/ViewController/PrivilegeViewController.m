@@ -105,6 +105,8 @@
                              @"page":[NSNumber numberWithInteger:self.leftIndex],
                              @"token":token};
     [MemberCenterVM getRechargeListWithParameter:params completion:^(BOOL finish, id obj) {
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
         if (finish) {
             NSArray *array = obj;
             if (self.leftIndex == 0) {
@@ -117,8 +119,7 @@
             }
             [self.tableView reloadData];
         }
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
+        
     }];
 }
 
@@ -129,6 +130,8 @@
                              @"page":[NSNumber numberWithInteger:self.rightIndex],
                              @"token":token};
     [MemberCenterVM getRechargeListWithParameter:params completion:^(BOOL finish, id obj) {
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
         if (finish) {
             NSArray *array = obj;
             if (self.rightIndex == 0) {
@@ -141,8 +144,7 @@
             }
             [self.tableView reloadData];
         }
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
+        
     }];
 }
 

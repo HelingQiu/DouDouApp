@@ -106,8 +106,6 @@
         
     }];
     
-    
-    
     [_scrollView setContentSize:CGSizeMake(0, CGRectGetMaxY(leftButton.frame) + 10 + 330)];
 }
 

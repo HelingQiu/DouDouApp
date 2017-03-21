@@ -290,7 +290,10 @@
     if (annotationView == nil) {
         annotationView = [[FirstAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationViewID];
     }
-    [annotationView.annotationImageView setImage:[UIImage imageNamed:@"member_stop"]];
+    [annotationView.annotationImageView setImage:[UIImage imageNamed:@"icon_current_location"]];
+    if ([annotation isKindOfClass:[FirstAnnotation class]]) {
+        [annotationView.annotationImageView setImage:[UIImage imageNamed:@"icon_map_parking"]];
+    }
 //    ActuallyModel *model = [(FirstAnnotation *)annotation model];
 //    annotationView.model = model;
 //    

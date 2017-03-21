@@ -39,6 +39,7 @@
         [self getMonthCardData];
     }];
     
+    self.tableView.mj_footer.automaticallyHidden = YES;
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         self.index ++;
         [self getMonthCardData];
@@ -47,8 +48,10 @@
 
 - (void)getMonthCardData
 {
-    NSDictionary *params = @{@"page":@"1"};
+    NSDictionary *params = @{@"page":[NSNumber numberWithInteger:self.index]};
     [MemberCenterVM getMonthCardListWithParameter:params completion:^(BOOL finish, id obj) {
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
         if (finish) {
             NSArray *array = obj;
             if (self.index == 0) {
@@ -61,8 +64,7 @@
             }
             [self.tableView reloadData];
         }
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
+        
     }];
 }
 

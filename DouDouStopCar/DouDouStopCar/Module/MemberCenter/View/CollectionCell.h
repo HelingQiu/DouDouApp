@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ParkingRecordModel.h"
+#import "NearbyModel.h"
 
 typedef void(^CollectBlock)();
 @interface CollectionCell : UITableViewCell
@@ -18,6 +18,6 @@ typedef void(^CollectBlock)();
 @property (copy, nonatomic) CollectBlock block;
 
 + (CollectionCell *)cellForTableView:(UITableView *)tableView;
-- (void)refreshDataWith:(CollectionModel *)model;
+- (void)refreshDataWith:(NearbyModel *)model;
 
 @end

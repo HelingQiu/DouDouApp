@@ -9,7 +9,7 @@
 #import "CollectionViewController.h"
 #import "CollectionCell.h"
 #import "MemberCenterVM.h"
-#import "ParkingRecordModel.h"
+#import "NearbyModel.h"
 #import "ParkingDetailViewController.h"
 
 @interface CollectionViewController ()
@@ -54,6 +54,8 @@
 {
     NSDictionary *params = @{@"page":[NSNumber numberWithInteger:self.index]};
     [MemberCenterVM getMyCollectionListWithParameter:params completion:^(BOOL finish, id obj) {
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
         if (finish) {
             NSArray *array = obj;
             if (self.index == 0) {
@@ -66,8 +68,6 @@
             }
             [self.tableView reloadData];
         }
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
     }];
 }
 
@@ -96,7 +96,7 @@
 {
     CollectionCell *cell = [CollectionCell cellForTableView:tableView];
     
-    CollectionModel *model = [self.dataSource objectAtIndex:indexPath.section];
+    NearbyModel *model = [self.dataSource objectAtIndex:indexPath.section];
     [cell refreshDataWith:model];
     cell.block = ^(){
         //取消收藏
@@ -115,7 +115,9 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    NearbyModel *model = [self.dataSource objectAtIndex:indexPath.section];
     ParkingDetailViewController *parkController = [[ParkingDetailViewController alloc] init];
+    parkController.model = model;
     [self.navigationController pushViewController:parkController animated:YES];
 }
 

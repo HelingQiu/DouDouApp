@@ -7,7 +7,10 @@
 //
 
 #import "DouDouBaseViewController.h"
+#import "ParkingRecordModel.h"
 
 @interface AddCarNumberViewController : DouDouBaseViewController
+
+@property (nonatomic, strong) PlateNumberModel *model;
 
 @end

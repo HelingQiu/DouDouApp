@@ -22,6 +22,12 @@
 //添加车牌
 + (void)addCarNumberWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
 
+//删除车牌
++ (void)deleteCarNumberWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
+
+//修改车牌
++ (void)changeCarNumberWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
+
 //获取优惠劵
 + (void)getRechargeListWithParameter:(NSDictionary *)parameter completion:(CompletionWithObjectBlock)completion;
 
