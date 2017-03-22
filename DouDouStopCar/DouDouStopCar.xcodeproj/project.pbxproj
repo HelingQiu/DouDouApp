@@ -123,6 +123,7 @@
 		D595BC8F1E7D144400561D24 /* jpush-ios-3.0.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D595BC8C1E7D144400561D24 /* jpush-ios-3.0.2.a */; };
 		D595BC911E7D169900561D24 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D595BC901E7D169900561D24 /* UserNotifications.framework */; };
 		D595BC931E7D16A500561D24 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D595BC921E7D16A500561D24 /* libresolv.tbd */; };
+		D59A94491E82AB1600F75732 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D59A94481E82AB1600F75732 /* UserInfoViewController.m */; };
 		D59C875E1E5B3A4C00D8AF84 /* MemberCenter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D59C875D1E5B3A4C00D8AF84 /* MemberCenter.storyboard */; };
 		D59C87611E5B3A7500D8AF84 /* StopRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D59C87601E5B3A7500D8AF84 /* StopRecordViewController.m */; };
 		D59C87651E5B3AE600D8AF84 /* StopCarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D59C87631E5B3AE600D8AF84 /* StopCarCell.m */; };
@@ -333,6 +334,8 @@
 		D595BC8D1E7D144400561D24 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		D595BC901E7D169900561D24 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		D595BC921E7D16A500561D24 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		D59A94471E82AB1600F75732 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		D59A94481E82AB1600F75732 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		D59C875D1E5B3A4C00D8AF84 /* MemberCenter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MemberCenter.storyboard; sourceTree = "<group>"; };
 		D59C875F1E5B3A7500D8AF84 /* StopRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopRecordViewController.h; sourceTree = "<group>"; };
 		D59C87601E5B3A7500D8AF84 /* StopRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopRecordViewController.m; sourceTree = "<group>"; };
@@ -927,6 +930,8 @@
 			children = (
 				CF9EFC831E5596B400B41160 /* MemberCenterViewController.h */,
 				CF9EFC841E5596B400B41160 /* MemberCenterViewController.m */,
+				D59A94471E82AB1600F75732 /* UserInfoViewController.h */,
+				D59A94481E82AB1600F75732 /* UserInfoViewController.m */,
 				D52602CE1E5C7BF0007EA24D /* WalletViewController.h */,
 				D52602CF1E5C7BF0007EA24D /* WalletViewController.m */,
 				D582E1FA1E63150000B0A28D /* RechargeViewController.h */,
@@ -1211,6 +1216,7 @@
 				D52802C71E4A1AE300ACB198 /* DouDouBaseViewController.m in Sources */,
 				CFAA4D171E56EFB900EE8953 /* UITextField+LimitLength.m in Sources */,
 				CF6B08B51E5EDE9700C7759C /* NearByParkingListCell.m in Sources */,
+				D59A94491E82AB1600F75732 /* UserInfoViewController.m in Sources */,
 				D52602CC1E5C732D007EA24D /* MonthCardCell.m in Sources */,
 				D59C87651E5B3AE600D8AF84 /* StopCarCell.m in Sources */,
 				CFCBF1351E5C1D2200D618BE /* JJSAdsView.m in Sources */,
