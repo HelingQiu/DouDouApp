@@ -103,6 +103,35 @@
             button.selected = YES;
         }
         
+        UILabel *labTime = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, mScreenWidth - 64 - 10 - 10 - 10 - 20, 30)];
+        [labTime setText:@"已泊时间：00：35"];
+        [labTime setFont:[UIFont systemFontOfSize:20]];
+        [carScrollView addSubview:labTime];
+        
+        UILabel *labPrice = [[UILabel alloc] initWithFrame:CGRectMake(10, 70, mScreenWidth - 64 - 10 - 10 - 10 - 20, 30)];
+        [labPrice setText:@"费     用：10元"];
+        [labPrice setFont:[UIFont systemFontOfSize:20]];
+        [carScrollView addSubview:labPrice];
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(mScreenWidth - 10 - 64 - 40, 30, 64, 64)];
+        [imageView setImage:[UIImage imageNamed:@"timer_normal"]];
+        [carScrollView addSubview:imageView];
+        
+        CGFloat width = [CommonUtils widthForString:@"城市停车广场卧槽卧槽我草草" Font:[UIFont systemFontOfSize:16] andWidth:mScreenWidth - 40];
+        UILabel *labParkName = [[UILabel alloc] initWithFrame:CGRectMake(mScreenWidth - 30 - width, CGRectGetMaxY(imageView.frame) + 15, width, 20)];
+        [labParkName setFont:[UIFont systemFontOfSize:16]];
+        [labParkName setText:@"城市停车广场卧槽卧槽我草草"];
+        [labParkName setTextColor:[UIColor blackColor]];
+        [carScrollView addSubview:labParkName];
+        
+        UIImageView *locView = [[UIImageView alloc] initWithFrame:CGRectMake(mScreenWidth - 30 - width - 15 , CGRectGetMaxY(imageView.frame) + 15, 12, 20)];
+        [locView setImage:[UIImage imageNamed:@"home_loc"]];
+        [carScrollView addSubview:locView];
+        
+        [carScrollView addSubview:[CommonUtils getSeparator:kHexColor(@"#6d97fd") frame:CGRectMake(0, CGRectGetMaxY(locView.frame) + 20, mScreenWidth - 20, 1)]];
+        
+        UILabel *labLockCar = [[UILabel alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(locView.frame) + 50, 40, 30)];
+        [labLockCar setTextColor:kHexColor(@"#6d97fd")];
         
     }];
     

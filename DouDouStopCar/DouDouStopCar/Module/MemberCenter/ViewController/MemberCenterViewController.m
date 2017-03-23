@@ -18,8 +18,13 @@
 #import "UserModel.h"
 #import "DouDouBaseNavigationController.h"
 #import "PersonModel.h"
+#import "UserInfoViewController.h"
 
 @interface MemberCenterViewController ()
+{
+    PersonModel *_personModel;
+}
+
 @property (weak, nonatomic) IBOutlet UIImageView *headView;
 @property (weak, nonatomic) IBOutlet UILabel *labName;
 @property (weak, nonatomic) IBOutlet UILabel *labPhone;
@@ -92,17 +97,17 @@
 {
     [MemberCenterVM getPersonInfoWithParameter:nil completion:^(BOOL finish, id obj) {
         if (finish) {
-            PersonModel *model = obj;
+            _personModel = obj;
             [self.labName setHidden:NO];
             [self.labPhone setHidden:NO];
             [self.labUnlogined setHidden:YES];
             [self.logoutButton setHidden:NO];
-            [self.labName setText:model.name];
-            [self.labPhone setText:model.name];
-            [self.labMoney setText:[NSString stringWithFormat:@"%@元",model.balance]];
-            [self.labLeft setText:[NSString stringWithFormat:@"%@张",model.couponCount]];
-            [self.labRight setText:[NSString stringWithFormat:@"%@张",model.monthCardCount]];
-            [self.headView sd_setImageWithURL:[NSURL URLWithString:model.portraitUrl] placeholderImage:[UIImage imageNamed:@"member_head_default"]];
+            [self.labName setText:_personModel.name];
+            [self.labPhone setText:_personModel.name];
+            [self.labMoney setText:[NSString stringWithFormat:@"%@元",_personModel.balance]];
+            [self.labLeft setText:[NSString stringWithFormat:@"%@张",_personModel.couponCount]];
+            [self.labRight setText:[NSString stringWithFormat:@"%@张",_personModel.monthCardCount]];
+            [self.headView sd_setImageWithURL:[NSURL URLWithString:_personModel.portraitUrl] placeholderImage:[UIImage imageNamed:@"member_head_default"]];
         }else{
 //            [self.labName setHidden:YES];
 //            [self.labPhone setHidden:YES];
@@ -167,7 +172,9 @@
         if (indexPath.row == 0) {
             NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kDouDouToken];
             if (![CommonUtils isBlankString:token]) {
-            
+                UserInfoViewController *userController = [[UserInfoViewController alloc] init];
+                userController.model = _personModel;
+                [self.navigationController pushViewController:userController animated:YES];
             }else{
                 DouDouBaseNavigationController *loginNavController =[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
                 [self presentViewController:loginNavController animated:YES completion:^{

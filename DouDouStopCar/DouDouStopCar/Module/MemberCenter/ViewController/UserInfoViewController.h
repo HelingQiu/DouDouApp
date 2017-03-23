@@ -7,7 +7,10 @@
 //
 
 #import "DouDouBaseViewController.h"
+#import "PersonModel.h"
 
 @interface UserInfoViewController : DouDouBaseViewController
+
+@property (nonatomic, strong) PersonModel *model;
 
 @end
