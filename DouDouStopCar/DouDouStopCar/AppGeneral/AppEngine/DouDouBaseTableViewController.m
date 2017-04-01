@@ -29,7 +29,7 @@
       NSFontAttributeName,nil]];
     
     self.view.backgroundColor = kHexColor(kColor_Back);
-    self.tableView.backgroundColor = kHexColor(kColor_Back);
+    self.tableView.backgroundColor = kHexColor(kColor_Common_Back);
     
     self.backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.backBtn.frame = CGRectMake(0, 0, 13, 23);

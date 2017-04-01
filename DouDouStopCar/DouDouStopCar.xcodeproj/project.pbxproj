@@ -33,6 +33,9 @@
 		CF9EFC851E5596B400B41160 /* MemberCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9EFC841E5596B400B41160 /* MemberCenterViewController.m */; };
 		CFAA4D171E56EFB900EE8953 /* UITextField+LimitLength.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA4D161E56EFB900EE8953 /* UITextField+LimitLength.m */; };
 		CFAA4D1A1E57021E00EE8953 /* DouDouForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA4D191E57021E00EE8953 /* DouDouForgetViewController.m */; };
+		CFBEFAE41E8F7CB9003C3C06 /* GetLaunchImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBEFADF1E8F7CB9003C3C06 /* GetLaunchImage.m */; };
+		CFBEFAE51E8F7CB9003C3C06 /* IanAdsStartView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBEFAE11E8F7CB9003C3C06 /* IanAdsStartView.m */; };
+		CFBEFAE61E8F7CB9003C3C06 /* IanClickImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBEFAE31E8F7CB9003C3C06 /* IanClickImageView.m */; };
 		CFC004371E5D2D4A0079DCE5 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC004301E5D2D4A0079DCE5 /* BaiduMapAPI_Base.framework */; };
 		CFC004381E5D2D4A0079DCE5 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC004311E5D2D4A0079DCE5 /* BaiduMapAPI_Location.framework */; };
 		CFC004391E5D2D4A0079DCE5 /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC004321E5D2D4A0079DCE5 /* BaiduMapAPI_Map.framework */; };
@@ -187,6 +190,12 @@
 		CFAA4D161E56EFB900EE8953 /* UITextField+LimitLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LimitLength.m"; sourceTree = "<group>"; };
 		CFAA4D181E57021E00EE8953 /* DouDouForgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DouDouForgetViewController.h; sourceTree = "<group>"; };
 		CFAA4D191E57021E00EE8953 /* DouDouForgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DouDouForgetViewController.m; sourceTree = "<group>"; };
+		CFBEFADE1E8F7CB9003C3C06 /* GetLaunchImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetLaunchImage.h; sourceTree = "<group>"; };
+		CFBEFADF1E8F7CB9003C3C06 /* GetLaunchImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetLaunchImage.m; sourceTree = "<group>"; };
+		CFBEFAE01E8F7CB9003C3C06 /* IanAdsStartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IanAdsStartView.h; sourceTree = "<group>"; };
+		CFBEFAE11E8F7CB9003C3C06 /* IanAdsStartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IanAdsStartView.m; sourceTree = "<group>"; };
+		CFBEFAE21E8F7CB9003C3C06 /* IanClickImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IanClickImageView.h; sourceTree = "<group>"; };
+		CFBEFAE31E8F7CB9003C3C06 /* IanClickImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IanClickImageView.m; sourceTree = "<group>"; };
 		CFC004301E5D2D4A0079DCE5 /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
 		CFC004311E5D2D4A0079DCE5 /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
 		CFC004321E5D2D4A0079DCE5 /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
@@ -446,6 +455,27 @@
 			path = AliPaySDK;
 			sourceTree = "<group>";
 		};
+		CFBEFADC1E8F7CA0003C3C06 /* StartGuide */ = {
+			isa = PBXGroup;
+			children = (
+				CFBEFADD1E8F7CB9003C3C06 /* IanAdsStartView */,
+			);
+			path = StartGuide;
+			sourceTree = "<group>";
+		};
+		CFBEFADD1E8F7CB9003C3C06 /* IanAdsStartView */ = {
+			isa = PBXGroup;
+			children = (
+				CFBEFADE1E8F7CB9003C3C06 /* GetLaunchImage.h */,
+				CFBEFADF1E8F7CB9003C3C06 /* GetLaunchImage.m */,
+				CFBEFAE01E8F7CB9003C3C06 /* IanAdsStartView.h */,
+				CFBEFAE11E8F7CB9003C3C06 /* IanAdsStartView.m */,
+				CFBEFAE21E8F7CB9003C3C06 /* IanClickImageView.h */,
+				CFBEFAE31E8F7CB9003C3C06 /* IanClickImageView.m */,
+			);
+			path = IanAdsStartView;
+			sourceTree = "<group>";
+		};
 		CFC0042F1E5D2D4A0079DCE5 /* BaiduMap_IOSSDK_v3.2.1_Lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -635,6 +665,7 @@
 		D52802C31E4A1A0900ACB198 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				CFBEFADC1E8F7CA0003C3C06 /* StartGuide */,
 				D5542B4F1E686EFE00C01B3F /* Appointment */,
 				CFC0043D1E5D3E640079DCE5 /* FindParking */,
 				D5AF80D61E4B47EB006C7AF3 /* Home */,
@@ -1189,7 +1220,9 @@
 				D52802931E49F0C600ACB198 /* AppDelegate.m in Sources */,
 				CFCEBF621E5AE5C200593686 /* NSString+MD5.m in Sources */,
 				D59C87691E5B428000D8AF84 /* CollectionViewController.m in Sources */,
+				CFBEFAE61E8F7CB9003C3C06 /* IanClickImageView.m in Sources */,
 				D582E2021E63365000B0A28D /* OBShapedButton.m in Sources */,
+				CFBEFAE41E8F7CB9003C3C06 /* GetLaunchImage.m in Sources */,
 				D5C5AD621E66F5F3007C2787 /* UIImage+Rotate.m in Sources */,
 				CFCEBF5C1E5AC59000593686 /* LoginVM.m in Sources */,
 				D52602DE1E5C870D007EA24D /* DouDouButton.m in Sources */,
@@ -1253,6 +1286,7 @@
 				CFD6558E1E6014B00051A414 /* LocationCityViewController.m in Sources */,
 				D58667FF1E752B2A007C67B7 /* RoleInfoViewController.m in Sources */,
 				CFAA4D1A1E57021E00EE8953 /* DouDouForgetViewController.m in Sources */,
+				CFBEFAE51E8F7CB9003C3C06 /* IanAdsStartView.m in Sources */,
 				D55E8EF81E65BC3C00ABB7B6 /* JJSAttributedStringBuilder.m in Sources */,
 				D52602E11E5C90A0007EA24D /* AddCarNumberViewController.m in Sources */,
 				CF81A0B41E7FD3E20013232B /* CashOrPrivilCell.m in Sources */,

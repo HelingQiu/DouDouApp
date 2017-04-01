@@ -31,7 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = @"NoCard";
+    self.navigationItem.title = @"NOCARD";
     [self.backBtn setHidden:YES];
     
     self.carArray = @[@"粤L-15W85",@"粤L-5V790",@"粤L-2Y276"];
@@ -56,13 +56,13 @@
 - (void)setConfigView
 {
     _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, mScreenWidth, mScreenHeight - 64 - 49)];
-    _scrollView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    _scrollView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_scrollView];
     
     [self setupAdsView];
     
     CGFloat width = (mScreenWidth - 30)/2;
-    CGFloat viewY = 160 + 24;
+    CGFloat viewY = 160 + 14;
     CGFloat height = width/2.1;
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [leftButton setFrame:CGRectMake(10, viewY, width, height)];
@@ -76,7 +76,7 @@
     [rightButton addTarget:self action:@selector(rightAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:rightButton];
     
-    UIImageView *backImgView = [[UIImageView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(leftButton.frame) + 10, mScreenWidth - 20, 320)];
+    UIImageView *backImgView = [[UIImageView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(leftButton.frame) + 10, mScreenWidth - 20, 280)];
     [backImgView setImage:[UIImage imageNamed:@"home_back_normal"]];
     [_scrollView addSubview:backImgView];
     
@@ -105,12 +105,12 @@
         
         UILabel *labTime = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, mScreenWidth - 64 - 10 - 10 - 10 - 20, 30)];
         [labTime setText:@"已泊时间：00：35"];
-        [labTime setFont:[UIFont systemFontOfSize:20]];
+        [labTime setFont:[UIFont systemFontOfSize:16]];
         [carScrollView addSubview:labTime];
         
         UILabel *labPrice = [[UILabel alloc] initWithFrame:CGRectMake(10, 70, mScreenWidth - 64 - 10 - 10 - 10 - 20, 30)];
         [labPrice setText:@"费     用：10元"];
-        [labPrice setFont:[UIFont systemFontOfSize:20]];
+        [labPrice setFont:[UIFont systemFontOfSize:16]];
         [carScrollView addSubview:labPrice];
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(mScreenWidth - 10 - 64 - 40, 30, 64, 64)];

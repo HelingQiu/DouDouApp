@@ -22,6 +22,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
 #import "WXApiObject.h"
+#import "IanAdsStartView.h"
 
 #define JPushAppKey @"b3c6bc7fac7469238a9fb0f8"
 @interface AppDelegate ()<JPUSHRegisterDelegate,WXApiDelegate>
@@ -110,6 +111,38 @@
     [self.tabBarController setViewControllers:@[homeNav,messageNav,memberNav]];
     [self customizeTabBarForController:_tabBarController];
     [self.window setRootViewController:_tabBarController];
+    
+    
+    //Get bundle version
+    NSString *bundleVersion = kAPPVersion;
+    //Get saved bundle version
+    NSString *previousVersion = [[NSUserDefaults standardUserDefaults] objectForKey:kAppGuideVersion];
+    //Compare saved bundle version and bundle version
+    if (previousVersion == nil || ![previousVersion isEqualToString:bundleVersion]) {
+        
+        //显示引导页
+        
+        [[NSUserDefaults standardUserDefaults] setObject:bundleVersion forKey:@"previousVersion"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }else{
+        //启动广告图
+        NSString *picUrl = @"http://785j3g.com1.z0.glb.clouddn.com/d659db60-f.jpg";
+        if ([[[NSUserDefaults standardUserDefaults] stringForKey:kAdsKey] isEqualToString:@"1"]) {
+            IanAdsStartView *startView = [IanAdsStartView startAdsViewWithBgImageUrl:picUrl withClickImageAction:^{
+                
+            }];
+            
+            [startView startAnimationTime:3 WithCompletionBlock:^(IanAdsStartView *startView){
+                NSLog(@"广告结束后，执行事件");
+            }];
+        } else { // 第一次先下载广告
+            [IanAdsStartView downloadStartImage:picUrl];
+            
+            [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:kAdsKey];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+    }
 }
 
 - (void)customizeTabBarForController:(RDVTabBarController *)tabBarController {

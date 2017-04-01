@@ -23,7 +23,7 @@
      [NSDictionary dictionaryWithObjectsAndKeys:kHexColor(kColor_Back), NSForegroundColorAttributeName,[UIFont boldSystemFontOfSize:20],
          NSFontAttributeName,nil]];
     
-    self.view.backgroundColor = kHexColor(kColor_Back);
+    self.view.backgroundColor = kHexColor(kColor_Common_Back);
     
     self.backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.backBtn.frame = CGRectMake(0, 0, 13, 23);
