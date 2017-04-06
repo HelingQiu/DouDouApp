@@ -18,5 +18,5 @@ target 'DouDouStopCar' do
     pod 'DZNEmptyDataSet'#空数据源
     pod 'MGSwipeTableCell'
     pod 'UIAlertView-Blocks'
-    pod 'newFeaturesx', '~> 1.0.2'
+    
 end
